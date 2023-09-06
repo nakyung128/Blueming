@@ -13,6 +13,10 @@
 		F32B28B12AA8AD0B005803C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F32B28AF2AA8AD0B005803C8 /* Main.storyboard */; };
 		F32B28B32AA8AD0C005803C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32B28B22AA8AD0C005803C8 /* Assets.xcassets */; };
 		F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F32B28B42AA8AD0C005803C8 /* LaunchScreen.storyboard */; };
+		F32B28C72AA8AEEF005803C8 /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F32B28BE2AA8AEEE005803C8 /* Pretendard-Regular.ttf */; };
+		F32B28C82AA8AEEF005803C8 /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F32B28BF2AA8AEEE005803C8 /* Pretendard-Medium.ttf */; };
+		F32B28CA2AA8AEEF005803C8 /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F32B28C12AA8AEEE005803C8 /* Pretendard-SemiBold.ttf */; };
+		F32B28CD2AA8AEEF005803C8 /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F32B28C42AA8AEEE005803C8 /* Pretendard-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		F32B28B22AA8AD0C005803C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F32B28B52AA8AD0C005803C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F32B28B72AA8AD0C005803C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F32B28BE2AA8AEEE005803C8 /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.ttf"; sourceTree = "<group>"; };
+		F32B28BF2AA8AEEE005803C8 /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
+		F32B28C12AA8AEEE005803C8 /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
+		F32B28C42AA8AEEE005803C8 /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 		F32B28A82AA8AD0B005803C8 /* Blueming */ = {
 			isa = PBXGroup;
 			children = (
+				F32B28BD2AA8AE83005803C8 /* Font */,
 				F32B28A92AA8AD0B005803C8 /* AppDelegate.swift */,
 				F32B28AB2AA8AD0B005803C8 /* SceneDelegate.swift */,
 				F32B28AD2AA8AD0B005803C8 /* ViewController.swift */,
@@ -65,6 +74,17 @@
 				F32B28B72AA8AD0C005803C8 /* Info.plist */,
 			);
 			path = Blueming;
+			sourceTree = "<group>";
+		};
+		F32B28BD2AA8AE83005803C8 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				F32B28C42AA8AEEE005803C8 /* Pretendard-Bold.ttf */,
+				F32B28BF2AA8AEEE005803C8 /* Pretendard-Medium.ttf */,
+				F32B28BE2AA8AEEE005803C8 /* Pretendard-Regular.ttf */,
+				F32B28C12AA8AEEE005803C8 /* Pretendard-SemiBold.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +146,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */,
+				F32B28C82AA8AEEF005803C8 /* Pretendard-Medium.ttf in Resources */,
 				F32B28B32AA8AD0C005803C8 /* Assets.xcassets in Resources */,
+				F32B28CA2AA8AEEF005803C8 /* Pretendard-SemiBold.ttf in Resources */,
+				F32B28CD2AA8AEEF005803C8 /* Pretendard-Bold.ttf in Resources */,
+				F32B28C72AA8AEEF005803C8 /* Pretendard-Regular.ttf in Resources */,
 				F32B28B12AA8AD0B005803C8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
