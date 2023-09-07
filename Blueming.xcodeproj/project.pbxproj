@@ -15,15 +15,14 @@
 		F3B05C022AA9970C003EC4A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B05C012AA9970C003EC4A6 /* HomeViewController.swift */; };
 		F3B05C042AA99719003EC4A6 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B05C032AA99719003EC4A6 /* CheckViewController.swift */; };
 		F3B05C062AA99729003EC4A6 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B05C052AA99729003EC4A6 /* ArticleViewController.swift */; };
-		F3B05C112AA99A54003EC4A6 /* article-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C0E2AA99A54003EC4A6 /* article-menu.png */; };
-		F3B05C122AA99A54003EC4A6 /* check-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C0F2AA99A54003EC4A6 /* check-menu.png */; };
-		F3B05C132AA99A54003EC4A6 /* home-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C102AA99A54003EC4A6 /* home-menu.png */; };
 		F3B05C182AA99BD3003EC4A6 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C142AA99BD3003EC4A6 /* Pretendard-Regular.otf */; };
 		F3B05C192AA99BD3003EC4A6 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C152AA99BD3003EC4A6 /* Pretendard-SemiBold.otf */; };
 		F3B05C1A2AA99BD3003EC4A6 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C162AA99BD3003EC4A6 /* Pretendard-Bold.otf */; };
 		F3B05C1B2AA99BD3003EC4A6 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C172AA99BD3003EC4A6 /* Pretendard-Medium.otf */; };
 		F3B05C1E2AA9A258003EC4A6 /* CustomTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B05C1D2AA9A258003EC4A6 /* CustomTabBarItem.swift */; };
 		F3B05C222AA9AEBC003EC4A6 /* backImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C212AA9AEBC003EC4A6 /* backImg.png */; };
+		F3E587842AA9B80000578876 /* box1.png in Resources */ = {isa = PBXBuildFile; fileRef = F3E587832AA9B80000578876 /* box1.png */; };
+		F3E587862AA9B99800578876 /* box-1x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3E587852AA9B99800578876 /* box-1x.png */; };
 		F3F7F1FC2AA995660050263F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7F1FB2AA995660050263F /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,15 +37,14 @@
 		F3B05C012AA9970C003EC4A6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3B05C032AA99719003EC4A6 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 		F3B05C052AA99729003EC4A6 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
-		F3B05C0E2AA99A54003EC4A6 /* article-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "article-menu.png"; sourceTree = "<group>"; };
-		F3B05C0F2AA99A54003EC4A6 /* check-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-menu.png"; sourceTree = "<group>"; };
-		F3B05C102AA99A54003EC4A6 /* home-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-menu.png"; sourceTree = "<group>"; };
 		F3B05C142AA99BD3003EC4A6 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		F3B05C152AA99BD3003EC4A6 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		F3B05C162AA99BD3003EC4A6 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		F3B05C172AA99BD3003EC4A6 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F3B05C1D2AA9A258003EC4A6 /* CustomTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarItem.swift; sourceTree = "<group>"; };
 		F3B05C212AA9AEBC003EC4A6 /* backImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImg.png; sourceTree = "<group>"; };
+		F3E587832AA9B80000578876 /* box1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box1.png; sourceTree = "<group>"; };
+		F3E587852AA9B99800578876 /* box-1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box-1x.png"; sourceTree = "<group>"; };
 		F3F7F1FB2AA995660050263F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,10 +109,9 @@
 		F3B05C072AA999BC003EC4A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F3E587852AA9B99800578876 /* box-1x.png */,
+				F3E587832AA9B80000578876 /* box1.png */,
 				F3B05C212AA9AEBC003EC4A6 /* backImg.png */,
-				F3B05C0E2AA99A54003EC4A6 /* article-menu.png */,
-				F3B05C0F2AA99A54003EC4A6 /* check-menu.png */,
-				F3B05C102AA99A54003EC4A6 /* home-menu.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -195,11 +192,10 @@
 			files = (
 				F3B05C222AA9AEBC003EC4A6 /* backImg.png in Resources */,
 				F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */,
+				F3E587842AA9B80000578876 /* box1.png in Resources */,
 				F3B05C1B2AA99BD3003EC4A6 /* Pretendard-Medium.otf in Resources */,
-				F3B05C132AA99A54003EC4A6 /* home-menu.png in Resources */,
-				F3B05C112AA99A54003EC4A6 /* article-menu.png in Resources */,
+				F3E587862AA9B99800578876 /* box-1x.png in Resources */,
 				F3B05C192AA99BD3003EC4A6 /* Pretendard-SemiBold.otf in Resources */,
-				F3B05C122AA99A54003EC4A6 /* check-menu.png in Resources */,
 				F3B05C182AA99BD3003EC4A6 /* Pretendard-Regular.otf in Resources */,
 				F32B28B32AA8AD0C005803C8 /* Assets.xcassets in Resources */,
 				F3B05C1A2AA99BD3003EC4A6 /* Pretendard-Bold.otf in Resources */,
