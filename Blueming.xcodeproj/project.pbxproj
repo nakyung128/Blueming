@@ -9,29 +9,45 @@
 /* Begin PBXBuildFile section */
 		F32B28AA2AA8AD0B005803C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32B28A92AA8AD0B005803C8 /* AppDelegate.swift */; };
 		F32B28AC2AA8AD0B005803C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32B28AB2AA8AD0B005803C8 /* SceneDelegate.swift */; };
-		F32B28AE2AA8AD0B005803C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32B28AD2AA8AD0B005803C8 /* ViewController.swift */; };
 		F32B28B12AA8AD0B005803C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F32B28AF2AA8AD0B005803C8 /* Main.storyboard */; };
 		F32B28B32AA8AD0C005803C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32B28B22AA8AD0C005803C8 /* Assets.xcassets */; };
 		F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F32B28B42AA8AD0C005803C8 /* LaunchScreen.storyboard */; };
-		F32B28C72AA8AEEF005803C8 /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F32B28BE2AA8AEEE005803C8 /* Pretendard-Regular.ttf */; };
-		F32B28C82AA8AEEF005803C8 /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F32B28BF2AA8AEEE005803C8 /* Pretendard-Medium.ttf */; };
-		F32B28CA2AA8AEEF005803C8 /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F32B28C12AA8AEEE005803C8 /* Pretendard-SemiBold.ttf */; };
-		F32B28CD2AA8AEEF005803C8 /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F32B28C42AA8AEEE005803C8 /* Pretendard-Bold.ttf */; };
+		F3B05C022AA9970C003EC4A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B05C012AA9970C003EC4A6 /* HomeViewController.swift */; };
+		F3B05C042AA99719003EC4A6 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B05C032AA99719003EC4A6 /* CheckViewController.swift */; };
+		F3B05C062AA99729003EC4A6 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B05C052AA99729003EC4A6 /* ArticleViewController.swift */; };
+		F3B05C112AA99A54003EC4A6 /* article-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C0E2AA99A54003EC4A6 /* article-menu.png */; };
+		F3B05C122AA99A54003EC4A6 /* check-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C0F2AA99A54003EC4A6 /* check-menu.png */; };
+		F3B05C132AA99A54003EC4A6 /* home-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C102AA99A54003EC4A6 /* home-menu.png */; };
+		F3B05C182AA99BD3003EC4A6 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C142AA99BD3003EC4A6 /* Pretendard-Regular.otf */; };
+		F3B05C192AA99BD3003EC4A6 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C152AA99BD3003EC4A6 /* Pretendard-SemiBold.otf */; };
+		F3B05C1A2AA99BD3003EC4A6 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C162AA99BD3003EC4A6 /* Pretendard-Bold.otf */; };
+		F3B05C1B2AA99BD3003EC4A6 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C172AA99BD3003EC4A6 /* Pretendard-Medium.otf */; };
+		F3B05C1E2AA9A258003EC4A6 /* CustomTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B05C1D2AA9A258003EC4A6 /* CustomTabBarItem.swift */; };
+		F3B05C222AA9AEBC003EC4A6 /* backImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C212AA9AEBC003EC4A6 /* backImg.png */; };
+		F3F7F1FC2AA995660050263F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7F1FB2AA995660050263F /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F32B28A62AA8AD0B005803C8 /* Blueming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blueming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F32B28A92AA8AD0B005803C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F32B28AB2AA8AD0B005803C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F32B28AD2AA8AD0B005803C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F32B28B02AA8AD0B005803C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F32B28B22AA8AD0C005803C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F32B28B52AA8AD0C005803C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F32B28B72AA8AD0C005803C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F32B28BE2AA8AEEE005803C8 /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.ttf"; sourceTree = "<group>"; };
-		F32B28BF2AA8AEEE005803C8 /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
-		F32B28C12AA8AEEE005803C8 /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
-		F32B28C42AA8AEEE005803C8 /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
+		F3B05C012AA9970C003EC4A6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F3B05C032AA99719003EC4A6 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
+		F3B05C052AA99729003EC4A6 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		F3B05C0E2AA99A54003EC4A6 /* article-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "article-menu.png"; sourceTree = "<group>"; };
+		F3B05C0F2AA99A54003EC4A6 /* check-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-menu.png"; sourceTree = "<group>"; };
+		F3B05C102AA99A54003EC4A6 /* home-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-menu.png"; sourceTree = "<group>"; };
+		F3B05C142AA99BD3003EC4A6 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		F3B05C152AA99BD3003EC4A6 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		F3B05C162AA99BD3003EC4A6 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		F3B05C172AA99BD3003EC4A6 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		F3B05C1D2AA9A258003EC4A6 /* CustomTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarItem.swift; sourceTree = "<group>"; };
+		F3B05C212AA9AEBC003EC4A6 /* backImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImg.png; sourceTree = "<group>"; };
+		F3F7F1FB2AA995660050263F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,14 +80,19 @@
 		F32B28A82AA8AD0B005803C8 /* Blueming */ = {
 			isa = PBXGroup;
 			children = (
+				F3B05C1C2AA9A243003EC4A6 /* Custom */,
+				F3B05C072AA999BC003EC4A6 /* Resources */,
+				F3F7F1FA2AA9955B0050263F /* Color */,
 				F32B28BD2AA8AE83005803C8 /* Font */,
 				F32B28A92AA8AD0B005803C8 /* AppDelegate.swift */,
 				F32B28AB2AA8AD0B005803C8 /* SceneDelegate.swift */,
-				F32B28AD2AA8AD0B005803C8 /* ViewController.swift */,
 				F32B28AF2AA8AD0B005803C8 /* Main.storyboard */,
 				F32B28B22AA8AD0C005803C8 /* Assets.xcassets */,
 				F32B28B42AA8AD0C005803C8 /* LaunchScreen.storyboard */,
 				F32B28B72AA8AD0C005803C8 /* Info.plist */,
+				F3B05C012AA9970C003EC4A6 /* HomeViewController.swift */,
+				F3B05C032AA99719003EC4A6 /* CheckViewController.swift */,
+				F3B05C052AA99729003EC4A6 /* ArticleViewController.swift */,
 			);
 			path = Blueming;
 			sourceTree = "<group>";
@@ -79,12 +100,39 @@
 		F32B28BD2AA8AE83005803C8 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				F32B28C42AA8AEEE005803C8 /* Pretendard-Bold.ttf */,
-				F32B28BF2AA8AEEE005803C8 /* Pretendard-Medium.ttf */,
-				F32B28BE2AA8AEEE005803C8 /* Pretendard-Regular.ttf */,
-				F32B28C12AA8AEEE005803C8 /* Pretendard-SemiBold.ttf */,
+				F3B05C162AA99BD3003EC4A6 /* Pretendard-Bold.otf */,
+				F3B05C172AA99BD3003EC4A6 /* Pretendard-Medium.otf */,
+				F3B05C142AA99BD3003EC4A6 /* Pretendard-Regular.otf */,
+				F3B05C152AA99BD3003EC4A6 /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		F3B05C072AA999BC003EC4A6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F3B05C212AA9AEBC003EC4A6 /* backImg.png */,
+				F3B05C0E2AA99A54003EC4A6 /* article-menu.png */,
+				F3B05C0F2AA99A54003EC4A6 /* check-menu.png */,
+				F3B05C102AA99A54003EC4A6 /* home-menu.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F3B05C1C2AA9A243003EC4A6 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				F3B05C1D2AA9A258003EC4A6 /* CustomTabBarItem.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		F3F7F1FA2AA9955B0050263F /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				F3F7F1FB2AA995660050263F /* UIColor.swift */,
+			);
+			path = Color;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,12 +193,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3B05C222AA9AEBC003EC4A6 /* backImg.png in Resources */,
 				F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */,
-				F32B28C82AA8AEEF005803C8 /* Pretendard-Medium.ttf in Resources */,
+				F3B05C1B2AA99BD3003EC4A6 /* Pretendard-Medium.otf in Resources */,
+				F3B05C132AA99A54003EC4A6 /* home-menu.png in Resources */,
+				F3B05C112AA99A54003EC4A6 /* article-menu.png in Resources */,
+				F3B05C192AA99BD3003EC4A6 /* Pretendard-SemiBold.otf in Resources */,
+				F3B05C122AA99A54003EC4A6 /* check-menu.png in Resources */,
+				F3B05C182AA99BD3003EC4A6 /* Pretendard-Regular.otf in Resources */,
 				F32B28B32AA8AD0C005803C8 /* Assets.xcassets in Resources */,
-				F32B28CA2AA8AEEF005803C8 /* Pretendard-SemiBold.ttf in Resources */,
-				F32B28CD2AA8AEEF005803C8 /* Pretendard-Bold.ttf in Resources */,
-				F32B28C72AA8AEEF005803C8 /* Pretendard-Regular.ttf in Resources */,
+				F3B05C1A2AA99BD3003EC4A6 /* Pretendard-Bold.otf in Resources */,
 				F32B28B12AA8AD0B005803C8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,7 +214,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F32B28AE2AA8AD0B005803C8 /* ViewController.swift in Sources */,
+				F3B05C022AA9970C003EC4A6 /* HomeViewController.swift in Sources */,
+				F3B05C062AA99729003EC4A6 /* ArticleViewController.swift in Sources */,
+				F3B05C1E2AA9A258003EC4A6 /* CustomTabBarItem.swift in Sources */,
+				F3F7F1FC2AA995660050263F /* UIColor.swift in Sources */,
+				F3B05C042AA99719003EC4A6 /* CheckViewController.swift in Sources */,
 				F32B28AA2AA8AD0B005803C8 /* AppDelegate.swift in Sources */,
 				F32B28AC2AA8AD0B005803C8 /* SceneDelegate.swift in Sources */,
 			);
