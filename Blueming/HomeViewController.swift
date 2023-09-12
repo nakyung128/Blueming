@@ -40,8 +40,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.0
     }
-
-    
     
     
     @IBOutlet var mainLabel: UILabel!

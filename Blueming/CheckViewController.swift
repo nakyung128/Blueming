@@ -8,7 +8,6 @@
 import UIKit
 
 class CheckViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
