@@ -7,12 +7,64 @@
 
 import UIKit
 
-class ArticleViewController: UIViewController, UIScrollViewDelegate {
+class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    // 태그 데이터 불러오기
+    var collectionViewData: [Tags] = []
+    
     @IBOutlet var mainLabel: UILabel!
     @IBOutlet var secondLabel: UILabel!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var segment: UISegmentedControl!
+    @IBOutlet var collectionView: UICollectionView!
+    
+    @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        // 선택한 세그먼트 인덱스를 기반으로 선택한 카테고리를 식별합니다.
+        let selectedCategory = sender.selectedSegmentIndex
+        
+        // 선택한 카테고리에 따라 데이터를 업데이트하고 컬렉션 뷰를 새로고침합니다.
+        updateCollectionViewWithCategory(selectedCategory)
+        changeSegmentedControlLinePosition()
+    }
+    
+    func updateCollectionViewWithCategory(_ category: Int) {
+        // 선택한 카테고리에 따라 데이터를 필터링하거나 다른 데이터로 교체합니다.
+        switch category {
+        case 0:
+            // 첫 번째 카테고리의 데이터를 사용
+            collectionViewData = Tags.emotion
+        case 1:
+            // 두 번째 카테고리의 데이터를 사용
+            collectionViewData = Tags.body
+        case 2:
+            // 두 번째 카테고리의 데이터를 사용
+            collectionViewData = Tags.baby
+        case 3:
+            collectionViewData = Tags.family
+        case 4:
+            collectionViewData = Tags.etc
+        // 다른 카테고리에 대한 처리 추가
+        default:
+            break
+        }
+        
+        // 컬렉션 뷰를 새로고침합니다.
+        collectionView.reloadData()
+    }
+    
+    // 컬렉션 뷰 개수 설정
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return collectionViewData.count
+    }
+    
+    // 컬렉션 뷰 셀 설정
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath) as! TagCell
+        cell.tagLabel.text = collectionViewData[indexPath.row].tagName
+        
+        return cell
+    }
     
     var images = [ UIImage(named: "example_img.png"), UIImage(named: "example_img.png"), UIImage(named: "example_img.png") ]
     var titles = [ "불안함을 잠재우기 위한 마음가짐1", "불안함을 잠재우기 위한 마음가짐2", "불안함을 잠재우기 위한 마음가짐3" ]
@@ -52,6 +104,12 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(TagCell.self, forCellWithReuseIdentifier: "tagCell")
+        collectionView.collectionViewLayout = LeftAlignedCollectionViewFlowLayout()
+        collectionView.backgroundColor = .articleColor
+        
         // 배경 이미지 뷰를 생성하고 추가
         let backgroundImage = UIImageView(image: UIImage(named: "article-back.png"))
         backgroundImage.contentMode = .scaleAspectFill // 이미지 크기 조절 옵션 (필요에 따라 변경)
@@ -72,6 +130,10 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
         segment.setTitleTextAttributes([.font: UIFont(name: "Pretendard-Bold", size: 18)!, .foregroundColor: UIColor.Text03!], for: .normal)
         segment.setTitleTextAttributes([.font: UIFont(name: "Pretendard-Bold", size: 18)!, .foregroundColor: UIColor.select!], for: .selected)
+        
+        // 초기 카테고리 선택 및 컬렉션 뷰 업데이트
+        segment.selectedSegmentIndex = 0 // 예시로 첫 번째 카테고리를 선택
+        updateCollectionViewWithCategory(0) // 선택한 카테고리에 따라 업데이트
         
         segment.setiOS12Layout(tintColor: .select!)
         
@@ -180,10 +242,6 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize.width = scrollView.frame.width * CGFloat(images.count)
     }
     
-    @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        changeSegmentedControlLinePosition()
-    }
-    
     // Change position of the underline
     private func changeSegmentedControlLinePosition() {
         let segmentIndex = CGFloat(segment.selectedSegmentIndex)
@@ -234,5 +292,23 @@ extension UIImage {
         let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         self.init(data: image.pngData()!)!
+    }
+}
+
+extension ArticleViewController: UICollectionViewDelegateFlowLayout {
+    // 셀 크기 설정
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let tag = collectionViewData[indexPath.row]
+        let label = UILabel()
+        label.font = UIFont(name: "Pretendard-SemiBold", size: 14)
+        label.text = tag.tagName
+        label.attributedText = NSMutableAttributedString(string: label.text!, attributes: [NSAttributedString.Key.kern: -0.7])
+        label.textColor = .Text03
+        label.sizeToFit()
+        
+        // 셀의 크기를 계산하여 반환
+        let width = label.frame.width + 30 // 30만큼 여백 추가
+        return CGSize(width: width, height: collectionView.frame.size.height)
     }
 }

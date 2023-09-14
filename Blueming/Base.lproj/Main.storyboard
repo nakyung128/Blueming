@@ -6,6 +6,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -66,7 +67,7 @@
                                 <color key="currentPageIndicatorTintColor" name="select"/>
                             </pageControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dD2-aQ-1X8">
-                                <rect key="frame" x="16" y="424" width="209" height="32"/>
+                                <rect key="frame" x="16" y="419" width="209" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="감정"/>
@@ -75,29 +76,61 @@
                                     <segment title="가족"/>
                                     <segment title="기타"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="dAS-Lj-Vzk"/>
+                                </connections>
                             </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="feB-Jc-ztu">
+                                <rect key="frame" x="16" y="463" width="343" height="30"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" name="select"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hio-sI-ZZu"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="k7O-KQ-cmw">
+                                    <size key="itemSize" width="128" height="30"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tagCell" id="iPZ-xT-2v1" customClass="TagCell" customModule="Blueming" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HsZ-1S-WgY">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="30"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="128" height="30"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Igh-In-EXc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="60q-xk-mxz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="feB-Jc-ztu" secondAttribute="trailing" constant="16" id="7K7-C9-h1G"/>
                             <constraint firstItem="k4j-Yw-fuc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="7lQ-vR-bgE"/>
                             <constraint firstItem="gi2-sT-pil" firstAttribute="top" secondItem="PFN-vx-QnV" secondAttribute="bottom" constant="2" id="8QA-78-WVD"/>
                             <constraint firstItem="dD2-aQ-1X8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CZd-nL-vXB"/>
+                            <constraint firstItem="feB-Jc-ztu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Etc-19-PFQ"/>
                             <constraint firstItem="lcX-6W-NhQ" firstAttribute="top" secondItem="pi9-lY-7K8" secondAttribute="bottom" constant="6" id="F6D-L5-jEb"/>
                             <constraint firstItem="k4j-Yw-fuc" firstAttribute="leading" secondItem="Igh-In-EXc" secondAttribute="trailing" constant="13.33" id="MR7-jQ-pNE"/>
                             <constraint firstItem="pi9-lY-7K8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="T1O-el-zqp"/>
                             <constraint firstItem="pi9-lY-7K8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="33" id="UGh-mj-RxN"/>
-                            <constraint firstItem="dD2-aQ-1X8" firstAttribute="top" secondItem="gi2-sT-pil" secondAttribute="bottom" constant="30" id="V9v-Fp-tgX"/>
+                            <constraint firstItem="dD2-aQ-1X8" firstAttribute="top" secondItem="gi2-sT-pil" secondAttribute="bottom" constant="25" id="V9v-Fp-tgX"/>
                             <constraint firstItem="lcX-6W-NhQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Veb-jQ-27s"/>
                             <constraint firstItem="PFN-vx-QnV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xyh-HN-4nL"/>
                             <constraint firstItem="PFN-vx-QnV" firstAttribute="top" secondItem="lcX-6W-NhQ" secondAttribute="bottom" constant="20" id="hBC-zd-jLf"/>
                             <constraint firstItem="gi2-sT-pil" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iWs-17-D2S"/>
+                            <constraint firstItem="feB-Jc-ztu" firstAttribute="top" secondItem="dD2-aQ-1X8" secondAttribute="bottom" constant="13" id="ita-6N-fTT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k4j-Yw-fuc" secondAttribute="trailing" constant="20.329999999999998" id="slP-au-Qng"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="아티클" image="article" id="dbY-Pd-bm5" customClass="CustomTabBarItem" customModule="Blueming" customModuleProvider="target"/>
                     <connections>
+                        <outlet property="collectionView" destination="feB-Jc-ztu" id="uqR-AW-FYh"/>
                         <outlet property="mainLabel" destination="pi9-lY-7K8" id="y7p-Oi-CRG"/>
                         <outlet property="pageControl" destination="gi2-sT-pil" id="Pd1-Vv-cJH"/>
                         <outlet property="scrollView" destination="PFN-vx-QnV" id="VjR-Ce-pp5"/>
@@ -467,10 +500,10 @@
             <color red="0.34000000357627869" green="0.34000000357627869" blue="0.34000000357627869" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="select">
-            <color red="0.38" green="0.54000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.37999999523162842" green="0.54000002145767212" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="unselect">
-            <color red="0.84999999999999998" green="0.84999999999999998" blue="0.84999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.85000002384185791" green="0.85000002384185791" blue="0.85000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

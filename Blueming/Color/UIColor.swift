@@ -12,6 +12,7 @@ extension UIColor {
     static let Text01 = UIColor(named: "Text01")
     static let Text02 = UIColor(named: "Text02")
     static let Text03 = UIColor(named: "Text03")
+    static let Text05 = UIColor(named: "Text05")
     static let select = UIColor(named: "select")
     static let unselect = UIColor(named: "unselect")
     static let articleColor = UIColor(named: "articleColor")

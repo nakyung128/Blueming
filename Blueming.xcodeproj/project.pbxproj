@@ -21,6 +21,9 @@
 		F32B28B12AA8AD0B005803C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F32B28AF2AA8AD0B005803C8 /* Main.storyboard */; };
 		F32B28B32AA8AD0C005803C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32B28B22AA8AD0C005803C8 /* Assets.xcassets */; };
 		F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F32B28B42AA8AD0C005803C8 /* LaunchScreen.storyboard */; };
+		F3A8564C2AB2CE4E00264E3B /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8564B2AB2CE4E00264E3B /* Tags.swift */; };
+		F3A8564E2AB2CF3900264E3B /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8564D2AB2CF3900264E3B /* TagCell.swift */; };
+		F3A856522AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A856512AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift */; };
 		F3B05C042AA99719003EC4A6 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B05C032AA99719003EC4A6 /* CheckViewController.swift */; };
 		F3B05C062AA99729003EC4A6 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B05C052AA99729003EC4A6 /* ArticleViewController.swift */; };
 		F3B05C182AA99BD3003EC4A6 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3B05C142AA99BD3003EC4A6 /* Pretendard-Regular.otf */; };
@@ -53,6 +56,9 @@
 		F32B28B22AA8AD0C005803C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F32B28B52AA8AD0C005803C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F32B28B72AA8AD0C005803C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3A8564B2AB2CE4E00264E3B /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		F3A8564D2AB2CF3900264E3B /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		F3A856512AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		F3B05C032AA99719003EC4A6 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 		F3B05C052AA99729003EC4A6 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		F3B05C142AA99BD3003EC4A6 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -83,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				F3190E2D2AAC814A000A7343 /* Read.swift */,
+				F3A8564B2AB2CE4E00264E3B /* Tags.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +131,8 @@
 				F3190E2A2AAC6515000A7343 /* HomeViewController.swift */,
 				F3190E312AAC833C000A7343 /* MainArticleCell.swift */,
 				F3190E322AAC833C000A7343 /* MainArticleCell.xib */,
+				F3A8564D2AB2CF3900264E3B /* TagCell.swift */,
+				F3A856512AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift */,
 			);
 			path = Blueming;
 			sourceTree = "<group>";
@@ -262,6 +271,9 @@
 				F3B05C1E2AA9A258003EC4A6 /* CustomTabBarItem.swift in Sources */,
 				F3F7F1FC2AA995660050263F /* UIColor.swift in Sources */,
 				F3190E2B2AAC6515000A7343 /* HomeViewController.swift in Sources */,
+				F3A8564E2AB2CF3900264E3B /* TagCell.swift in Sources */,
+				F3A8564C2AB2CE4E00264E3B /* Tags.swift in Sources */,
+				F3A856522AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				F3B05C042AA99719003EC4A6 /* CheckViewController.swift in Sources */,
 				F32B28AA2AA8AD0B005803C8 /* AppDelegate.swift in Sources */,
 				F32B28AC2AA8AD0B005803C8 /* SceneDelegate.swift in Sources */,
