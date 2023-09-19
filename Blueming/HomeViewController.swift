@@ -16,14 +16,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return list.count
     }
     
-    // Section의 수
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! MainArticleCell
-        let target = list[indexPath.section]
+        let target = list[indexPath.row]
         
         cell.img.image = UIImage(named: target.img)
         cell.title.text = target.title
@@ -54,6 +49,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var target2: UILabel!
     @IBOutlet var countLabel: UILabel!
     @IBOutlet var countLabel2: UILabel!
+    @IBOutlet var scrollView: UIScrollView!
+    
     
     // table View
     @IBOutlet var tableView: UITableView!
@@ -67,11 +64,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.isScrollEnabled = false // 스크롤 막기
+        tableView.isScrollEnabled = true // 스크롤 막기
         tableView.backgroundColor = UIColor.clear // 배경 투명
         tableView.allowsSelection = false // 셀 선택 막기
         tableView.separatorStyle = .none // table view 구분선 없애기
-
         
         // 배경 이미지 뷰를 생성하고 추가
         let backgroundImage = UIImageView(image: UIImage(named: "backImg.png"))
@@ -169,16 +165,5 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return view
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

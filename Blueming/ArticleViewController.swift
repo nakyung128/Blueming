@@ -18,6 +18,8 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var segment: UISegmentedControl!
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var tableView: UITableView!
+    
     
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         // 선택한 세그먼트 인덱스를 기반으로 선택한 카테고리를 식별합니다.
