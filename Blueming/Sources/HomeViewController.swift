@@ -38,17 +38,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBOutlet var mainLabel: UILabel!
-    @IBOutlet var keywordLabel: UILabel!
-    @IBOutlet var emotionLabel: UILabel!
-    @IBOutlet var healthLabel: UILabel!
     @IBOutlet var noDataLabel: UILabel!
-    @IBOutlet var targetLabel: UILabel!
-    @IBOutlet var readLabel: UILabel!
-    @IBOutlet var onemoreLabel: UILabel!
-    @IBOutlet var target1: UILabel!
-    @IBOutlet var target2: UILabel!
-    @IBOutlet var countLabel: UILabel!
-    @IBOutlet var countLabel2: UILabel!
     @IBOutlet var scrollView: UIScrollView!
     
     
@@ -101,26 +91,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         attributedString.addAttributes([NSAttributedString.Key.kern: -1.2, NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: attributedString.length))
         
         mainLabel.attributedText = attributedString
-        
-        keywordLabel.attributedText = NSMutableAttributedString(string: "✍🏻 오늘의 키워드", attributes: [NSAttributedString.Key.kern: -0.8])
-        
-        emotionLabel.textColor = UIColor(red: 0.342, green: 0.342, blue: 0.342, alpha: 1)
-        emotionLabel.font = UIFont(name: "Pretendard-Bold", size: 14)
-        emotionLabel.attributedText = NSMutableAttributedString(string: "오늘의 감정", attributes: [NSAttributedString.Key.kern: -0.7])
-        
-        healthLabel.textColor = UIColor(red: 0.342, green: 0.342, blue: 0.342, alpha: 1)
-        healthLabel.font = UIFont(name: "Pretendard-Bold", size: 14)
-        healthLabel.attributedText = NSMutableAttributedString(string: "오늘의 건강", attributes: [NSAttributedString.Key.kern: -0.7])
-        noDataLabel.attributedText = NSMutableAttributedString(string: "아직 입력하지 않았어요!", attributes: [NSAttributedString.Key.kern: -0.6])
-        onemoreLabel.attributedText = NSMutableAttributedString(string: "1번 더 해 보세요!", attributes: [NSAttributedString.Key.kern: -0.5])
-        countLabel.attributedText = NSMutableAttributedString(string: "2회 완료!", attributes: [NSAttributedString.Key.kern: -0.7])
-        countLabel2.attributedText = NSMutableAttributedString(string: "2회 완료!", attributes: [NSAttributedString.Key.kern: -0.7])
-        
-        targetLabel.attributedText = NSMutableAttributedString(string: "💙 오늘의 목표", attributes: [NSAttributedString.Key.kern: -0.8])
-        target1.attributedText = NSMutableAttributedString(string: "창문 세 번 열기", attributes: [NSAttributedString.Key.kern: -0.8])
-        target2.attributedText = NSMutableAttributedString(string: "창문 세 번 열기", attributes: [NSAttributedString.Key.kern: -0.8])
-        
-        readLabel.attributedText = NSMutableAttributedString(string: "👀 오늘의 읽을거리", attributes: [NSAttributedString.Key.kern: -0.8])
+    
     }
     
     func createViewWithShadowsAndShapes(parent: UIView, leadingConstant: CGFloat, topConstant: NSLayoutAnchor<NSLayoutYAxisAnchor>, Constant: CGFloat) -> UIView {

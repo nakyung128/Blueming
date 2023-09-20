@@ -40,7 +40,6 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     var collectionViewData: [Tags] = []
     
     @IBOutlet var mainLabel: UILabel!
-    @IBOutlet var secondLabel: UILabel!
     @IBOutlet var imageScroll: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var segment: UISegmentedControl!
@@ -162,10 +161,8 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     var scripts = [ "자세한 내용입니다 자세한 내용입니다 자세한 내용입니다", "자세한 내용입니다 자세한 내용입니다 자세한 내용입니다", "자세한 내용입니다 자세한 내용입니다 자세한 내용입니다" ]
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView == imageScroll { // 이미지 슬라이드를 위한 스크롤뷰인 경우
-            let value = scrollView.contentOffset.x/scrollView.frame.size.width
-            setPageControlSelectedPage(currentPage: Int(round(value)))
-        }
+        let value = scrollView.contentOffset.x/scrollView.frame.size.width
+        setPageControlSelectedPage(currentPage: Int(round(value)))
     }
     
     private enum Constants {
@@ -272,7 +269,6 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         attributedString.addAttributes([NSAttributedString.Key.kern: -1.2, NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: attributedString.length))
         
         mainLabel.attributedText = attributedString
-        secondLabel.attributedText = NSMutableAttributedString(string: "오늘의 맞춤형 아티클을 확인해 볼 수 있어요", attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         
         // Add subviews to the view hierarchy
         // (both segmentedControl and bottomUnderlineView are subviews of the segmentedControlContainerView)

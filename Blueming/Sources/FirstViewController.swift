@@ -1,0 +1,156 @@
+//
+//  FirstViewController.swift
+//  Blueming
+//
+//  Created by 이나경 on 2023/09/20.
+//
+
+import UIKit
+
+class FirstViewController: UIViewController, UIScrollViewDelegate {
+    
+    var gradientLayer: CAGradientLayer!
+    
+    @IBOutlet var emailLogin: UIButton!
+    @IBOutlet var ggLogin: UIButton!
+    @IBOutlet var imageScroll: UIScrollView!
+    @IBOutlet var pageControl: UIPageControl!
+    @IBOutlet var signUp: UILabel!
+    
+    // 스크롤 뷰 데이터
+    var images = [ UIImage(named: "Chat.png"), UIImage(named: "Chat.png"), UIImage(named: "Chat.png") ]
+    var titles = [ "맞춤형 정보 제공", "간편한 자가진단", "매일 만나는 체크리스트" ]
+    var scripts = [ "매일 그날의 감정, 건강 상태를 선택하면\n맞춤형 아티클을 만날 수 있어요", "본인의 상태를 쉽고 빠르게 진단하고\n검사 결과를 확인해 보세요", "작은 것을 이루며 성취감을 느끼고\n생활 습관을 형성해 보세요" ]
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let value = scrollView.contentOffset.x/scrollView.frame.size.width
+        setPageControlSelectedPage(currentPage: Int(round(value)))
+    }
+    
+    func applyGradientToButton(button: UIButton, startColor: UIColor, endColor: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: 350, height: button.bounds.height)
+        
+        gradientLayer.masksToBounds = true
+        button.layer.cornerRadius = 14
+        
+        // 버튼의 모서리 둥글게 설정
+        gradientLayer.cornerRadius = button.layer.cornerRadius
+        gradientLayer.masksToBounds = true
+        
+        button.layer.insertSublayer(gradientLayer, at: 0)
+        button.configuration?.imagePadding = 78
+        
+        let attributedTitle = NSMutableAttributedString(string: "이메일로 로그인하기", attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!])
+        button.setAttributedTitle(attributedTitle, for: .normal)
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // 스크롤뷰 설정
+        imageScroll.translatesAutoresizingMaskIntoConstraints = false
+        imageScroll.delegate = self
+        
+        // 이메일 로그인 그라데이션 배경
+        applyGradientToButton(button: emailLogin, startColor: UIColor(red: 0.393, green: 0.538, blue: 0.983, alpha: 1), endColor: UIColor(red: 0.557, green: 0.667, blue: 1, alpha: 1))
+        
+        // 구글 로그인 버튼 디자인
+        ggLogin.layer.masksToBounds = true
+        ggLogin.layer.cornerRadius = 14
+        ggLogin.layer.borderWidth = 2
+        ggLogin.layer.borderColor = UIColor.Text05?.cgColor
+        ggLogin.configuration?.imagePadding = 80
+        
+        // 로그인 버튼 자간 설정
+        let attributedTitle = NSMutableAttributedString(string: "구글로 로그인하기", attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!])
+        ggLogin.setAttributedTitle(attributedTitle, for: .normal)
+        
+        // 배경 이미지 뷰를 생성하고 추가
+        let backgroundImage = UIImageView(image: UIImage(named: "backImg.png"))
+        backgroundImage.contentMode = .scaleAspectFill // 이미지 크기 조절 옵션 (필요에 따라 변경)
+        backgroundImage.frame = view.bounds // 이미지 뷰를 화면 크기에 맞게 설정
+        
+        // 배경 이미지 뷰를 뷰의 맨 뒤에 추가합니다.
+        view.insertSubview(backgroundImage, at: 0)
+        
+        // 스크롤뷰
+        addContentScrollView()
+        setPageControl()
+        
+        // 회원가입 라벨
+        let labelText = "회원가입 하기"
+        let attributedString = NSMutableAttributedString(string: labelText, attributes: [NSAttributedString.Key.kern: -0.7])
+        attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: labelText.count))
+
+        signUp.attributedText = attributedString
+
+    }
+    
+    private func addContentScrollView() {
+        var contentX: CGFloat = 0.0 // 컨텐츠의 x 좌표를 초기화합니다.
+        
+        for i in 0..<images.count {
+            // 이미지와 레이블을 담을 컨테이너 뷰 생성
+            let containerView = UIView()
+            
+            let image = UIImageView()
+            
+            image.frame = CGRect(x: 90, y: 110, width: (images[i]?.size.width)!, height: (images[i]?.size.height)!)
+            image.image = images[i]
+            image.contentMode = .scaleAspectFit
+            
+            // titleLabel과 scriptLabel을 생성하고 컨테이너 뷰에 추가
+            let titleLabel = UILabel()
+            let scriptLabel = UILabel()
+            
+            titleLabel.text = titles[i]
+            scriptLabel.text = scripts[i]
+            
+            titleLabel.frame = CGRect(x: containerView.bounds.width/2, y: 0, width: imageScroll.bounds.width, height: 30)
+            titleLabel.textColor = .Blue01
+            titleLabel.font = UIFont(name: "Pretendard-Bold", size: 24)
+            titleLabel.attributedText = NSMutableAttributedString(string: titles[i], attributes: [NSAttributedString.Key.kern: -1.2])
+            titleLabel.textAlignment = .center
+            
+            scriptLabel.frame = CGRect(x: containerView.bounds.width/2, y: 30, width: imageScroll.bounds.width, height: 70)
+            scriptLabel.textColor = .script
+            scriptLabel.font = UIFont(name: "Pretendard-Medium", size: 14)
+            scriptLabel.numberOfLines = 0
+            scriptLabel.lineBreakMode = .byWordWrapping
+            var paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineHeightMultiple = 1.26
+            
+            scriptLabel.attributedText = NSMutableAttributedString(string: scripts[i], attributes: [NSAttributedString.Key.kern: -0.7, NSAttributedString.Key.paragraphStyle: paragraphStyle])
+            
+            scriptLabel.textAlignment = .center
+            
+            containerView.addSubview(image)
+            containerView.addSubview(titleLabel)
+            containerView.addSubview(scriptLabel)
+            
+            // 컨테이너 뷰를 스크롤 뷰에 추가
+            containerView.frame = CGRect(x: contentX, y: 0, width: imageScroll.bounds.width, height: imageScroll.bounds.height)
+            imageScroll.addSubview(containerView)
+            
+            contentX += imageScroll.bounds.width // x 좌표를 증가시켜 다음 컨텐츠 위치를 지정합니다.
+        }
+        
+        // 스크롤뷰의 contentSize 설정
+        imageScroll.contentSize.width = imageScroll.frame.width * CGFloat(images.count)
+    }
+    
+    private func setPageControl() {
+        pageControl.numberOfPages = images.count
+    }
+    
+    private func setPageControlSelectedPage(currentPage:Int) {
+        pageControl.currentPage = currentPage
+    }
+    
+}

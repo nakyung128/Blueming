@@ -16,4 +16,6 @@ extension UIColor {
     static let select = UIColor(named: "select")
     static let unselect = UIColor(named: "unselect")
     static let articleColor = UIColor(named: "articleColor")
+    static let Gbtn = UIColor(named: "Gbtn")
+    static let script = UIColor(named: "script")
 }
