@@ -7,19 +7,63 @@
 
 import UIKit
 
-class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    // 더미 데이터 불러오기
+    let list = Read.data
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return list.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! MainArticleCell
+        let target = list[indexPath.row]
+        
+        cell.img.image = UIImage(named: target.img)
+        cell.title.text = target.title
+        cell.script.text = target.script
+        cell.backgroundColor = UIColor.clear.withAlphaComponent(0)
+        
+        // 자간 설정
+        cell.configureCell()
+        
+        return cell
+    }
+    
+    // header 높이 0으로 설정
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == list.count - 1 {
+            DispatchQueue.main.async {
+                self.table.frame.size.height = self.table.contentSize.height
+                let totalHeight = tableView.frame.origin.y + tableView.frame.size.height
+                self.mainScroll.contentSize = CGSize(width: self.mainScroll.frame.size.width, height: totalHeight)
+                
+                print("mainScroll contentSize:", self.mainScroll.contentSize)
+                print("mainScroll frame size:", self.mainScroll.frame.size)
+                print("table contentSize:", self.table.contentSize)
+                print("table frame size:", self.table.frame.size)
+            }
+        }
+    }
+    
     
     // 태그 데이터 불러오기
     var collectionViewData: [Tags] = []
     
     @IBOutlet var mainLabel: UILabel!
     @IBOutlet var secondLabel: UILabel!
-    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var imageScroll: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var segment: UISegmentedControl!
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var tableView: UITableView!
-    
+    @IBOutlet var articleView: UIView!
+    @IBOutlet var mainScroll: UIScrollView!
+    @IBOutlet var table: CustomTable!
     
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         // 선택한 세그먼트 인덱스를 기반으로 선택한 카테고리를 식별합니다.
@@ -46,7 +90,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
             collectionViewData = Tags.family
         case 4:
             collectionViewData = Tags.etc
-        // 다른 카테고리에 대한 처리 추가
+            // 다른 카테고리에 대한 처리 추가
         default:
             break
         }
@@ -73,8 +117,10 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     var scripts = [ "자세한 내용입니다 자세한 내용입니다 자세한 내용입니다", "자세한 내용입니다 자세한 내용입니다 자세한 내용입니다", "자세한 내용입니다 자세한 내용입니다 자세한 내용입니다" ]
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let value = scrollView.contentOffset.x/scrollView.frame.size.width
-        setPageControlSelectedPage(currentPage: Int(round(value)))
+        if scrollView == imageScroll { // 이미지 슬라이드를 위한 스크롤뷰인 경우
+            let value = scrollView.contentOffset.x/scrollView.frame.size.width
+            setPageControlSelectedPage(currentPage: Int(round(value)))
+        }
     }
     
     private enum Constants {
@@ -106,6 +152,17 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let nibName = UINib(nibName: "MainArticleCell", bundle: nil)
+        table.register(nibName, forCellReuseIdentifier: "mainCell")
+        
+        table.delegate = self
+        table.dataSource = self
+        
+        table.isScrollEnabled = false // 스크롤 막기
+        table.backgroundColor = UIColor.clear // 배경 투명
+        table.allowsSelection = false // 셀 선택 막기
+        table.separatorStyle = .none // table view 구분선 없애기
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(TagCell.self, forCellWithReuseIdentifier: "tagCell")
@@ -121,8 +178,8 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         view.insertSubview(backgroundImage, at: 0)
         
         // 스크롤뷰 설정
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.delegate = self
+        imageScroll.translatesAutoresizingMaskIntoConstraints = false
+        imageScroll.delegate = self
         
         // 페이지 컨트롤 설정
         pageControl.translatesAutoresizingMaskIntoConstraints = false
@@ -167,7 +224,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         
         // Add subviews to the view hierarchy
         // (both segmentedControl and bottomUnderlineView are subviews of the segmentedControlContainerView)
-        view.addSubview(segmentedControlContainerView)
+        articleView.addSubview(segmentedControlContainerView)
         segmentedControlContainerView.addSubview(segment)
         segmentedControlContainerView.addSubview(bottomUnderlineView)
         segment.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
@@ -205,12 +262,12 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
             // 이미지와 레이블을 담을 컨테이너 뷰 생성
             let containerView = UIView()
             
-            let imageView = UIImageView()
+            let image = UIImageView()
             
-            imageView.frame = CGRect(x: 0, y: 0, width: scrollView.bounds.width, height: scrollView.bounds.height)
-            imageView.image = images[i]
-            imageView.layer.cornerRadius = 15
-            imageView.layer.masksToBounds = true
+            image.frame = CGRect(x: 0, y: 0, width: imageScroll.bounds.width, height: imageScroll.bounds.height)
+            image.image = images[i]
+            image.layer.cornerRadius = 15
+            image.layer.masksToBounds = true
             
             // titleLabel과 scriptLabel을 생성하고 컨테이너 뷰에 추가
             let titleLabel = UILabel()
@@ -219,29 +276,29 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
             titleLabel.text = titles[i]
             scriptLabel.text = scripts[i]
             
-            titleLabel.frame = CGRect(x: 15, y: 150, width: scrollView.bounds.width, height: 30)
+            titleLabel.frame = CGRect(x: 15, y: 150, width: imageScroll.bounds.width, height: 30)
             titleLabel.textColor = .white
             titleLabel.font = UIFont(name: "Pretendard-Bold", size: 18)
             titleLabel.attributedText = NSMutableAttributedString(string: titles[i], attributes: [NSAttributedString.Key.kern: -0.54])
             
-            scriptLabel.frame = CGRect(x: 15, y: 158, width: scrollView.bounds.width, height: 60)
+            scriptLabel.frame = CGRect(x: 15, y: 158, width: imageScroll.bounds.width, height: 60)
             scriptLabel.textColor = .white
             scriptLabel.font = UIFont(name: "Pretendard-Medium", size: 10)
             scriptLabel.attributedText = NSMutableAttributedString(string: scripts[i], attributes: [NSAttributedString.Key.kern: -0.3])
             
-            containerView.addSubview(imageView)
+            containerView.addSubview(image)
             containerView.addSubview(titleLabel)
             containerView.addSubview(scriptLabel)
             
             // 컨테이너 뷰를 스크롤 뷰에 추가
-            containerView.frame = CGRect(x: contentX, y: 0, width: scrollView.bounds.width, height: scrollView.bounds.height)
-            scrollView.addSubview(containerView)
+            containerView.frame = CGRect(x: contentX, y: 0, width: imageScroll.bounds.width, height: imageScroll.bounds.height)
+            imageScroll.addSubview(containerView)
             
-            contentX += scrollView.bounds.width // x 좌표를 증가시켜 다음 컨텐츠 위치를 지정합니다.
+            contentX += imageScroll.bounds.width // x 좌표를 증가시켜 다음 컨텐츠 위치를 지정합니다.
         }
         
         // 스크롤뷰의 contentSize 설정
-        scrollView.contentSize.width = scrollView.frame.width * CGFloat(images.count)
+        imageScroll.contentSize.width = imageScroll.frame.width * CGFloat(images.count)
     }
     
     // Change position of the underline
@@ -251,7 +308,6 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         let leadingDistance = segmentWidth * segmentIndex
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
             self?.leadingDistanceConstraint.constant = leadingDistance
-            //self?.layoutIfNeeded()
         })
     }
     

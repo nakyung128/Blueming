@@ -135,7 +135,6 @@
 				F3190E322AAC833C000A7343 /* MainArticleCell.xib */,
 				F3A8564D2AB2CF3900264E3B /* TagCell.swift */,
 				F3A856512AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift */,
-				F335FA042AB9F13000C97E30 /* CustomTable.swift */,
 			);
 			path = Blueming;
 			sourceTree = "<group>";
@@ -169,6 +168,7 @@
 		F3B05C1C2AA9A243003EC4A6 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				F335FA042AB9F13000C97E30 /* CustomTable.swift */,
 				F3B05C1D2AA9A258003EC4A6 /* CustomTabBarItem.swift */,
 			);
 			path = Custom;

@@ -64,7 +64,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.isScrollEnabled = true // 스크롤 막기
+        tableView.isScrollEnabled = false // 스크롤 막기
         tableView.backgroundColor = UIColor.clear // 배경 투명
         tableView.allowsSelection = false // 셀 선택 막기
         tableView.separatorStyle = .none // table view 구분선 없애기
