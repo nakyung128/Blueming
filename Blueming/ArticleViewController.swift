@@ -9,10 +9,8 @@ import UIKit
 
 class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    // 더미 데이터 불러오기
-   // let list = Read.depressed
-    
-    var selectedData: [Read] = []
+    // 아티클 담을 배열
+    var selectedData: [Article] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selectedData.count
@@ -125,35 +123,35 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         // 이 예제에서는 단순화된 로직을 사용하였습니다.
         switch tag.tagName {
         case "우울":
-            selectedData = Read.depressed
+            selectedData = Article.depressed
         case "불안/초조":
-            selectedData = Read.unrest
+            selectedData = Article.unrest
         case "슬픔":
-            selectedData = Read.sad
+            selectedData = Article.sad
         case "혼란":
-            selectedData = Read.confusion
+            selectedData = Article.confusion
         case "스트레스":
-            selectedData = Read.stress
+            selectedData = Article.stress
         case "신체 1":
-            selectedData = Read.body1
+            selectedData = Article.body1
         case "신체 2":
-            selectedData = Read.body2
+            selectedData = Article.body2
         case "신체 3":
-            selectedData = Read.body3
+            selectedData = Article.body3
         case "육아 1":
-            selectedData = Read.baby1
+            selectedData = Article.baby1
         case "육아 2":
-            selectedData = Read.baby2
+            selectedData = Article.baby2
         case "가족 1":
-            selectedData = Read.family1
+            selectedData = Article.family1
         case "가족 2":
-            selectedData = Read.family2
+            selectedData = Article.family2
         case "기타 1":
-            selectedData = Read.ect1
+            selectedData = Article.ect1
         case "기타 2":
-            selectedData = Read.ect2
+            selectedData = Article.ect2
         case "기타 3":
-            selectedData = Read.ect3
+            selectedData = Article.ect3
         default:
             selectedData = []
         }
