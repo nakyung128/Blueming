@@ -10,15 +10,17 @@ import UIKit
 class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     // 더미 데이터 불러오기
-    let list = Read.data
+   // let list = Read.depressed
+    
+    var selectedData: [Read] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return selectedData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! MainArticleCell
-        let target = list[indexPath.row]
+        let target = selectedData[indexPath.row]
         
         cell.img.image = UIImage(named: target.img)
         cell.title.text = target.title
@@ -35,22 +37,6 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.0
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == list.count - 1 {
-            DispatchQueue.main.async {
-                self.table.frame.size.height = self.table.contentSize.height
-                let totalHeight = tableView.frame.origin.y + tableView.frame.size.height
-                self.mainScroll.contentSize = CGSize(width: self.mainScroll.frame.size.width, height: totalHeight)
-                
-                print("mainScroll contentSize:", self.mainScroll.contentSize)
-                print("mainScroll frame size:", self.mainScroll.frame.size)
-                print("table contentSize:", self.table.contentSize)
-                print("table frame size:", self.table.frame.size)
-            }
-        }
-    }
-    
     
     // 태그 데이터 불러오기
     var collectionViewData: [Tags] = []
@@ -72,6 +58,18 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         // 선택한 카테고리에 따라 데이터를 업데이트하고 컬렉션 뷰를 새로고침합니다.
         updateCollectionViewWithCategory(selectedCategory)
         changeSegmentedControlLinePosition()
+        
+        // 해당 카테고리의 첫 번째 태그를 자동으로 선택
+        let firstIndexPath = IndexPath(item: 0, section: 0)
+            
+        // 첫 번째 태그를 프로그래매틱하게 선택
+        collectionView.selectItem(at: firstIndexPath, animated: true, scrollPosition: .left)
+        
+        // 선택된 태그에 따라 selectedData 변경
+        updateDataForSelectedTag(collectionViewData[0])
+        
+        // 테이블 뷰 갱신
+        table.reloadData()
     }
     
     func updateCollectionViewWithCategory(_ category: Int) {
@@ -90,7 +88,6 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
             collectionViewData = Tags.family
         case 4:
             collectionViewData = Tags.etc
-            // 다른 카테고리에 대한 처리 추가
         default:
             break
         }
@@ -110,6 +107,56 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         cell.tagLabel.text = collectionViewData[indexPath.row].tagName
         
         return cell
+    }
+    
+    // 태그 선택 시
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedTag = collectionViewData[indexPath.row]
+        
+        // 선택된 태그에 따라 selectedData 변경
+        updateDataForSelectedTag(selectedTag)
+        
+        // 테이블 뷰 갱신
+        table.reloadData()
+    }
+    
+    func updateDataForSelectedTag(_ tag: Tags) {
+        // 예: 태그에 따라 다른 데이터를 가져오는 로직
+        // 이 예제에서는 단순화된 로직을 사용하였습니다.
+        switch tag.tagName {
+        case "우울":
+            selectedData = Read.depressed
+        case "불안/초조":
+            selectedData = Read.unrest
+        case "슬픔":
+            selectedData = Read.sad
+        case "혼란":
+            selectedData = Read.confusion
+        case "스트레스":
+            selectedData = Read.stress
+        case "신체 1":
+            selectedData = Read.body1
+        case "신체 2":
+            selectedData = Read.body2
+        case "신체 3":
+            selectedData = Read.body3
+        case "육아 1":
+            selectedData = Read.baby1
+        case "육아 2":
+            selectedData = Read.baby2
+        case "가족 1":
+            selectedData = Read.family1
+        case "가족 2":
+            selectedData = Read.family2
+        case "기타 1":
+            selectedData = Read.ect1
+        case "기타 2":
+            selectedData = Read.ect2
+        case "기타 3":
+            selectedData = Read.ect3
+        default:
+            selectedData = []
+        }
     }
     
     var images = [ UIImage(named: "example_img.png"), UIImage(named: "example_img.png"), UIImage(named: "example_img.png") ]
@@ -196,14 +243,21 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         
         segment.setiOS12Layout(tintColor: .select!)
         
+        // 첫 번째 태그 선택
+        let firstIndexPath = IndexPath(item: 0, section: 0)
+        collectionView.selectItem(at: firstIndexPath, animated: false, scrollPosition: .top)
+        
+        let firstTag = collectionViewData[0]
+        updateDataForSelectedTag(firstTag)
+        
         // 원본 문자열
-        let originalString = "수림 님을 위한 아티클"
+        let originalString = "파랑 님을 위한 아티클"
         
         // 원본 문자열을 NSAttributedString으로 변환
         let attributedString = NSMutableAttributedString(string: originalString)
         
-        // '수림' 단어의 범위 찾기
-        if let range = originalString.range(of: "수림") {
+        // '파랑' 단어의 범위 찾기
+        if let range = originalString.range(of: "파랑") {
             let nsRange = NSRange(range, in: originalString)
             
             // 색상을 변경할 부분에 대한 속성을 설정

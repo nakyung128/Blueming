@@ -27,10 +27,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOO-jF-fga">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="679"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SzB-8b-HAa">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="679"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="수림 님을 위한 아티클" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3X-2v-Nkj">
                                                 <rect key="frame" x="20" y="33" width="203.33333333333334" height="28.666666666666671"/>
@@ -112,7 +112,7 @@
                                                 </cells>
                                             </collectionView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iJo-Ga-tvD" customClass="CustomTable" customModule="Blueming" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="463" width="375" height="339"/>
+                                                <rect key="frame" x="0.0" y="463" width="375" height="206"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainCell" rowHeight="74" id="Ege-lA-Jaq" customClass="MainArticleCell" customModule="Blueming" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="50" width="375" height="74"/>
@@ -167,9 +167,9 @@
                         <viewLayoutGuide key="safeArea" id="crh-JS-rPR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="MOO-jF-fga" secondAttribute="bottom" id="8Zd-kn-fPS"/>
+                            <constraint firstItem="crh-JS-rPR" firstAttribute="bottom" secondItem="MOO-jF-fga" secondAttribute="bottom" id="8Zd-kn-fPS"/>
                             <constraint firstItem="MOO-jF-fga" firstAttribute="trailing" secondItem="crh-JS-rPR" secondAttribute="trailing" id="QvL-QY-Ip9"/>
-                            <constraint firstItem="MOO-jF-fga" firstAttribute="top" secondItem="vEN-0e-4eD" secondAttribute="top" id="cp9-Rr-xSH"/>
+                            <constraint firstItem="MOO-jF-fga" firstAttribute="top" secondItem="crh-JS-rPR" secondAttribute="top" id="cp9-Rr-xSH"/>
                             <constraint firstItem="MOO-jF-fga" firstAttribute="leading" secondItem="crh-JS-rPR" secondAttribute="leading" id="mU4-zp-DPh"/>
                         </constraints>
                     </view>
@@ -247,10 +247,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqa-vv-D1h">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="679"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VjY-AW-8Ak">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="679"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrJ-4e-A23">
                                                 <rect key="frame" x="20.000000000000004" y="33" width="61.333333333333343" height="28.666666666666671"/>
@@ -262,16 +262,16 @@
                                                 <rect key="frame" x="334" y="36" width="24" height="24"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xi-s0-ZaP">
-                                                <rect key="frame" x="20" y="92.666666666666671" width="41" height="19"/>
+                                                <rect key="frame" x="20" y="92.666666666666657" width="41" height="19"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
                                                 <color key="textColor" name="Text01"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="todayBox" translatesAutoresizingMaskIntoConstraints="NO" id="fvH-QC-wIE">
-                                                <rect key="frame" x="181" y="121.66666666666669" width="186" height="204"/>
+                                                <rect key="frame" x="181" y="121.66666666666666" width="186" height="203.99999999999997"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="todayBox" translatesAutoresizingMaskIntoConstraints="NO" id="Lnh-ht-BDR">
-                                                <rect key="frame" x="8" y="121.66666666666669" width="184" height="204"/>
+                                                <rect key="frame" x="8" y="121.66666666666666" width="184" height="203.99999999999997"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vgg-Jv-Age">
                                                 <rect key="frame" x="251" y="176.33333333333334" width="46" height="41.666666666666657"/>
@@ -357,7 +357,7 @@
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue-rec.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lfm-db-qAe">
-                                                <rect key="frame" x="29" y="478.66666666666669" width="86" height="20"/>
+                                                <rect key="frame" x="29" y="478.66666666666663" width="86" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="6qe-l5-ok7"/>
                                                     <constraint firstAttribute="width" constant="86" id="X1c-5W-oCT"/>
@@ -370,13 +370,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1번 더 해 보세요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gk6-Sr-3Li">
-                                                <rect key="frame" x="39" y="482.66666666666669" width="67" height="12"/>
+                                                <rect key="frame" x="39" y="482.66666666666663" width="67" height="12"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="10"/>
                                                 <color key="textColor" name="Blue01"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DpL-uH-SwF" customClass="CustomTable" customModule="Blueming" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="613.66666666666663" width="375" height="188.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="613.66666666666663" width="375" height="55.333333333333371"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainCell" rowHeight="74" id="GDG-QL-HwJ" customClass="MainArticleCell" customModule="Blueming" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="50" width="375" height="74"/>
@@ -472,9 +472,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Jqa-vv-D1h" firstAttribute="leading" secondItem="75d-q4-Sbi" secondAttribute="leading" id="Cpm-hh-rJ8"/>
-                            <constraint firstAttribute="bottom" secondItem="Jqa-vv-D1h" secondAttribute="bottom" id="cjR-HD-3v5"/>
+                            <constraint firstItem="75d-q4-Sbi" firstAttribute="bottom" secondItem="Jqa-vv-D1h" secondAttribute="bottom" id="cjR-HD-3v5"/>
                             <constraint firstItem="75d-q4-Sbi" firstAttribute="trailing" secondItem="Jqa-vv-D1h" secondAttribute="trailing" id="lDF-y0-AsS"/>
-                            <constraint firstItem="Jqa-vv-D1h" firstAttribute="top" secondItem="AGy-ig-36M" secondAttribute="top" id="rg8-KO-2XL"/>
+                            <constraint firstItem="Jqa-vv-D1h" firstAttribute="top" secondItem="75d-q4-Sbi" secondAttribute="top" id="rg8-KO-2XL"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="홈" image="home" id="Jtv-w6-T2l"/>

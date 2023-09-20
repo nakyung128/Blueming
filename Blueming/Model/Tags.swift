@@ -18,8 +18,7 @@ extension Tags {
         Tags(category: "감정", tagName: "불안/초조"),
         Tags(category: "감정", tagName: "슬픔"),
         Tags(category: "감정", tagName: "혼란"),
-        Tags(category: "감정", tagName: "스트레스"),
-        Tags(category: "감정", tagName: "어쩌구")
+        Tags(category: "감정", tagName: "스트레스")
     ]
     static var body = [
         Tags(category: "신체", tagName: "신체 1"),
@@ -32,8 +31,7 @@ extension Tags {
     ]
     static var family = [
         Tags(category: "가족", tagName: "가족 1"),
-        Tags(category: "가족", tagName: "가족 2"),
-        Tags(category: "가족", tagName: "가족 3")
+        Tags(category: "가족", tagName: "가족 2")
     ]
     static var etc = [
         Tags(category: "기타", tagName: "기타 1"),

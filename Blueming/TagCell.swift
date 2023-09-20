@@ -35,6 +35,24 @@ class TagCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
+    override var isSelected: Bool {
+        didSet {
+            updateSelectionStyle()
+        }
+    }
+    
+    private func updateSelectionStyle() {
+        if isSelected {
+            // 선택됐을 때의 스타일
+            contentView.layer.borderColor = UIColor.select!.cgColor
+            tagLabel.textColor = .select
+        } else {
+            // 선택되지 않았을 때의 스타일
+            contentView.layer.borderColor = UIColor.Text05!.cgColor
+            tagLabel.textColor = .Text03
+        }
+    }
+    
     func setConstraint() {
         tagLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
