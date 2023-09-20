@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Medium.otf">
+            <string>Pretendard-Medium</string>
+        </array>
+        <array key="Pretendard-SemiBold.otf">
+            <string>Pretendard-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainCell" rowHeight="137" id="KGk-i7-Jjw" customClass="MainArticleCell" customModule="Blueming" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellImg" translatesAutoresizingMaskIntoConstraints="NO" id="Qsf-yT-MTD">
+                        <rect key="frame" x="0.0" y="0.0" width="342" height="128"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zmx-Fj-kHX">
+                        <rect key="frame" x="19" y="16" width="90" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="RHb-T4-xH4"/>
+                            <constraint firstAttribute="height" constant="90" id="sNp-N2-WsG"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAZ-qW-qDQ">
+                        <rect key="frame" x="121.99999999999999" y="18" width="40.333333333333329" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
+                        <color key="textColor" name="Text01"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sC-fP-Ypg">
+                        <rect key="frame" x="122" y="51.333333333333336" width="200" height="14.333333333333336"/>
+                        <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
+                        <color key="textColor" name="Text03"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Qsf-yT-MTD" secondAttribute="bottom" id="102-Mk-DTC"/>
+                    <constraint firstItem="4sC-fP-Ypg" firstAttribute="leading" secondItem="zmx-Fj-kHX" secondAttribute="trailing" constant="13" id="33F-Af-q73"/>
+                    <constraint firstAttribute="trailing" secondItem="4sC-fP-Ypg" secondAttribute="trailing" constant="20" symbolic="YES" id="6Eu-ik-BOQ"/>
+                    <constraint firstAttribute="bottom" secondItem="zmx-Fj-kHX" secondAttribute="bottom" constant="23" id="Syp-TA-yYe"/>
+                    <constraint firstAttribute="trailing" secondItem="Qsf-yT-MTD" secondAttribute="trailing" id="WBm-H9-k4P"/>
+                    <constraint firstItem="Qsf-yT-MTD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YGn-Vv-f91"/>
+                    <constraint firstItem="zmx-Fj-kHX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="feA-Lo-b1A"/>
+                    <constraint firstItem="4sC-fP-Ypg" firstAttribute="top" secondItem="jAZ-qW-qDQ" secondAttribute="bottom" constant="13" id="haj-dG-us7"/>
+                    <constraint firstItem="jAZ-qW-qDQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="iV3-f6-P67"/>
+                    <constraint firstItem="zmx-Fj-kHX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="lBq-Da-UaJ"/>
+                    <constraint firstItem="Qsf-yT-MTD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pvL-gd-UAV"/>
+                    <constraint firstItem="jAZ-qW-qDQ" firstAttribute="leading" secondItem="zmx-Fj-kHX" secondAttribute="trailing" constant="13" id="wHP-nS-d5O"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="img" destination="zmx-Fj-kHX" id="j8f-4L-24u"/>
+                <outlet property="script" destination="4sC-fP-Ypg" id="aAs-Sb-bbx"/>
+                <outlet property="title" destination="jAZ-qW-qDQ" id="tws-nL-2M4"/>
+            </connections>
+            <point key="canvasLocation" x="143.5114503816794" y="50"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cellImg" width="368" height="128"/>
+        <namedColor name="Text01">
+            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text03">
+            <color red="0.56000000000000005" green="0.56000000000000005" blue="0.56000000000000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,26 @@
+//
+//  UILabel.swift
+//  Blueming
+//
+//  Created by 이나경 on 2023/09/20.
+//
+
+import UIKit
+
+extension UILabel {
+    @IBInspectable
+    var letterSpacing: CGFloat {
+        set {
+            let attributedString = NSMutableAttributedString(string: text ?? "")
+            attributedString.addAttribute(.kern, value: newValue, range: NSRange(location: 0, length: attributedString.length - 1))
+            self.attributedText = attributedString
+        }
+        get {
+            if let currentKerning = attributedText?.attribute(.kern, at: 0, effectiveRange: .none) as? CGFloat {
+                return currentKerning
+            } else {
+                return 0
+            }
+        }
+    }
+}
