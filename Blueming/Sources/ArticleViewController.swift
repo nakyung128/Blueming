@@ -131,11 +131,11 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
             selectedData = Article.confusion
         case "스트레스":
             selectedData = Article.stress
-        case "신체 1":
+        case "건강 1":
             selectedData = Article.body1
-        case "신체 2":
+        case "건강 2":
             selectedData = Article.body2
-        case "신체 3":
+        case "건강 3":
             selectedData = Article.body3
         case "육아 1":
             selectedData = Article.baby1

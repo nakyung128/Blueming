@@ -21,9 +21,9 @@ extension Tags {
         Tags(category: "감정", tagName: "스트레스")
     ]
     static var body = [
-        Tags(category: "신체", tagName: "신체 1"),
-        Tags(category: "신체", tagName: "신체 2"),
-        Tags(category: "신체", tagName: "신체 3")
+        Tags(category: "건강", tagName: "건강 1"),
+        Tags(category: "건강", tagName: "건강 2"),
+        Tags(category: "건강", tagName: "건강 3")
     ]
     static var baby = [
         Tags(category: "육아", tagName: "육아 1"),

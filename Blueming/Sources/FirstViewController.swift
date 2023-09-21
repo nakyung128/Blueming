@@ -27,28 +27,6 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         setPageControlSelectedPage(currentPage: Int(round(value)))
     }
     
-    func applyGradientToButton(button: UIButton, startColor: UIColor, endColor: UIColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-        
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: 350, height: button.bounds.height)
-        
-        gradientLayer.masksToBounds = true
-        button.layer.cornerRadius = 14
-        
-        // 버튼의 모서리 둥글게 설정
-        gradientLayer.cornerRadius = button.layer.cornerRadius
-        gradientLayer.masksToBounds = true
-        
-        button.layer.insertSublayer(gradientLayer, at: 0)
-        button.configuration?.imagePadding = 78
-        
-        let attributedTitle = NSMutableAttributedString(string: "이메일로 로그인하기", attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!])
-        button.setAttributedTitle(attributedTitle, for: .normal)
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +36,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         imageScroll.delegate = self
         
         // 이메일 로그인 그라데이션 배경
-        applyGradientToButton(button: emailLogin, startColor: UIColor(red: 0.393, green: 0.538, blue: 0.983, alpha: 1), endColor: UIColor(red: 0.557, green: 0.667, blue: 1, alpha: 1))
+        emailLogin.applyGradientToButton(startColor: UIColor(red: 0.393, green: 0.538, blue: 0.983, alpha: 1), endColor: UIColor(red: 0.557, green: 0.667, blue: 1, alpha: 1))
         
         // 구글 로그인 버튼 디자인
         ggLogin.layer.masksToBounds = true
@@ -89,7 +67,6 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: labelText.count))
 
         signUp.attributedText = attributedString
-
     }
     
     private func addContentScrollView() {
@@ -123,7 +100,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
             scriptLabel.font = UIFont(name: "Pretendard-Medium", size: 14)
             scriptLabel.numberOfLines = 0
             scriptLabel.lineBreakMode = .byWordWrapping
-            var paragraphStyle = NSMutableParagraphStyle()
+            let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineHeightMultiple = 1.26
             
             scriptLabel.attributedText = NSMutableAttributedString(string: scripts[i], attributes: [NSAttributedString.Key.kern: -0.7, NSAttributedString.Key.paragraphStyle: paragraphStyle])
@@ -153,4 +130,53 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         pageControl.currentPage = currentPage
     }
     
+}
+
+extension UIButton {
+    // 그라데이션 배경 적용
+    func applyGradientToButton(startColor: UIColor, endColor: UIColor) {
+        self.layer.sublayers?.removeAll { $0 is CAShapeLayer }
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
+        
+        gradientLayer.masksToBounds = true
+        self.layer.cornerRadius = 14
+        
+        // 버튼의 모서리 둥글게 설정
+        gradientLayer.cornerRadius = self.layer.cornerRadius
+        gradientLayer.masksToBounds = true
+        
+        self.layer.addSublayer(gradientLayer)
+        self.configuration?.imagePadding = 78
+        
+        let attributedTitle = NSMutableAttributedString(string: (self.titleLabel?.text)!, attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.setAttributedTitle(attributedTitle, for: .normal)
+    }
+    
+    func applyOriginToButton(color: UIColor) {
+        self.layer.sublayers?.removeAll { $0 is CAGradientLayer }
+        let layer = CAShapeLayer()
+        layer.fillColor = UIColor.Text05?.cgColor
+        layer.strokeColor = UIColor.Text05?.cgColor
+        
+        layer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
+        
+        layer.masksToBounds = true
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 14
+        
+        // 버튼의 모서리 둥글게 설정
+        layer.cornerRadius = self.layer.cornerRadius
+        layer.masksToBounds = true
+        
+        self.layer.addSublayer(layer)
+        self.configuration?.imagePadding = 78
+        
+        let attributedTitle = NSMutableAttributedString(string: (self.titleLabel?.text)!, attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.setAttributedTitle(attributedTitle, for: .normal)
+    }
 }
