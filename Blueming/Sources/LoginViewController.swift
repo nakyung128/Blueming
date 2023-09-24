@@ -13,6 +13,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passField: UITextField!
     @IBOutlet var loginBtn: UIButton!
     
+    @IBAction func login(_ sender: Any) {
+        // 홈으로 이동
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+        vcName?.modalPresentationStyle = .fullScreen
+        vcName?.modalTransitionStyle = .crossDissolve
+        self.present(vcName!, animated: true, completion: nil)
+    }
+    
     // 입력 시 텍스트필드 테두리 색상 변경
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == emailField {
@@ -60,7 +68,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: passField.frame.height))
         passField.leftViewMode = .always
         
-        // 초기 상태에서 버튼 비활성화
+        // 초기 상태 버튼
         loginBtn.applyOriginToButton(color: UIColor.Text05!)
         
         // editingChanged 이벤트를 위한 타겟-액션 설정

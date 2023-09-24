@@ -8,6 +8,7 @@
 import UIKit
 
 extension UILabel {
+    // 자간 설정
     @IBInspectable
     var letterSpacing: CGFloat {
         set {
@@ -23,4 +24,5 @@ extension UILabel {
             }
         }
     }
+
 }

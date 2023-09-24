@@ -27,9 +27,13 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         setPageControlSelectedPage(currentPage: Int(round(value)))
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 뒤로가기 색상 변경
+        navigationController?.navigationBar.tintColor = .Text01
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         
         // 스크롤뷰 설정
         imageScroll.translatesAutoresizingMaskIntoConstraints = false
@@ -65,8 +69,21 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         let labelText = "회원가입 하기"
         let attributedString = NSMutableAttributedString(string: labelText, attributes: [NSAttributedString.Key.kern: -0.7])
         attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: labelText.count))
-
+        
         signUp.attributedText = attributedString
+        
+        // 회원가입 클릭 시 페이지 이동
+        let goSignUp = UITapGestureRecognizer(target: self, action: #selector(goToSignUp))
+        signUp.isUserInteractionEnabled = true
+        signUp.addGestureRecognizer(goSignUp)
+        
+        
+    }
+    
+    @objc func goToSignUp() {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "SignUpVC") else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     private func addContentScrollView() {

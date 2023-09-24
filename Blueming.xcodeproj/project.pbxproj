@@ -29,6 +29,9 @@
 		F350A13A2ABB104600203688 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350A1392ABB104600203688 /* UILabel.swift */; };
 		F350A13C2ABB1C3200203688 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350A13B2ABB1C3200203688 /* LoginViewController.swift */; };
 		F350A1402ABB377A00203688 /* LoginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = F350A13F2ABB377A00203688 /* LoginBack.png */; };
+		F37D6A382ABE991C007F3C41 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D6A372ABE991C007F3C41 /* EmailViewController.swift */; };
+		F37D6A3A2ABEA7BE007F3C41 /* PwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D6A392ABEA7BE007F3C41 /* PwdViewController.swift */; };
+		F37D6A3C2ABEA866007F3C41 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D6A3B2ABEA866007F3C41 /* NameViewController.swift */; };
 		F3A8564C2AB2CE4E00264E3B /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8564B2AB2CE4E00264E3B /* Tags.swift */; };
 		F3A8564E2AB2CF3900264E3B /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8564D2AB2CF3900264E3B /* TagCell.swift */; };
 		F3A856522AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A856512AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift */; };
@@ -72,6 +75,9 @@
 		F350A1392ABB104600203688 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		F350A13B2ABB1C3200203688 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F350A13F2ABB377A00203688 /* LoginBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginBack.png; sourceTree = "<group>"; };
+		F37D6A372ABE991C007F3C41 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		F37D6A392ABEA7BE007F3C41 /* PwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwdViewController.swift; sourceTree = "<group>"; };
+		F37D6A3B2ABEA866007F3C41 /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		F3A8564B2AB2CE4E00264E3B /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
 		F3A8564D2AB2CF3900264E3B /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		F3A856512AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -166,6 +172,9 @@
 				F3190E2A2AAC6515000A7343 /* HomeViewController.swift */,
 				F350A1352ABAD57600203688 /* FirstViewController.swift */,
 				F350A13B2ABB1C3200203688 /* LoginViewController.swift */,
+				F37D6A372ABE991C007F3C41 /* EmailViewController.swift */,
+				F37D6A392ABEA7BE007F3C41 /* PwdViewController.swift */,
+				F37D6A3B2ABEA866007F3C41 /* NameViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -301,11 +310,13 @@
 			files = (
 				F350A13C2ABB1C3200203688 /* LoginViewController.swift in Sources */,
 				F350A13A2ABB104600203688 /* UILabel.swift in Sources */,
+				F37D6A3C2ABEA866007F3C41 /* NameViewController.swift in Sources */,
 				F3190E292AAC536C000A7343 /* MypageViewController.swift in Sources */,
 				F3190E272AAC535E000A7343 /* NoteViewController.swift in Sources */,
 				F3190E332AAC833C000A7343 /* MainArticleCell.swift in Sources */,
 				F3B05C062AA99729003EC4A6 /* ArticleViewController.swift in Sources */,
 				F3190E2E2AAC814A000A7343 /* Article.swift in Sources */,
+				F37D6A382ABE991C007F3C41 /* EmailViewController.swift in Sources */,
 				F3B05C1E2AA9A258003EC4A6 /* CustomTabBarItem.swift in Sources */,
 				F3F7F1FC2AA995660050263F /* UIColor.swift in Sources */,
 				F3190E2B2AAC6515000A7343 /* HomeViewController.swift in Sources */,
@@ -314,6 +325,7 @@
 				F3A856522AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				F350A1362ABAD57600203688 /* FirstViewController.swift in Sources */,
 				F3B05C042AA99719003EC4A6 /* CheckViewController.swift in Sources */,
+				F37D6A3A2ABEA7BE007F3C41 /* PwdViewController.swift in Sources */,
 				F32B28AA2AA8AD0B005803C8 /* AppDelegate.swift in Sources */,
 				F32B28AC2AA8AD0B005803C8 /* SceneDelegate.swift in Sources */,
 				F335FA052AB9F13000C97E30 /* CustomTable.swift in Sources */,
