@@ -58,6 +58,8 @@ class EmailViewController: UIViewController, UITextFieldDelegate {
         email.leftView = paddingView
         email.leftViewMode = .always
         
+        email.attributedPlaceholder = NSAttributedString(string: "이메일", attributes: [NSAttributedString.Key.foregroundColor : UIColor.Text03!, NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.7])
+        
         // 초기 상태 버튼
         nextBtn.applyOriginToButton(color: UIColor.Text05!)
         

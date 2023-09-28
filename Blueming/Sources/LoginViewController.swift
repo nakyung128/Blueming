@@ -41,13 +41,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailField.delegate = self
-        passField.delegate = self
-        
         // 배경 이미지 뷰를 생성하고 추가
         let backgroundImage = UIImageView(image: UIImage(named: "LoginBack.png"))
         backgroundImage.contentMode = .scaleAspectFill // 이미지 크기 조절 옵션 (필요에 따라 변경)
         backgroundImage.frame = view.bounds // 이미지 뷰를 화면 크기에 맞게 설정
+        
+        emailField.delegate = self
+        passField.delegate = self
         
         // 배경 이미지 뷰를 뷰의 맨 뒤에 추가합니다.
         view.insertSubview(backgroundImage, at: 0)
@@ -67,6 +67,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         passField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: passField.frame.height))
         passField.leftViewMode = .always
+        
+        emailField.attributedPlaceholder = NSAttributedString(string: "이메일", attributes: [NSAttributedString.Key.foregroundColor : UIColor.Text03!, NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.7])
+        passField.attributedPlaceholder = NSAttributedString(string: "비밀번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.Text03!, NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.7])
+        
         
         // 초기 상태 버튼
         loginBtn.applyOriginToButton(color: UIColor.Text05!)

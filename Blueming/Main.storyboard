@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="00t-iM-Qwl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QZJ-MP-UwC">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -189,6 +189,7 @@
                         <outlet property="mainLabel" destination="M3X-2v-Nkj" id="Jr7-l4-Xy8"/>
                         <outlet property="mainScroll" destination="MOO-jF-fga" id="q5E-ho-S1p"/>
                         <outlet property="pageControl" destination="QTS-9q-Zsv" id="bf5-u4-vmd"/>
+                        <outlet property="search" destination="p2f-NG-U9K" id="Vm6-fu-9Ko"/>
                         <outlet property="segment" destination="2cF-j2-7ja" id="Tlo-j2-mdU"/>
                         <outlet property="table" destination="iJo-Ga-tvD" id="1tP-fp-Pt8"/>
                     </connections>
@@ -196,6 +197,95 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WPz-up-3Bo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1183.2" y="1290.8866995073893"/>
+        </scene>
+        <!--검색 화면-->
+        <scene sceneID="0ny-xU-an0">
+            <objects>
+                <viewController storyboardIdentifier="searchVC" title="검색 화면" id="9pi-oK-oi0" customClass="SearchViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RsH-4D-7gt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="undo" translatesAutoresizingMaskIntoConstraints="NO" id="sEz-sA-LQW">
+                                <rect key="frame" x="20" y="90" width="8" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="HA1-EA-Pge"/>
+                                    <constraint firstAttribute="width" constant="8" id="vdK-gX-OLE"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="어떤 아티클을 찾고 계신가요?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g49-cX-a3r">
+                                <rect key="frame" x="48" y="78" width="307" height="38"/>
+                                <color key="textColor" name="Text01"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추천 키워드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsl-os-Eao">
+                                <rect key="frame" x="20" y="146" width="73" height="19.333333333333343"/>
+                                <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
+                                <color key="textColor" name="Blue01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="mgs-wY-pJs">
+                                <rect key="frame" x="321" y="88" width="18" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="18" id="Atp-hE-xem"/>
+                                    <constraint firstAttribute="height" constant="18" id="Cj0-H4-hMl"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="v32-sf-Lcm">
+                                <rect key="frame" x="20" y="174" width="335" height="50"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="많이 찾는 검색어" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJj-7Z-V8q">
+                                <rect key="frame" x="20.000000000000007" y="271" width="104.66666666666669" height="20"/>
+                                <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
+                                <color key="textColor" name="Blue01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="n1u-5x-B20">
+                                <rect key="frame" x="20" y="299" width="335" height="20.333333333333371"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QsA-B0-cxg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="n1u-5x-B20" firstAttribute="top" secondItem="rJj-7Z-V8q" secondAttribute="bottom" constant="13" id="4ZB-nf-LRt"/>
+                            <constraint firstItem="sEz-sA-LQW" firstAttribute="leading" secondItem="QsA-B0-cxg" secondAttribute="leading" constant="20" id="5sF-sh-4rt"/>
+                            <constraint firstItem="rJj-7Z-V8q" firstAttribute="leading" secondItem="QsA-B0-cxg" secondAttribute="leading" constant="20" id="6jR-f1-JSX"/>
+                            <constraint firstItem="qsl-os-Eao" firstAttribute="leading" secondItem="QsA-B0-cxg" secondAttribute="leading" constant="20" id="Ktt-jP-g9Q"/>
+                            <constraint firstItem="g49-cX-a3r" firstAttribute="trailing" secondItem="mgs-wY-pJs" secondAttribute="trailing" constant="16" id="XW7-2y-e3K"/>
+                            <constraint firstItem="sEz-sA-LQW" firstAttribute="top" secondItem="QsA-B0-cxg" secondAttribute="top" constant="40" id="Z2Z-De-Si9"/>
+                            <constraint firstItem="v32-sf-Lcm" firstAttribute="leading" secondItem="QsA-B0-cxg" secondAttribute="leading" constant="20" id="hl8-uv-c8m"/>
+                            <constraint firstItem="v32-sf-Lcm" firstAttribute="top" secondItem="qsl-os-Eao" secondAttribute="bottom" constant="9" id="ink-dL-63P"/>
+                            <constraint firstItem="g49-cX-a3r" firstAttribute="bottom" secondItem="mgs-wY-pJs" secondAttribute="bottom" constant="10" id="jlk-h4-57I"/>
+                            <constraint firstItem="QsA-B0-cxg" firstAttribute="trailing" secondItem="g49-cX-a3r" secondAttribute="trailing" constant="20" id="nJr-bq-Aty"/>
+                            <constraint firstItem="mgs-wY-pJs" firstAttribute="top" secondItem="g49-cX-a3r" secondAttribute="top" constant="10" id="pdn-c8-aOK"/>
+                            <constraint firstItem="n1u-5x-B20" firstAttribute="leading" secondItem="QsA-B0-cxg" secondAttribute="leading" constant="20" id="qg7-5J-Xef"/>
+                            <constraint firstItem="g49-cX-a3r" firstAttribute="leading" secondItem="sEz-sA-LQW" secondAttribute="trailing" constant="20" id="r8p-c6-EVz"/>
+                            <constraint firstItem="rJj-7Z-V8q" firstAttribute="top" secondItem="v32-sf-Lcm" secondAttribute="bottom" constant="30" id="tDC-6u-wzH"/>
+                            <constraint firstItem="qsl-os-Eao" firstAttribute="top" secondItem="g49-cX-a3r" secondAttribute="bottom" constant="30" id="wkU-Rk-gnL"/>
+                            <constraint firstItem="g49-cX-a3r" firstAttribute="top" secondItem="QsA-B0-cxg" secondAttribute="top" constant="28" id="z0d-nv-Gnz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backBtn" destination="sEz-sA-LQW" id="F1H-km-JgF"/>
+                        <outlet property="famousView" destination="n1u-5x-B20" id="Gj2-Eg-WyS"/>
+                        <outlet property="recommendView" destination="v32-sf-Lcm" id="FS1-2f-vnM"/>
+                        <outlet property="searchField" destination="g49-cX-a3r" id="j3d-cb-9ay"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Acc-03-yNe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1183.2" y="1990.6403940886701"/>
         </scene>
         <!--체크리스트-->
         <scene sceneID="lvv-1V-HZM">
@@ -671,7 +761,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZe-tU-nbN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1119.2" y="-993.10344827586209"/>
+            <point key="canvasLocation" x="-1550" y="-277"/>
         </scene>
         <!--Email View Controller-->
         <scene sceneID="z41-Ph-sDb">
@@ -740,7 +830,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wU2-CA-6uU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1866" y="-287"/>
+            <point key="canvasLocation" x="-54" y="-277"/>
         </scene>
         <!--Pwd View Controller-->
         <scene sceneID="Us4-W8-hVf">
@@ -823,7 +913,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tN-L6-RM5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1119" y="-287"/>
+            <point key="canvasLocation" x="694" y="-277"/>
         </scene>
         <!--Name View Controller-->
         <scene sceneID="ydN-WU-Ga6">
@@ -891,7 +981,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gec-sH-DMT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="-287"/>
+            <point key="canvasLocation" x="1442" y="-277"/>
         </scene>
         <!--이메일 로그인-->
         <scene sceneID="dKu-UR-f8s">
@@ -960,12 +1050,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwK-OF-1B5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="-993"/>
+            <point key="canvasLocation" x="-801" y="-277"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="h68-qv-wHV">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarVC" id="QZJ-MP-UwC" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" id="QZJ-MP-UwC" customClass="TabBarViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W2d-Kf-DEe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1002,7 +1092,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5l-Td-Shf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1900" y="-993"/>
+            <point key="canvasLocation" x="-2329" y="-277"/>
         </scene>
     </scenes>
     <resources>
@@ -1018,8 +1108,10 @@
         <image name="notification" width="24" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="scrap" width="15.333333015441895" height="20"/>
+        <image name="search" width="19" height="19"/>
         <image name="target-box.png" width="368" height="182"/>
         <image name="todayBox" width="186" height="204"/>
+        <image name="undo" width="8" height="14"/>
         <namedColor name="Blue01">
             <color red="0.38999998569488525" green="0.54000002145767212" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

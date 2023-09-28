@@ -81,6 +81,9 @@ class PwdViewController: UIViewController, UITextFieldDelegate {
         repassField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: repassField.frame.height))
         repassField.leftViewMode = .always
         
+        passField.attributedPlaceholder = NSAttributedString(string: "비밀번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.Text03!, NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.7])
+        repassField.attributedPlaceholder = NSAttributedString(string: "비밀번호 재확인", attributes: [NSAttributedString.Key.foregroundColor : UIColor.Text03!, NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.7])
+        
         // 초기 상태 버튼
         pwdBtn.applyOriginToButton(color: UIColor.Text05!)
         

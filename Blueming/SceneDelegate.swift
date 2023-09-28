@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let appearance = UITabBarAppearance()
                 
                 // 선택되지 않은 상태의 폰트 및 자간 설정
-                let normalFont = UIFont(name: "Pretendard-Medium", size: 14)
+                let normalFont = UIFont(name: "Pretendard-Medium", size: 10)
                 let normalSpacing: CGFloat = -0.6
                 
                 let normalAttributes: [NSAttributedString.Key: Any] = [
@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 appearance.stackedLayoutAppearance.normal.titleTextAttributes = normalAttributes
                 
                 // 선택된 상태의 폰트 및 자간 설정
-                let selectedFont = UIFont(name: "Pretendard-Medium", size: 14)
+                let selectedFont = UIFont(name: "Pretendard-Medium", size: 10)
                 let selectedSpacing: CGFloat = -0.6
                 
                 let selectedAttributes: [NSAttributedString.Key: Any] = [

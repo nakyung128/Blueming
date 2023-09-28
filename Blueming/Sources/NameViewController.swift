@@ -21,6 +21,7 @@ class NameViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
+            
             let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
             vcName?.modalPresentationStyle = .fullScreen
             vcName?.modalTransitionStyle = .crossDissolve
@@ -58,6 +59,8 @@ class NameViewController: UIViewController, UITextFieldDelegate {
         
         nameField.leftView = paddingView
         nameField.leftViewMode = .always
+        
+        nameField.attributedPlaceholder = NSAttributedString(string: "닉네임", attributes: [NSAttributedString.Key.foregroundColor : UIColor.Text03!, NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.7])
         
         // 초기 상태 버튼
         nameBtn.applyOriginToButton(color: UIColor.Text05!)

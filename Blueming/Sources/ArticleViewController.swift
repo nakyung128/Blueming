@@ -47,6 +47,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     @IBOutlet var articleView: UIView!
     @IBOutlet var mainScroll: UIScrollView!
     @IBOutlet var table: CustomTable!
+    @IBOutlet var search: UIImageView!
     
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         // 선택한 세그먼트 인덱스를 기반으로 선택한 카테고리를 식별합니다.
@@ -301,6 +302,19 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
             leadingDistanceConstraint,
             bottomUnderlineView.widthAnchor.constraint(equalTo: segment.widthAnchor, multiplier: 1 / CGFloat(segment.numberOfSegments))
         ])
+        
+        // 검색 화면으로 이동
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToSearch))
+        search.isUserInteractionEnabled = true
+        search.addGestureRecognizer(tapGesture)
+    }
+    
+    // 검색 화면으로 이동
+    @objc func goToSearch(sender: UITapGestureRecognizer) {
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "searchVC")
+        vcName?.modalPresentationStyle = .fullScreen
+        vcName?.modalTransitionStyle = .crossDissolve
+        self.present(vcName!, animated: true, completion: nil)
     }
     
     private func addContentScrollView() {
