@@ -9,16 +9,33 @@ import UIKit
 
 class MypageViewController: UIViewController {
 
+    @IBOutlet var editBtn: UIButton!
+    
+    @IBOutlet var editPwd: UIImageView!
+    @IBOutlet var logOut: UIImageView!
+    @IBOutlet var signOut: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // 배경 이미지 뷰를 생성하고 추가
-        let backgroundImage = UIImageView(image: UIImage(named: "backImg.png"))
-        backgroundImage.contentMode = .scaleAspectFill // 이미지 크기 조절 옵션 (필요에 따라 변경)
-        backgroundImage.frame = view.bounds // 이미지 뷰를 화면 크기에 맞게 설정
-
-        // 배경 이미지 뷰를 뷰의 맨 뒤에 추가합니다.
-        view.insertSubview(backgroundImage, at: 0)
+        
+        // 뒤로가기 색상 변경
+        navigationController?.navigationBar.tintColor = .Text01
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        
+        let title = "프로필 편집"
+        let attributedString = NSMutableAttributedString(string: title)
+        attributedString.addAttributes([NSAttributedString.Key.kern: -0.4, NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 8)!], range: NSRange(location: 0, length: title.count))
+        editBtn.setAttributedTitle(attributedString, for: .normal)
+        
+        // 비밀번호 변경 화면으로 이동
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(edit))
+        editPwd.isUserInteractionEnabled = true
+        editPwd.addGestureRecognizer(gesture)
+    }
+    
+    @objc func edit(sender: UITapGestureRecognizer) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "EditPwdVC") else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 
