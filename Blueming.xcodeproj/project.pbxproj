@@ -13,7 +13,6 @@
 		F3190E292AAC536C000A7343 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3190E282AAC536C000A7343 /* MypageViewController.swift */; };
 		F3190E2B2AAC6515000A7343 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3190E2A2AAC6515000A7343 /* HomeViewController.swift */; };
 		F3190E2E2AAC814A000A7343 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3190E2D2AAC814A000A7343 /* Article.swift */; };
-		F3190E302AAC81BE000A7343 /* article_img.png in Resources */ = {isa = PBXBuildFile; fileRef = F3190E2F2AAC81BE000A7343 /* article_img.png */; };
 		F3190E332AAC833C000A7343 /* MainArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3190E312AAC833C000A7343 /* MainArticleCell.swift */; };
 		F3190E342AAC833C000A7343 /* MainArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3190E322AAC833C000A7343 /* MainArticleCell.xib */; };
 		F32B28AA2AA8AD0B005803C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32B28A92AA8AD0B005803C8 /* AppDelegate.swift */; };
@@ -31,6 +30,7 @@
 		F350A1382ABAFB9A00203688 /* Chat.png in Resources */ = {isa = PBXBuildFile; fileRef = F350A1372ABAFB9A00203688 /* Chat.png */; };
 		F350A13A2ABB104600203688 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350A1392ABB104600203688 /* UILabel.swift */; };
 		F350A13C2ABB1C3200203688 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350A13B2ABB1C3200203688 /* LoginViewController.swift */; };
+		F3647EBC2AC722F10026FBF0 /* article_img.png in Resources */ = {isa = PBXBuildFile; fileRef = F3647EBB2AC722F10026FBF0 /* article_img.png */; };
 		F36B9E892AC408C500937AD1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36B9E882AC408C500937AD1 /* SearchViewController.swift */; };
 		F36B9E8B2AC40D5300937AD1 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36B9E8A2AC40D5300937AD1 /* Keyword.swift */; };
 		F37D6A382ABE991C007F3C41 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D6A372ABE991C007F3C41 /* EmailViewController.swift */; };
@@ -61,7 +61,6 @@
 		F3190E282AAC536C000A7343 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		F3190E2A2AAC6515000A7343 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3190E2D2AAC814A000A7343 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		F3190E2F2AAC81BE000A7343 /* article_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = article_img.png; sourceTree = "<group>"; };
 		F3190E312AAC833C000A7343 /* MainArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainArticleCell.swift; sourceTree = "<group>"; };
 		F3190E322AAC833C000A7343 /* MainArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainArticleCell.xib; sourceTree = "<group>"; };
 		F32B28A62AA8AD0B005803C8 /* Blueming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blueming.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +80,7 @@
 		F350A1372ABAFB9A00203688 /* Chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chat.png; sourceTree = "<group>"; };
 		F350A1392ABB104600203688 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		F350A13B2ABB1C3200203688 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F3647EBB2AC722F10026FBF0 /* article_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = article_img.png; sourceTree = "<group>"; };
 		F36B9E882AC408C500937AD1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F36B9E8A2AC40D5300937AD1 /* Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		F37D6A372ABE991C007F3C41 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
@@ -196,10 +196,10 @@
 				F350A1372ABAFB9A00203688 /* Chat.png */,
 				F350A1322ABAD51C00203688 /* signUpImg.png */,
 				F350A1302ABAD35400203688 /* startImg.png */,
+				F3647EBB2AC722F10026FBF0 /* article_img.png */,
 				F3EEF9252AB0C1E5007F3D81 /* example_img.png */,
 				F3E587852AA9B99800578876 /* box-1x.png */,
 				F34109492AC5C1C800E755F4 /* LoginBack.png */,
-				F3190E2F2AAC81BE000A7343 /* article_img.png */,
 				F34109452AC5C0DD00E755F4 /* backImg.png */,
 				F3EEF92B2AB0E234007F3D81 /* article-back.png */,
 				F3190E1E2AAC4C95000A7343 /* target-box.png */,
@@ -292,6 +292,7 @@
 			files = (
 				F34109462AC5C0DD00E755F4 /* backImg.png in Resources */,
 				F3190E252AAC4E33000A7343 /* blue-rec.png in Resources */,
+				F3647EBC2AC722F10026FBF0 /* article_img.png in Resources */,
 				F3190E342AAC833C000A7343 /* MainArticleCell.xib in Resources */,
 				F350A1312ABAD35400203688 /* startImg.png in Resources */,
 				F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */,
@@ -302,7 +303,6 @@
 				F3E587862AA9B99800578876 /* box-1x.png in Resources */,
 				F3B05C192AA99BD3003EC4A6 /* Pretendard-SemiBold.otf in Resources */,
 				F350A1382ABAFB9A00203688 /* Chat.png in Resources */,
-				F3190E302AAC81BE000A7343 /* article_img.png in Resources */,
 				F3B05C182AA99BD3003EC4A6 /* Pretendard-Regular.otf in Resources */,
 				F335F9FF2AB9D23000C97E30 /* Main.storyboard in Resources */,
 				F3190E1F2AAC4C95000A7343 /* target-box.png in Resources */,

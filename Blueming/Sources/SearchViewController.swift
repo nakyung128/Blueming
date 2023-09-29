@@ -7,13 +7,30 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
-
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    enum SearchState {
+        case idle
+        case result
+    }
+    
+    // 모든 데이터
+    let allData = Article.allData
+    
+    // 필터링된 데이터 담을 배열
+    var list: [Article] = []
+    
     @IBOutlet var backBtn: UIImageView!
     @IBOutlet var searchField: UITextField!
+    @IBOutlet var searchBtn: UIImageView!
     
+    @IBOutlet var recLabel: UILabel!
+    @IBOutlet var famLabel: UILabel!
     @IBOutlet var recommendView: UIStackView!
     @IBOutlet var famousView: UIStackView!
+    
+    @IBOutlet var resultTableView: UITableView!
+    @IBOutlet var noResult: UILabel!
     
     let recommendData = Keyword.recommend
     let famousData1 = Keyword.famous1
@@ -30,9 +47,42 @@ class SearchViewController: UIViewController {
         return label
     }()
     
+    // 현재 검색 상태
+    var currentState: SearchState = .idle {
+        didSet {
+            updateViewForState()
+        }
+    }
+    
+    func updateViewForState() {
+        switch currentState {
+        case .idle:
+            recommendView.isHidden = false
+            famousView.isHidden = false
+            recLabel.isHidden = false
+            famLabel.isHidden = false
+            noResult.isHidden = true
+            resultTableView.isHidden = true
+        case .result:
+            recommendView.isHidden = true
+            famousView.isHidden = true
+            recLabel.isHidden = true
+            famLabel.isHidden = true
+            resultTableView.isHidden = false
+            
+            if list.isEmpty {
+                resultTableView.isHidden = true
+                noResult.isHidden = false
+            } else {
+                resultTableView.isHidden = false
+                noResult.isHidden = true
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // 검색 필드 스타일
         searchField.attributedPlaceholder = NSAttributedString(string: "어떤 아티클을 찾고 계신가요?", attributes: [NSAttributedString.Key.foregroundColor : UIColor.Text03!, NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.7])
         
@@ -138,11 +188,72 @@ class SearchViewController: UIViewController {
         famousView.addArrangedSubview(famous1)
         famousView.addArrangedSubview(famous2)
         
+        // 검색 화면으로 이동
+        let tap = UITapGestureRecognizer(target: self, action: #selector(search))
+        searchBtn.isUserInteractionEnabled = true
+        searchBtn.addGestureRecognizer(tap)
+        
+        updateViewForState()
+        
+        let nibName = UINib(nibName: "MainArticleCell", bundle: nil)
+        resultTableView.register(nibName, forCellReuseIdentifier: "mainCell")
+        
+        resultTableView.delegate = self
+        resultTableView.dataSource = self
+        
+        resultTableView.backgroundColor = .clear
+        resultTableView.allowsSelection = false // 셀 선택 막기
+        resultTableView.separatorStyle = .none // table view 구분선 없애기
+    }
+    
+    // 아티클 검색
+    @objc func search(sender: UITapGestureRecognizer) {
+        currentState = .result
+        // 배경 이미지 뷰를 생성하고 추가
+        let backgroundImage = UIImageView(image: UIImage(named: "article-back.png"))
+        backgroundImage.contentMode = .scaleAspectFill // 이미지 크기 조절 옵션 (필요에 따라 변경)
+        backgroundImage.frame = view.bounds // 이미지 뷰를 화면 크기에 맞게 설정
+        
+        // 배경 이미지 뷰를 뷰의 맨 뒤에 추가
+        view.insertSubview(backgroundImage, at: 0)
+        
+        // 검색어를 기반으로 데이터 필터링
+        if let searchText = searchField.text, !searchText.isEmpty {
+            list = allData.filter {$0.title.contains(searchText)}
+        } else {
+            list = []
+        }
+        resultTableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return list.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! MainArticleCell
+        let target = list[indexPath.row]
+        
+        cell.img.image = UIImage(named: target.img)
+        cell.title.text = target.title
+        cell.script.text = target.script
+
+        cell.backgroundColor = UIColor.clear.withAlphaComponent(0)
+        
+        // 자간 설정
+        cell.configureCell()
+        
+        return cell
+    }
+    
+    // header 높이 0으로 설정
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.0
     }
     
     // 검색 화면으로 이동
     @objc func back(sender: UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
 }

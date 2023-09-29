@@ -14,6 +14,19 @@ struct Article {
 }
 
 extension Article {
+    static var allData = [
+        Article(img: "article_img.png", title: "불안함을 잠재우기 위한 마음가짐1", script: "불안함을 잠재우기 위한 마음가짐 불안함을 잠재우기 위한 마음가짐"),
+        Article(img: "article_img.png", title: "불안함을 잠재우기 위한 마음가짐2", script: "불안함을 잠재우기 위한 마음가짐 불안함을 잠재우기 위한 마음가짐"),
+        Article(img: "article_img.png", title: "불안함을 잠재우기 위한 마음가짐3", script: "불안함을 잠재우기 위한 마음가짐 불안함을 잠재우기 위한 마음가짐"),
+        Article(img: "article_img.png", title: "우울을 잠재우기 위한 마음가짐1", script: "우울을 잠재우기 위한 마음가짐 우울을 잠재우기 위한 마음가짐"),
+        Article(img: "article_img.png", title: "슬픔을 잠재우기 위한 마음가짐1", script: "슬픔을 잠재우기 위한 마음가짐 슬픔을 잠재우기 위한 마음가짐"),
+        Article(img: "article_img.png", title: "슬픔을 잠재우기 위한 마음가짐2", script: "슬픔을 잠재우기 위한 마음가짐 슬픔을 잠재우기 위한 마음가짐"),
+        Article(img: "article_img.png", title: "스트레스를 잠재우기 위한 마음가짐1", script: "스트레스를 잠재우기 위한 마음가짐 스트레스를 잠재우기 위한 마음가짐"),
+        Article(img: "article_img.png", title: "스트레스를 잠재우기 위한 마음가짐2", script: "스트레스를 잠재우기 위한 마음가짐 스트레스를 잠재우기 위한 마음가짐"),
+        Article(img: "article_img.png", title: "운동을 합시다1", script: "운동을 합시다 운동을 합시다 운동을 합시다"),
+        Article(img: "article_img.png", title: "으쌰으쌰 파이팅1", script: "운동을 합시다 운동을 합시다 운동을 합시다"),
+        Article(img: "article_img.png", title: "플레이브 많은 관심", script: "남예준 한노아 채밤비 도은호 유하민")
+    ]
     static var data = [
         Article(img: "article_img.png", title: "불안함을 잠재우기 위한 마음가짐1", script: "불안함을 잠재우기 위한 마음가짐 불안함을 잠재우기 위한 마음가짐"),
         Article(img: "article_img.png", title: "불안함을 잠재우기 위한 마음가짐2", script: "불안함을 잠재우기 위한 마음가짐 불안함을 잠재우기 위한 마음가짐"),
