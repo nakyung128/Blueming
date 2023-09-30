@@ -36,6 +36,11 @@ class MypageViewController: UIViewController {
         editPwd.isUserInteractionEnabled = true
         editPwd.addGestureRecognizer(gesture)
         
+        // 로그아웃 팝업 띄우기
+        let logoutGesture = UITapGestureRecognizer(target: self, action: #selector(logout))
+        logOut.isUserInteractionEnabled = true
+        logOut.addGestureRecognizer(logoutGesture)
+        
         // 이미지 불러오기
         let fileManager = FileManager.default
 
@@ -81,6 +86,13 @@ class MypageViewController: UIViewController {
     @objc func edit(sender: UITapGestureRecognizer) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "EditPwdVC") else { return }
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func logout(sender: UITapGestureRecognizer) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "logoutVC") else { return }
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
     }
 
 }

@@ -333,10 +333,10 @@
             </objects>
             <point key="canvasLocation" x="318" y="1291"/>
         </scene>
-        <!--Mypage View Controller-->
+        <!--마이페이지-->
         <scene sceneID="KmG-Ks-0jh">
             <objects>
-                <viewController id="Kry-jF-9Yl" customClass="MypageViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="마이페이지" id="Kry-jF-9Yl" customClass="MypageViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zSt-ol-CNG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -512,10 +512,10 @@
             </objects>
             <point key="canvasLocation" x="1833" y="1291"/>
         </scene>
-        <!--Edit Profile View Controller-->
+        <!--프로필 편집-->
         <scene sceneID="MHS-CU-lOQ">
             <objects>
-                <viewController id="VZB-Hi-tC4" customClass="EditProfileViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="프로필 편집" id="VZB-Hi-tC4" customClass="EditProfileViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dGq-fj-Ua5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -593,6 +593,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kri-XB-SFl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1832.8" y="2003.9408866995075"/>
+        </scene>
+        <!--로그아웃-->
+        <scene sceneID="pjo-pf-Scq">
+            <objects>
+                <viewController storyboardIdentifier="logoutVC" title="로그아웃" id="sV1-nK-kt1" customClass="LogOutViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" alpha="0.75" contentMode="scaleToFill" id="DhV-Je-y2J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popup-view.png" translatesAutoresizingMaskIntoConstraints="NO" id="p2m-IA-agF">
+                                <rect key="frame" x="12.666666666666657" y="240" width="350" height="280"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그아웃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6U-sz-D1U">
+                                <rect key="frame" x="146" y="286" width="83" height="28.666666666666686"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="24"/>
+                                <color key="textColor" name="Blue01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-1.2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그아웃 하시겠습니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAM-1i-gIZ">
+                                <rect key="frame" x="121.66666666666667" y="372.66666666666669" width="131.66666666666663" height="17"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
+                                <color key="textColor" name="Text01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="tTx-Sc-tGL">
+                                <rect key="frame" x="41.666666666666657" y="451.66666666666669" width="292" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu6-ZH-xq8">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="MOh-gN-M5o"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="취소">
+                                            <fontDescription key="titleFontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
+                                            <color key="baseBackgroundColor" name="Text05"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="cancel:" destination="sV1-nK-kt1" eventType="touchUpInside" id="McS-MM-kKu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgt-XP-fi1">
+                                        <rect key="frame" x="152" y="0.0" width="140" height="50"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="확인">
+                                            <fontDescription key="titleFontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="ok:" destination="sV1-nK-kt1" eventType="touchUpInside" id="sFY-v4-avl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="au9-Jf-ORf"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xB4-5U-Bik"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="W6U-sz-D1U" firstAttribute="top" secondItem="p2m-IA-agF" secondAttribute="top" constant="46" id="1UW-TV-lE1"/>
+                            <constraint firstItem="kAM-1i-gIZ" firstAttribute="centerX" secondItem="DhV-Je-y2J" secondAttribute="centerX" id="BgF-Gy-8Xc"/>
+                            <constraint firstItem="tTx-Sc-tGL" firstAttribute="top" secondItem="kAM-1i-gIZ" secondAttribute="bottom" constant="62" id="bt3-0G-ZUF"/>
+                            <constraint firstItem="xB4-5U-Bik" firstAttribute="bottom" secondItem="p2m-IA-agF" secondAttribute="bottom" constant="258" id="eeC-R9-nmh"/>
+                            <constraint firstItem="p2m-IA-agF" firstAttribute="top" secondItem="xB4-5U-Bik" secondAttribute="top" constant="190" id="gpG-1F-cuW"/>
+                            <constraint firstItem="p2m-IA-agF" firstAttribute="centerX" secondItem="DhV-Je-y2J" secondAttribute="centerX" id="khY-rp-weJ"/>
+                            <constraint firstItem="tTx-Sc-tGL" firstAttribute="centerX" secondItem="DhV-Je-y2J" secondAttribute="centerX" id="lUD-ae-Cmn"/>
+                            <constraint firstItem="W6U-sz-D1U" firstAttribute="centerX" secondItem="DhV-Je-y2J" secondAttribute="centerX" id="s8B-GG-ODb"/>
+                            <constraint firstItem="kAM-1i-gIZ" firstAttribute="top" secondItem="W6U-sz-D1U" secondAttribute="bottom" constant="58" id="vke-wk-h6Y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="Hu6-ZH-xq8" id="can-YI-YDn"/>
+                        <outlet property="okBtn" destination="cgt-XP-fi1" id="x2k-s0-hzD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cic-Av-cQw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2588" y="2003.9408866995075"/>
         </scene>
         <!--Edit Pwd View Controller-->
         <scene sceneID="e8W-dt-JVF">
@@ -1451,7 +1541,7 @@
         <!--Navigation Controller-->
         <scene sceneID="8bX-xu-G2I">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="00t-iM-Qwl" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="firstVC" automaticallyAdjustsScrollViewInsets="NO" id="00t-iM-Qwl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Nl-F3-lpM">
                         <rect key="frame" x="0.0" y="50" width="375" height="44"/>
@@ -1500,6 +1590,7 @@
         <image name="note" width="27.666666030883789" height="25.666666030883789"/>
         <image name="notification" width="24" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="popup-view.png" width="350" height="274"/>
         <image name="profile" width="124" height="124"/>
         <image name="right" width="6" height="10"/>
         <image name="search" width="19" height="19"/>

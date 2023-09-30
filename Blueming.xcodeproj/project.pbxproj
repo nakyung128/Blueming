@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F30E3D3E2AC8575900CB1316 /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30E3D3D2AC8575900CB1316 /* LogOutViewController.swift */; };
+		F30E3D402AC857A100CB1316 /* popup-view.png in Resources */ = {isa = PBXBuildFile; fileRef = F30E3D3F2AC857A100CB1316 /* popup-view.png */; };
 		F3190E1F2AAC4C95000A7343 /* target-box.png in Resources */ = {isa = PBXBuildFile; fileRef = F3190E1E2AAC4C95000A7343 /* target-box.png */; };
 		F3190E252AAC4E33000A7343 /* blue-rec.png in Resources */ = {isa = PBXBuildFile; fileRef = F3190E242AAC4E33000A7343 /* blue-rec.png */; };
 		F3190E272AAC535E000A7343 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3190E262AAC535E000A7343 /* NoteViewController.swift */; };
@@ -60,6 +62,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F30E3D3D2AC8575900CB1316 /* LogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
+		F30E3D3F2AC857A100CB1316 /* popup-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popup-view.png"; sourceTree = "<group>"; };
 		F3190E1E2AAC4C95000A7343 /* target-box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-box.png"; sourceTree = "<group>"; };
 		F3190E242AAC4E33000A7343 /* blue-rec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-rec.png"; sourceTree = "<group>"; };
 		F3190E262AAC535E000A7343 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 				F36B9E882AC408C500937AD1 /* SearchViewController.swift */,
 				F3647EC32AC73A3C0026FBF0 /* EditPwdViewController.swift */,
 				F3BB67062AC7FA2C0066E0DD /* EditProfileViewController.swift */,
+				F30E3D3D2AC8575900CB1316 /* LogOutViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 			children = (
 				F350A1372ABAFB9A00203688 /* Chat.png */,
 				F350A1322ABAD51C00203688 /* signUpImg.png */,
+				F30E3D3F2AC857A100CB1316 /* popup-view.png */,
 				F3647EBD2AC72CD40026FBF0 /* mypageBox.png */,
 				F350A1302ABAD35400203688 /* startImg.png */,
 				F3647EC12AC733290026FBF0 /* gray_line.png */,
@@ -312,6 +318,7 @@
 				F350A1312ABAD35400203688 /* startImg.png in Resources */,
 				F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */,
 				F3E587842AA9B80000578876 /* box1.png in Resources */,
+				F30E3D402AC857A100CB1316 /* popup-view.png in Resources */,
 				F341094A2AC5C1C800E755F4 /* LoginBack.png in Resources */,
 				F3EEF92C2AB0E234007F3D81 /* article-back.png in Resources */,
 				F3B05C1B2AA99BD3003EC4A6 /* Pretendard-Medium.otf in Resources */,
@@ -338,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F350A13C2ABB1C3200203688 /* LoginViewController.swift in Sources */,
+				F30E3D3E2AC8575900CB1316 /* LogOutViewController.swift in Sources */,
 				F350A13A2ABB104600203688 /* UILabel.swift in Sources */,
 				F37D6A3E2AC0000F007F3C41 /* TabBarViewController.swift in Sources */,
 				F37D6A3C2ABEA866007F3C41 /* NameViewController.swift in Sources */,
