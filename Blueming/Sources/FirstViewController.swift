@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class FirstViewController: UIViewController, UIScrollViewDelegate {
     
@@ -16,6 +17,22 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var imageScroll: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var signUp: UILabel!
+    
+    @IBAction func google(_ sender: Any) {
+        // 구글 로그인
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
+            guard error == nil else { return }
+            
+            guard let signInResult = signInResult else { return }
+
+            let user = signInResult.user
+            let email = user.profile?.email
+            
+            // 프로필 완성 화면으로 전환
+            guard let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") else { return }
+            self.navigationController?.pushViewController(vcName, animated: true)
+        }
+    }
     
     // 스크롤 뷰 데이터
     var images = [ UIImage(named: "Chat.png"), UIImage(named: "Chat.png"), UIImage(named: "Chat.png") ]

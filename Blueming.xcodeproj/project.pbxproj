@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F4B3E9681166715A8B3369D /* Pods_Blueming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47D168201E5E31B7530E42C /* Pods_Blueming.framework */; };
 		F30E3D3E2AC8575900CB1316 /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30E3D3D2AC8575900CB1316 /* LogOutViewController.swift */; };
 		F30E3D402AC857A100CB1316 /* popup-view.png in Resources */ = {isa = PBXBuildFile; fileRef = F30E3D3F2AC857A100CB1316 /* popup-view.png */; };
 		F30E3D422AC86DB700CB1316 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30E3D412AC86DB700CB1316 /* SignOutViewController.swift */; };
@@ -43,6 +44,8 @@
 		F37D6A3A2ABEA7BE007F3C41 /* PwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D6A392ABEA7BE007F3C41 /* PwdViewController.swift */; };
 		F37D6A3C2ABEA866007F3C41 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D6A3B2ABEA866007F3C41 /* NameViewController.swift */; };
 		F37D6A3E2AC0000F007F3C41 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D6A3D2AC0000F007F3C41 /* TabBarViewController.swift */; };
+		F38614102AC875F200D5001F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F386140F2AC875F200D5001F /* FirebaseAnalytics */; };
+		F38614122AC877CB00D5001F /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = F38614112AC877CB00D5001F /* GoogleService-Info (1).plist */; };
 		F3A8564C2AB2CE4E00264E3B /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8564B2AB2CE4E00264E3B /* Tags.swift */; };
 		F3A8564E2AB2CF3900264E3B /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8564D2AB2CF3900264E3B /* TagCell.swift */; };
 		F3A856522AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A856512AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift */; };
@@ -63,6 +66,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		819B905DCFFF0DA1D7876928 /* Pods-Blueming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueming.release.xcconfig"; path = "Target Support Files/Pods-Blueming/Pods-Blueming.release.xcconfig"; sourceTree = "<group>"; };
+		CEF1C2E7EC930CF10FE8047F /* Pods-Blueming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueming.debug.xcconfig"; path = "Target Support Files/Pods-Blueming/Pods-Blueming.debug.xcconfig"; sourceTree = "<group>"; };
+		D47D168201E5E31B7530E42C /* Pods_Blueming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blueming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30E3D3D2AC8575900CB1316 /* LogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
 		F30E3D3F2AC857A100CB1316 /* popup-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popup-view.png"; sourceTree = "<group>"; };
 		F30E3D412AC86DB700CB1316 /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 		F37D6A392ABEA7BE007F3C41 /* PwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwdViewController.swift; sourceTree = "<group>"; };
 		F37D6A3B2ABEA866007F3C41 /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		F37D6A3D2AC0000F007F3C41 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		F38614112AC877CB00D5001F /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
 		F3A8564B2AB2CE4E00264E3B /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
 		F3A8564D2AB2CF3900264E3B /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		F3A856512AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -125,12 +132,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F38614102AC875F200D5001F /* FirebaseAnalytics in Frameworks */,
+				3F4B3E9681166715A8B3369D /* Pods_Blueming.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09CE58853518917B0417F076 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CEF1C2E7EC930CF10FE8047F /* Pods-Blueming.debug.xcconfig */,
+				819B905DCFFF0DA1D7876928 /* Pods-Blueming.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DE0F755FD37D9786B8409125 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D47D168201E5E31B7530E42C /* Pods_Blueming.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F3190E2C2AAC813A000A7343 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +173,8 @@
 			children = (
 				F32B28A82AA8AD0B005803C8 /* Blueming */,
 				F32B28A72AA8AD0B005803C8 /* Products */,
+				09CE58853518917B0417F076 /* Pods */,
+				DE0F755FD37D9786B8409125 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,6 +201,7 @@
 				F32B28B22AA8AD0C005803C8 /* Assets.xcassets */,
 				F32B28B42AA8AD0C005803C8 /* LaunchScreen.storyboard */,
 				F32B28B72AA8AD0C005803C8 /* Info.plist */,
+				F38614112AC877CB00D5001F /* GoogleService-Info (1).plist */,
 			);
 			path = Blueming;
 			sourceTree = "<group>";
@@ -263,15 +292,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F32B28BA2AA8AD0C005803C8 /* Build configuration list for PBXNativeTarget "Blueming" */;
 			buildPhases = (
+				D6591278FD8588AA148A4446 /* [CP] Check Pods Manifest.lock */,
 				F32B28A22AA8AD0B005803C8 /* Sources */,
 				F32B28A32AA8AD0B005803C8 /* Frameworks */,
 				F32B28A42AA8AD0B005803C8 /* Resources */,
+				88188B4C2631F8687C468501 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Blueming;
+			packageProductDependencies = (
+				F386140F2AC875F200D5001F /* FirebaseAnalytics */,
+			);
 			productName = Blueming;
 			productReference = F32B28A62AA8AD0B005803C8 /* Blueming.app */;
 			productType = "com.apple.product-type.application";
@@ -300,6 +334,9 @@
 				Base,
 			);
 			mainGroup = F32B289D2AA8AD0B005803C8;
+			packageReferences = (
+				F386140E2AC875F200D5001F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = F32B28A72AA8AD0B005803C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -321,6 +358,7 @@
 				F350A1312ABAD35400203688 /* startImg.png in Resources */,
 				F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */,
 				F3E587842AA9B80000578876 /* box1.png in Resources */,
+				F38614122AC877CB00D5001F /* GoogleService-Info (1).plist in Resources */,
 				F30E3D402AC857A100CB1316 /* popup-view.png in Resources */,
 				F341094A2AC5C1C800E755F4 /* LoginBack.png in Resources */,
 				F3EEF92C2AB0E234007F3D81 /* article-back.png in Resources */,
@@ -341,6 +379,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		88188B4C2631F8687C468501 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Blueming/Pods-Blueming-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Blueming/Pods-Blueming-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Blueming/Pods-Blueming-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6591278FD8588AA148A4446 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Blueming-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F32B28A22AA8AD0B005803C8 /* Sources */ = {
@@ -510,6 +590,7 @@
 		};
 		F32B28BB2AA8AD0C005803C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEF1C2E7EC930CF10FE8047F /* Pods-Blueming.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -538,6 +619,7 @@
 		};
 		F32B28BC2AA8AD0C005803C8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 819B905DCFFF0DA1D7876928 /* Pods-Blueming.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -586,6 +668,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F386140E2AC875F200D5001F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F386140F2AC875F200D5001F /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F386140E2AC875F200D5001F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F32B289E2AA8AD0B005803C8 /* Project object */;
 }
