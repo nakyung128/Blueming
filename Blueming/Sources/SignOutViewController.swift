@@ -1,5 +1,5 @@
 //
-//  LogOutViewController.swift
+//  SignOutViewController.swift
 //  Blueming
 //
 //  Created by 이나경 on 2023/09/30.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class LogOutViewController: UIViewController {
-    
+class SignOutViewController: UIViewController {
+
     @IBOutlet var cancelBtn: UIButton!
     @IBOutlet var okBtn: UIButton!
     
@@ -34,7 +34,7 @@ class LogOutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // 초기 상태 버튼
         cancelBtn.applyOriginToButton(color: UIColor.Text05!)
         okBtn.applyGradientToButton(startColor: UIColor(red: 0.393, green: 0.538, blue: 0.983, alpha: 1), endColor: UIColor(red: 0.557, green: 0.667, blue: 1, alpha: 1))

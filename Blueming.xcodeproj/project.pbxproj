@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F30E3D3E2AC8575900CB1316 /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30E3D3D2AC8575900CB1316 /* LogOutViewController.swift */; };
 		F30E3D402AC857A100CB1316 /* popup-view.png in Resources */ = {isa = PBXBuildFile; fileRef = F30E3D3F2AC857A100CB1316 /* popup-view.png */; };
+		F30E3D422AC86DB700CB1316 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30E3D412AC86DB700CB1316 /* SignOutViewController.swift */; };
 		F3190E1F2AAC4C95000A7343 /* target-box.png in Resources */ = {isa = PBXBuildFile; fileRef = F3190E1E2AAC4C95000A7343 /* target-box.png */; };
 		F3190E252AAC4E33000A7343 /* blue-rec.png in Resources */ = {isa = PBXBuildFile; fileRef = F3190E242AAC4E33000A7343 /* blue-rec.png */; };
 		F3190E272AAC535E000A7343 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3190E262AAC535E000A7343 /* NoteViewController.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		F30E3D3D2AC8575900CB1316 /* LogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
 		F30E3D3F2AC857A100CB1316 /* popup-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popup-view.png"; sourceTree = "<group>"; };
+		F30E3D412AC86DB700CB1316 /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
 		F3190E1E2AAC4C95000A7343 /* target-box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-box.png"; sourceTree = "<group>"; };
 		F3190E242AAC4E33000A7343 /* blue-rec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-rec.png"; sourceTree = "<group>"; };
 		F3190E262AAC535E000A7343 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				F3647EC32AC73A3C0026FBF0 /* EditPwdViewController.swift */,
 				F3BB67062AC7FA2C0066E0DD /* EditProfileViewController.swift */,
 				F30E3D3D2AC8575900CB1316 /* LogOutViewController.swift */,
+				F30E3D412AC86DB700CB1316 /* SignOutViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				F3A8564C2AB2CE4E00264E3B /* Tags.swift in Sources */,
 				F3A856522AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				F350A1362ABAD57600203688 /* FirstViewController.swift in Sources */,
+				F30E3D422AC86DB700CB1316 /* SignOutViewController.swift in Sources */,
 				F3B05C042AA99719003EC4A6 /* CheckViewController.swift in Sources */,
 				F37D6A3A2ABEA7BE007F3C41 /* PwdViewController.swift in Sources */,
 				F3BB67092AC8056B0066E0DD /* NotificationCenter.swift in Sources */,

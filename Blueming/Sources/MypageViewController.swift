@@ -41,6 +41,11 @@ class MypageViewController: UIViewController {
         logOut.isUserInteractionEnabled = true
         logOut.addGestureRecognizer(logoutGesture)
         
+        // 회원 탈퇴 팝업 띄우기
+        let signoutGesture = UITapGestureRecognizer(target: self, action: #selector(signout))
+        signOut.isUserInteractionEnabled = true
+        signOut.addGestureRecognizer(signoutGesture)
+        
         // 이미지 불러오기
         let fileManager = FileManager.default
 
@@ -90,6 +95,13 @@ class MypageViewController: UIViewController {
     
     @objc func logout(sender: UITapGestureRecognizer) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "logoutVC") else { return }
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func signout(sender: UITapGestureRecognizer) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "signoutVC") else { return }
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true, completion: nil)

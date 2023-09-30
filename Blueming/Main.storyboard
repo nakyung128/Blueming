@@ -1575,6 +1575,96 @@
             </objects>
             <point key="canvasLocation" x="1095" y="1291"/>
         </scene>
+        <!--회원탈퇴-->
+        <scene sceneID="ssv-JF-Fyh">
+            <objects>
+                <viewController storyboardIdentifier="signoutVC" title="회원탈퇴" id="crF-tg-Qeo" customClass="SignOutViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" alpha="0.75" contentMode="scaleToFill" id="RMr-5I-hrX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popup-view.png" translatesAutoresizingMaskIntoConstraints="NO" id="gtf-yk-QgL">
+                                <rect key="frame" x="12.666666666666657" y="240" width="350" height="280"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원 탈퇴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pa2-ar-I4o">
+                                <rect key="frame" x="143.33333333333334" y="286" width="88.666666666666657" height="28.666666666666686"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="24"/>
+                                <color key="textColor" name="Blue01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-1.2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원을 탈퇴하시겠습니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlC-F0-Ds7">
+                                <rect key="frame" x="115.66666666666667" y="372.66666666666669" width="143.66666666666663" height="17"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
+                                <color key="textColor" name="Text01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Lob-xa-b62">
+                                <rect key="frame" x="41.666666666666657" y="451.66666666666669" width="292" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGa-Bi-npP">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="SbT-DW-Wv2"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="취소">
+                                            <fontDescription key="titleFontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
+                                            <color key="baseBackgroundColor" name="Text05"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="cancel:" destination="crF-tg-Qeo" eventType="touchUpInside" id="TdB-Vs-dOB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h99-QR-t4a">
+                                        <rect key="frame" x="152" y="0.0" width="140" height="50"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="확인">
+                                            <fontDescription key="titleFontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="ok:" destination="crF-tg-Qeo" eventType="touchUpInside" id="MHY-H0-xMc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="pXV-DH-L80"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Kfi-cZ-5Fu"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FlC-F0-Ds7" firstAttribute="centerX" secondItem="RMr-5I-hrX" secondAttribute="centerX" id="26g-tQ-eKg"/>
+                            <constraint firstItem="Pa2-ar-I4o" firstAttribute="centerX" secondItem="RMr-5I-hrX" secondAttribute="centerX" id="97H-ws-JfI"/>
+                            <constraint firstItem="gtf-yk-QgL" firstAttribute="top" secondItem="Kfi-cZ-5Fu" secondAttribute="top" constant="190" id="GIn-xH-qbK"/>
+                            <constraint firstItem="Kfi-cZ-5Fu" firstAttribute="bottom" secondItem="gtf-yk-QgL" secondAttribute="bottom" constant="258" id="Kh1-YC-rC5"/>
+                            <constraint firstItem="FlC-F0-Ds7" firstAttribute="top" secondItem="Pa2-ar-I4o" secondAttribute="bottom" constant="58" id="SCs-Ay-FXi"/>
+                            <constraint firstItem="Pa2-ar-I4o" firstAttribute="top" secondItem="gtf-yk-QgL" secondAttribute="top" constant="46" id="TY3-ic-5eB"/>
+                            <constraint firstItem="gtf-yk-QgL" firstAttribute="centerX" secondItem="RMr-5I-hrX" secondAttribute="centerX" id="qSa-r3-d7z"/>
+                            <constraint firstItem="Lob-xa-b62" firstAttribute="centerX" secondItem="RMr-5I-hrX" secondAttribute="centerX" id="viB-9Z-Jgw"/>
+                            <constraint firstItem="Lob-xa-b62" firstAttribute="top" secondItem="FlC-F0-Ds7" secondAttribute="bottom" constant="62" id="yyt-PU-PtZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="OGa-Bi-npP" id="729-yS-qTw"/>
+                        <outlet property="okBtn" destination="h99-QR-t4a" id="qO2-96-Aaz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q7i-SR-HfZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3337" y="2004"/>
+        </scene>
     </scenes>
     <resources>
         <image name="article" width="24" height="24"/>
