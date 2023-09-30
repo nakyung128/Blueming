@@ -14,9 +14,13 @@ class MypageViewController: UIViewController {
     @IBOutlet var editPwd: UIImageView!
     @IBOutlet var logOut: UIImageView!
     @IBOutlet var signOut: UIImageView!
+    @IBOutlet var profile: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 옵저버 등록
+        NotificationCenter.default.addObserver(self, selector: #selector(handleProfileUpdate), name: .profileUpdated, object: nil)
         
         // 뒤로가기 색상 변경
         navigationController?.navigationBar.tintColor = .Text01
@@ -31,22 +35,52 @@ class MypageViewController: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(edit))
         editPwd.isUserInteractionEnabled = true
         editPwd.addGestureRecognizer(gesture)
+        
+        // 이미지 불러오기
+        let fileManager = FileManager.default
+
+        if let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let imagePath = documentDirectory.appendingPathComponent("savedImg.png")
+            
+            if let loadedImageData = try? Data(contentsOf: imagePath) {
+                let loadedImage = UIImage(data: loadedImageData)
+                // 이미지 원형으로 표시
+                profile.layer.cornerRadius = self.profile.frame.height/2
+                profile.layer.borderWidth = 1
+                profile.clipsToBounds = true
+                profile.layer.borderColor = UIColor.clear.cgColor
+                profile.image = loadedImage
+            }
+        }
+    }
+    
+    // 옵저버 해제
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func handleProfileUpdate() {
+        // 이미지 불러오기
+        let fileManager = FileManager.default
+
+        if let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let imagePath = documentDirectory.appendingPathComponent("savedImg.png")
+            
+            if let loadedImageData = try? Data(contentsOf: imagePath) {
+                let loadedImage = UIImage(data: loadedImageData)
+                // 이미지 원형으로 표시
+                profile.layer.cornerRadius = self.profile.frame.height/2
+                profile.layer.borderWidth = 1
+                profile.clipsToBounds = true
+                profile.layer.borderColor = UIColor.clear.cgColor
+                profile.image = loadedImage
+            }
+        }
     }
     
     @objc func edit(sender: UITapGestureRecognizer) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "EditPwdVC") else { return }
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

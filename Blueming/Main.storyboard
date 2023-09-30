@@ -355,7 +355,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypageBox.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZaC-Uq-hQO">
                                 <rect key="frame" x="12.666666666666657" y="152.66666666666666" width="350" height="96"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="2T2-8b-Tn6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="2T2-8b-Tn6">
                                 <rect key="frame" x="86.666666666666671" y="170.66666666666666" width="60.000000000000014" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="LMS-S4-fRj"/>
@@ -392,6 +392,9 @@
                                     <color key="baseForegroundColor" name="Blue01"/>
                                     <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="VZB-Hi-tC4" kind="show" id="qDy-kI-WVC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z04-Ea-eUn">
                                 <rect key="frame" x="20" y="278.66666666666669" width="66.666666666666671" height="21.666666666666686"/>
@@ -501,12 +504,95 @@
                         <outlet property="editBtn" destination="psd-q2-B4c" id="YyP-4L-fJu"/>
                         <outlet property="editPwd" destination="6Kz-1T-XyH" id="qXT-41-l51"/>
                         <outlet property="logOut" destination="Qer-Oa-y3C" id="o1O-Kb-fT1"/>
+                        <outlet property="profile" destination="2T2-8b-Tn6" id="658-g1-ER0"/>
                         <outlet property="signOut" destination="AtS-d3-tTi" id="T0O-eu-hTb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CDB-m9-hVN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1833" y="1291"/>
+        </scene>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="MHS-CU-lOQ">
+            <objects>
+                <viewController id="VZB-Hi-tC4" customClass="EditProfileViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dGq-fj-Ua5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="6yV-3z-qU5">
+                                <rect key="frame" x="124.66666666666669" y="167" width="126" height="126"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="c5i-Bx-JIb"/>
+                                    <constraint firstAttribute="height" constant="126" id="gOG-iA-iwW"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpb-YA-FCd">
+                                <rect key="frame" x="129" y="307" width="116" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="프로필 사진 수정">
+                                    <fontDescription key="titleFontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
+                                    <color key="baseForegroundColor" name="Blue01"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="editImg:" destination="VZB-Hi-tC4" eventType="touchUpInside" id="dJp-aJ-P1F"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="닉네임" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YjI-9X-nAP">
+                                <rect key="frame" x="12.666666666666657" y="398" width="350" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="8kW-Xx-dN9"/>
+                                    <constraint firstAttribute="height" constant="50" id="Ewp-dc-l9e"/>
+                                </constraints>
+                                <color key="textColor" name="Text01"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSQ-bE-Loh">
+                                <rect key="frame" x="12.666666666666657" y="468" width="350" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Bom-Lp-vP8"/>
+                                    <constraint firstAttribute="width" constant="350" id="WeO-zr-6m9"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="완료">
+                                    <fontDescription key="titleFontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" name="Text05"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="finish:" destination="VZB-Hi-tC4" eventType="touchUpInside" id="4fw-Fd-0XD"/>
+                                    <action selector="finish:" destination="USN-yd-n5h" eventType="touchUpInside" id="B9x-in-074"/>
+                                    <action selector="goToPwd:" destination="Oe5-La-jc9" eventType="touchUpInside" id="72a-3e-3GZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dqW-Hw-a6a"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YjI-9X-nAP" firstAttribute="top" secondItem="Fpb-YA-FCd" secondAttribute="bottom" constant="60" id="5Ol-5f-X2p"/>
+                            <constraint firstItem="6yV-3z-qU5" firstAttribute="centerX" secondItem="dGq-fj-Ua5" secondAttribute="centerX" id="EuV-MP-GhO"/>
+                            <constraint firstItem="YjI-9X-nAP" firstAttribute="centerX" secondItem="dGq-fj-Ua5" secondAttribute="centerX" id="FaT-fr-Iv8"/>
+                            <constraint firstItem="zSQ-bE-Loh" firstAttribute="centerX" secondItem="dGq-fj-Ua5" secondAttribute="centerX" id="IE9-IO-64w"/>
+                            <constraint firstItem="dqW-Hw-a6a" firstAttribute="trailing" secondItem="Fpb-YA-FCd" secondAttribute="trailing" constant="130" id="OjZ-vk-FRQ"/>
+                            <constraint firstItem="zSQ-bE-Loh" firstAttribute="top" secondItem="YjI-9X-nAP" secondAttribute="bottom" constant="20" id="ZYo-Lt-aMu"/>
+                            <constraint firstItem="Fpb-YA-FCd" firstAttribute="leading" secondItem="dqW-Hw-a6a" secondAttribute="leading" constant="129" id="dmv-Ob-C9I"/>
+                            <constraint firstItem="6yV-3z-qU5" firstAttribute="top" secondItem="dqW-Hw-a6a" secondAttribute="top" constant="73" id="rhL-pQ-UQi"/>
+                            <constraint firstItem="Fpb-YA-FCd" firstAttribute="top" secondItem="6yV-3z-qU5" secondAttribute="bottom" constant="14" id="zhJ-Mb-Ov7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" style="editor" id="agW-Wn-6h6"/>
+                    <connections>
+                        <outlet property="editProfile" destination="Fpb-YA-FCd" id="C6f-tD-Hq3"/>
+                        <outlet property="finishBtn" destination="zSQ-bE-Loh" id="bLN-s3-8gQ"/>
+                        <outlet property="nickname" destination="YjI-9X-nAP" id="VtW-sW-RG6"/>
+                        <outlet property="profileImg" destination="6yV-3z-qU5" id="cFd-cE-6bR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kri-XB-SFl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1832.8" y="2003.9408866995075"/>
         </scene>
         <!--Edit Pwd View Controller-->
         <scene sceneID="e8W-dt-JVF">
@@ -573,6 +659,7 @@
                                     <color key="baseBackgroundColor" name="Text05"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="finish:" destination="USN-yd-n5h" eventType="touchUpInside" id="LpA-q8-f8A"/>
                                     <action selector="goToPwd:" destination="Oe5-La-jc9" eventType="touchUpInside" id="IIn-2o-yol"/>
                                 </connections>
                             </button>
@@ -594,6 +681,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="kDf-7f-BMH"/>
                     <connections>
+                        <outlet property="finishBtn" destination="fWn-iW-Cd6" id="Maj-AV-X50"/>
+                        <outlet property="newPwd" destination="fOa-rY-cKz" id="VY5-6G-NOY"/>
+                        <outlet property="nowPwd" destination="fT8-MV-0KF" id="ctD-ld-RKw"/>
+                        <outlet property="reNewPwd" destination="Kuo-4M-Zhc" id="IWh-05-3vE"/>
                         <outlet property="script" destination="Xrp-95-OBc" id="Cgw-8v-r8Q"/>
                     </connections>
                 </viewController>
@@ -1409,7 +1500,7 @@
         <image name="note" width="27.666666030883789" height="25.666666030883789"/>
         <image name="notification" width="24" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="profile.png" width="60" height="60"/>
+        <image name="profile" width="124" height="124"/>
         <image name="right" width="6" height="10"/>
         <image name="search" width="19" height="19"/>
         <image name="target-box.png" width="368" height="182"/>

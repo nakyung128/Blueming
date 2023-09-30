@@ -20,6 +20,11 @@ class EmailViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
+            // UserDefaults에 이메일 저장
+            let dataSave = UserDefaults.standard
+            dataSave.setValue(self.email.text, forKey: "user_email")
+            UserDefaults.standard.synchronize()
+            
             guard let vc = self.storyboard?.instantiateViewController(identifier: "pwdVC") else { return }
             self.navigationController?.pushViewController(vc, animated: true)
         }

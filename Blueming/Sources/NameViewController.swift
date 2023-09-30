@@ -21,6 +21,10 @@ class NameViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
+            // UserDefaults에 닉네임 저장
+            let dataSave = UserDefaults.standard
+            dataSave.setValue(self.nameField.text, forKey: "user_name")
+            UserDefaults.standard.synchronize()
             
             let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
             vcName?.modalPresentationStyle = .fullScreen

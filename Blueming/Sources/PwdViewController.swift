@@ -27,6 +27,11 @@ class PwdViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
+            // UserDefaults에 비밀번호 저장
+            let dataSave = UserDefaults.standard
+            dataSave.setValue(self.passField.text, forKey: "user_pwd")
+            UserDefaults.standard.synchronize()
+            
             guard let vc = self.storyboard?.instantiateViewController(identifier: "nameVC") else { return }
             self.navigationController?.pushViewController(vc, animated: true)
         }
