@@ -64,6 +64,8 @@
 		F3B9CDB62ACAE5BE00DD1E7B /* answer_view.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B9CDB52ACAE5BE00DD1E7B /* answer_view.png */; };
 		F3B9CDB82ACAE7BA00DD1E7B /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9CDB72ACAE7BA00DD1E7B /* Answer.swift */; };
 		F3B9CDBA2ACAE9FC00DD1E7B /* select_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B9CDB92ACAE9FC00DD1E7B /* select_background.png */; };
+		F3B9CDBC2ACB11E900DD1E7B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9CDBB2ACB11E900DD1E7B /* ResultViewController.swift */; };
+		F3B9CDBE2ACB131D00DD1E7B /* result_box.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B9CDBD2ACB131D00DD1E7B /* result_box.png */; };
 		F3BB67072AC7FA2C0066E0DD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BB67062AC7FA2C0066E0DD /* EditProfileViewController.swift */; };
 		F3BB67092AC8056B0066E0DD /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BB67082AC8056B0066E0DD /* NotificationCenter.swift */; };
 		F3E587842AA9B80000578876 /* box1.png in Resources */ = {isa = PBXBuildFile; fileRef = F3E587832AA9B80000578876 /* box1.png */; };
@@ -134,6 +136,8 @@
 		F3B9CDB52ACAE5BE00DD1E7B /* answer_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = answer_view.png; sourceTree = "<group>"; };
 		F3B9CDB72ACAE7BA00DD1E7B /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		F3B9CDB92ACAE9FC00DD1E7B /* select_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_background.png; sourceTree = "<group>"; };
+		F3B9CDBB2ACB11E900DD1E7B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		F3B9CDBD2ACB131D00DD1E7B /* result_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = result_box.png; sourceTree = "<group>"; };
 		F3BB67062AC7FA2C0066E0DD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		F3BB67082AC8056B0066E0DD /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		F3E587832AA9B80000578876 /* box1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box1.png; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 				F30E3D3D2AC8575900CB1316 /* LogOutViewController.swift */,
 				F30E3D412AC86DB700CB1316 /* SignOutViewController.swift */,
 				F3B9CDAD2ACAB53900DD1E7B /* QuestionViewController.swift */,
+				F3B9CDBB2ACB11E900DD1E7B /* ResultViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 		F3B05C072AA999BC003EC4A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F3B9CDBD2ACB131D00DD1E7B /* result_box.png */,
 				F3B9CDB92ACAE9FC00DD1E7B /* select_background.png */,
 				F3B9CDB52ACAE5BE00DD1E7B /* answer_view.png */,
 				F3B9CDAF2ACAE3D800DD1E7B /* question_background.png */,
@@ -375,6 +381,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3B9CDBE2ACB131D00DD1E7B /* result_box.png in Resources */,
 				F34109462AC5C0DD00E755F4 /* backImg.png in Resources */,
 				F3190E252AAC4E33000A7343 /* blue-rec.png in Resources */,
 				F3647EBC2AC722F10026FBF0 /* article_img.png in Resources */,
@@ -481,6 +488,7 @@
 				F350A1362ABAD57600203688 /* FirstViewController.swift in Sources */,
 				F30E3D422AC86DB700CB1316 /* SignOutViewController.swift in Sources */,
 				F3B05C042AA99719003EC4A6 /* CheckViewController.swift in Sources */,
+				F3B9CDBC2ACB11E900DD1E7B /* ResultViewController.swift in Sources */,
 				F37D6A3A2ABEA7BE007F3C41 /* PwdViewController.swift in Sources */,
 				F3BB67092AC8056B0066E0DD /* NotificationCenter.swift in Sources */,
 				F3B9CDB82ACAE7BA00DD1E7B /* Answer.swift in Sources */,

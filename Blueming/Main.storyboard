@@ -329,7 +329,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 / 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slo-3E-Azb">
-                                <rect key="frame" x="20" y="119" width="35" height="17"/>
+                                <rect key="frame" x="20.000000000000004" y="119" width="34.333333333333343" height="17"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
@@ -414,32 +414,98 @@
             </objects>
             <point key="canvasLocation" x="244" y="1982.5123152709361"/>
         </scene>
-        <!--View Controller-->
+        <!--결과 화면-->
         <scene sceneID="1tH-FF-kKn">
             <objects>
-                <viewController storyboardIdentifier="resultVC" id="nue-ZK-bRD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="resultVC" title="결과 화면" id="nue-ZK-bRD" customClass="ResultViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2hJ-BS-wea">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검사 결과 어쩌구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhr-kg-8hy">
-                                <rect key="frame" x="131.66666666666666" y="173" width="112" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_box.png" translatesAutoresizingMaskIntoConstraints="NO" id="xWS-MC-R7P">
+                                <rect key="frame" x="-1.6666666666666572" y="100" width="378.33333333333326" height="508"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="산후 우울감 자가진단 검사 결과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opf-18-RAy">
+                                <rect key="frame" x="65.666666666666686" y="148" width="244" height="24"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="20"/>
+                                <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12점" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MN-4J-fAf">
+                                <rect key="frame" x="148.66666666666666" y="446" width="78" height="48"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="40"/>
+                                <color key="textColor" name="Blue01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEk-oR-G5k">
+                                <rect key="frame" x="12.666666666666657" y="633" width="350" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZXA-TU-Q56"/>
+                                    <constraint firstAttribute="width" constant="350" id="yt5-4u-qCe"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="홈으로 돌아가기">
+                                    <fontDescription key="titleFontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" name="Text05"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="goToMain:" destination="nue-ZK-bRD" eventType="touchUpInside" id="WRi-3J-lPY"/>
+                                    <action selector="goToName:" destination="ZTN-QP-Ogk" eventType="touchUpInside" id="nAH-y7-PRh"/>
+                                    <action selector="next:" destination="PL5-Kh-xbu" eventType="touchUpInside" id="oGg-E3-eHA"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chat.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bnt-Xt-jnx">
+                                <rect key="frame" x="87.666666666666686" y="210" width="200" height="200"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="산후 우울감 자가진단 검사 결과" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOw-Ys-O9J">
+                                <rect key="frame" x="89.666666666666671" y="509.99999999999994" width="195.66666666666663" height="19.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
+                                <color key="textColor" name="Text01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uYG-Ex-rYI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fhr-kg-8hy" firstAttribute="top" secondItem="uYG-Ex-rYI" secondAttribute="top" constant="123" id="OaQ-2a-cgz"/>
-                            <constraint firstItem="fhr-kg-8hy" firstAttribute="centerX" secondItem="2hJ-BS-wea" secondAttribute="centerX" id="twn-SF-rIl"/>
+                            <constraint firstItem="xWS-MC-R7P" firstAttribute="centerX" secondItem="2hJ-BS-wea" secondAttribute="centerX" id="0X2-kC-qnS"/>
+                            <constraint firstItem="wEk-oR-G5k" firstAttribute="top" secondItem="xWS-MC-R7P" secondAttribute="bottom" constant="25" id="F9d-Nj-EJy"/>
+                            <constraint firstItem="2MN-4J-fAf" firstAttribute="top" secondItem="Bnt-Xt-jnx" secondAttribute="bottom" constant="36" id="Mt5-wF-Ch7"/>
+                            <constraint firstItem="Bnt-Xt-jnx" firstAttribute="centerX" secondItem="2hJ-BS-wea" secondAttribute="centerX" id="St5-ZL-Fwn"/>
+                            <constraint firstItem="2MN-4J-fAf" firstAttribute="centerX" secondItem="2hJ-BS-wea" secondAttribute="centerX" id="Wou-AZ-1cj"/>
+                            <constraint firstItem="Opf-18-RAy" firstAttribute="top" secondItem="xWS-MC-R7P" secondAttribute="top" constant="48" id="YdT-ew-A65"/>
+                            <constraint firstItem="Bnt-Xt-jnx" firstAttribute="top" secondItem="Opf-18-RAy" secondAttribute="bottom" constant="38" id="b78-bn-Kw6"/>
+                            <constraint firstItem="SOw-Ys-O9J" firstAttribute="top" secondItem="2MN-4J-fAf" secondAttribute="bottom" constant="15.91" id="b7A-EB-Hds"/>
+                            <constraint firstItem="Opf-18-RAy" firstAttribute="centerX" secondItem="2hJ-BS-wea" secondAttribute="centerX" id="bHy-m1-QxX"/>
+                            <constraint firstItem="wEk-oR-G5k" firstAttribute="centerX" secondItem="2hJ-BS-wea" secondAttribute="centerX" id="kOE-zD-1eN"/>
+                            <constraint firstItem="SOw-Ys-O9J" firstAttribute="centerX" secondItem="2hJ-BS-wea" secondAttribute="centerX" id="pN9-nr-gr6"/>
+                            <constraint firstItem="xWS-MC-R7P" firstAttribute="top" secondItem="uYG-Ex-rYI" secondAttribute="top" constant="50" id="xJz-lx-5ha"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="homeBtn" destination="wEk-oR-G5k" id="knB-IZ-jmq"/>
+                        <outlet property="resultLabel" destination="SOw-Ys-O9J" id="y6t-p0-d3a"/>
+                        <outlet property="scoreLabel" destination="2MN-4J-fAf" id="ouz-5n-YYE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zf8-hG-HfP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244" y="2681"/>
+            <point key="canvasLocation" x="244" y="2680.7881773399017"/>
         </scene>
         <!--체크리스트-->
         <scene sceneID="lvv-1V-HZM">
@@ -1925,6 +1991,7 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="popup-view.png" width="350" height="274"/>
         <image name="profile" width="124" height="124"/>
+        <image name="result_box.png" width="378" height="508"/>
         <image name="right" width="6" height="10"/>
         <image name="search" width="19" height="19"/>
         <image name="target-box.png" width="368" height="182"/>
