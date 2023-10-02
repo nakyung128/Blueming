@@ -66,6 +66,9 @@
 		F3B9CDBA2ACAE9FC00DD1E7B /* select_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B9CDB92ACAE9FC00DD1E7B /* select_background.png */; };
 		F3B9CDBC2ACB11E900DD1E7B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9CDBB2ACB11E900DD1E7B /* ResultViewController.swift */; };
 		F3B9CDBE2ACB131D00DD1E7B /* result_box.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B9CDBD2ACB131D00DD1E7B /* result_box.png */; };
+		F3B9CDC12ACB227400DD1E7B /* QuestionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9CDBF2ACB227400DD1E7B /* QuestionPopUp.swift */; };
+		F3B9CDC22ACB227400DD1E7B /* QuestionPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3B9CDC02ACB227400DD1E7B /* QuestionPopUp.xib */; };
+		F3B9CDC42ACB22D700DD1E7B /* popup.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B9CDC32ACB22D700DD1E7B /* popup.png */; };
 		F3BB67072AC7FA2C0066E0DD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BB67062AC7FA2C0066E0DD /* EditProfileViewController.swift */; };
 		F3BB67092AC8056B0066E0DD /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BB67082AC8056B0066E0DD /* NotificationCenter.swift */; };
 		F3E587842AA9B80000578876 /* box1.png in Resources */ = {isa = PBXBuildFile; fileRef = F3E587832AA9B80000578876 /* box1.png */; };
@@ -138,6 +141,9 @@
 		F3B9CDB92ACAE9FC00DD1E7B /* select_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_background.png; sourceTree = "<group>"; };
 		F3B9CDBB2ACB11E900DD1E7B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		F3B9CDBD2ACB131D00DD1E7B /* result_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = result_box.png; sourceTree = "<group>"; };
+		F3B9CDBF2ACB227400DD1E7B /* QuestionPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPopUp.swift; sourceTree = "<group>"; };
+		F3B9CDC02ACB227400DD1E7B /* QuestionPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionPopUp.xib; sourceTree = "<group>"; };
+		F3B9CDC32ACB22D700DD1E7B /* popup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popup.png; sourceTree = "<group>"; };
 		F3BB67062AC7FA2C0066E0DD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		F3BB67082AC8056B0066E0DD /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		F3E587832AA9B80000578876 /* box1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box1.png; sourceTree = "<group>"; };
@@ -260,6 +266,8 @@
 				F30E3D412AC86DB700CB1316 /* SignOutViewController.swift */,
 				F3B9CDAD2ACAB53900DD1E7B /* QuestionViewController.swift */,
 				F3B9CDBB2ACB11E900DD1E7B /* ResultViewController.swift */,
+				F3B9CDBF2ACB227400DD1E7B /* QuestionPopUp.swift */,
+				F3B9CDC02ACB227400DD1E7B /* QuestionPopUp.xib */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -267,6 +275,7 @@
 		F3B05C072AA999BC003EC4A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F3B9CDC32ACB22D700DD1E7B /* popup.png */,
 				F3B9CDBD2ACB131D00DD1E7B /* result_box.png */,
 				F3B9CDB92ACAE9FC00DD1E7B /* select_background.png */,
 				F3B9CDB52ACAE5BE00DD1E7B /* answer_view.png */,
@@ -386,6 +395,7 @@
 				F3190E252AAC4E33000A7343 /* blue-rec.png in Resources */,
 				F3647EBC2AC722F10026FBF0 /* article_img.png in Resources */,
 				F3190E342AAC833C000A7343 /* MainArticleCell.xib in Resources */,
+				F3B9CDC22ACB227400DD1E7B /* QuestionPopUp.xib in Resources */,
 				F350A1312ABAD35400203688 /* startImg.png in Resources */,
 				F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */,
 				F3E587842AA9B80000578876 /* box1.png in Resources */,
@@ -396,6 +406,7 @@
 				F3EEF92C2AB0E234007F3D81 /* article-back.png in Resources */,
 				F3B9CDB62ACAE5BE00DD1E7B /* answer_view.png in Resources */,
 				F3B05C1B2AA99BD3003EC4A6 /* Pretendard-Medium.otf in Resources */,
+				F3B9CDC42ACB22D700DD1E7B /* popup.png in Resources */,
 				F3B9CDB02ACAE3D800DD1E7B /* question_background.png in Resources */,
 				F3E587862AA9B99800578876 /* box-1x.png in Resources */,
 				F3B05C192AA99BD3003EC4A6 /* Pretendard-SemiBold.otf in Resources */,
@@ -471,6 +482,7 @@
 				F3647EC42AC73A3C0026FBF0 /* EditPwdViewController.swift in Sources */,
 				F3190E292AAC536C000A7343 /* MypageViewController.swift in Sources */,
 				F3B9CDAE2ACAB53900DD1E7B /* QuestionViewController.swift in Sources */,
+				F3B9CDC12ACB227400DD1E7B /* QuestionPopUp.swift in Sources */,
 				F3190E272AAC535E000A7343 /* NoteViewController.swift in Sources */,
 				F3190E332AAC833C000A7343 /* MainArticleCell.swift in Sources */,
 				F3B05C062AA99729003EC4A6 /* ArticleViewController.swift in Sources */,

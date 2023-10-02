@@ -124,23 +124,31 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         answerTableView.isScrollEnabled = false
         
         nextBtn.applyOriginToButton(color: .Text05!)
-    }
         
-        // UI 업데이트
-        func updateUI() {
-            progressLabel.text = "\(currentQuestionIndex) / \(maxQuestions)"
-            progressBar.setProgress(Float(currentQuestionIndex) / Float(maxQuestions), animated: true)
-            
-            questionLabel.numberOfLines = 0
-            questionLabel.lineBreakMode = .byWordWrapping
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineHeightMultiple = 1.26
-            questionLabel.attributedText = NSMutableAttributedString(string: questions[currentQuestionIndex-1], attributes: [NSAttributedString.Key.kern: -1, NSAttributedString.Key.paragraphStyle: paragraphStyle])
-            
-            if currentQuestionIndex == 10 {
-                let attributedTitle = NSMutableAttributedString(string: "결과 확인", attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.foregroundColor: UIColor.white])
-                nextBtn.setAttributedTitle(attributedTitle, for: .normal)
-            }
+        // 약간의 딜레이 후 팝업 띄우기
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            let popup = QuestionPopUp(nibName: "QuestionPopUp", bundle: nil)
+            popup.modalPresentationStyle = .overCurrentContext
+            self.present(popup, animated: false)
         }
         
     }
+    
+    // UI 업데이트
+    func updateUI() {
+        progressLabel.text = "\(currentQuestionIndex) / \(maxQuestions)"
+        progressBar.setProgress(Float(currentQuestionIndex) / Float(maxQuestions), animated: true)
+        
+        questionLabel.numberOfLines = 0
+        questionLabel.lineBreakMode = .byWordWrapping
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.26
+        questionLabel.attributedText = NSMutableAttributedString(string: questions[currentQuestionIndex-1], attributes: [NSAttributedString.Key.kern: -1, NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        
+        if currentQuestionIndex == 10 {
+            let attributedTitle = NSMutableAttributedString(string: "결과 확인", attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.foregroundColor: UIColor.white])
+            nextBtn.setAttributedTitle(attributedTitle, for: .normal)
+        }
+    }
+    
+}
