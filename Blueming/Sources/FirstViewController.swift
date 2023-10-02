@@ -191,6 +191,33 @@ extension UIButton {
         self.setAttributedTitle(attributedTitle, for: .normal)
     }
     
+    func applyGradientToLabel(startColor: UIColor, endColor: UIColor) {
+        self.layer.sublayers?.removeAll { $0 is CAShapeLayer }
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
+        
+        gradientLayer.masksToBounds = true
+        self.layer.cornerRadius = 15
+        
+        // 버튼의 모서리 둥글게 설정
+        gradientLayer.cornerRadius = self.layer.cornerRadius
+        gradientLayer.masksToBounds = true
+        
+        self.layer.insertSublayer(gradientLayer, at: 0)
+        
+        let attributedTitle = NSMutableAttributedString(string: (self.titleLabel?.text)!, attributes: [NSAttributedString.Key.kern: -0.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.setAttributedTitle(attributedTitle, for: .normal)
+        
+        self.titleLabel?.textAlignment = .center
+        self.contentHorizontalAlignment = .center
+        self.contentVerticalAlignment = .center
+    }
+    
     func applyOriginToButton(color: UIColor) {
         self.layer.sublayers?.removeAll { $0 is CAGradientLayer }
         let layer = CAShapeLayer()
