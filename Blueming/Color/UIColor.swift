@@ -18,4 +18,5 @@ extension UIColor {
     static let articleColor = UIColor(named: "articleColor")
     static let Gbtn = UIColor(named: "Gbtn")
     static let script = UIColor(named: "script")
+    static let popupback = UIColor(named: "popupback")
 }

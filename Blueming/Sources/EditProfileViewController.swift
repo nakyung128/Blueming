@@ -103,6 +103,8 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate, UIImageP
             }
         }
         
+        nickname.delegate = self
+        
         nickname.borderStyle = .none
         nickname.setOriginalBorderColor(color: UIColor.Text05!)
         

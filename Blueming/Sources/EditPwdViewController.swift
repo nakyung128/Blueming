@@ -65,6 +65,10 @@ class EditPwdViewController: UIViewController, UITextFieldDelegate {
         paragraphStyle.lineHeightMultiple = 1.26
         script.attributedText = NSMutableAttributedString(string: "변경할 비밀번호를\n입력해 주세요.", attributes: [NSAttributedString.Key.kern: -1, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         
+        nowPwd.delegate = self
+        newPwd.delegate = self
+        reNewPwd.delegate = self
+        
         nowPwd.borderStyle = .none
         nowPwd.setOriginalBorderColor(color: UIColor.Text05!)
         

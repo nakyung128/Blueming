@@ -426,7 +426,7 @@
                                 <rect key="frame" x="-1.6666666666666572" y="100" width="378.33333333333326" height="508"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="산후 우울감 자가진단 검사 결과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opf-18-RAy">
-                                <rect key="frame" x="65.666666666666686" y="148" width="244" height="24"/>
+                                <rect key="frame" x="66.000000000000014" y="148" width="243.33333333333337" height="24"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="20"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
@@ -510,18 +510,37 @@
         <!--체크리스트-->
         <scene sceneID="lvv-1V-HZM">
             <objects>
-                <viewController id="BYj-HR-fLM" customClass="NoteViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYj-HR-fLM" customClass="CheckViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BVw-Mz-iEc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQ0-ZT-Hl2" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="50" width="375" height="143"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="143" id="5Ym-1W-4Yd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="FBj-Wk-59B"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rQ0-ZT-Hl2" firstAttribute="leading" secondItem="FBj-Wk-59B" secondAttribute="leading" id="f4H-S7-0Ju"/>
+                            <constraint firstItem="rQ0-ZT-Hl2" firstAttribute="trailing" secondItem="FBj-Wk-59B" secondAttribute="trailing" id="qHL-Ax-48X"/>
+                            <constraint firstItem="rQ0-ZT-Hl2" firstAttribute="top" secondItem="FBj-Wk-59B" secondAttribute="top" id="qdQ-kQ-itf"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="체크리스트" image="note" id="NfT-sH-TXm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FcW-XK-gZx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1041" y="1291"/>
+            <point key="canvasLocation" x="1040.8" y="1290.8866995073893"/>
         </scene>
         <!--마이페이지-->
         <scene sceneID="KmG-Ks-0jh">
@@ -788,7 +807,7 @@
         <scene sceneID="pjo-pf-Scq">
             <objects>
                 <viewController storyboardIdentifier="logoutVC" title="로그아웃" id="sV1-nK-kt1" customClass="LogOutViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.75" contentMode="scaleToFill" id="DhV-Je-y2J">
+                    <view key="view" alpha="0.29999999999999999" contentMode="scaleToFill" id="DhV-Je-y2J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -852,7 +871,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xB4-5U-Bik"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="popupback"/>
                         <constraints>
                             <constraint firstItem="W6U-sz-D1U" firstAttribute="top" secondItem="p2m-IA-agF" secondAttribute="top" constant="46" id="1UW-TV-lE1"/>
                             <constraint firstItem="kAM-1i-gIZ" firstAttribute="centerX" secondItem="DhV-Je-y2J" secondAttribute="centerX" id="BgF-Gy-8Xc"/>
@@ -975,7 +994,7 @@
         <!--자가진단 메인-->
         <scene sceneID="1oT-Hb-9sa">
             <objects>
-                <viewController title="자가진단 메인" id="Tqm-OK-AfD" customClass="CheckViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="자가진단 메인" id="Tqm-OK-AfD" customClass="TestViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U2m-PA-yJ3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1868,7 +1887,7 @@
         <scene sceneID="ssv-JF-Fyh">
             <objects>
                 <viewController storyboardIdentifier="signoutVC" title="회원탈퇴" id="crF-tg-Qeo" customClass="SignOutViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.75" contentMode="scaleToFill" id="RMr-5I-hrX">
+                    <view key="view" alpha="0.29999999999999999" contentMode="scaleToFill" id="RMr-5I-hrX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1932,7 +1951,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Kfi-cZ-5Fu"/>
-                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="popupback"/>
                         <constraints>
                             <constraint firstItem="FlC-F0-Ds7" firstAttribute="centerX" secondItem="RMr-5I-hrX" secondAttribute="centerX" id="26g-tQ-eKg"/>
                             <constraint firstItem="Pa2-ar-I4o" firstAttribute="centerX" secondItem="RMr-5I-hrX" secondAttribute="centerX" id="97H-ws-JfI"/>
@@ -2011,6 +2030,9 @@
         </namedColor>
         <namedColor name="Text05">
             <color red="0.86000001430511475" green="0.86000001430511475" blue="0.86000001430511475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="popupback">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="select">
             <color red="0.37999999523162842" green="0.54000002145767212" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
