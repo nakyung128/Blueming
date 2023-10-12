@@ -23,6 +23,10 @@
 		F32B28AC2AA8AD0B005803C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32B28AB2AA8AD0B005803C8 /* SceneDelegate.swift */; };
 		F32B28B32AA8AD0C005803C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32B28B22AA8AD0C005803C8 /* Assets.xcassets */; };
 		F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F32B28B42AA8AD0C005803C8 /* LaunchScreen.storyboard */; };
+		F32D0A7C2AD6BABF0094CA03 /* CheckListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D0A7A2AD6BABF0094CA03 /* CheckListCell.swift */; };
+		F32D0A7D2AD6BABF0094CA03 /* CheckListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32D0A7B2AD6BABF0094CA03 /* CheckListCell.xib */; };
+		F32D0A7F2AD6BBB00094CA03 /* check_sample.png in Resources */ = {isa = PBXBuildFile; fileRef = F32D0A7E2AD6BBB00094CA03 /* check_sample.png */; };
+		F32D0A812AD6C18E0094CA03 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D0A802AD6C18E0094CA03 /* Goals.swift */; };
 		F335F9FF2AB9D23000C97E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F335F9FE2AB9D23000C97E30 /* Main.storyboard */; };
 		F335FA052AB9F13000C97E30 /* CustomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F335FA042AB9F13000C97E30 /* CustomTable.swift */; };
 		F34109462AC5C0DD00E755F4 /* backImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F34109452AC5C0DD00E755F4 /* backImg.png */; };
@@ -99,6 +103,10 @@
 		F32B28B22AA8AD0C005803C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F32B28B52AA8AD0C005803C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F32B28B72AA8AD0C005803C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F32D0A7A2AD6BABF0094CA03 /* CheckListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListCell.swift; sourceTree = "<group>"; };
+		F32D0A7B2AD6BABF0094CA03 /* CheckListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckListCell.xib; sourceTree = "<group>"; };
+		F32D0A7E2AD6BBB00094CA03 /* check_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_sample.png; sourceTree = "<group>"; };
+		F32D0A802AD6C18E0094CA03 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
 		F335F9FE2AB9D23000C97E30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F335FA042AB9F13000C97E30 /* CustomTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTable.swift; sourceTree = "<group>"; };
 		F34109452AC5C0DD00E755F4 /* backImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImg.png; sourceTree = "<group>"; };
@@ -191,6 +199,7 @@
 				F36B9E8A2AC40D5300937AD1 /* Keyword.swift */,
 				F3BB67082AC8056B0066E0DD /* NotificationCenter.swift */,
 				F3B9CDB72ACAE7BA00DD1E7B /* Answer.swift */,
+				F32D0A802AD6C18E0094CA03 /* Goals.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				F3D48F3C2ACC865400643D1B /* popup.png */,
+				F32D0A7E2AD6BBB00094CA03 /* check_sample.png */,
 				F3B9CDBD2ACB131D00DD1E7B /* result_box.png */,
 				F3B9CDB92ACAE9FC00DD1E7B /* select_background.png */,
 				F3B9CDB52ACAE5BE00DD1E7B /* answer_view.png */,
@@ -312,6 +322,8 @@
 				F341094D2AC5E00600E755F4 /* KeywordLabel.swift */,
 				F3B9CDB12ACAE50B00DD1E7B /* AnswerCell.swift */,
 				F3B9CDB22ACAE50B00DD1E7B /* AnswerCell.xib */,
+				F32D0A7A2AD6BABF0094CA03 /* CheckListCell.swift */,
+				F32D0A7B2AD6BABF0094CA03 /* CheckListCell.xib */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -408,11 +420,13 @@
 				F3D48F3D2ACC865400643D1B /* popup.png in Resources */,
 				F3B9CDB02ACAE3D800DD1E7B /* question_background.png in Resources */,
 				F3B699202AD5C00100C13D88 /* startImg.png in Resources */,
+				F32D0A7F2AD6BBB00094CA03 /* check_sample.png in Resources */,
 				F3E587862AA9B99800578876 /* box-1x.png in Resources */,
 				F3B05C192AA99BD3003EC4A6 /* Pretendard-SemiBold.otf in Resources */,
 				F350A1382ABAFB9A00203688 /* Chat.png in Resources */,
 				F3B05C182AA99BD3003EC4A6 /* Pretendard-Regular.otf in Resources */,
 				F335F9FF2AB9D23000C97E30 /* Main.storyboard in Resources */,
+				F32D0A7D2AD6BABF0094CA03 /* CheckListCell.xib in Resources */,
 				F3190E1F2AAC4C95000A7343 /* target-box.png in Resources */,
 				F3EEF9262AB0C1E5007F3D81 /* example_img.png in Resources */,
 				F3B9CDBA2ACAE9FC00DD1E7B /* select_background.png in Resources */,
@@ -494,6 +508,8 @@
 				F3190E2B2AAC6515000A7343 /* HomeViewController.swift in Sources */,
 				F36B9E8B2AC40D5300937AD1 /* Keyword.swift in Sources */,
 				F36B9E892AC408C500937AD1 /* SearchViewController.swift in Sources */,
+				F32D0A812AD6C18E0094CA03 /* Goals.swift in Sources */,
+				F32D0A7C2AD6BABF0094CA03 /* CheckListCell.swift in Sources */,
 				F3A8564E2AB2CF3900264E3B /* TagCell.swift in Sources */,
 				F3A8564C2AB2CE4E00264E3B /* Tags.swift in Sources */,
 				F3A856522AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
