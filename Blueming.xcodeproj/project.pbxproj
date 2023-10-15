@@ -38,6 +38,7 @@
 		F350A13A2ABB104600203688 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350A1392ABB104600203688 /* UILabel.swift */; };
 		F350A13C2ABB1C3200203688 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350A13B2ABB1C3200203688 /* LoginViewController.swift */; };
 		F363449A2ADC46C900019770 /* CheckListCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36344992ADC46C900019770 /* CheckListCellDelegate.swift */; };
+		F363449C2ADC562200019770 /* noCheckImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F363449B2ADC562200019770 /* noCheckImg.png */; };
 		F3647EBC2AC722F10026FBF0 /* article_img.png in Resources */ = {isa = PBXBuildFile; fileRef = F3647EBB2AC722F10026FBF0 /* article_img.png */; };
 		F3647EBE2AC72CD40026FBF0 /* mypageBox.png in Resources */ = {isa = PBXBuildFile; fileRef = F3647EBD2AC72CD40026FBF0 /* mypageBox.png */; };
 		F3647EC22AC733290026FBF0 /* gray_line.png in Resources */ = {isa = PBXBuildFile; fileRef = F3647EC12AC733290026FBF0 /* gray_line.png */; };
@@ -119,6 +120,7 @@
 		F350A1392ABB104600203688 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		F350A13B2ABB1C3200203688 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F36344992ADC46C900019770 /* CheckListCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListCellDelegate.swift; sourceTree = "<group>"; };
+		F363449B2ADC562200019770 /* noCheckImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noCheckImg.png; sourceTree = "<group>"; };
 		F3647EBB2AC722F10026FBF0 /* article_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = article_img.png; sourceTree = "<group>"; };
 		F3647EBD2AC72CD40026FBF0 /* mypageBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mypageBox.png; sourceTree = "<group>"; };
 		F3647EC12AC733290026FBF0 /* gray_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gray_line.png; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 		F3B05C072AA999BC003EC4A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F363449B2ADC562200019770 /* noCheckImg.png */,
 				F3D48F3C2ACC865400643D1B /* popup.png */,
 				F32D0A7E2AD6BBB00094CA03 /* check_sample.png */,
 				F3B9CDBD2ACB131D00DD1E7B /* result_box.png */,
@@ -413,6 +416,7 @@
 				F3B9CDC22ACB227400DD1E7B /* QuestionPopUp.xib in Resources */,
 				F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */,
 				F3E587842AA9B80000578876 /* box1.png in Resources */,
+				F363449C2ADC562200019770 /* noCheckImg.png in Resources */,
 				F38614172AC87FA300D5001F /* Pretendard-ExtraBold.otf in Resources */,
 				F38614122AC877CB00D5001F /* GoogleService-Info.plist in Resources */,
 				F30E3D402AC857A100CB1316 /* popup-view.png in Resources */,

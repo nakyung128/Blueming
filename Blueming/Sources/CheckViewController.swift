@@ -37,18 +37,28 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
     var selectedGoals: [Goals] = []
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        selectedGoals.count
+        return selectedGoals.count == 0 ? 1 : selectedGoals.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "checkCell", for: indexPath) as! CheckListCell
         
-        cell.img.image = UIImage(named: selectedGoals[indexPath.row].img)
-        cell.goalTitle.text = selectedGoals[indexPath.row].title
-        cell.goalScript.text = selectedGoals[indexPath.row].script
-        cell.first.isSelected = selectedGoals[indexPath.row].first
-        cell.second.isSelected = selectedGoals[indexPath.row].second
-        cell.third.isSelected = selectedGoals[indexPath.row].third
+        if selectedGoals.isEmpty {
+            cell.img.image = UIImage(named: "noCheckImg")
+            cell.first.isHidden = true
+            cell.second.isHidden = true
+            cell.third.isHidden = true
+        } else {
+            cell.first.isHidden = false
+            cell.second.isHidden = false
+            cell.third.isHidden = false
+            cell.img.image = UIImage(named: selectedGoals[indexPath.row].img)
+            cell.goalTitle.text = selectedGoals[indexPath.row].title
+            cell.goalScript.text = selectedGoals[indexPath.row].script
+            cell.first.isSelected = selectedGoals[indexPath.row].first
+            cell.second.isSelected = selectedGoals[indexPath.row].second
+            cell.third.isSelected = selectedGoals[indexPath.row].third
+        }
         
         // 자간 설정
         cell.configureCell()
