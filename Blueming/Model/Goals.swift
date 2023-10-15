@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Goals {
+struct Goals: Codable {
     let date: String
     let img: String
     let title: String
     let script: String
-    let first: Bool
-    let second: Bool
-    let third: Bool
+    var first: Bool
+    var second: Bool
+    var third: Bool
 }
 
 extension Goals {
@@ -26,4 +26,19 @@ extension Goals {
         Goals(date: "2023-10-10", img: "check_sample.png", title: "목표입니다4", script: "이건 목표의\n설명입니다4", first: true, second: true, third: true),
         Goals(date: "2023-10-10", img: "check_sample.png", title: "목표입니다5", script: "이건 목표의\n설명입니다5", first: true, second: true, third: true)
     ]
+}
+
+extension UserDefaults {
+    func setGoals(_ goals: [Goals], forKey key: String) {
+        let encoder = JSONEncoder()
+        if let encodedGoals = try? encoder.encode(goals) {
+            set(encodedGoals, forKey: key)
+        }
+    }
+    
+    func goals(forKey key: String) -> [Goals]? {
+        guard let savedGoals = value(forKey: key) as? Data else { return nil }
+        let decoder = JSONDecoder()
+        return try? decoder.decode([Goals].self, from: savedGoals)
+    }
 }

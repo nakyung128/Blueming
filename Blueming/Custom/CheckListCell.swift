@@ -16,30 +16,39 @@ class CheckListCell: UICollectionViewCell {
     @IBOutlet var second: UIButton!
     @IBOutlet var third: UIButton!
     
+    weak var delegate: CheckListCellDelegate?
+    var indexPath: IndexPath?
+    
     @IBAction func checkboxTapped(_ sender: UIButton) {
         if sender == first {
             if first.isSelected {
                 first.isSelected = false
                 first.setImage(UIImage(named: "unchecked"), for: .normal)
+                delegate?.didTapCheckButton(at: indexPath!, buttonName: "first", newState: first.isSelected)
             } else {
                 first.isSelected = true
                 first.setImage(UIImage(named: "checked"), for: .normal)
+                delegate?.didTapCheckButton(at: indexPath!, buttonName: "first", newState: first.isSelected)
             }
         } else if sender == second {
             if second.isSelected {
                 second.isSelected = false
                 second.setImage(UIImage(named: "unchecked"), for: .normal)
+                delegate?.didTapCheckButton(at: indexPath!, buttonName: "second", newState: second.isSelected)
             } else {
                 second.isSelected = true
                 second.setImage(UIImage(named: "checked"), for: .normal)
+                delegate?.didTapCheckButton(at: indexPath!, buttonName: "second", newState: second.isSelected)
             }
         } else {
             if third.isSelected {
                 third.isSelected = false
                 third.setImage(UIImage(named: "unchecked"), for: .normal)
+                delegate?.didTapCheckButton(at: indexPath!, buttonName: "third", newState: third.isSelected)
             } else {
                 third.isSelected = true
                 third.setImage(UIImage(named: "checked"), for: .normal)
+                delegate?.didTapCheckButton(at: indexPath!, buttonName: "third", newState: third.isSelected)
             }
         }
     }

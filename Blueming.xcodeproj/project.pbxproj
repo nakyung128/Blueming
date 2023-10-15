@@ -37,6 +37,7 @@
 		F350A1382ABAFB9A00203688 /* Chat.png in Resources */ = {isa = PBXBuildFile; fileRef = F350A1372ABAFB9A00203688 /* Chat.png */; };
 		F350A13A2ABB104600203688 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350A1392ABB104600203688 /* UILabel.swift */; };
 		F350A13C2ABB1C3200203688 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350A13B2ABB1C3200203688 /* LoginViewController.swift */; };
+		F363449A2ADC46C900019770 /* CheckListCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36344992ADC46C900019770 /* CheckListCellDelegate.swift */; };
 		F3647EBC2AC722F10026FBF0 /* article_img.png in Resources */ = {isa = PBXBuildFile; fileRef = F3647EBB2AC722F10026FBF0 /* article_img.png */; };
 		F3647EBE2AC72CD40026FBF0 /* mypageBox.png in Resources */ = {isa = PBXBuildFile; fileRef = F3647EBD2AC72CD40026FBF0 /* mypageBox.png */; };
 		F3647EC22AC733290026FBF0 /* gray_line.png in Resources */ = {isa = PBXBuildFile; fileRef = F3647EC12AC733290026FBF0 /* gray_line.png */; };
@@ -117,6 +118,7 @@
 		F350A1372ABAFB9A00203688 /* Chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chat.png; sourceTree = "<group>"; };
 		F350A1392ABB104600203688 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		F350A13B2ABB1C3200203688 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F36344992ADC46C900019770 /* CheckListCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListCellDelegate.swift; sourceTree = "<group>"; };
 		F3647EBB2AC722F10026FBF0 /* article_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = article_img.png; sourceTree = "<group>"; };
 		F3647EBD2AC72CD40026FBF0 /* mypageBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mypageBox.png; sourceTree = "<group>"; };
 		F3647EC12AC733290026FBF0 /* gray_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gray_line.png; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				F3BB67082AC8056B0066E0DD /* NotificationCenter.swift */,
 				F3B9CDB72ACAE7BA00DD1E7B /* Answer.swift */,
 				F32D0A802AD6C18E0094CA03 /* Goals.swift */,
+				F36344992ADC46C900019770 /* CheckListCellDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				F350A13C2ABB1C3200203688 /* LoginViewController.swift in Sources */,
 				F30E3D3E2AC8575900CB1316 /* LogOutViewController.swift in Sources */,
 				F350A13A2ABB104600203688 /* UILabel.swift in Sources */,
+				F363449A2ADC46C900019770 /* CheckListCellDelegate.swift in Sources */,
 				F37D6A3E2AC0000F007F3C41 /* TabBarViewController.swift in Sources */,
 				F37D6A3C2ABEA866007F3C41 /* NameViewController.swift in Sources */,
 				F3647EC42AC73A3C0026FBF0 /* EditPwdViewController.swift in Sources */,

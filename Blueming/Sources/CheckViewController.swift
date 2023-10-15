@@ -8,9 +8,32 @@
 import UIKit
 import FSCalendar
 
-class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CheckListCellDelegate {
     
-    var allGoals: [Goals] = Goals.data
+    func didTapCheckButton(at indexPath: IndexPath, buttonName: String, newState: Bool) {
+        
+        switch buttonName {
+        case "first":
+            selectedGoals[indexPath.row].first = newState
+        case "second":
+            selectedGoals[indexPath.row].second = newState
+        case "third":
+            selectedGoals[indexPath.row].third = newState
+        default:
+            break
+        }
+        
+        if let indexInAllGoals = allGoals.firstIndex(where: { $0.title == selectedGoals[indexPath.row].title }) {
+            allGoals[indexInAllGoals] = selectedGoals[indexPath.row]
+        }
+        
+        // 데이터 변경
+        UserDefaults.standard.setGoals(allGoals, forKey: "goalsDataKey")
+        calendar.reloadData()
+    }
+    
+    
+    var allGoals: [Goals] = []
     var selectedGoals: [Goals] = []
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -31,6 +54,9 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         cell.configureCell()
         cell.isChecked()
         
+        cell.delegate = self // Delegate 설정
+        cell.indexPath = indexPath // IndexPath 설정
+        
         return cell
     }
     
@@ -44,6 +70,11 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 2
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        (cell as? CheckListCell)?.indexPath = indexPath
+    }
+    
     
     
     @IBOutlet var calendar: FSCalendar!
@@ -150,11 +181,10 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         let dateString = dateFormatter.string(from: date)
         
         // 해당 날짜의 Goals 객체 필터링
-        let goalsForDate = Goals.data.filter { $0.date == dateString }
+        let goalsForDate = allGoals.filter { $0.date == dateString }
         
         // 날짜가 없거나, 하나라도 조건 만족하지 않는 객체가 있다면 0 리턴
         guard !goalsForDate.isEmpty else { return 0 }
-        
         
         for goal in goalsForDate {
             if !(goal.first && goal.second && goal.third) {
@@ -197,7 +227,6 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
             calendar.deselect(selectedDate)
             dateLabel.attributedText = NSMutableAttributedString(string: self.dateFormatter.string(from: Date()), attributes: [NSAttributedString.Key.kern: -1, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 20)!]) // 오늘 날짜로
         }
-        
         filterAndReloadData(for: Date())
     }
     
@@ -211,6 +240,7 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         
         // 배경 이미지 뷰를 뷰의 맨 뒤에 추가합니다.
         view.insertSubview(backgroundImage, at: 0)
+        loadGoalsAndUpdateView()
         
         headerLabel.attributedText = NSMutableAttributedString(string: self.headerDateFormatter.string(from: Date()), attributes: [NSAttributedString.Key.kern: -1.2, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 24)!])
         headerLabel.textColor = UIColor.Blue01
@@ -268,5 +298,10 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         dateLabel.attributedText = NSMutableAttributedString(string: self.dateFormatter.string(from: Date()), attributes: [NSAttributedString.Key.kern: -1, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 20)!])
         
         filterAndReloadData(for: Date())
+    }
+    
+    func loadGoalsAndUpdateView() {
+        allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
+        listView.reloadData()
     }
 }
