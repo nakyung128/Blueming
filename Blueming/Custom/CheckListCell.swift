@@ -87,7 +87,6 @@ class CheckListCell: UICollectionViewCell {
         } else {
             second.setImage(UIImage(named: "unchecked"), for: .normal)
         }
-        
     }
     
     override func awakeFromNib() {

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QZJ-MP-UwC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QZJ-MP-UwC">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -193,10 +194,10 @@
             </objects>
             <point key="canvasLocation" x="-1183.2" y="1290.8866995073893"/>
         </scene>
-        <!--View Controller-->
+        <!--알림창-->
         <scene sceneID="PxS-E4-ybo">
             <objects>
-                <viewController storyboardIdentifier="alertVC" id="yHB-ZQ-IDd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="alertVC" title="알림창" id="yHB-ZQ-IDd" customClass="AlertViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qx7-9g-FQd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,20 +220,42 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZYt-rN-5pt">
+                                <rect key="frame" x="0.0" y="178" width="375" height="600"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iXH-Kv-Goc" customClass="AlertCell" customModule="Blueming" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iXH-Kv-Goc" id="rm6-Ot-USj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1ov-52-iZy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="1ov-52-iZy" firstAttribute="trailing" secondItem="ZYt-rN-5pt" secondAttribute="trailing" id="E94-WR-bWN"/>
+                            <constraint firstItem="ZYt-rN-5pt" firstAttribute="top" secondItem="mct-Vb-7al" secondAttribute="bottom" constant="10" id="Fw0-1X-qBQ"/>
+                            <constraint firstItem="ZYt-rN-5pt" firstAttribute="leading" secondItem="1ov-52-iZy" secondAttribute="leading" id="Hpk-5x-AyB"/>
                             <constraint firstItem="mct-Vb-7al" firstAttribute="top" secondItem="hhD-yu-nIE" secondAttribute="bottom" constant="40" id="Lih-II-X3r"/>
                             <constraint firstItem="mct-Vb-7al" firstAttribute="leading" secondItem="1ov-52-iZy" secondAttribute="leading" constant="20" id="VWv-bM-6oG"/>
                             <constraint firstItem="hhD-yu-nIE" firstAttribute="leading" secondItem="1ov-52-iZy" secondAttribute="leading" constant="20" id="W91-Wl-8Dm"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ZYt-rN-5pt" secondAttribute="bottom" id="Xh8-JE-LkH"/>
                             <constraint firstItem="hhD-yu-nIE" firstAttribute="top" secondItem="1ov-52-iZy" secondAttribute="top" constant="40" id="emY-yB-yLM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="alertView" destination="ZYt-rN-5pt" id="sE0-U9-VGR"/>
+                        <outlet property="backBtn" destination="hhD-yu-nIE" id="rPy-2H-C0J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q87-Pk-kd3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1900" y="1951"/>
+            <point key="canvasLocation" x="-1900" y="1950.7389162561576"/>
         </scene>
         <!--검색 화면-->
         <scene sceneID="0ny-xU-an0">
@@ -1046,10 +1069,10 @@
             </objects>
             <point key="canvasLocation" x="3311" y="2015"/>
         </scene>
-        <!--Edit Pwd View Controller-->
+        <!--비밀번호 변경-->
         <scene sceneID="e8W-dt-JVF">
             <objects>
-                <viewController storyboardIdentifier="EditPwdVC" id="USN-yd-n5h" customClass="EditPwdViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditPwdVC" title="비밀번호 변경" id="USN-yd-n5h" customClass="EditPwdViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P2x-qa-x3T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1687,10 +1710,10 @@
             </objects>
             <point key="canvasLocation" x="-1550" y="-277"/>
         </scene>
-        <!--Email View Controller-->
+        <!--이메일 설정-->
         <scene sceneID="z41-Ph-sDb">
             <objects>
-                <viewController storyboardIdentifier="SignUpVC" id="Oe5-La-jc9" customClass="EmailViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" title="이메일 설정" id="Oe5-La-jc9" customClass="EmailViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rax-Qp-pu2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1756,10 +1779,10 @@
             </objects>
             <point key="canvasLocation" x="-54" y="-277"/>
         </scene>
-        <!--Pwd View Controller-->
+        <!--비밀번호 설정-->
         <scene sceneID="Us4-W8-hVf">
             <objects>
-                <viewController storyboardIdentifier="pwdVC" id="ZTN-QP-Ogk" customClass="PwdViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pwdVC" title="비밀번호 설정" id="ZTN-QP-Ogk" customClass="PwdViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n4t-9T-IDz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1839,10 +1862,10 @@
             </objects>
             <point key="canvasLocation" x="694" y="-277"/>
         </scene>
-        <!--Name View Controller-->
+        <!--닉네임 설정-->
         <scene sceneID="ydN-WU-Ga6">
             <objects>
-                <viewController storyboardIdentifier="nameVC" id="cni-TC-XJt" customClass="NameViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="nameVC" title="닉네임 설정" id="cni-TC-XJt" customClass="NameViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Mv-pX-tx9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2200,10 +2223,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -106,7 +106,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchField.leftView = paddingView
         searchField.leftViewMode = .always
         
-        // 검색 화면으로 이동
+        // 이전 화면으로 이동
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(back))
         backBtn.isUserInteractionEnabled = true
         backBtn.addGestureRecognizer(tapGesture)
@@ -188,7 +188,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         famousView.addArrangedSubview(famous1)
         famousView.addArrangedSubview(famous2)
         
-        // 검색 화면으로 이동
+        // 검색
         let tap = UITapGestureRecognizer(target: self, action: #selector(search))
         searchBtn.isUserInteractionEnabled = true
         searchBtn.addGestureRecognizer(tap)
