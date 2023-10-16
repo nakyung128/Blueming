@@ -43,12 +43,25 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "checkCell", for: indexPath) as! CheckListCell
         
+        // 체크리스트 데이터가 없을 때
         if selectedGoals.isEmpty {
             cell.img.image = UIImage(named: "noCheckImg")
             cell.first.isHidden = true
             cell.second.isHidden = true
             cell.third.isHidden = true
-        } else {
+        } 
+        // 데이터가 있지만 1번만 완료하면 되는 경우
+        else if selectedGoals[indexPath.row].second == nil {
+            cell.first.isHidden = false
+            cell.second.isHidden = true
+            cell.third.isHidden = true
+            cell.img.image = UIImage(named: selectedGoals[indexPath.row].img)
+            cell.goalTitle.text = selectedGoals[indexPath.row].title
+            cell.goalScript.text = selectedGoals[indexPath.row].script
+            cell.first.isSelected = selectedGoals[indexPath.row].first
+        } 
+        // 데이터 있고, 3번 완료해야 하는 경우
+        else {
             cell.first.isHidden = false
             cell.second.isHidden = false
             cell.third.isHidden = false
@@ -56,8 +69,8 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
             cell.goalTitle.text = selectedGoals[indexPath.row].title
             cell.goalScript.text = selectedGoals[indexPath.row].script
             cell.first.isSelected = selectedGoals[indexPath.row].first
-            cell.second.isSelected = selectedGoals[indexPath.row].second
-            cell.third.isSelected = selectedGoals[indexPath.row].third
+            cell.second.isSelected = selectedGoals[indexPath.row].second ?? false
+            cell.third.isSelected = selectedGoals[indexPath.row].third ?? false
         }
         
         // 자간 설정
@@ -197,8 +210,14 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         guard !goalsForDate.isEmpty else { return 0 }
         
         for goal in goalsForDate {
-            if !(goal.first && goal.second && goal.third) {
-                return 0
+            if goal.second == nil {
+                if !goal.first {
+                    return 0
+                }
+            } else {
+                if !(goal.first && (goal.second != nil) && (goal.third != nil)) {
+                    return 0
+                }
             }
         }
         return 1
@@ -275,8 +294,11 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         
         calendar.register(FSCalendarCell.self, forCellReuseIdentifier: "cell")
         
-        // 1. 주간으로 변경
+        // 주간 달력으로 변경
         calendar.scope = .week
+        
+        // 달력의 요일 한글로
+        calendar.locale = Locale(identifier: "ko_KR")
         
         // 폰트 설정 및 크기 설정
         calendar.appearance.weekdayFont = UIFont(name: "Pretendard-Medium", size: 16)

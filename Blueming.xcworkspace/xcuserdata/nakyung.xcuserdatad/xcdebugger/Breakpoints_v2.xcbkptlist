@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "F8237F5E-D54E-4A50-BA7A-EAAA3F746EDA"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B9D52E7-94ED-4562-9A85-4EB8E58D1076"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blueming/Sources/QuestionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0B9D52E7-94ED-4562-9A85-4EB8E58D1076 - 63db8aeaf8285e03"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Blueming.QuestionViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Blueming"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nakyung/Blueming/Blueming/Sources/QuestionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "3732">
+               </Location>
+               <Location
+                  uuid = "0B9D52E7-94ED-4562-9A85-4EB8E58D1076 - 8f8b691276deccf8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in Blueming.QuestionViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Blueming"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nakyung/Blueming/Blueming/Sources/QuestionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "0B9D52E7-94ED-4562-9A85-4EB8E58D1076 - 8f8b691276deccf8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in Blueming.QuestionViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Blueming"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nakyung/Blueming/Blueming/Sources/QuestionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

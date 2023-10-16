@@ -13,8 +13,8 @@ struct Goals: Codable {
     let title: String
     let script: String
     var first: Bool
-    var second: Bool
-    var third: Bool
+    var second: Bool?
+    var third: Bool?
 }
 
 extension Goals {
@@ -24,7 +24,9 @@ extension Goals {
         Goals(date: "2023-10-12", img: "check_sample.png", title: "따뜻한 차 세 잔 마시기", script: "지친 몸을 녹여 줄\n따끈한 티타임을 가져 보아요!", first: true, second: true, third: false),
         Goals(date: "2023-10-12", img: "check_sample.png", title: "목표입니다3", script: "이건 목표의\n설명입니다3", first: false, second: false, third: false),
         Goals(date: "2023-10-10", img: "check_sample.png", title: "목표입니다4", script: "이건 목표의\n설명입니다4", first: true, second: true, third: true),
-        Goals(date: "2023-10-10", img: "check_sample.png", title: "목표입니다5", script: "이건 목표의\n설명입니다5", first: true, second: true, third: true)
+        Goals(date: "2023-10-10", img: "check_sample.png", title: "목표입니다5", script: "이건 목표의\n설명입니다5", first: true, second: true, third: true),
+        Goals(date: "2023-10-16", img: "check_sample.png", title: "영양제 먹기", script: "건강 관리를 위해\n적절한 영양제 섭취는 필수!", first: true, second: nil, third: nil),
+        Goals(date: "2023-10-16", img: "check_sample.png", title: "7시간 이상 취침하기", script: "바쁜 일상일지라도 7시간 이상\n취침하기 위해 노력해 보아요.", first: true, second: nil, third: nil)
     ]
 }
 

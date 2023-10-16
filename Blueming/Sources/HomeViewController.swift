@@ -40,6 +40,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var mainLabel: UILabel!
     @IBOutlet var noDataLabel: UILabel!
     @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var alertBtn: UIImageView!
     
     
     // table View
@@ -91,7 +92,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         attributedString.addAttributes([NSAttributedString.Key.kern: -1.2, NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: attributedString.length))
         
         mainLabel.attributedText = attributedString
+        
+        // 검색 화면으로 이동
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToAlert))
+        alertBtn.isUserInteractionEnabled = true
+        alertBtn.addGestureRecognizer(tapGesture)
+    }
     
+    // 알람 화면으로 이동
+    @objc func goToAlert(sender: UITapGestureRecognizer) {
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "alertVC")
+        vcName?.modalPresentationStyle = .fullScreen
+        vcName?.modalTransitionStyle = .crossDissolve
+        self.present(vcName!, animated: true, completion: nil)
     }
     
     func createViewWithShadowsAndShapes(parent: UIView, leadingConstant: CGFloat, topConstant: NSLayoutAnchor<NSLayoutYAxisAnchor>, Constant: CGFloat) -> UIView {

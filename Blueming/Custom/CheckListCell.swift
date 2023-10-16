@@ -55,13 +55,17 @@ class CheckListCell: UICollectionViewCell {
     
     func configureCell() {
         // 원하는 자간 값을 설정합니다.
+        let titleSpacing: CGFloat = -0.9
         let scriptSpacing: CGFloat = -0.7
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.26
         
-        goalScript.attributedText = NSMutableAttributedString(string: goalScript.text!, attributes: [NSAttributedString.Key.kern: scriptSpacing, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         
+        goalTitle.attributedText = NSMutableAttributedString(string: goalTitle.text!, attributes: [NSAttributedString.Key.kern: titleSpacing])
+        goalTitle.textAlignment = .center
+        
+        goalScript.attributedText = NSMutableAttributedString(string: goalScript.text!, attributes: [NSAttributedString.Key.kern: scriptSpacing, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         goalScript.textAlignment = .center
     }
     
