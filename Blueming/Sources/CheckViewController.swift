@@ -215,7 +215,7 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
                     return 0
                 }
             } else {
-                if !(goal.first && (goal.second != nil) && (goal.third != nil)) {
+                if !(goal.first && goal.second! && goal.third!) {
                     return 0
                 }
             }
