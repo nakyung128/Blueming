@@ -28,6 +28,8 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
             let user = signInResult.user
             let email = user.profile?.email
             
+            print("gmail", email!)
+            
             // 프로필 완성 화면으로 전환
             guard let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") else { return }
             self.navigationController?.pushViewController(vcName, animated: true)

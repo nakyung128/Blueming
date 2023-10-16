@@ -51,11 +51,11 @@ class AlertViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         return headerView
     }
-
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30 // 원하는 높이로 설정하십시오.
     }
-
+    
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
@@ -96,12 +96,62 @@ class AlertViewController: UIViewController, UITableViewDataSource, UITableViewD
             cell.script.textColor = UIColor.white
         }
         
+        cell.selectionStyle = .none
+        
         // 자간 설정
         cell.configureCell()
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 선택된 아이템 가져오기
+        if let cell = alertView.cellForRow(at: indexPath) as? AlertCell {
+            // 선택 후 디자인으로 변경
+            cell.cellImg.image = UIImage(named: "readCell")
+            cell.lineImg.image = UIImage(named: "readLine")
+            cell.title.textColor = UIColor.white
+            cell.script.textColor = UIColor.white
+            
+            var selectedAlert: Alert
+            
+            switch indexPath.section {
+            case 0: selectedAlert = alertsToday[indexPath.row]
+            case 1: selectedAlert = alertsYesterday[indexPath.row]
+            case 2: selectedAlert = alertsLastWeek[indexPath.row]
+            default: fatalError("Unknown section")
+            }
+            
+            if let index = allAlerts.firstIndex(where: { $0.date == selectedAlert.date && $0.title == selectedAlert.title }) {
+                allAlerts[index].isRead = true
+            }
+            
+            switch selectedAlert.vc {
+            case "TestVC":
+                if let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? UITabBarController {
+                    tabBarController.selectedIndex = 3
+                    tabBarController.modalPresentationStyle = .fullScreen
+                    tabBarController.modalTransitionStyle = .crossDissolve
+                    self.present(tabBarController, animated: true, completion: nil)
+                }
+
+            default:
+                if let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? UITabBarController {
+                    tabBarController.selectedIndex = 0
+                    tabBarController.modalPresentationStyle = .fullScreen
+                    tabBarController.modalTransitionStyle = .crossDissolve
+                    self.present(tabBarController, animated: true, completion: nil)
+                }
+            }
+            
+//            let vcName = self.storyboard?.instantiateViewController(withIdentifier: selectedAlert.vc)
+//            vcName?.modalPresentationStyle = .fullScreen
+//            vcName?.modalTransitionStyle = .crossDissolve
+//            self.present(vcName!, animated: true, completion: nil)
+            
+            UserDefaults.standard.setAlerts(allAlerts, forKey: "alertsDataKey")
+        }
+    }
     
     @IBOutlet var backBtn: UIImageView!
     @IBOutlet var alertView: UITableView!
@@ -109,7 +159,7 @@ class AlertViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserDefaults.standard.setAlerts(Alert.data, forKey: "alertsDataKey")
+        //UserDefaults.standard.setAlerts(Alert.data, forKey: "alertsDataKey")
         
         alertView.dataSource = self
         alertView.delegate = self
@@ -146,7 +196,7 @@ extension Date {
         let startOfToday = Calendar.current.startOfDay(for: Date())
         guard let endOfYesterday = Calendar.current.date(byAdding: .second, value: -1, to: startOfToday),
               let startOfOneWeekAgo = Calendar.current.date(byAdding: .day, value: -7, to: endOfYesterday) else { return false }
-
+        
         return self > startOfOneWeekAgo && self < endOfYesterday
     }
 }

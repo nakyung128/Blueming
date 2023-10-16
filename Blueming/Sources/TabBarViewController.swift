@@ -9,6 +9,11 @@ import UIKit
 
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)        
+        updateLabelColors()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
