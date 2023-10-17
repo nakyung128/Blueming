@@ -144,11 +144,6 @@ class AlertViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }
             }
             
-//            let vcName = self.storyboard?.instantiateViewController(withIdentifier: selectedAlert.vc)
-//            vcName?.modalPresentationStyle = .fullScreen
-//            vcName?.modalTransitionStyle = .crossDissolve
-//            self.present(vcName!, animated: true, completion: nil)
-            
             UserDefaults.standard.setAlerts(allAlerts, forKey: "alertsDataKey")
         }
     }

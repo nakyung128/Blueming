@@ -23,7 +23,7 @@ class MainArticleCell: UITableViewCell {
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.26
-        // Line height: 18 pt
+        
         script.attributedText = NSMutableAttributedString(string: script.text!, attributes: [NSAttributedString.Key.kern: scriptSpacing, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         
         // 레이블에 적용합니다.

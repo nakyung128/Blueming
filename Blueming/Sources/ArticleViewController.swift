@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -24,6 +25,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         cell.title.text = target.title
         cell.script.text = target.script
         cell.backgroundColor = UIColor.clear.withAlphaComponent(0)
+        cell.selectionStyle = .none
         
         // 자간 설정
         cell.configureCell()
@@ -34,6 +36,12 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     // header 높이 0으로 설정
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let url = NSURL(string: selectedData[indexPath.row].link)
+        let safariView: SFSafariViewController = SFSafariViewController(url: url! as URL)
+        self.present(safariView, animated: true, completion: nil)
     }
     
     // 태그 데이터 불러오기
@@ -49,25 +57,46 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     @IBOutlet var table: CustomTable!
     @IBOutlet var search: UIImageView!
     
+    @IBOutlet var collectionViewHeightConstraint: NSLayoutConstraint!
+    
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         // 선택한 세그먼트 인덱스를 기반으로 선택한 카테고리를 식별합니다.
         let selectedCategory = sender.selectedSegmentIndex
         
         // 선택한 카테고리에 따라 데이터를 업데이트하고 컬렉션 뷰를 새로고침합니다.
-        updateCollectionViewWithCategory(selectedCategory)
+        
+        if selectedCategory == 0 {
+            // 해당 카테고리의 첫 번째 태그를 자동으로 선택
+            collectionViewData = Tags.emotion
+            collectionViewHeightConstraint.constant = 30
+            collectionView.reloadData()
+            let firstIndexPath = IndexPath(item: 0, section: 0)
+            collectionView.selectItem(at: firstIndexPath, animated: true, scrollPosition: .left)
+            updateDataForSelectedTag(collectionViewData[0])
+            table.reloadData()
+        } else {
+            collectionViewData = []
+            collectionViewHeightConstraint.constant = 0
+            let segmentName = segment.titleForSegment(at: selectedCategory) ?? ""
+            updateDataForSegmentName(segmentName)
+            table.reloadData()
+        }
         changeSegmentedControlLinePosition()
-        
-        // 해당 카테고리의 첫 번째 태그를 자동으로 선택
-        let firstIndexPath = IndexPath(item: 0, section: 0)
-            
-        // 첫 번째 태그를 프로그래매틱하게 선택
-        collectionView.selectItem(at: firstIndexPath, animated: true, scrollPosition: .left)
-        
-        // 선택된 태그에 따라 selectedData 변경
-        updateDataForSelectedTag(collectionViewData[0])
-        
-        // 테이블 뷰 갱신
-        table.reloadData()
+    }
+    
+    func updateDataForSegmentName(_ segmentName: String) {
+        switch segmentName {
+        case "건강":
+            selectedData = Article.body1
+        case "육아":
+            selectedData = Article.baby1 // 예시로 설정
+        case "가족":
+            selectedData = Article.family1 // 예시로 설정
+        case "기타":
+            selectedData = Article.ect1 // 예시로 설정
+        default:
+            selectedData = []
+        }
     }
     
     func updateCollectionViewWithCategory(_ category: Int) {
@@ -76,18 +105,8 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         case 0:
             // 첫 번째 카테고리의 데이터를 사용
             collectionViewData = Tags.emotion
-        case 1:
-            // 두 번째 카테고리의 데이터를 사용
-            collectionViewData = Tags.body
-        case 2:
-            // 두 번째 카테고리의 데이터를 사용
-            collectionViewData = Tags.baby
-        case 3:
-            collectionViewData = Tags.family
-        case 4:
-            collectionViewData = Tags.etc
         default:
-            break
+            collectionViewData = []
         }
         
         // 컬렉션 뷰를 새로고침합니다.
@@ -119,18 +138,16 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     }
     
     func updateDataForSelectedTag(_ tag: Tags) {
-        // 예: 태그에 따라 다른 데이터를 가져오는 로직
-        // 이 예제에서는 단순화된 로직을 사용하였습니다.
         switch tag.tagName {
         case "우울":
             selectedData = Article.depressed
         case "불안/초조":
             selectedData = Article.unrest
-        case "슬픔":
+        case "감정기복":
             selectedData = Article.sad
         case "혼란":
             selectedData = Article.confusion
-        case "스트레스":
+        case "분노":
             selectedData = Article.stress
         case "건강 1":
             selectedData = Article.body1
@@ -203,7 +220,6 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         
         table.isScrollEnabled = false // 스크롤 막기
         table.backgroundColor = UIColor.clear // 배경 투명
-        table.allowsSelection = false // 셀 선택 막기
         table.separatorStyle = .none // table view 구분선 없애기
         
         collectionView.dataSource = self

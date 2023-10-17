@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,14 +36,14 @@
                             <constraint firstAttribute="height" constant="90" id="sNp-N2-WsG"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAZ-qW-qDQ">
-                        <rect key="frame" x="121.99999999999999" y="18" width="40.333333333333329" height="18.666666666666671"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAZ-qW-qDQ">
+                        <rect key="frame" x="121.99999999999999" y="24" width="40.333333333333329" height="19.333333333333329"/>
                         <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
                         <color key="textColor" name="Text01"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sC-fP-Ypg">
-                        <rect key="frame" x="122" y="49.666666666666664" width="200" height="14.333333333333336"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sC-fP-Ypg">
+                        <rect key="frame" x="122" y="56.333333333333336" width="200" height="14.333333333333336"/>
                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                         <color key="textColor" name="Text03"/>
                         <nil key="highlightedColor"/>
@@ -57,7 +58,7 @@
                     <constraint firstItem="Qsf-yT-MTD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YGn-Vv-f91"/>
                     <constraint firstItem="zmx-Fj-kHX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="feA-Lo-b1A"/>
                     <constraint firstItem="4sC-fP-Ypg" firstAttribute="top" secondItem="jAZ-qW-qDQ" secondAttribute="bottom" constant="13" id="haj-dG-us7"/>
-                    <constraint firstItem="jAZ-qW-qDQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="iV3-f6-P67"/>
+                    <constraint firstItem="jAZ-qW-qDQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="iV3-f6-P67"/>
                     <constraint firstItem="zmx-Fj-kHX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="lBq-Da-UaJ"/>
                     <constraint firstItem="Qsf-yT-MTD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pvL-gd-UAV"/>
                     <constraint firstItem="jAZ-qW-qDQ" firstAttribute="leading" secondItem="zmx-Fj-kHX" secondAttribute="trailing" constant="13" id="wHP-nS-d5O"/>
