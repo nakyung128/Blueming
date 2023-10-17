@@ -58,6 +58,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     @IBOutlet var search: UIImageView!
     
     @IBOutlet var collectionViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var tableconstraint: NSLayoutConstraint!
     
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         // 선택한 세그먼트 인덱스를 기반으로 선택한 카테고리를 식별합니다.
@@ -69,6 +70,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
             // 해당 카테고리의 첫 번째 태그를 자동으로 선택
             collectionViewData = Tags.emotion
             collectionViewHeightConstraint.constant = 30
+            tableconstraint.constant = 20
             collectionView.reloadData()
             let firstIndexPath = IndexPath(item: 0, section: 0)
             collectionView.selectItem(at: firstIndexPath, animated: true, scrollPosition: .left)
@@ -77,6 +79,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         } else {
             collectionViewData = []
             collectionViewHeightConstraint.constant = 0
+            tableconstraint.constant = 0
             let segmentName = segment.titleForSegment(at: selectedCategory) ?? ""
             updateDataForSegmentName(segmentName)
             table.reloadData()
@@ -174,9 +177,9 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         }
     }
     
-    var images = [ UIImage(named: "example_img.png"), UIImage(named: "example_img.png"), UIImage(named: "example_img.png") ]
-    var titles = [ "불안함을 잠재우기 위한 마음가짐1", "불안함을 잠재우기 위한 마음가짐2", "불안함을 잠재우기 위한 마음가짐3" ]
-    var scripts = [ "자세한 내용입니다 자세한 내용입니다 자세한 내용입니다", "자세한 내용입니다 자세한 내용입니다 자세한 내용입니다", "자세한 내용입니다 자세한 내용입니다 자세한 내용입니다" ]
+    var images = [ UIImage(named: "slide1"), UIImage(named: "slide2"), UIImage(named: "slide3") ]
+    var titles = [ "정서 발달을 위한 부모의 역할", "화목한 가족관계를 위한 핵심 전략", "둘째가 고민이라면?" ]
+    var scripts = [ "흔히, 정서와 감정을 쉽게 혼용하여 사용하게 되는데, 정서는 감정에 비해 좀 더...", "파트너십(partnership, 흔히 파트너십으로 오기)은 비즈니스 파트너 또는...", "사회적으로 초혼 나이가 늦어지면서 한 자녀 가족이 많은 때지만, 둘째를 고려한다면..." ]
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let value = scrollView.contentOffset.x/scrollView.frame.size.width

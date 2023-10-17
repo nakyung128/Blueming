@@ -56,16 +56,24 @@ extension Article {
     
     // 불안/초조
     static var unrest = [
-        Article(img: "article_img.png", title: "불안함을 잠재우기 위한 마음가짐1", script: "불안함을 잠재우기 위한 마음가짐 불안함을 잠재우기 위한 마음가짐",link: ""),
-        Article(img: "article_img.png", title: "불안함을 잠재우기 위한 마음가짐2", script: "불안함을 잠재우기 위한 마음가짐 불안함을 잠재우기 위한 마음가짐",link: ""),
-        Article(img: "article_img.png", title: "불안함을 잠재우기 위한 마음가짐3", script: "불안함을 잠재우기 위한 마음가짐 불안함을 잠재우기 위한 마음가짐",link: "")
+        Article(img: "unrest1", title: "“아기 낳기 무서워요!” 분만공포증\n어떻게 극복하지?", script: "살면서 한 번도 직접 경험해보지 못한 출산을 ...", link: "https://m.post.naver.com/viewer/postView.naver?volumeNo=32709472&memberNo=3265970&navigationType=push"),
+        Article(img: "unrest2", title: "임신부 잠 못들게 만드는\n‘하지불안증후군’", script: "그렇지 않아도 잠자리가 불편해 수면에 방해를 ...", link: "https://m.post.naver.com/viewer/postView.naver?volumeNo=32020708&memberNo=3265970&navigationType=push"),
+        Article(img: "unrest3", title: "임신 초기맘 괴롭히는 별별 불편\n증상들!", script: "입덧만큼 괴롭진 않아도 주기적으로 반복돼 ...", link: "https://m.post.naver.com/viewer/postView.naver?volumeNo=30897726&memberNo=3265970&navigationType=push"),
+        Article(img: "unrest4", title: "불안장애의 원인 증상 & 이겨내는법", script: "불안장애의 원인은 세가지로 나눠볼 수가\n있습니다.", link: "https://kyk9812048.tistory.com/652"),
+        Article(img: "unrest5", title: "당신만 모르는 불안을 잠재우는\n확실한 방법", script: "막연한 불안감을 느낄 때가 있다. 어떠한 ...", link: "https://brunch.co.kr/@bookmir90/140"),
+        Article(img: "unrest6", title: "정신과 의사가 알려주는 불안감\n극복 팁 2가지", script: "우리가 살아가는 한, 불안과 걱정 없이 늘 ...", link: "https://v.daum.net/v/5fc8868b8a07124b9443406d"),
+        Article(img: "unrest7", title: "오늘도 불안감에 잠 못 이루는\n당신에게", script: "불안감은 많은 경우 불면증으로 이어지기도 한다.", link: "https://sensio.tistory.com/392")
     ]
     
     // 감정기복
     static var sad = [
-        Article(img: "article_img.png", title: "슬픔을 잠재우기 위한 마음가짐1", script: "슬픔을 잠재우기 위한 마음가짐 슬픔을 잠재우기 위한 마음가짐",link: ""),
-        Article(img: "article_img.png", title: "슬픔을 잠재우기 위한 마음가짐2", script: "슬픔을 잠재우기 위한 마음가짐 슬픔을 잠재우기 위한 마음가짐",link: ""),
-        Article(img: "article_img.png", title: "슬픔을 잠재우기 위한 마음가짐3", script: "슬픔을 잠재우기 위한 마음가짐 슬픔을 잠재우기 위한 마음가짐",link: "")
+        Article(img: "sad1", title: "임신 중 널뛰는 ‘감정기복’…\n이 정도라고요?", script: "임신 중 급변하는 호르몬으로 유발되는 다양한 ...", link: "https://m.post.naver.com/viewer/postView.naver?volumeNo=30170268&memberNo=3265970"),
+        Article(img: "sad2", title: "“아무것도 하기 싫다!” 산모들이\n말하는 임신 중 무기력증", script: "다양한 증상들이 하나둘 시작되면서 조금씩 ...", link: "https://m.post.naver.com/viewer/postView.naver?volumeNo=33024839&memberNo=3265970&navigationType=push"),
+        Article(img: "sad3", title: "감정기복을 다스리는 방법", script: "여러 가지 감정을 느끼는 것은 우리를 인간답게\n만드는 특별한 경험 중 중요한 부분을 차지한다.", link: "https://ko.wikihow.com/%EA%B0%90%EC%A0%95%EA%B8%B0%EB%B3%B5%EC%9D%84-%EB%8B%A4%EC%8A%A4%EB%A6%AC%EB%8A%94-%EB%B0%A9%EB%B2%95"),
+        Article(img: "sad4", title: "감정 기복 심한 이유와 조절하는 법", script: "감정 기복이 심하다는 말, 혹시 들어보신 적\n있으신가요? 쉽게 기분이 좋아졌다가, 금방 ...", link: "https://goyou.goroletter.com/83"),
+        Article(img: "sad5", title: "감정 기복이 심한 사람의 특징", script: "인생을 살면서 우리는 자주 감정의 기복을\n마주한다. 인간은 주변 사람과 관계를 맺지 않는 ...", link: "https://brunch.co.kr/@ssmile777/187"),
+        Article(img: "sad6", title: "감정 기복 다스리는 6가지 방법", script: "여러 감정을 느끼는 것은 우리를 인간답게 만드는\n특별한 경험 중 중요한 부분을 차지합니다.", link: "https://yaegreena.tistory.com/226"),
+        Article(img: "sad7", title: "임산부 감정기복 총정리", script: "임신 전에는 모든 일에 있어 태연하고 무덤덤했던\n제가, 이제는 까탈스러워지고 예민해지고 ...", link: "https://memoryseung1224.tistory.com/931")
     ]
     
     // 분노

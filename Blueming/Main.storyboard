@@ -189,6 +189,7 @@
                         <outlet property="search" destination="p2f-NG-U9K" id="Vm6-fu-9Ko"/>
                         <outlet property="segment" destination="2cF-j2-7ja" id="Tlo-j2-mdU"/>
                         <outlet property="table" destination="iJo-Ga-tvD" id="1tP-fp-Pt8"/>
+                        <outlet property="tableconstraint" destination="0h4-ZN-Lzz" id="rmN-6Z-IKU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WPz-up-3Bo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2224,10 +2225,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
