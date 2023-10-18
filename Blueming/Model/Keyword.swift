@@ -49,4 +49,26 @@ extension Keyword {
         Keyword(img: "emotion_example", keyword: "혼란"),
         Keyword(img: "emotion_example", keyword: "분노")
     ]
+    
+    static var health = [
+        Keyword(img: "emotion_example", keyword: "건망증"),
+        Keyword(img: "emotion_example", keyword: "두통/어지럼증"),
+        Keyword(img: "emotion_example", keyword: "위장장애"),
+        Keyword(img: "emotion_example", keyword: "위장장애"),
+        Keyword(img: "emotion_example", keyword: "메스꺼움"),
+        Keyword(img: "emotion_example", keyword: "관절통"),
+        Keyword(img: "emotion_example", keyword: "피로"),
+        Keyword(img: "emotion_example", keyword: "부종"),
+        Keyword(img: "emotion_example", keyword: "배변 장애"),
+        Keyword(img: "emotion_example", keyword: "수면 장애"),
+        Keyword(img: "emotion_example", keyword: "식욕 변화"),
+        Keyword(img: "emotion_example", keyword: "외상"),
+        Keyword(img: "emotion_example", keyword: "요통"),
+        Keyword(img: "emotion_example", keyword: "젖몸살"),
+        Keyword(img: "emotion_example", keyword: "질분비물"),
+        Keyword(img: "emotion_example", keyword: "탈모"),
+        Keyword(img: "emotion_example", keyword: "복통"),
+        Keyword(img: "emotion_example", keyword: "피부질환"),
+        Keyword(img: "emotion_example", keyword: "훗배앓이")
+    ]
 }

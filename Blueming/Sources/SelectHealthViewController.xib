@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Bold.otf">
+            <string>Pretendard-Bold</string>
+        </array>
+        <array key="Pretendard-Medium.otf">
+            <string>Pretendard-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectHealthViewController" customModule="Blueming" customModuleProvider="target">
+            <connections>
+                <outlet property="healthView" destination="izq-ep-zDt" id="bFn-ZX-k33"/>
+                <outlet property="saveBtn" destination="PjE-Xf-vo5" id="6qA-gt-Ntf"/>
+                <outlet property="titleLabel" destination="Djx-Ep-lvb" id="qYj-gA-Ilz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emotionPopup.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cdc-lG-TAU">
+                    <rect key="frame" x="21" y="118" width="350" height="616"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1X-vu-roG">
+                    <rect key="frame" x="326" y="146" width="20" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="dZc-QV-R6V"/>
+                        <constraint firstAttribute="width" constant="20" id="mk1-PM-dPH"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system">
+                        <color key="baseForegroundColor" name="Text03"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="close:" destination="-1" eventType="touchUpInside" id="VZh-b7-GnF"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjE-Xf-vo5">
+                    <rect key="frame" x="46.666666666666657" y="649" width="300" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="Lyk-4y-E0C"/>
+                        <constraint firstAttribute="height" constant="50" id="lwW-zw-QxO"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="저장">
+                        <fontDescription key="titleFontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="baseBackgroundColor" name="Text05"/>
+                    </buttonConfiguration>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djx-Ep-lvb">
+                    <rect key="frame" x="171" y="156" width="51" height="24"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 건강 상태를 선택하세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VS-SC-fZ6">
+                    <rect key="frame" x="123" y="190" width="147" height="14"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
+                    <color key="textColor" name="Blue01"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                            <real key="value" value="-0.59999999999999998"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="izq-ep-zDt">
+                    <rect key="frame" x="43" y="227" width="306" height="399"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hqt-Hg-Vr4">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="PjE-Xf-vo5" firstAttribute="top" secondItem="izq-ep-zDt" secondAttribute="bottom" constant="23" id="3RT-Ik-sco"/>
+                <constraint firstItem="Cdc-lG-TAU" firstAttribute="trailing" secondItem="izq-ep-zDt" secondAttribute="trailing" constant="22" id="9ak-gK-ItI"/>
+                <constraint firstItem="izq-ep-zDt" firstAttribute="leading" secondItem="Cdc-lG-TAU" secondAttribute="leading" constant="22" id="CCs-Rj-aaU"/>
+                <constraint firstItem="Djx-Ep-lvb" firstAttribute="top" secondItem="Cdc-lG-TAU" secondAttribute="top" constant="38" id="L1I-YM-MZv"/>
+                <constraint firstItem="Djx-Ep-lvb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PYD-UG-tnb"/>
+                <constraint firstItem="Cdc-lG-TAU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="21" id="RMn-yR-GZq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Cdc-lG-TAU" secondAttribute="trailing" constant="22" id="TUk-hK-kDV"/>
+                <constraint firstItem="Cdc-lG-TAU" firstAttribute="bottom" secondItem="PjE-Xf-vo5" secondAttribute="bottom" constant="35" id="TXB-fT-3DP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Cdc-lG-TAU" secondAttribute="bottom" constant="84" id="a2r-kq-0sM"/>
+                <constraint firstItem="izq-ep-zDt" firstAttribute="top" secondItem="9VS-SC-fZ6" secondAttribute="bottom" constant="23" id="cnu-Mx-tke"/>
+                <constraint firstItem="9VS-SC-fZ6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hwd-O2-CiW"/>
+                <constraint firstItem="PjE-Xf-vo5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hy8-N8-FGq"/>
+                <constraint firstItem="Z1X-vu-roG" firstAttribute="top" secondItem="Cdc-lG-TAU" secondAttribute="top" constant="28" id="j0Q-4E-fwN"/>
+                <constraint firstItem="9VS-SC-fZ6" firstAttribute="top" secondItem="Djx-Ep-lvb" secondAttribute="bottom" constant="10" id="lNN-gh-jY3"/>
+                <constraint firstItem="Cdc-lG-TAU" firstAttribute="trailing" secondItem="Z1X-vu-roG" secondAttribute="trailing" constant="25" id="wbg-9K-aop"/>
+                <constraint firstItem="Cdc-lG-TAU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="59" id="xtN-y1-bad"/>
+            </constraints>
+            <point key="canvasLocation" x="-256" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="emotionPopup.png" width="350" height="616"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="Blue01">
+            <color red="0.38999998569488525" green="0.54000002145767212" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text03">
+            <color red="0.56000000238418579" green="0.56000000238418579" blue="0.56000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text05">
+            <color red="0.86000001430511475" green="0.86000001430511475" blue="0.86000001430511475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

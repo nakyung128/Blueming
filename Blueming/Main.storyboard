@@ -1593,6 +1593,7 @@
                     <connections>
                         <outlet property="alertBtn" destination="XPe-Dg-1kT" id="Bz9-iv-KAk"/>
                         <outlet property="emotion" destination="7AM-Cb-agB" id="jFt-Ca-y6F"/>
+                        <outlet property="health" destination="Vgg-Jv-Age" id="vNn-ey-1jp"/>
                         <outlet property="mainLabel" destination="wrJ-4e-A23" id="7UW-yC-xEC"/>
                         <outlet property="noDataLabel" destination="ZDl-En-Wfl" id="INo-XW-b5S"/>
                         <outlet property="scrollView" destination="Jqa-vv-D1h" id="qda-W9-kLM"/>

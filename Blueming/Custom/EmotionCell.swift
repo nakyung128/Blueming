@@ -17,7 +17,15 @@ class EmotionCell: UICollectionViewCell {
         super.awakeFromNib()
         
         setViewShadow(backView: view)
-
+        configureCell()
+    }
+    
+    func configureCell() {
+        // Attributed 문자열을 생성하고 자간을 설정합니다.
+        let attributedText = NSAttributedString(string: emotion.text ?? "", attributes: [NSAttributedString.Key.kern: -0.7])
+        
+        // 레이블에 적용합니다.
+        emotion.attributedText = attributedText
     }
 
 }

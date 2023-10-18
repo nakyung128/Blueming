@@ -47,6 +47,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var emotion: UIImageView!
+    @IBOutlet var health: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +104,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(selectEmotion))
         emotion.isUserInteractionEnabled = true
         emotion.addGestureRecognizer(tapGesture2)
+        
+        let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(selectHealth))
+        health.isUserInteractionEnabled = true
+        health.addGestureRecognizer(tapGesture3)
     }
     
     // 알람 화면으로 이동
@@ -118,6 +123,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // 약간의 딜레이 후 팝업 띄우기
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             let popup = SelectEmotionViewController(nibName: "SelectEmotionViewController", bundle: nil)
+            popup.modalPresentationStyle = .overCurrentContext
+            self.present(popup, animated: false)
+        }
+    }
+    
+    // 감정 선택 팝업창
+    @objc func selectHealth(sender: UITapGestureRecognizer) {
+        // 약간의 딜레이 후 팝업 띄우기
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            let popup = SelectHealthViewController(nibName: "SelectHealthViewController", bundle: nil)
             popup.modalPresentationStyle = .overCurrentContext
             self.present(popup, animated: false)
         }

@@ -1,5 +1,5 @@
 //
-//  SelectEmotionViewController.swift
+//  SelectHelathViewController.swift
 //  Blueming
 //
 //  Created by 이나경 on 10/18/23.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class SelectEmotionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class SelectHealthViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    let data = Keyword.emotion
+    let data = Keyword.health
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return 18
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -26,27 +26,30 @@ class SelectEmotionViewController: UIViewController, UICollectionViewDelegate, U
     }
     
 
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var emotionView: UICollectionView!
-    @IBOutlet var saveBtn: UIButton!
-    
-    @IBAction func closeBtn(_ sender: Any) {
+    @IBAction func close(_ sender: Any) {
         dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func saveEmotion(_ sender: Any) {
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var healthView: UICollectionView!
+    @IBOutlet var saveBtn: UIButton!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        healthView.flashScrollIndicators()
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let nib = UINib(nibName: "EmotionCell", bundle: nil)
-        emotionView.register(nib, forCellWithReuseIdentifier: "emotionCell")
 
-        let originalString = "오늘의 감정"
+        let nib = UINib(nibName: "EmotionCell", bundle: nil)
+        healthView.register(nib, forCellWithReuseIdentifier: "emotionCell")
+
+        let originalString = "오늘의 건강"
         let attributedString = NSMutableAttributedString(string: originalString)
         
-        if let range = originalString.range(of: "감정") {
+        if let range = originalString.range(of: "건강") {
             let nsRange = NSRange(range, in: originalString)
     
             let colorAttribute: [NSAttributedString.Key: Any] = [
@@ -62,19 +65,19 @@ class SelectEmotionViewController: UIViewController, UICollectionViewDelegate, U
         
         titleLabel.attributedText = attributedString
 
-        emotionView.delegate = self
-        emotionView.dataSource = self
+        healthView.delegate = self
+        healthView.dataSource = self
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: emotionView.frame.width/3 - 12, height: emotionView.frame.height/4 - 15)
+        layout.itemSize = CGSize(width: healthView.frame.width/3 - 12, height: 85)
         layout.sectionInset = UIEdgeInsets(top: 2, left: 4, bottom: 2, right: 4)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 15
-        emotionView.collectionViewLayout = layout
+        healthView.collectionViewLayout = layout
         
         saveBtn.applyOriginToButton(color: UIColor.Text05!)
         saveBtn.applyGradientToButton(startColor: UIColor(red: 0.393, green: 0.538, blue: 0.983, alpha: 1), endColor: UIColor(red: 0.557, green: 0.667, blue: 1, alpha: 1))
-
+        
     }
 
 }

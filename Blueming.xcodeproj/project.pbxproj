@@ -15,6 +15,10 @@
 		F30319702ADF9B880016D51C /* EmotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F303196E2ADF9B880016D51C /* EmotionCell.xib */; };
 		F30319722ADF9BAC0016D51C /* emotionCell.png in Resources */ = {isa = PBXBuildFile; fileRef = F30319712ADF9BAC0016D51C /* emotionCell.png */; };
 		F30319742ADF9D780016D51C /* emotion_example.png in Resources */ = {isa = PBXBuildFile; fileRef = F30319732ADF9D780016D51C /* emotion_example.png */; };
+		F30319772AE01A5A0016D51C /* SelectHealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30319752AE01A5A0016D51C /* SelectHealthViewController.swift */; };
+		F30319782AE01A5A0016D51C /* SelectHealthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30319762AE01A5A0016D51C /* SelectHealthViewController.xib */; };
+		F303197B2AE0225D0016D51C /* healthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30319792AE0225D0016D51C /* healthCell.swift */; };
+		F303197C2AE0225D0016D51C /* healthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F303197A2AE0225D0016D51C /* healthCell.xib */; };
 		F305455C2ADE97C400C18971 /* sad4.png in Resources */ = {isa = PBXBuildFile; fileRef = F30545552ADE97C400C18971 /* sad4.png */; };
 		F305455D2ADE97C400C18971 /* sad7.png in Resources */ = {isa = PBXBuildFile; fileRef = F30545562ADE97C400C18971 /* sad7.png */; };
 		F305455E2ADE97C400C18971 /* sad5.png in Resources */ = {isa = PBXBuildFile; fileRef = F30545572ADE97C400C18971 /* sad5.png */; };
@@ -153,6 +157,10 @@
 		F303196E2ADF9B880016D51C /* EmotionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmotionCell.xib; sourceTree = "<group>"; };
 		F30319712ADF9BAC0016D51C /* emotionCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emotionCell.png; sourceTree = "<group>"; };
 		F30319732ADF9D780016D51C /* emotion_example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emotion_example.png; sourceTree = "<group>"; };
+		F30319752AE01A5A0016D51C /* SelectHealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHealthViewController.swift; sourceTree = "<group>"; };
+		F30319762AE01A5A0016D51C /* SelectHealthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectHealthViewController.xib; sourceTree = "<group>"; };
+		F30319792AE0225D0016D51C /* healthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = healthCell.swift; sourceTree = "<group>"; };
+		F303197A2AE0225D0016D51C /* healthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = healthCell.xib; sourceTree = "<group>"; };
 		F30545552ADE97C400C18971 /* sad4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad4.png; sourceTree = "<group>"; };
 		F30545562ADE97C400C18971 /* sad7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad7.png; sourceTree = "<group>"; };
 		F30545572ADE97C400C18971 /* sad5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad5.png; sourceTree = "<group>"; };
@@ -402,6 +410,8 @@
 				F3AB290D2ADD48650058C5B2 /* AlertViewController.swift */,
 				F30319672ADF95090016D51C /* SelectEmotionViewController.swift */,
 				F30319682ADF95090016D51C /* SelectEmotionViewController.xib */,
+				F30319752AE01A5A0016D51C /* SelectHealthViewController.swift */,
+				F30319762AE01A5A0016D51C /* SelectHealthViewController.xib */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -504,6 +514,8 @@
 				F3AB29102ADD4A0B0058C5B2 /* AlertCell.xib */,
 				F303196D2ADF9B880016D51C /* EmotionCell.swift */,
 				F303196E2ADF9B880016D51C /* EmotionCell.xib */,
+				F30319792AE0225D0016D51C /* healthCell.swift */,
+				F303197A2AE0225D0016D51C /* healthCell.xib */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -597,6 +609,7 @@
 				F30319722ADF9BAC0016D51C /* emotionCell.png in Resources */,
 				F3FF97582ADE4237002BBB1B /* confusion1.png in Resources */,
 				F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */,
+				F303197C2AE0225D0016D51C /* healthCell.xib in Resources */,
 				F305456D2ADE98EF00C18971 /* unrest7.png in Resources */,
 				F3E587842AA9B80000578876 /* box1.png in Resources */,
 				F363449C2ADC562200019770 /* noCheckImg.png in Resources */,
@@ -665,6 +678,7 @@
 				F305456A2ADE98EF00C18971 /* unrest3.png in Resources */,
 				F350A1332ABAD51C00203688 /* signUpImg.png in Resources */,
 				F303196A2ADF95090016D51C /* SelectEmotionViewController.xib in Resources */,
+				F30319782AE01A5A0016D51C /* SelectHealthViewController.xib in Resources */,
 				F3FF97442ADE3E0D002BBB1B /* stress2.png in Resources */,
 				F3FF97342ADE315A002BBB1B /* depressed9.png in Resources */,
 				F305455D2ADE97C400C18971 /* sad7.png in Resources */,
@@ -742,10 +756,12 @@
 				F3B05C1E2AA9A258003EC4A6 /* CustomTabBarItem.swift in Sources */,
 				F3F7F1FC2AA995660050263F /* UIColor.swift in Sources */,
 				F3AB29112ADD4A0B0058C5B2 /* AlertCell.swift in Sources */,
+				F303197B2AE0225D0016D51C /* healthCell.swift in Sources */,
 				F3190E2B2AAC6515000A7343 /* HomeViewController.swift in Sources */,
 				F36B9E8B2AC40D5300937AD1 /* Keyword.swift in Sources */,
 				F36B9E892AC408C500937AD1 /* SearchViewController.swift in Sources */,
 				F32D0A812AD6C18E0094CA03 /* Goals.swift in Sources */,
+				F30319772AE01A5A0016D51C /* SelectHealthViewController.swift in Sources */,
 				F32D0A7C2AD6BABF0094CA03 /* CheckListCell.swift in Sources */,
 				F3A8564E2AB2CF3900264E3B /* TagCell.swift in Sources */,
 				F3AB29162ADD52290058C5B2 /* Alert.swift in Sources */,

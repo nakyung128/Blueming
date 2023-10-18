@@ -66,7 +66,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="53S-i1-Sae">
-                    <rect key="frame" x="41" y="249" width="310" height="377"/>
+                    <rect key="frame" x="43" y="239" width="306" height="387"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U6W-Rb-WI4">
                         <size key="itemSize" width="128" height="128"/>
@@ -104,15 +104,15 @@
                 <constraint firstItem="IQa-56-YKk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="59" id="HPB-KV-jmW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IQa-56-YKk" secondAttribute="trailing" constant="22" id="JF2-DD-byW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IQa-56-YKk" secondAttribute="bottom" constant="84" id="OqT-Lv-fg5"/>
-                <constraint firstItem="53S-i1-Sae" firstAttribute="leading" secondItem="IQa-56-YKk" secondAttribute="leading" constant="20" id="WX3-4B-Kll"/>
-                <constraint firstItem="53S-i1-Sae" firstAttribute="top" secondItem="dkE-3u-ZxI" secondAttribute="bottom" constant="45" id="XrQ-gf-cfv"/>
+                <constraint firstItem="53S-i1-Sae" firstAttribute="leading" secondItem="IQa-56-YKk" secondAttribute="leading" constant="22" id="WX3-4B-Kll"/>
+                <constraint firstItem="53S-i1-Sae" firstAttribute="top" secondItem="dkE-3u-ZxI" secondAttribute="bottom" constant="35" id="XrQ-gf-cfv"/>
                 <constraint firstItem="IQa-56-YKk" firstAttribute="trailing" secondItem="lmb-C0-qlo" secondAttribute="trailing" constant="25" id="aLp-h2-kUS"/>
-                <constraint firstItem="IQa-56-YKk" firstAttribute="trailing" secondItem="53S-i1-Sae" secondAttribute="trailing" constant="20" id="dst-YV-9HA"/>
+                <constraint firstItem="IQa-56-YKk" firstAttribute="trailing" secondItem="53S-i1-Sae" secondAttribute="trailing" constant="22" id="dst-YV-9HA"/>
                 <constraint firstItem="dkE-3u-ZxI" firstAttribute="top" secondItem="391-tw-Ab1" secondAttribute="bottom" constant="10" id="fxQ-DE-cm7"/>
                 <constraint firstItem="Nh3-2X-bDJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="llZ-dK-Nl8"/>
                 <constraint firstItem="dkE-3u-ZxI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="y4s-QB-udK"/>
             </constraints>
-            <point key="canvasLocation" x="-66" y="1"/>
+            <point key="canvasLocation" x="-66.412213740458014" y="0.70422535211267612"/>
         </view>
     </objects>
     <resources>
