@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3F4B3E9681166715A8B3369D /* Pods_Blueming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47D168201E5E31B7530E42C /* Pods_Blueming.framework */; };
+		F30319692ADF95090016D51C /* SelectEmotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30319672ADF95090016D51C /* SelectEmotionViewController.swift */; };
+		F303196A2ADF95090016D51C /* SelectEmotionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30319682ADF95090016D51C /* SelectEmotionViewController.xib */; };
+		F303196C2ADF96880016D51C /* emotionPopup.png in Resources */ = {isa = PBXBuildFile; fileRef = F303196B2ADF96880016D51C /* emotionPopup.png */; };
+		F303196F2ADF9B880016D51C /* EmotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F303196D2ADF9B880016D51C /* EmotionCell.swift */; };
+		F30319702ADF9B880016D51C /* EmotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F303196E2ADF9B880016D51C /* EmotionCell.xib */; };
+		F30319722ADF9BAC0016D51C /* emotionCell.png in Resources */ = {isa = PBXBuildFile; fileRef = F30319712ADF9BAC0016D51C /* emotionCell.png */; };
+		F30319742ADF9D780016D51C /* emotion_example.png in Resources */ = {isa = PBXBuildFile; fileRef = F30319732ADF9D780016D51C /* emotion_example.png */; };
 		F305455C2ADE97C400C18971 /* sad4.png in Resources */ = {isa = PBXBuildFile; fileRef = F30545552ADE97C400C18971 /* sad4.png */; };
 		F305455D2ADE97C400C18971 /* sad7.png in Resources */ = {isa = PBXBuildFile; fileRef = F30545562ADE97C400C18971 /* sad7.png */; };
 		F305455E2ADE97C400C18971 /* sad5.png in Resources */ = {isa = PBXBuildFile; fileRef = F30545572ADE97C400C18971 /* sad5.png */; };
@@ -139,6 +146,13 @@
 		819B905DCFFF0DA1D7876928 /* Pods-Blueming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueming.release.xcconfig"; path = "Target Support Files/Pods-Blueming/Pods-Blueming.release.xcconfig"; sourceTree = "<group>"; };
 		CEF1C2E7EC930CF10FE8047F /* Pods-Blueming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueming.debug.xcconfig"; path = "Target Support Files/Pods-Blueming/Pods-Blueming.debug.xcconfig"; sourceTree = "<group>"; };
 		D47D168201E5E31B7530E42C /* Pods_Blueming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blueming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30319672ADF95090016D51C /* SelectEmotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmotionViewController.swift; sourceTree = "<group>"; };
+		F30319682ADF95090016D51C /* SelectEmotionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectEmotionViewController.xib; sourceTree = "<group>"; };
+		F303196B2ADF96880016D51C /* emotionPopup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emotionPopup.png; sourceTree = "<group>"; };
+		F303196D2ADF9B880016D51C /* EmotionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionCell.swift; sourceTree = "<group>"; };
+		F303196E2ADF9B880016D51C /* EmotionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmotionCell.xib; sourceTree = "<group>"; };
+		F30319712ADF9BAC0016D51C /* emotionCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emotionCell.png; sourceTree = "<group>"; };
+		F30319732ADF9D780016D51C /* emotion_example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emotion_example.png; sourceTree = "<group>"; };
 		F30545552ADE97C400C18971 /* sad4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad4.png; sourceTree = "<group>"; };
 		F30545562ADE97C400C18971 /* sad7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad7.png; sourceTree = "<group>"; };
 		F30545572ADE97C400C18971 /* sad5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad5.png; sourceTree = "<group>"; };
@@ -386,6 +400,8 @@
 				F3B9CDBF2ACB227400DD1E7B /* QuestionPopUp.swift */,
 				F3B9CDC02ACB227400DD1E7B /* QuestionPopUp.xib */,
 				F3AB290D2ADD48650058C5B2 /* AlertViewController.swift */,
+				F30319672ADF95090016D51C /* SelectEmotionViewController.swift */,
+				F30319682ADF95090016D51C /* SelectEmotionViewController.xib */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -393,6 +409,9 @@
 		F3B05C072AA999BC003EC4A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F30319732ADF9D780016D51C /* emotion_example.png */,
+				F30319712ADF9BAC0016D51C /* emotionCell.png */,
+				F303196B2ADF96880016D51C /* emotionPopup.png */,
 				F30545732ADE9A6C00C18971 /* slide1.png */,
 				F30545722ADE9A6C00C18971 /* slide2.png */,
 				F30545712ADE9A6C00C18971 /* slide3.png */,
@@ -483,6 +502,8 @@
 				F32D0A7B2AD6BABF0094CA03 /* CheckListCell.xib */,
 				F3AB290F2ADD4A0B0058C5B2 /* AlertCell.swift */,
 				F3AB29102ADD4A0B0058C5B2 /* AlertCell.xib */,
+				F303196D2ADF9B880016D51C /* EmotionCell.swift */,
+				F303196E2ADF9B880016D51C /* EmotionCell.xib */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -573,6 +594,7 @@
 				F3FF97332ADE315A002BBB1B /* depressed7.png in Resources */,
 				F3FF97562ADE4237002BBB1B /* confusion3.png in Resources */,
 				F3B9CDC22ACB227400DD1E7B /* QuestionPopUp.xib in Resources */,
+				F30319722ADF9BAC0016D51C /* emotionCell.png in Resources */,
 				F3FF97582ADE4237002BBB1B /* confusion1.png in Resources */,
 				F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */,
 				F305456D2ADE98EF00C18971 /* unrest7.png in Resources */,
@@ -581,8 +603,10 @@
 				F38614172AC87FA300D5001F /* Pretendard-ExtraBold.otf in Resources */,
 				F3AB29122ADD4A0B0058C5B2 /* AlertCell.xib in Resources */,
 				F3FF972D2ADE315A002BBB1B /* depressed8.png in Resources */,
+				F303196C2ADF96880016D51C /* emotionPopup.png in Resources */,
 				F38614122AC877CB00D5001F /* GoogleService-Info.plist in Resources */,
 				F3FF97492ADE3E0D002BBB1B /* stress8.png in Resources */,
+				F30319702ADF9B880016D51C /* EmotionCell.xib in Resources */,
 				F3FF97572ADE4237002BBB1B /* confusion4.png in Resources */,
 				F30E3D402AC857A100CB1316 /* popup-view.png in Resources */,
 				F305456E2ADE98EF00C18971 /* unrest1.png in Resources */,
@@ -610,6 +634,7 @@
 				F3B9CDB02ACAE3D800DD1E7B /* question_background.png in Resources */,
 				F3FF97372ADE315A002BBB1B /* depressed3.png in Resources */,
 				F3B699202AD5C00100C13D88 /* startImg.png in Resources */,
+				F30319742ADF9D780016D51C /* emotion_example.png in Resources */,
 				F32D0A7F2AD6BBB00094CA03 /* check_sample.png in Resources */,
 				F3E587862AA9B99800578876 /* box-1x.png in Resources */,
 				F3B05C192AA99BD3003EC4A6 /* Pretendard-SemiBold.otf in Resources */,
@@ -639,6 +664,7 @@
 				F3FF972F2ADE315A002BBB1B /* depressed12.png in Resources */,
 				F305456A2ADE98EF00C18971 /* unrest3.png in Resources */,
 				F350A1332ABAD51C00203688 /* signUpImg.png in Resources */,
+				F303196A2ADF95090016D51C /* SelectEmotionViewController.xib in Resources */,
 				F3FF97442ADE3E0D002BBB1B /* stress2.png in Resources */,
 				F3FF97342ADE315A002BBB1B /* depressed9.png in Resources */,
 				F305455D2ADE97C400C18971 /* sad7.png in Resources */,
@@ -708,6 +734,7 @@
 				F3B9CDC12ACB227400DD1E7B /* QuestionPopUp.swift in Sources */,
 				F3190E272AAC535E000A7343 /* CheckViewController.swift in Sources */,
 				F3190E332AAC833C000A7343 /* MainArticleCell.swift in Sources */,
+				F30319692ADF95090016D51C /* SelectEmotionViewController.swift in Sources */,
 				F3B05C062AA99729003EC4A6 /* ArticleViewController.swift in Sources */,
 				F341094E2AC5E00600E755F4 /* KeywordLabel.swift in Sources */,
 				F3190E2E2AAC814A000A7343 /* Article.swift in Sources */,
@@ -729,6 +756,7 @@
 				F3B05C042AA99719003EC4A6 /* TestViewController.swift in Sources */,
 				F3B9CDBC2ACB11E900DD1E7B /* ResultViewController.swift in Sources */,
 				F37D6A3A2ABEA7BE007F3C41 /* PwdViewController.swift in Sources */,
+				F303196F2ADF9B880016D51C /* EmotionCell.swift in Sources */,
 				F3BB67092AC8056B0066E0DD /* NotificationCenter.swift in Sources */,
 				F3B9CDB82ACAE7BA00DD1E7B /* Answer.swift in Sources */,
 				F3B9CDB32ACAE50B00DD1E7B /* AnswerCell.swift in Sources */,

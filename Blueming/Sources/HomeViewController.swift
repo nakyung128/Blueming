@@ -46,6 +46,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // table View
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var emotion: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,6 +99,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToAlert))
         alertBtn.isUserInteractionEnabled = true
         alertBtn.addGestureRecognizer(tapGesture)
+        
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(selectEmotion))
+        emotion.isUserInteractionEnabled = true
+        emotion.addGestureRecognizer(tapGesture2)
     }
     
     // 알람 화면으로 이동
@@ -105,6 +111,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         vcName?.modalPresentationStyle = .fullScreen
         vcName?.modalTransitionStyle = .crossDissolve
         self.present(vcName!, animated: true, completion: nil)
+    }
+    
+    // 감정 선택 팝업창
+    @objc func selectEmotion(sender: UITapGestureRecognizer) {
+        // 약간의 딜레이 후 팝업 띄우기
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            let popup = SelectEmotionViewController(nibName: "SelectEmotionViewController", bundle: nil)
+            popup.modalPresentationStyle = .overCurrentContext
+            self.present(popup, animated: false)
+        }
     }
     
     func createViewWithShadowsAndShapes(parent: UIView, leadingConstant: CGFloat, topConstant: NSLayoutAnchor<NSLayoutYAxisAnchor>, Constant: CGFloat) -> UIView {
