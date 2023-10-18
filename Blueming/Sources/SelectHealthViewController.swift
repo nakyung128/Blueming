@@ -11,6 +11,7 @@ class SelectHealthViewController: UIViewController, UICollectionViewDelegate, UI
     
     let data = Keyword.health
     var keyword: String = ""
+    var img: String = ""
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 18
@@ -33,6 +34,7 @@ class SelectHealthViewController: UIViewController, UICollectionViewDelegate, UI
             cell.layer.cornerRadius = 20
             
             keyword = data[indexPath.row].keyword
+            img = data[indexPath.row].img!
         }
     }
     
@@ -48,12 +50,10 @@ class SelectHealthViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     @IBAction func saveHealth(_ sender: Any) {
-        
         UserDefaults.standard.setValue(keyword, forKey: "health_keyword")
-        print("선택한 건강:", UserDefaults.standard.string(forKey: "health_keyword"))
+        UserDefaults.standard.setValue(img, forKey: "health_img")
         
         dismiss(animated: false, completion: nil)
-        
     }
     
     @IBOutlet var titleLabel: UILabel!

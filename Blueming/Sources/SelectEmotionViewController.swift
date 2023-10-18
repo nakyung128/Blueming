@@ -11,6 +11,7 @@ class SelectEmotionViewController: UIViewController, UICollectionViewDelegate, U
     
     let data = Keyword.emotion
     var keyword: String = ""
+    var img: String = ""
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 12
@@ -33,6 +34,7 @@ class SelectEmotionViewController: UIViewController, UICollectionViewDelegate, U
             cell.layer.cornerRadius = 20
             
             keyword = data[indexPath.row].keyword
+            img = data[indexPath.row].img!
         }
     }
     
@@ -59,9 +61,7 @@ class SelectEmotionViewController: UIViewController, UICollectionViewDelegate, U
         
         UserDefaults.standard.setValue(todayString, forKey: "date")
         UserDefaults.standard.setValue(keyword, forKey: "emotion_keyword")
-        
-        print("선택한 감정:", UserDefaults.standard.string(forKey: "emotion_keyword"))
-        print("오늘 날짜:", UserDefaults.standard.string(forKey: "date"))
+        UserDefaults.standard.setValue(img, forKey: "emotion_img")
         
         dismiss(animated: false, completion: nil)
     }
