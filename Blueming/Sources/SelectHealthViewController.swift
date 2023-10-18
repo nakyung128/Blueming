@@ -10,6 +10,7 @@ import UIKit
 class SelectHealthViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     let data = Keyword.health
+    var keyword: String = ""
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 18
@@ -25,9 +26,34 @@ class SelectHealthViewController: UIViewController, UICollectionViewDelegate, UI
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = healthView.cellForItem(at: indexPath) {
+            cell.layer.borderWidth = 2
+            cell.layer.borderColor = UIColor.Blue01?.cgColor
+            cell.layer.cornerRadius = 20
+            
+            keyword = data[indexPath.row].keyword
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = healthView.cellForItem(at: indexPath) {
+            cell.layer.borderWidth = 0
+        }
+    }
+    
 
     @IBAction func close(_ sender: Any) {
         dismiss(animated: false, completion: nil)
+    }
+    
+    @IBAction func saveHealth(_ sender: Any) {
+        
+        UserDefaults.standard.setValue(keyword, forKey: "health_keyword")
+        print("선택한 건강:", UserDefaults.standard.string(forKey: "health_keyword"))
+        
+        dismiss(animated: false, completion: nil)
+        
     }
     
     @IBOutlet var titleLabel: UILabel!

@@ -54,7 +54,6 @@ extension Keyword {
         Keyword(img: "emotion_example", keyword: "건망증"),
         Keyword(img: "emotion_example", keyword: "두통/어지럼증"),
         Keyword(img: "emotion_example", keyword: "위장장애"),
-        Keyword(img: "emotion_example", keyword: "위장장애"),
         Keyword(img: "emotion_example", keyword: "메스꺼움"),
         Keyword(img: "emotion_example", keyword: "관절통"),
         Keyword(img: "emotion_example", keyword: "피로"),

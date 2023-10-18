@@ -60,6 +60,9 @@
                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="baseBackgroundColor" name="Text05"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="saveHealth:" destination="-1" eventType="touchUpInside" id="ILM-8e-bv2"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djx-Ep-lvb">
                     <rect key="frame" x="171" y="156" width="51" height="24"/>

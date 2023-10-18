@@ -10,6 +10,7 @@ import UIKit
 class SelectEmotionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     let data = Keyword.emotion
+    var keyword: String = ""
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 12
@@ -25,6 +26,22 @@ class SelectEmotionViewController: UIViewController, UICollectionViewDelegate, U
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = emotionView.cellForItem(at: indexPath) {
+            cell.layer.borderWidth = 2
+            cell.layer.borderColor = UIColor.Blue01?.cgColor
+            cell.layer.cornerRadius = 20
+            
+            keyword = data[indexPath.row].keyword
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = emotionView.cellForItem(at: indexPath) {
+            cell.layer.borderWidth = 0
+        }
+    }
+    
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var emotionView: UICollectionView!
@@ -35,6 +52,18 @@ class SelectEmotionViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     @IBAction func saveEmotion(_ sender: Any) {
+        let today = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let todayString = formatter.string(from: today)
+        
+        UserDefaults.standard.setValue(todayString, forKey: "date")
+        UserDefaults.standard.setValue(keyword, forKey: "emotion_keyword")
+        
+        print("선택한 감정:", UserDefaults.standard.string(forKey: "emotion_keyword"))
+        print("오늘 날짜:", UserDefaults.standard.string(forKey: "date"))
+        
+        dismiss(animated: false, completion: nil)
     }
     
     override func viewDidLoad() {

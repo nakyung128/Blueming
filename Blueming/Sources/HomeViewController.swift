@@ -108,6 +108,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(selectHealth))
         health.isUserInteractionEnabled = true
         health.addGestureRecognizer(tapGesture3)
+        
+        // 오늘 선택한 감정, 건강일 때만 저장된 값 불러오기. 아니면 초기화
+        let today = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let todayString = formatter.string(from: today)
+        
+        if let lastSavedDate = UserDefaults.standard.string(forKey: "date"), lastSavedDate != todayString {
+            // 날짜가 다르면 값을 초기화
+            UserDefaults.standard.removeObject(forKey: "emotion_keyword")
+            UserDefaults.standard.removeObject(forKey: "health_keyword")
+        } else {
+            // 같은 날짜일 경우, 저장돼 있는 값 불러오기
+            let emotion = UserDefaults.standard.object(forKey: "emotion_keyword")
+            let health = UserDefaults.standard.object(forKey: "health_keyword")
+            
+            print("오늘의 감정:", emotion)
+            print("오늘의 건강:", health)
+        }
     }
     
     // 알람 화면으로 이동
