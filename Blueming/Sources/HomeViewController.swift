@@ -81,10 +81,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let emotionImg = UserDefaults.standard.string(forKey: "emotion_img")
                 let healthImg = UserDefaults.standard.string(forKey: "health_img")
                 
-                emotion.image = UIImage(named: emotionImg!)
-                emotionLabel.text = emotionKeyword
-                health.image = UIImage(named: healthImg!)
-                healthLabel.text = healthKeyword
+                print(emotionKeyword)
+                print(healthKeyword)
+                
+                if emotionKeyword != nil && healthKeyword == nil {
+                    print("감정만 선택됨")
+                    emotion.image = UIImage(named: emotionImg!)
+                    emotionLabel.attributedText = NSMutableAttributedString(string: emotionKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
+                    emotionLabel.textAlignment = .center
+                } else if healthKeyword != nil && emotionKeyword == nil {
+                    print("건강만 선택됨")
+                    health.image = UIImage(named: healthImg!)
+                    healthLabel.attributedText = NSMutableAttributedString(string: healthKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
+                    healthLabel.textAlignment = .center
+                } else if healthKeyword != nil && emotionKeyword != nil {
+                    print("둘 다 선택됨")
+                    emotion.image = UIImage(named: emotionImg!)
+                    emotionLabel.attributedText = NSMutableAttributedString(string: emotionKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
+                    emotionLabel.textAlignment = .center
+                    health.image = UIImage(named: healthImg!)
+                    healthLabel.attributedText = NSMutableAttributedString(string: healthKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
+                    healthLabel.textAlignment = .center
+                }
             }
         }
 
@@ -92,6 +110,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 옵저버 등록
+        NotificationCenter.default.addObserver(self, selector: #selector(handleEmotionUpdate), name: .selectEmotion, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleHealthUpdate), name: .selectHealth, object: nil)
         
         keywordLabel.attributedText = NSAttributedString(string: "✍🏻 오늘의 키워드", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
         todayGoal.attributedText = NSAttributedString(string: "💙 오늘의 목표", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
@@ -163,6 +185,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(selectHealth))
         health.isUserInteractionEnabled = true
         health.addGestureRecognizer(tapGesture3)
+    }
+    
+    // 옵저버 해제
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func handleEmotionUpdate() {
+        let emotionKeyword = UserDefaults.standard.string(forKey: "emotion_keyword")
+        let emotionImg = UserDefaults.standard.string(forKey: "emotion_img")
+        emotion.image = UIImage(named: emotionImg!)
+        emotionLabel.attributedText = NSMutableAttributedString(string: emotionKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
+    }
+    
+    @objc func handleHealthUpdate() {
+        let healthKeyword = UserDefaults.standard.string(forKey: "health_keyword")
+        let healthImg = UserDefaults.standard.string(forKey: "health_img")
+        health.image = UIImage(named: healthImg!)
+        healthLabel.attributedText = NSMutableAttributedString(string: healthKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
     }
     
     // 알람 화면으로 이동

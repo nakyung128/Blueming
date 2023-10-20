@@ -17,8 +17,6 @@
 		F30319742ADF9D780016D51C /* emotion_example.png in Resources */ = {isa = PBXBuildFile; fileRef = F30319732ADF9D780016D51C /* emotion_example.png */; };
 		F30319772AE01A5A0016D51C /* SelectHealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30319752AE01A5A0016D51C /* SelectHealthViewController.swift */; };
 		F30319782AE01A5A0016D51C /* SelectHealthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30319762AE01A5A0016D51C /* SelectHealthViewController.xib */; };
-		F303197B2AE0225D0016D51C /* healthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30319792AE0225D0016D51C /* healthCell.swift */; };
-		F303197C2AE0225D0016D51C /* healthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F303197A2AE0225D0016D51C /* healthCell.xib */; };
 		F30319912AE084C00016D51C /* body15.png in Resources */ = {isa = PBXBuildFile; fileRef = F303197D2AE084BF0016D51C /* body15.png */; };
 		F30319922AE084C00016D51C /* body11.png in Resources */ = {isa = PBXBuildFile; fileRef = F303197E2AE084BF0016D51C /* body11.png */; };
 		F30319932AE084C00016D51C /* body5.png in Resources */ = {isa = PBXBuildFile; fileRef = F303197F2AE084BF0016D51C /* body5.png */; };
@@ -222,8 +220,6 @@
 		F30319732ADF9D780016D51C /* emotion_example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emotion_example.png; sourceTree = "<group>"; };
 		F30319752AE01A5A0016D51C /* SelectHealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHealthViewController.swift; sourceTree = "<group>"; };
 		F30319762AE01A5A0016D51C /* SelectHealthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectHealthViewController.xib; sourceTree = "<group>"; };
-		F30319792AE0225D0016D51C /* healthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = healthCell.swift; sourceTree = "<group>"; };
-		F303197A2AE0225D0016D51C /* healthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = healthCell.xib; sourceTree = "<group>"; };
 		F303197D2AE084BF0016D51C /* body15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body15.png; sourceTree = "<group>"; };
 		F303197E2AE084BF0016D51C /* body11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body11.png; sourceTree = "<group>"; };
 		F303197F2AE084BF0016D51C /* body5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body5.png; sourceTree = "<group>"; };
@@ -703,8 +699,6 @@
 				F3AB29102ADD4A0B0058C5B2 /* AlertCell.xib */,
 				F303196D2ADF9B880016D51C /* EmotionCell.swift */,
 				F303196E2ADF9B880016D51C /* EmotionCell.xib */,
-				F30319792AE0225D0016D51C /* healthCell.swift */,
-				F303197A2AE0225D0016D51C /* healthCell.xib */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -799,7 +793,6 @@
 				F30319C22AE087650016D51C /* family2.png in Resources */,
 				F3FF97582ADE4237002BBB1B /* confusion1.png in Resources */,
 				F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */,
-				F303197C2AE0225D0016D51C /* healthCell.xib in Resources */,
 				F3B795EB2AE25D7D0090440F /* Pretendard-Bold.otf in Resources */,
 				F30319A02AE084C00016D51C /* body12.png in Resources */,
 				F305456D2ADE98EF00C18971 /* unrest7.png in Resources */,
@@ -1000,7 +993,6 @@
 				F3B05C1E2AA9A258003EC4A6 /* CustomTabBarItem.swift in Sources */,
 				F3F7F1FC2AA995660050263F /* UIColor.swift in Sources */,
 				F3AB29112ADD4A0B0058C5B2 /* AlertCell.swift in Sources */,
-				F303197B2AE0225D0016D51C /* healthCell.swift in Sources */,
 				F3190E2B2AAC6515000A7343 /* HomeViewController.swift in Sources */,
 				F36B9E8B2AC40D5300937AD1 /* Keyword.swift in Sources */,
 				F36B9E892AC408C500937AD1 /* SearchViewController.swift in Sources */,

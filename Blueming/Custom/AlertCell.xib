@@ -36,7 +36,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svl-fd-ZGt">
-                        <rect key="frame" x="62" y="22" width="36" height="17"/>
+                        <rect key="frame" x="62" y="22" width="35.666666666666657" height="17"/>
                         <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="14"/>
                         <color key="textColor" name="Text01"/>
                         <nil key="highlightedColor"/>
@@ -47,7 +47,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRy-5u-vOK">
-                        <rect key="frame" x="62" y="51" width="30" height="15"/>
+                        <rect key="frame" x="62" y="51" width="30" height="14"/>
                         <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                         <color key="textColor" name="Text02"/>
                         <nil key="highlightedColor"/>
@@ -58,6 +58,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="loU-YY-UPK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3h0-p7-BPY"/>
                     <constraint firstItem="bqU-M3-qRE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="Ap0-6v-WbL"/>

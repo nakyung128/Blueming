@@ -9,6 +9,47 @@ import UIKit
 
 class EmotionCell: UICollectionViewCell {
     
+//    private var gradientLayer: CAGradientLayer?
+//    
+//    func setGradientBorder(colors: [CGColor], width: CGFloat) {
+//        // 기존 그라데이션 레이어 제거
+//        gradientLayer?.removeFromSuperlayer()
+//        
+//        // 그라데이션 레이어 생성
+//        let gradient = CAGradientLayer()
+//        gradient.frame = bounds
+//        gradient.colors = colors
+//        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+//        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+//        
+//        let shape = CAShapeLayer()
+//        shape.lineWidth = width
+//        shape.path = UIBezierPath(roundedRect: bounds, cornerRadius: 20).cgPath
+//        shape.strokeColor = UIColor.black.cgColor
+//        shape.fillColor = UIColor.clear.cgColor
+//        
+//        gradient.mask = shape
+//        layer.addSublayer(gradient)
+//        gradientLayer = gradient
+//    }
+//    
+//    override var isSelected: Bool {
+//        didSet {
+//            if isSelected {
+//                setGradientBorder(colors: [UIColor(red: 0.393, green: 0.538, blue: 0.983, alpha: 1).cgColor, UIColor(red: 0.557, green: 0.667, blue: 1, alpha: 1).cgColor], width: 5)
+//            } else {
+//                gradientLayer?.removeFromSuperlayer()
+//                gradientLayer = nil
+//            }
+//        }
+//    }
+//    
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        gradientLayer?.removeFromSuperlayer()
+//        gradientLayer = nil
+//    }
+    
     @IBOutlet var img: UIImageView!
     @IBOutlet var emotion: UILabel!
     @IBOutlet weak var view: UIView!

@@ -29,7 +29,7 @@ class SelectHealthViewController: UIViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = healthView.cellForItem(at: indexPath) {
-            cell.layer.borderWidth = 2
+            cell.layer.borderWidth = 4
             cell.layer.borderColor = UIColor.Blue01?.cgColor
             cell.layer.cornerRadius = 20
             
@@ -50,8 +50,13 @@ class SelectHealthViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     @IBAction func saveHealth(_ sender: Any) {
+        print(keyword)
         UserDefaults.standard.setValue(keyword, forKey: "health_keyword")
         UserDefaults.standard.setValue(img, forKey: "health_img")
+        
+        print(UserDefaults.standard.string(forKey: "health_keyword"))
+        
+        NotificationCenter.default.post(name: .selectHealth, object: nil)
         
         dismiss(animated: false, completion: nil)
     }
@@ -71,6 +76,8 @@ class SelectHealthViewController: UIViewController, UICollectionViewDelegate, UI
 
         let nib = UINib(nibName: "EmotionCell", bundle: nil)
         healthView.register(nib, forCellWithReuseIdentifier: "emotionCell")
+        
+        healthView.backgroundColor = UIColor.white
 
         let originalString = "오늘의 건강"
         let attributedString = NSMutableAttributedString(string: originalString)

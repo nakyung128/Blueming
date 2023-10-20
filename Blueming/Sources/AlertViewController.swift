@@ -161,6 +161,8 @@ class AlertViewController: UIViewController, UITableViewDataSource, UITableViewD
         alertView.dataSource = self
         alertView.delegate = self
         
+        alertView.backgroundColor = UIColor.white
+        
         let nibName = UINib(nibName: "AlertCell", bundle: nil)
         alertView.register(nibName, forCellReuseIdentifier: "alertCell")
         

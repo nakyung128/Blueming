@@ -111,6 +111,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         backBtn.isUserInteractionEnabled = true
         backBtn.addGestureRecognizer(tapGesture)
         
+        recLabel.attributedText = NSAttributedString(string: "추천 키워드", attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.font: UIFont(name: "Pretendard-Semibold", size: 16)!])
+        famLabel.attributedText = NSAttributedString(string: "많이 찾는 검색어", attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.font: UIFont(name: "Pretendard-Semibold", size: 16)!])
+        
         // 추천 키워드 라벨 추가
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -204,6 +207,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         resultTableView.backgroundColor = .clear
         resultTableView.allowsSelection = false // 셀 선택 막기
         resultTableView.separatorStyle = .none // table view 구분선 없애기
+        resultTableView.keyboardDismissMode = .onDrag
     }
     
     // 아티클 검색

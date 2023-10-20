@@ -195,6 +195,8 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageScroll.isPagingEnabled = false
+        
         let nibName = UINib(nibName: "MainArticleCell", bundle: nil)
         table.register(nibName, forCellReuseIdentifier: "mainCell")
         
@@ -318,6 +320,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     
     private func addContentScrollView() {
         var contentX: CGFloat = 0.0 // 컨텐츠의 x 좌표를 초기화합니다.
+        let spacing: CGFloat = 10.0
         
         for i in 0..<images.count {
             // 이미지와 레이블을 담을 컨테이너 뷰 생성
@@ -352,14 +355,29 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
             containerView.addSubview(scriptLabel)
             
             // 컨테이너 뷰를 스크롤 뷰에 추가
-            containerView.frame = CGRect(x: contentX, y: 0, width: imageScroll.bounds.width, height: imageScroll.bounds.height)
+            containerView.frame = CGRect(x: contentX, y: 0, width: (imageScroll.bounds.width + spacing), height: imageScroll.bounds.height)
             imageScroll.addSubview(containerView)
             
-            contentX += imageScroll.bounds.width // x 좌표를 증가시켜 다음 컨텐츠 위치를 지정합니다.
+            contentX += (imageScroll.bounds.width + spacing) // x 좌표를 증가시켜 다음 컨텐츠 위치를 지정
         }
-        
+    
         // 스크롤뷰의 contentSize 설정
-        imageScroll.contentSize.width = imageScroll.frame.width * CGFloat(images.count)
+        imageScroll.contentSize.width = contentX
+        //(imageScroll.frame.width + spacing) * CGFloat(images.count) - spacing
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let pageWidth: CGFloat = scrollView.frame.size.width + 10.0 // 간격 포함한 페이지 너비
+        let approxPage = scrollView.contentOffset.x / pageWidth
+        let currentPage = (velocity.x == 0) ? round(approxPage) : (velocity.x > 0) ? ceil(approxPage) : floor(approxPage)
+        
+        targetContentOffset.pointee = CGPoint(x: currentPage * pageWidth, y: targetContentOffset.pointee.y)
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageWidth: CGFloat = scrollView.frame.size.width + 10.0 // 간격 포함한 페이지 너비
+        let currentPage = floor(scrollView.contentOffset.x / pageWidth)
+        setPageControlSelectedPage(currentPage: Int(currentPage))
     }
     
     // Change position of the underline
