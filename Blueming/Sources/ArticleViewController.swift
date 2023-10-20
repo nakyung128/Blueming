@@ -90,13 +90,13 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     func updateDataForSegmentName(_ segmentName: String) {
         switch segmentName {
         case "건강":
-            selectedData = Article.body1
+            selectedData = Article.body
         case "육아":
-            selectedData = Article.baby1 // 예시로 설정
+            selectedData = Article.baby
         case "가족":
-            selectedData = Article.family1 // 예시로 설정
+            selectedData = Article.family
         case "기타":
-            selectedData = Article.ect1 // 예시로 설정
+            selectedData = Article.ect
         default:
             selectedData = []
         }
@@ -152,26 +152,6 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
             selectedData = Article.confusion
         case "분노":
             selectedData = Article.stress
-        case "건강 1":
-            selectedData = Article.body1
-        case "건강 2":
-            selectedData = Article.body2
-        case "건강 3":
-            selectedData = Article.body3
-        case "육아 1":
-            selectedData = Article.baby1
-        case "육아 2":
-            selectedData = Article.baby2
-        case "가족 1":
-            selectedData = Article.family1
-        case "가족 2":
-            selectedData = Article.family2
-        case "기타 1":
-            selectedData = Article.ect1
-        case "기타 2":
-            selectedData = Article.ect2
-        case "기타 3":
-            selectedData = Article.ect3
         default:
             selectedData = []
         }

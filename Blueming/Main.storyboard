@@ -1594,11 +1594,20 @@
                         <outlet property="alertBtn" destination="XPe-Dg-1kT" id="Bz9-iv-KAk"/>
                         <outlet property="emotion" destination="7AM-Cb-agB" id="jFt-Ca-y6F"/>
                         <outlet property="emotionLabel" destination="zzS-Zn-p9j" id="sFl-7V-rSX"/>
+                        <outlet property="goal1" destination="8Dw-zT-NVo" id="R90-kD-axE"/>
+                        <outlet property="goal2" destination="RE3-9D-cLE" id="ecx-Kb-XUO"/>
+                        <outlet property="goalCnt1" destination="AHw-Tk-31t" id="wmc-FC-qSk"/>
+                        <outlet property="goalCnt2" destination="zAN-5O-Y5Q" id="5Hi-Ej-fca"/>
                         <outlet property="health" destination="Vgg-Jv-Age" id="vNn-ey-1jp"/>
                         <outlet property="healthLabel" destination="ZDl-En-Wfl" id="hmm-39-Xjg"/>
+                        <outlet property="keywordLabel" destination="8xi-s0-ZaP" id="hrH-ya-MhS"/>
                         <outlet property="mainLabel" destination="wrJ-4e-A23" id="7UW-yC-xEC"/>
                         <outlet property="scrollView" destination="Jqa-vv-D1h" id="qda-W9-kLM"/>
                         <outlet property="tableView" destination="DpL-uH-SwF" id="v1i-Lb-xlT"/>
+                        <outlet property="todayEmotion" destination="NVz-X8-pBE" id="K5E-qn-rR6"/>
+                        <outlet property="todayGoal" destination="LND-hM-aXe" id="xi6-ZL-jGb"/>
+                        <outlet property="todayHealth" destination="3Dg-Le-rft" id="Iqy-E3-lAi"/>
+                        <outlet property="todayRead" destination="FP6-aY-eYO" id="yQz-rS-cDg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rA2-Wo-eLB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

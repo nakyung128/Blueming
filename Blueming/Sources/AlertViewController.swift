@@ -154,7 +154,9 @@ class AlertViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //UserDefaults.standard.setAlerts(Alert.data, forKey: "alertsDataKey")
+        if UserDefaults.standard.alerts(forKey: "alertsDataKey") == nil {
+            UserDefaults.standard.setAlerts(Alert.data, forKey: "alertsDataKey")
+        }
         
         alertView.dataSource = self
         alertView.delegate = self

@@ -8,7 +8,7 @@
 import UIKit
 
 class EmotionCell: UICollectionViewCell {
-
+    
     @IBOutlet var img: UIImageView!
     @IBOutlet var emotion: UILabel!
     @IBOutlet weak var view: UIView!
@@ -27,18 +27,18 @@ class EmotionCell: UICollectionViewCell {
         // 레이블에 적용합니다.
         emotion.attributedText = attributedText
     }
-
+    
 }
 
 extension UIView {
     func setViewShadow(backView: UIView) {
-            backView.layer.masksToBounds = true
-            backView.layer.cornerRadius = 20
-            
-            layer.masksToBounds = false
-            layer.shadowOpacity = 0.7
-            layer.shadowOffset = CGSize(width: 0, height: 0)
-            layer.shadowRadius = 4
-            layer.shadowColor = UIColor(red: 0.835, green: 0.898, blue: 1, alpha: 1).cgColor
-        }
+        backView.layer.masksToBounds = true
+        backView.layer.cornerRadius = 20
+        
+        layer.masksToBounds = false
+        layer.shadowOpacity = 0.7
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowRadius = 4
+        layer.shadowColor = UIColor(red: 0.835, green: 0.898, blue: 1, alpha: 1).cgColor
+    }
 }

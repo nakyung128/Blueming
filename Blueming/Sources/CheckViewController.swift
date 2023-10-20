@@ -333,6 +333,9 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
     }
     
     func loadGoalsAndUpdateView() {
+        if UserDefaults.standard.goals(forKey: "goalsDataKey") == nil {
+            UserDefaults.standard.setGoals(Goals.data, forKey: "goalsDataKey")
+        }
         allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
         listView.reloadData()
     }

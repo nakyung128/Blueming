@@ -68,7 +68,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             famousView.isHidden = true
             recLabel.isHidden = true
             famLabel.isHidden = true
-            resultTableView.isHidden = false
             
             if list.isEmpty {
                 resultTableView.isHidden = true
@@ -79,6 +78,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -208,20 +208,22 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // 아티클 검색
     @objc func search(sender: UITapGestureRecognizer) {
-        currentState = .result
+        
         // 배경 이미지 뷰를 생성하고 추가
         let backgroundImage = UIImageView(image: UIImage(named: "article-back.png"))
         backgroundImage.contentMode = .scaleAspectFill // 이미지 크기 조절 옵션 (필요에 따라 변경)
         backgroundImage.frame = view.bounds // 이미지 뷰를 화면 크기에 맞게 설정
         
         // 배경 이미지 뷰를 뷰의 맨 뒤에 추가
-        view.insertSubview(backgroundImage, at: 0)
+        view.insertSubview(backgroundImage, at: 0) 
         
         // 검색어를 기반으로 데이터 필터링
         if let searchText = searchField.text, !searchText.isEmpty {
             list = allData.filter {$0.title.contains(searchText)}
+            currentState = .result
         } else {
             list = []
+            currentState = .result
         }
         resultTableView.reloadData()
     }

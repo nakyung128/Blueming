@@ -42,7 +42,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var alertBtn: UIImageView!
     @IBOutlet var healthLabel: UILabel!
     @IBOutlet var emotionLabel: UILabel!
-    
+    @IBOutlet var keywordLabel: UILabel!
+    @IBOutlet var todayEmotion: UILabel!
+    @IBOutlet var todayHealth: UILabel!
+    @IBOutlet var todayGoal: UILabel!
+    @IBOutlet var todayRead: UILabel!
+    @IBOutlet var goal1: UILabel!
+    @IBOutlet var goal2: UILabel!
+    @IBOutlet var goalCnt1: UILabel!
+    @IBOutlet var goalCnt2: UILabel!
     
     // table View
     @IBOutlet var tableView: UITableView!
@@ -59,28 +67,45 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         formatter.dateFormat = "yyyy-MM-dd"
         let todayString = formatter.string(from: today)
         
-        if let lastSavedDate = UserDefaults.standard.string(forKey: "date"), lastSavedDate != todayString {
-            // 날짜가 다르면 값을 초기화
-            UserDefaults.standard.removeObject(forKey: "emotion_keyword")
-            UserDefaults.standard.removeObject(forKey: "health_keyword")
-            UserDefaults.standard.removeObject(forKey: "emotion_img")
-            UserDefaults.standard.removeObject(forKey: "health_img")
-        } else {
-            // 같은 날짜일 경우, 저장돼 있는 값 불러오기
-            let emotionKeyword = UserDefaults.standard.string(forKey: "emotion_keyword")
-            let healthKeyword = UserDefaults.standard.string(forKey: "health_keyword")
-            let emotionImg = UserDefaults.standard.string(forKey: "emotion_img")
-            let healthImg = UserDefaults.standard.string(forKey: "health_img")
-            
-            emotion.image = UIImage(named: emotionImg!)
-            emotionLabel.text = emotionKeyword
-            health.image = UIImage(named: healthImg!)
-            healthLabel.text = healthKeyword
+        if UserDefaults.standard.string(forKey: "date") != nil {
+            if let lastSavedDate = UserDefaults.standard.string(forKey: "date"), lastSavedDate != todayString {
+                // 날짜가 다르면 값을 초기화
+                UserDefaults.standard.removeObject(forKey: "emotion_keyword")
+                UserDefaults.standard.removeObject(forKey: "health_keyword")
+                UserDefaults.standard.removeObject(forKey: "emotion_img")
+                UserDefaults.standard.removeObject(forKey: "health_img")
+            } else {
+                // 같은 날짜일 경우, 저장돼 있는 값 불러오기
+                let emotionKeyword = UserDefaults.standard.string(forKey: "emotion_keyword")
+                let healthKeyword = UserDefaults.standard.string(forKey: "health_keyword")
+                let emotionImg = UserDefaults.standard.string(forKey: "emotion_img")
+                let healthImg = UserDefaults.standard.string(forKey: "health_img")
+                
+                emotion.image = UIImage(named: emotionImg!)
+                emotionLabel.text = emotionKeyword
+                health.image = UIImage(named: healthImg!)
+                healthLabel.text = healthKeyword
+            }
         }
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        keywordLabel.attributedText = NSAttributedString(string: "✍🏻 오늘의 키워드", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+        todayGoal.attributedText = NSAttributedString(string: "💙 오늘의 목표", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+        todayRead.attributedText = NSAttributedString(string: "👀 오늘의 읽을거리", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+        
+        todayEmotion.attributedText = NSAttributedString(string: "오늘의 감정", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+        
+        todayHealth.attributedText = NSAttributedString(string: "오늘의 건강", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+        
+        goal1.attributedText = NSAttributedString(string: "체크리스트 1 내용", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+        goal2.attributedText = NSAttributedString(string: "체크리스트 2 내용", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+        
+        goalCnt1.attributedText = NSAttributedString(string: "1회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+        goalCnt2.attributedText = NSAttributedString(string: "2회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
         
         let nibName = UINib(nibName: "MainArticleCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "mainCell")
