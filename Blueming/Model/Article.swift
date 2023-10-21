@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Article {
+struct Article: Codable {
     let img: String!
     let title: String!
     let script: String!

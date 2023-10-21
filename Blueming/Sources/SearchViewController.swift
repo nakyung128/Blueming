@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     enum SearchState {
         case idle
@@ -78,10 +79,36 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        // 배경 이미지 뷰를 생성하고 추가
+        let backgroundImage = UIImageView(image: UIImage(named: "article-back.png"))
+        backgroundImage.contentMode = .scaleAspectFill // 이미지 크기 조절 옵션 (필요에 따라 변경)
+        backgroundImage.frame = view.bounds // 이미지 뷰를 화면 크기에 맞게 설정
+        
+        // 배경 이미지 뷰를 뷰의 맨 뒤에 추가
+        view.insertSubview(backgroundImage, at: 0)
+        
+        // 검색어를 기반으로 데이터 필터링
+        if let searchText = searchField.text, !searchText.isEmpty {
+            list = allData.filter {$0.title.contains(searchText)}
+            currentState = .result
+        } else {
+            list = []
+            currentState = .result
+        }
+        resultTableView.reloadData()
+        
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchField.delegate = self
         
         // 검색 필드 스타일
         searchField.attributedPlaceholder = NSAttributedString(string: "어떤 아티클을 찾고 계신가요?", attributes: [NSAttributedString.Key.foregroundColor : UIColor.Text03!, NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.7])
@@ -205,13 +232,23 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         resultTableView.dataSource = self
         
         resultTableView.backgroundColor = .clear
-        resultTableView.allowsSelection = false // 셀 선택 막기
         resultTableView.separatorStyle = .none // table view 구분선 없애기
         resultTableView.keyboardDismissMode = .onDrag
+        
+        // 탭 제스처 인식기 생성 및 설정
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            tapGesture2.cancelsTouchesInView = false
+            view.addGestureRecognizer(tapGesture2)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     // 아티클 검색
     @objc func search(sender: UITapGestureRecognizer) {
+        
+        searchField.resignFirstResponder()
         
         // 배경 이미지 뷰를 생성하고 추가
         let backgroundImage = UIImageView(image: UIImage(named: "article-back.png"))
@@ -245,6 +282,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.script.text = target.script
 
         cell.backgroundColor = UIColor.clear.withAlphaComponent(0)
+        cell.selectionStyle = .none
         
         // 자간 설정
         cell.configureCell()
@@ -255,6 +293,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // header 높이 0으로 설정
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let url = NSURL(string: list[indexPath.row].link)
+        let safariView: SFSafariViewController = SFSafariViewController(url: url! as URL)
+        self.present(safariView, animated: true, completion: nil)
     }
     
     // 검색 화면으로 이동

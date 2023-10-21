@@ -6,11 +6,10 @@
 //
 
 import UIKit
+import SafariServices
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    // 더미 데이터 불러오기
-    let list = Article.data
+    var list: [Article] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
@@ -24,6 +23,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.title.text = target.title
         cell.script.text = target.script
         cell.backgroundColor = UIColor.clear.withAlphaComponent(0)
+        cell.selectionStyle = .none
         
         // 자간 설정
         cell.configureCell()
@@ -34,6 +34,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // header 높이 0으로 설정
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let url = NSURL(string: list[indexPath.row].link)
+        let safariView: SFSafariViewController = SFSafariViewController(url: url! as URL)
+        self.present(safariView, animated: true, completion: nil)
     }
     
     
@@ -81,9 +87,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let emotionImg = UserDefaults.standard.string(forKey: "emotion_img")
                 let healthImg = UserDefaults.standard.string(forKey: "health_img")
                 
-                print(emotionKeyword)
-                print(healthKeyword)
-                
                 if emotionKeyword != nil && healthKeyword == nil {
                     print("감정만 선택됨")
                     emotion.image = UIImage(named: emotionImg!)
@@ -105,11 +108,37 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
         }
-
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 맨 처음 앱 실행했을 때 오늘 날짜 저장
+        let today = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let todayString = formatter.string(from: today)
+        
+        UserDefaults.standard.setValue(todayString, forKey: "todayDate")
+        
+        // 만약에 아예 첫 실행자라면 list에 데이터 넣어주기
+        if UserDefaults.standard.data(forKey: "todayArticles") == nil {
+            list.append(Article.depressed[Int.random(in: 0...13)])
+            list.append(Article.unrest[Int.random(in: 0...6)])
+            list.append(Article.confusion[Int.random(in: 0...5)])
+            list.append(Article.sad[Int.random(in: 0...6)])
+            list.append(Article.stress[Int.random(in: 0...7)])
+            list.append(Article.body[Int.random(in: 0...19)])
+            list.append(Article.family[Int.random(in: 0...17)])
+            list.append(Article.baby[Int.random(in: 0...18)])
+            list.append(Article.ect[Int.random(in: 0...5)])
+            
+            if let encodedData = try? JSONEncoder().encode(list) {
+                UserDefaults.standard.set(encodedData, forKey: "todayArticles")
+            }
+            tableView.reloadData()
+        }
         
         // 옵저버 등록
         NotificationCenter.default.addObserver(self, selector: #selector(handleEmotionUpdate), name: .selectEmotion, object: nil)
@@ -137,7 +166,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.isScrollEnabled = false // 스크롤 막기
         tableView.backgroundColor = UIColor.clear // 배경 투명
-        tableView.allowsSelection = false // 셀 선택 막기
         tableView.separatorStyle = .none // table view 구분선 없애기
         
         // 배경 이미지 뷰를 생성하고 추가
@@ -185,6 +213,42 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(selectHealth))
         health.isUserInteractionEnabled = true
         health.addGestureRecognizer(tapGesture3)
+        
+        // 홈 화면 들어왔을 때 날짜 저장하고 오늘 날짜랑 다르면 데이터 변경하기
+        // 아티클 각 카테고리에서 하나씩 랜덤 추천
+        if UserDefaults.standard.string(forKey: "todayDate") != nil {
+            let today = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let todayString = formatter.string(from: today)
+            
+            if let lastSavedDate = UserDefaults.standard.string(forKey: "todayDate"), lastSavedDate != todayString {
+                list = []
+                list.append(Article.depressed[Int.random(in: 0...13)])
+                list.append(Article.unrest[Int.random(in: 0...6)])
+                list.append(Article.confusion[Int.random(in: 0...5)])
+                list.append(Article.sad[Int.random(in: 0...6)])
+                list.append(Article.stress[Int.random(in: 0...7)])
+                list.append(Article.body[Int.random(in: 0...19)])
+                list.append(Article.family[Int.random(in: 0...17)])
+                list.append(Article.baby[Int.random(in: 0...18)])
+                list.append(Article.ect[Int.random(in: 0...5)])
+                
+                if let encodedData = try? JSONEncoder().encode(list) {
+                    UserDefaults.standard.set(encodedData, forKey: "todayArticles")
+                }
+                tableView.reloadData()
+            } else {
+                if let savedData = UserDefaults.standard.data(forKey: "todayArticles") {
+                    if let decodedArray = try? JSONDecoder().decode([Article].self, from: savedData) {
+                        list = decodedArray
+                        tableView.reloadData()
+                    }
+                }
+                
+            }
+            
+        }
     }
     
     // 옵저버 해제
