@@ -10,6 +10,7 @@ import SafariServices
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var list: [Article] = []
+    var todayGoals: [Goals] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
@@ -88,17 +89,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let healthImg = UserDefaults.standard.string(forKey: "health_img")
                 
                 if emotionKeyword != nil && healthKeyword == nil {
-                    print("감정만 선택됨")
                     emotion.image = UIImage(named: emotionImg!)
                     emotionLabel.attributedText = NSMutableAttributedString(string: emotionKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
                     emotionLabel.textAlignment = .center
                 } else if healthKeyword != nil && emotionKeyword == nil {
-                    print("건강만 선택됨")
                     health.image = UIImage(named: healthImg!)
                     healthLabel.attributedText = NSMutableAttributedString(string: healthKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
                     healthLabel.textAlignment = .center
                 } else if healthKeyword != nil && emotionKeyword != nil {
-                    print("둘 다 선택됨")
                     emotion.image = UIImage(named: emotionImg!)
                     emotionLabel.attributedText = NSMutableAttributedString(string: emotionKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
                     emotionLabel.textAlignment = .center
@@ -245,11 +243,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         tableView.reloadData()
                     }
                 }
-                
             }
             
         }
     }
+    
     
     // 옵저버 해제
     deinit {
@@ -259,15 +257,109 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func handleEmotionUpdate() {
         let emotionKeyword = UserDefaults.standard.string(forKey: "emotion_keyword")
         let emotionImg = UserDefaults.standard.string(forKey: "emotion_img")
+        let healthKeyword = UserDefaults.standard.string(forKey: "health_keyword")
+        
         emotion.image = UIImage(named: emotionImg!)
         emotionLabel.attributedText = NSMutableAttributedString(string: emotionKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
+        
+        // 만약 감정, 건강 다 선택한 경우
+        if emotionKeyword != nil && healthKeyword != nil {
+            // 맨 처음 앱 실행했을 때 오늘 날짜 저장
+            let today = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let todayString = formatter.string(from: today)
+            
+            switch emotionKeyword {
+            case "감정기복", "두려움", "불안/초조", "스트레스", "슬픔": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "나를 위한 격려 해주기", script: "나를 위한 따뜻한 격려를 해 보세요!\n충분히 잘 하고 있으니까요.", first: false, second: false, third: false))
+            case "죄책감", "혼란", "무기력": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "가벼운 운동 하기", script: "가벼운 홈트레이닝도 좋아요.\n지친 몸을 풀어 봅시다!", first: false))
+            case "예민/짜증", "우울": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "산책하기", script: "잠깐이라도 광합성은 필수!\n산책 나가 볼까요?", first: false))
+            case "분노", "절망감": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "명상 시간 가지기", script: "잠시나마 여유를 챙기며\n스스로의 마음을 살펴 보아요.", first: false))
+            default:
+                return
+            }
+            
+            switch healthKeyword {
+            case "식욕 변화", "배변 장애": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "식사 세 번 챙기기", script: "바쁘고 지치는 하루여도\n끼니 챙기기는 필수예요!", first: false, second: false, third: false))
+            case "수면 장애", "복통", "부종", "메스꺼움", "요통", "젖몸살": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "따뜻한 차 세 잔 마시기", script: "지친 몸을 녹여 줄\n따뜻한 티타임을 가져 보아요!", first: false, second: false, third: false))
+            case "건망증", "위장장애", "탈모", "질분비물", "관절통", "피부질환": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "영양제 먹기", script: "건강 관리를 위해\n적절한 영양제 섭취는 필수!", first: false))
+            case "훗배앓이", "외상", "피로", "두통/어지럼증": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "7시간 이상 취침하기", script: "바쁜 일상일지라도 7시간 이상\n취침하기 위해 노력해 보아요.", first: false, second: false, third: false))
+            default:
+                return
+            }
+            
+            if UserDefaults.standard.goals(forKey: "goalsDataKey") == nil {
+                UserDefaults.standard.setGoals(todayGoals, forKey: "goalsDataKey")
+            } else {
+                var goals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
+                
+                // 중복 체크 후 추가
+                for goal in todayGoals {
+                    if !goals.contains(where: { $0.date == goal.date && $0.title == goal.title }) {
+                        goals.append(goal)
+                    }
+                }
+                
+                UserDefaults.standard.setGoals(goals, forKey: "goalsDataKey")
+            }
+            let allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
+            print(allGoals)
+
+        }
     }
     
     @objc func handleHealthUpdate() {
+        let emotionKeyword = UserDefaults.standard.string(forKey: "emotion_keyword")
         let healthKeyword = UserDefaults.standard.string(forKey: "health_keyword")
         let healthImg = UserDefaults.standard.string(forKey: "health_img")
+        
         health.image = UIImage(named: healthImg!)
         healthLabel.attributedText = NSMutableAttributedString(string: healthKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
+        
+        // 만약 감정, 건강 다 선택한 경우
+        if emotionKeyword != nil && healthKeyword != nil {
+            // 맨 처음 앱 실행했을 때 오늘 날짜 저장
+            let today = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let todayString = formatter.string(from: today)
+            
+            switch emotionKeyword {
+            case "감정기복", "두려움", "불안/초조", "스트레스", "슬픔": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "나를 위한 격려 해주기", script: "나를 위한 따뜻한 격려를 해 보세요!\n충분히 잘 하고 있으니까요.", first: false, second: false, third: false))
+            case "죄책감", "혼란", "무기력": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "가벼운 운동 하기", script: "가벼운 홈트레이닝도 좋아요.\n지친 몸을 풀어 봅시다!", first: false, second: nil, third: nil))
+            case "예민/짜증", "우울": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "산책하기", script: "잠깐이라도 광합성은 필수!\n산책 나가 볼까요?", first: false, second: nil, third: nil))
+            case "분노", "절망감": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "명상 시간 가지기", script: "잠시나마 여유를 챙기며\n스스로의 마음을 살펴 보아요.", first: false, second: nil, third: nil))
+            default:
+                return
+            }
+            
+            switch healthKeyword {
+            case "식욕 변화", "배변 장애": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "식사 세 번 챙기기", script: "바쁘고 지치는 하루여도\n끼니 챙기기는 필수예요!", first: false, second: false, third: false))
+            case "수면 장애", "복통", "부종", "메스꺼움", "요통", "젖몸살": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "따뜻한 차 세 잔 마시기", script: "지친 몸을 녹여 줄\n따뜻한 티타임을 가져 보아요!", first: false, second: false, third: false))
+            case "건망증", "위장장애", "탈모", "질분비물", "관절통", "피부질환": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "영양제 먹기", script: "건강 관리를 위해\n적절한 영양제 섭취는 필수!", first: false, second: nil, third: nil))
+            case "훗배앓이", "외상", "피로", "두통/어지럼증": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "7시간 이상 취침하기", script: "바쁜 일상일지라도 7시간 이상\n취침하기 위해 노력해 보아요.", first: false, second: false, third: false))
+            default:
+                return
+            }
+            
+            if UserDefaults.standard.goals(forKey: "goalsDataKey") == nil {
+                UserDefaults.standard.setGoals(todayGoals, forKey: "goalsDataKey")
+            } else {
+                var goals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
+                
+                // 중복 체크 후 추가
+                for goal in todayGoals {
+                    if !goals.contains(where: { $0.date == goal.date && $0.title == goal.title }) {
+                        goals.append(goal)
+                    }
+                }
+                
+                UserDefaults.standard.setGoals(goals, forKey: "goalsDataKey")
+            }
+            let allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
+            print(allGoals)
+
+        }
     }
     
     // 알람 화면으로 이동

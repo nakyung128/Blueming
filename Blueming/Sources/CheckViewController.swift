@@ -23,9 +23,10 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
             break
         }
         
-        if let indexInAllGoals = allGoals.firstIndex(where: { $0.title == selectedGoals[indexPath.row].title }) {
+        if let indexInAllGoals = allGoals.firstIndex(where: { $0.title == selectedGoals[indexPath.row].title && $0.date == selectedGoals[indexPath.row].date }) {
             allGoals[indexInAllGoals] = selectedGoals[indexPath.row]
         }
+
         
         // 데이터 변경
         UserDefaults.standard.setGoals(allGoals, forKey: "goalsDataKey")
@@ -49,7 +50,7 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
             cell.first.isHidden = true
             cell.second.isHidden = true
             cell.third.isHidden = true
-        } 
+        }
         // 데이터가 있지만 1번만 완료하면 되는 경우
         else if selectedGoals[indexPath.row].second == nil {
             cell.first.isHidden = false
@@ -59,7 +60,7 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
             cell.goalTitle.text = selectedGoals[indexPath.row].title
             cell.goalScript.text = selectedGoals[indexPath.row].script
             cell.first.isSelected = selectedGoals[indexPath.row].first
-        } 
+        }
         // 데이터 있고, 3번 완료해야 하는 경우
         else {
             cell.first.isHidden = false
@@ -209,18 +210,44 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         // 날짜가 없거나, 하나라도 조건 만족하지 않는 객체가 있다면 0 리턴
         guard !goalsForDate.isEmpty else { return 0 }
         
-        for goal in goalsForDate {
-            if goal.second == nil {
-                if !goal.first {
-                    return 0
-                }
-            } else {
-                if !(goal.first && goal.second! && goal.third!) {
-                    return 0
+        let firstGoal = goalsForDate[0]
+        let secondGoal = goalsForDate[1]
+        
+        if let secondOfFirstGoal = firstGoal.second, let thirdOfFirstGoal = firstGoal.third {
+            // 첫 번째 객체의 체크 개수가 3개인 경우
+            if firstGoal.first && secondOfFirstGoal && thirdOfFirstGoal {
+                if secondGoal.first && secondGoal.second == nil && secondGoal.third == nil {
+                    // 두 번째 객체의 체크 개수가 1개인 경우
+                    return 1
+                } else if secondGoal.first && secondGoal.second! && secondGoal.third! {
+                    // 두 번째 객체의 체크 개수가 3인 경우
+                    return 1
                 }
             }
+        } else if firstGoal.first && firstGoal.second == nil && firstGoal.third == nil {
+            // 첫 번째 객체의 체크 개수가 1개인 경우
+            if secondGoal.first && secondGoal.second == nil && secondGoal.third == nil {
+                // 두 번째 객체의 체크 개수도 1개인 경우
+                return 1
+            }
         }
-        return 1
+        
+        if let secondOfSecondGoal = secondGoal.second, let thirdOfSecondGoal = secondGoal.third {
+            // 두 번째 객체의 체크 개수가 3개인 경우
+            if secondGoal.first && secondOfSecondGoal && thirdOfSecondGoal {
+                if firstGoal.first && firstGoal.second == nil && firstGoal.third == nil {
+                    // 첫 번째 객체의 체크 개수가 1개인 경우
+                    return 1
+                }
+            }
+        } else if secondGoal.first && secondGoal.second == nil && secondGoal.third == nil {
+            // 두 번째 객체의 체크 개수가 1개인 경우
+            if firstGoal.first && firstGoal.second == nil && firstGoal.third == nil {
+                // 첫 번째 객체의 체크 개수도 1개인 경우
+                return 1
+            }
+        }
+        return 0
     }
     
     // 추가적인 외관 설정 (옵션)
@@ -256,7 +283,9 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
             calendar.deselect(selectedDate)
             dateLabel.attributedText = NSMutableAttributedString(string: self.dateFormatter.string(from: Date()), attributes: [NSAttributedString.Key.kern: -1, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 20)!]) // 오늘 날짜로
         }
+        allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
         filterAndReloadData(for: Date())
+        print(selectedGoals)
     }
     
     override func viewDidLoad() {
@@ -337,6 +366,7 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
             UserDefaults.standard.setGoals(Goals.data, forKey: "goalsDataKey")
         }
         allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
+        print(allGoals)
         listView.reloadData()
     }
 }
