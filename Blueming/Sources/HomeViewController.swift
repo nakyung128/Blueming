@@ -11,8 +11,10 @@ import SafariServices
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var list: [Article] = []
     var todayGoals: [Goals] = []
-    var count: Int = 0
-    var moreCnt: Int = 3
+    var count1: Int = 0
+    var count2: Int = 0
+    var more1: Int = 0
+    var more2: Int = 0
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
@@ -148,6 +150,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         NotificationCenter.default.addObserver(self, selector: #selector(handleEmotionUpdate), name: .selectEmotion, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleHealthUpdate), name: .selectHealth, object: nil)
         
+        if let goals = UserDefaults.standard.goals(forKey: "goalsDataKey") {
+            NotificationCenter.default.addObserver(self, selector: #selector(counter), name: .checked, object: nil)
+        }
+        
         keywordLabel.attributedText = NSAttributedString(string: "✍🏻 오늘의 키워드", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
         todayGoal.attributedText = NSAttributedString(string: "💙 오늘의 목표", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
         todayRead.attributedText = NSAttributedString(string: "👀 오늘의 읽을거리", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
@@ -167,9 +173,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             goal2.attributedText = NSAttributedString(string: secondGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
         }
         
-//        goalCnt1.attributedText = NSAttributedString(string: "1회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-//        goalCnt2.attributedText = NSAttributedString(string: "2회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-        
         
         if UserDefaults.standard.string(forKey: "firstGoal") != nil{
             goalCnt1.isHidden = false
@@ -177,10 +180,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             moreCnt1.isHidden = false
             moreCnt2.isHidden = false
             
-            goalCnt1.attributedText = NSAttributedString(string: "\(count)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-            goalCnt2.attributedText = NSAttributedString(string: "\(count)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-            moreCnt1.attributedText = NSAttributedString(string: "\(moreCnt)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
-            moreCnt2.attributedText = NSAttributedString(string: "\(moreCnt)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            counter()
+            
+//            goalCnt1.attributedText = NSAttributedString(string: "\(count1)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+//            goalCnt2.attributedText = NSAttributedString(string: "\(count2)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+//            moreCnt1.attributedText = NSAttributedString(string: "\(more1)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+//            moreCnt2.attributedText = NSAttributedString(string: "\(more2)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
             
         } else {
             goalCnt1.isHidden = true
@@ -325,7 +330,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 UserDefaults.standard.setValue(todayGoals[0].title, forKey: "firstGoal")
                 UserDefaults.standard.setValue(todayGoals[1].title, forKey: "secondGoal")
                 UserDefaults.standard.setGoals(todayGoals, forKey: "goalsDataKey")
-            } else {
+            }  else {
                 var goals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
                 
                 // 중복 체크 후 추가
@@ -348,13 +353,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let firstGoal = UserDefaults.standard.string(forKey: "firstGoal") {
                 goal1.attributedText = NSAttributedString(string: firstGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
                 
-                goalCnt1.attributedText = NSAttributedString(string: "\(count)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-                moreCnt1.attributedText = NSAttributedString(string: "\(moreCnt)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+                goalCnt1.attributedText = NSAttributedString(string: "\(count1)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+                moreCnt1.attributedText = NSAttributedString(string: "\(more1)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
             }
             if let secondGoal = UserDefaults.standard.string(forKey: "secondGoal") {
                 goal2.attributedText = NSAttributedString(string: secondGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-                goalCnt2.attributedText = NSAttributedString(string: "\(count)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-                moreCnt2.attributedText = NSAttributedString(string: "\(moreCnt)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+                goalCnt2.attributedText = NSAttributedString(string: "\(count2)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+                moreCnt2.attributedText = NSAttributedString(string: "\(more2)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
             }
             
             let allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
@@ -398,7 +403,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
             if UserDefaults.standard.goals(forKey: "goalsDataKey") == nil {
-                UserDefaults.standard.setGoals(todayGoals, forKey: "goalsDataKey")
+                let goals = Goals.data
+                UserDefaults.standard.setGoals(goals + todayGoals, forKey: "goalsDataKey")
                 UserDefaults.standard.setValue(todayGoals[0].title, forKey: "firstGoal")
                 UserDefaults.standard.setValue(todayGoals[1].title, forKey: "secondGoal")
             } else {
@@ -423,18 +429,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if let firstGoal = UserDefaults.standard.string(forKey: "firstGoal") {
                 goal1.attributedText = NSAttributedString(string: firstGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-                goalCnt1.attributedText = NSAttributedString(string: "\(count)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-                moreCnt1.attributedText = NSAttributedString(string: "\(moreCnt)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+                goalCnt1.attributedText = NSAttributedString(string: "\(count1)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+                moreCnt1.attributedText = NSAttributedString(string: "\(more1)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
             }
             if let secondGoal = UserDefaults.standard.string(forKey: "secondGoal") {
                 goal2.attributedText = NSAttributedString(string: secondGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-                goalCnt2.attributedText = NSAttributedString(string: "\(count)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-                moreCnt2.attributedText = NSAttributedString(string: "\(moreCnt)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+                goalCnt2.attributedText = NSAttributedString(string: "\(count2)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+                moreCnt2.attributedText = NSAttributedString(string: "\(count2)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
             }
             
-            let allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
-            print(allGoals)
-
+            goalCnt1.attributedText = NSAttributedString(string: "\(count1)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+            moreCnt1.attributedText = NSAttributedString(string: "\(more1)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            goalCnt2.attributedText = NSAttributedString(string: "\(count2)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+            moreCnt2.attributedText = NSAttributedString(string: "\(more2)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
         }
     }
     
@@ -467,8 +474,61 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // 카운트 함수
-    func finishCounter(goal: Goals) {
-        
+    @objc func counter() {
+        if let goals = UserDefaults.standard.goals(forKey: "goalsDataKey") {
+            let today = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let todayString = formatter.string(from: today)
+            
+            let todayGoals = goals.filter { $0.date == todayString }
+            
+            let firstGoal = todayGoals[0]
+            let secondGoal = todayGoals[1]
+            
+            if firstGoal.second != nil {
+                count1 = [firstGoal.first, firstGoal.second!, firstGoal.third!].filter { $0 }.count
+                more1 = 3 - count1
+            } else {
+                if firstGoal.first {
+                    count1 = 1
+                    more1 = 0
+                } else {
+                    count1 = 0
+                    more1 = 1
+                }
+            }
+            
+            if secondGoal.second != nil {
+                count2 = [secondGoal.first, secondGoal.second!, secondGoal.third!].filter { $0 }.count
+                more2 = 3 - count2
+            } else {
+                if secondGoal.first {
+                    count2 = 1
+                    more2 = 0
+                } else {
+                    count2 = 0
+                    more2 = 1
+                }
+            }
+            
+            // 라벨에 적용
+            goalCnt1.attributedText = NSAttributedString(string: "\(count1)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+            
+            if more1 == 0 {
+                moreCnt1.attributedText = NSAttributedString(string: "목표에 도달했어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            } else {
+                moreCnt1.attributedText = NSAttributedString(string: "\(more1)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            }
+            
+            goalCnt2.attributedText = NSAttributedString(string: "\(count2)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+            
+            if more2 == 0 {
+                moreCnt2.attributedText = NSAttributedString(string: "목표에 도달했어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            } else {
+                moreCnt2.attributedText = NSAttributedString(string: "\(more2)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            }
+        }
     }
     
     func createViewWithShadowsAndShapes(parent: UIView, leadingConstant: CGFloat, topConstant: NSLayoutAnchor<NSLayoutYAxisAnchor>, Constant: CGFloat) -> UIView {

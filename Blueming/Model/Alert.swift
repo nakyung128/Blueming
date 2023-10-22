@@ -18,12 +18,10 @@ struct Alert: Codable {
 extension Alert {
     static var data = [
         Alert(date: "2023-10-10", title: "오늘의 키워드가 아직 완성되지 않았어요!", script: "오늘의 키워드를 완성하면 맞춤형 아티클을 제공받을 수 있어요.", isRead: true, vc: "TabBarVC"),
-        Alert(date: "2023-10-15", title: "오늘의 키워드가 아직 완성되지 않았어요!2", script: "오늘의 키워드를 완성하면 맞춤형 아티클을 제공받을 수 있어요.", isRead: true, vc: "TabBarVC"),
         Alert(date: "2023-10-15", title: "오늘의 키워드를 완성했어요!", script: "오늘의 키워드를 반영한 맞춤형 아티클을 확인해 보세요!", isRead: false, vc: "TabBarVC"),
-        Alert(date: "2023-10-16", title: "오늘의 키워드가 아직 완성되지 않았어요!", script: "오늘의 키워드를 반영한 맞춤형 아티클을 확인해 보세요!", isRead: false, vc: "TabBarVC"),
+        Alert(date: "2023-10-16", title: "오늘의 키워드가 아직 완성되지 않았어요!", script: "오늘의 키워드를 완성하면 맞춤형 아티클을 제공받을 수 있어요.", isRead: false, vc: "TabBarVC"),
         Alert(date: "2023-10-16", title: "오늘은 자가진단을 하는 날이에요:)", script: "일주일간 나의 변화를 살펴봐요!", isRead: false, vc: "TestVC"),
-        Alert(date: "2023-10-17", title: "오늘의 키워드가 아직 완성되지 않았어요!", script: "오늘의 키워드를 완성하면 맞춤형 아티클을 제공받을 수 있어요.", isRead: false, vc: "TabBarVC"),
-        Alert(date: "2023-10-17", title: "오늘의 키워드가 아직 완성되지 않았어요!2", script: "오늘의 키워드를 완성하면 맞춤형 아티클을 제공받을 수 있어요.", isRead: false, vc: "TabBarVC")
+        Alert(date: "2023-10-17", title: "오늘의 키워드가 아직 완성되지 않았어요!", script: "오늘의 키워드를 완성하면 맞춤형 아티클을 제공받을 수 있어요.", isRead: false, vc: "TabBarVC")
     ]
 }
 

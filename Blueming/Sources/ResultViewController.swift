@@ -43,11 +43,6 @@ class ResultViewController: UIViewController {
         
         scoreLabel.text = "\(score)점"
         
-        // 정상: 1F60A, 1F970, 기존 263A
-        // 경계선: 1F60C, 1F614, 1F600
-        // 심각: 1F625, 1F62D, 1F623, 1F972
-        // 1F642
-        
         switch score {
         case 0...8: 
             text = "파랑 님의 결과는 정상 수준으로\n대체로 평안한 상태입니다.\n앞으로도 스스로를 잘 돌봐 주세요 \u{1F970}\u{200B}"

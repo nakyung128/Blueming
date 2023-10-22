@@ -31,6 +31,9 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         // 데이터 변경
         UserDefaults.standard.setGoals(allGoals, forKey: "goalsDataKey")
         calendar.reloadData()
+        
+        // 체크했다는 notification
+        NotificationCenter.default.post(name: .checked, object: nil)
     }
     
     
@@ -284,6 +287,7 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
             dateLabel.attributedText = NSMutableAttributedString(string: self.dateFormatter.string(from: Date()), attributes: [NSAttributedString.Key.kern: -1, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 20)!]) // 오늘 날짜로
         }
         allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
+        print(allGoals)
         filterAndReloadData(for: Date())
     }
     
