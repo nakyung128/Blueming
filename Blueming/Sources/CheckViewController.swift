@@ -285,7 +285,6 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         }
         allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
         filterAndReloadData(for: Date())
-        print(selectedGoals)
     }
     
     override func viewDidLoad() {
@@ -366,7 +365,6 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
             UserDefaults.standard.setGoals(Goals.data, forKey: "goalsDataKey")
         }
         allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
-        print(allGoals)
         listView.reloadData()
     }
 }

@@ -11,6 +11,8 @@ import SafariServices
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var list: [Article] = []
     var todayGoals: [Goals] = []
+    var count: Int = 0
+    var moreCnt: Int = 3
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
@@ -58,6 +60,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var goal2: UILabel!
     @IBOutlet var goalCnt1: UILabel!
     @IBOutlet var goalCnt2: UILabel!
+    @IBOutlet var moreCnt1: UILabel!
+    @IBOutlet var moreCnt2: UILabel!
     
     // table View
     @IBOutlet var tableView: UITableView!
@@ -81,6 +85,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 UserDefaults.standard.removeObject(forKey: "health_keyword")
                 UserDefaults.standard.removeObject(forKey: "emotion_img")
                 UserDefaults.standard.removeObject(forKey: "health_img")
+                UserDefaults.standard.removeObject(forKey: "firstGoal")
+                UserDefaults.standard.removeObject(forKey: "secondGoal")
             } else {
                 // 같은 날짜일 경우, 저장돼 있는 값 불러오기
                 let emotionKeyword = UserDefaults.standard.string(forKey: "emotion_keyword")
@@ -150,11 +156,38 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         todayHealth.attributedText = NSAttributedString(string: "오늘의 건강", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
         
-        goal1.attributedText = NSAttributedString(string: "체크리스트 1 내용", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-        goal2.attributedText = NSAttributedString(string: "체크리스트 2 내용", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+        goal1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+        goal2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
         
-        goalCnt1.attributedText = NSAttributedString(string: "1회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-        goalCnt2.attributedText = NSAttributedString(string: "2회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+        if let firstGoal = UserDefaults.standard.string(forKey: "firstGoal") {
+            goal1.attributedText = NSAttributedString(string: firstGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+        }
+        
+        if let secondGoal = UserDefaults.standard.string(forKey: "secondGoal") {
+            goal2.attributedText = NSAttributedString(string: secondGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+        }
+        
+//        goalCnt1.attributedText = NSAttributedString(string: "1회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+//        goalCnt2.attributedText = NSAttributedString(string: "2회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+        
+        
+        if UserDefaults.standard.string(forKey: "firstGoal") != nil{
+            goalCnt1.isHidden = false
+            goalCnt2.isHidden = false
+            moreCnt1.isHidden = false
+            moreCnt2.isHidden = false
+            
+            goalCnt1.attributedText = NSAttributedString(string: "\(count)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+            goalCnt2.attributedText = NSAttributedString(string: "\(count)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+            moreCnt1.attributedText = NSAttributedString(string: "\(moreCnt)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            moreCnt2.attributedText = NSAttributedString(string: "\(moreCnt)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            
+        } else {
+            goalCnt1.isHidden = true
+            goalCnt2.isHidden = true
+            moreCnt1.isHidden = true
+            moreCnt2.isHidden = true
+        }
         
         let nibName = UINib(nibName: "MainArticleCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "mainCell")
@@ -289,6 +322,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
             if UserDefaults.standard.goals(forKey: "goalsDataKey") == nil {
+                UserDefaults.standard.setValue(todayGoals[0].title, forKey: "firstGoal")
+                UserDefaults.standard.setValue(todayGoals[1].title, forKey: "secondGoal")
                 UserDefaults.standard.setGoals(todayGoals, forKey: "goalsDataKey")
             } else {
                 var goals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
@@ -300,8 +335,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
                 
+                UserDefaults.standard.setValue(todayGoals[0].title, forKey: "firstGoal")
+                UserDefaults.standard.setValue(todayGoals[1].title, forKey: "secondGoal")
                 UserDefaults.standard.setGoals(goals, forKey: "goalsDataKey")
             }
+
+            goalCnt1.isHidden = false
+            goalCnt2.isHidden = false
+            moreCnt1.isHidden = false
+            moreCnt2.isHidden = false
+            
+            if let firstGoal = UserDefaults.standard.string(forKey: "firstGoal") {
+                goal1.attributedText = NSAttributedString(string: firstGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+                
+                goalCnt1.attributedText = NSAttributedString(string: "\(count)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+                moreCnt1.attributedText = NSAttributedString(string: "\(moreCnt)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            }
+            if let secondGoal = UserDefaults.standard.string(forKey: "secondGoal") {
+                goal2.attributedText = NSAttributedString(string: secondGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+                goalCnt2.attributedText = NSAttributedString(string: "\(count)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+                moreCnt2.attributedText = NSAttributedString(string: "\(moreCnt)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            }
+            
             let allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
             print(allGoals)
 
@@ -344,6 +399,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if UserDefaults.standard.goals(forKey: "goalsDataKey") == nil {
                 UserDefaults.standard.setGoals(todayGoals, forKey: "goalsDataKey")
+                UserDefaults.standard.setValue(todayGoals[0].title, forKey: "firstGoal")
+                UserDefaults.standard.setValue(todayGoals[1].title, forKey: "secondGoal")
             } else {
                 var goals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
                 
@@ -354,8 +411,27 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
                 
+                UserDefaults.standard.setValue(todayGoals[0].title, forKey: "firstGoal")
+                UserDefaults.standard.setValue(todayGoals[1].title, forKey: "secondGoal")
                 UserDefaults.standard.setGoals(goals, forKey: "goalsDataKey")
             }
+            
+            goalCnt1.isHidden = false
+            goalCnt2.isHidden = false
+            moreCnt1.isHidden = false
+            moreCnt2.isHidden = false
+            
+            if let firstGoal = UserDefaults.standard.string(forKey: "firstGoal") {
+                goal1.attributedText = NSAttributedString(string: firstGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+                goalCnt1.attributedText = NSAttributedString(string: "\(count)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+                moreCnt1.attributedText = NSAttributedString(string: "\(moreCnt)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            }
+            if let secondGoal = UserDefaults.standard.string(forKey: "secondGoal") {
+                goal2.attributedText = NSAttributedString(string: secondGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+                goalCnt2.attributedText = NSAttributedString(string: "\(count)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+                moreCnt2.attributedText = NSAttributedString(string: "\(moreCnt)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            }
+            
             let allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
             print(allGoals)
 
@@ -388,6 +464,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             popup.modalPresentationStyle = .overCurrentContext
             self.present(popup, animated: false)
         }
+    }
+    
+    // 카운트 함수
+    func finishCounter(goal: Goals) {
+        
     }
     
     func createViewWithShadowsAndShapes(parent: UIView, leadingConstant: CGFloat, topConstant: NSLayoutAnchor<NSLayoutYAxisAnchor>, Constant: CGFloat) -> UIView {

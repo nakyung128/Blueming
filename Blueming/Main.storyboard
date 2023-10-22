@@ -494,7 +494,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_box.png" translatesAutoresizingMaskIntoConstraints="NO" id="xWS-MC-R7P">
                                 <rect key="frame" x="-1.6666666666666572" y="100" width="378.33333333333326" height="508"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="산후 우울감 자가진단 검사 결과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opf-18-RAy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="산후 우울감 자가진단 검사 결과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opf-18-RAy">
                                 <rect key="frame" x="66.000000000000014" y="148" width="243.33333333333337" height="24"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="20"/>
                                 <color key="textColor" name="Blue01"/>
@@ -505,8 +505,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12점" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MN-4J-fAf">
-                                <rect key="frame" x="148.66666666666666" y="446" width="78" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="12점" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MN-4J-fAf">
+                                <rect key="frame" x="148.66666666666666" y="433" width="78" height="48"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="40"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
@@ -534,12 +534,12 @@
                                     <action selector="next:" destination="PL5-Kh-xbu" eventType="touchUpInside" id="oGg-E3-eHA"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chat.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bnt-Xt-jnx">
-                                <rect key="frame" x="87.666666666666686" y="210" width="200" height="200"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="Chat.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bnt-Xt-jnx">
+                                <rect key="frame" x="87.666666666666686" y="202" width="200" height="200"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="산후 우울감 자가진단 검사 결과" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOw-Ys-O9J">
-                                <rect key="frame" x="89.666666666666671" y="509.99999999999994" width="195.66666666666663" height="19.333333333333314"/>
-                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
+                                <rect key="frame" x="102" y="497" width="171" height="71"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" name="Text01"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -553,12 +553,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xWS-MC-R7P" firstAttribute="centerX" secondItem="2hJ-BS-wea" secondAttribute="centerX" id="0X2-kC-qnS"/>
+                            <constraint firstItem="xWS-MC-R7P" firstAttribute="bottom" secondItem="SOw-Ys-O9J" secondAttribute="bottom" constant="40" id="C6h-0s-P3p"/>
                             <constraint firstItem="wEk-oR-G5k" firstAttribute="top" secondItem="xWS-MC-R7P" secondAttribute="bottom" constant="25" id="F9d-Nj-EJy"/>
-                            <constraint firstItem="2MN-4J-fAf" firstAttribute="top" secondItem="Bnt-Xt-jnx" secondAttribute="bottom" constant="36" id="Mt5-wF-Ch7"/>
+                            <constraint firstItem="2MN-4J-fAf" firstAttribute="top" secondItem="Bnt-Xt-jnx" secondAttribute="bottom" constant="31" id="Mt5-wF-Ch7"/>
                             <constraint firstItem="Bnt-Xt-jnx" firstAttribute="centerX" secondItem="2hJ-BS-wea" secondAttribute="centerX" id="St5-ZL-Fwn"/>
                             <constraint firstItem="2MN-4J-fAf" firstAttribute="centerX" secondItem="2hJ-BS-wea" secondAttribute="centerX" id="Wou-AZ-1cj"/>
                             <constraint firstItem="Opf-18-RAy" firstAttribute="top" secondItem="xWS-MC-R7P" secondAttribute="top" constant="48" id="YdT-ew-A65"/>
-                            <constraint firstItem="Bnt-Xt-jnx" firstAttribute="top" secondItem="Opf-18-RAy" secondAttribute="bottom" constant="38" id="b78-bn-Kw6"/>
+                            <constraint firstItem="Bnt-Xt-jnx" firstAttribute="top" secondItem="Opf-18-RAy" secondAttribute="bottom" constant="30" id="b78-bn-Kw6"/>
                             <constraint firstItem="SOw-Ys-O9J" firstAttribute="top" secondItem="2MN-4J-fAf" secondAttribute="bottom" constant="15.91" id="b7A-EB-Hds"/>
                             <constraint firstItem="Opf-18-RAy" firstAttribute="centerX" secondItem="2hJ-BS-wea" secondAttribute="centerX" id="bHy-m1-QxX"/>
                             <constraint firstItem="wEk-oR-G5k" firstAttribute="centerX" secondItem="2hJ-BS-wea" secondAttribute="centerX" id="kOE-zD-1eN"/>
@@ -1359,8 +1360,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="창문 세 번 열기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Dw-zT-NVo">
-                                                <rect key="frame" x="28.999999999999993" y="429.33333333333331" width="94.333333333333314" height="19.333333333333314"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="아직 목표가 없어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Dw-zT-NVo">
+                                                <rect key="frame" x="29" y="429.33333333333331" width="123" height="19.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
                                                 <color key="textColor" name="Text01"/>
                                                 <nil key="highlightedColor"/>
@@ -1370,8 +1371,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="창문 세 번 열기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RE3-9D-cLE">
-                                                <rect key="frame" x="28.666666666666664" y="509.66666666666657" width="94.333333333333343" height="19.333333333333314"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="아직 목표가 없어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RE3-9D-cLE">
+                                                <rect key="frame" x="28.666666666666671" y="509.66666666666657" width="123.00000000000001" height="19.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
                                                 <color key="textColor" name="Text01"/>
                                                 <nil key="highlightedColor"/>
@@ -1601,6 +1602,8 @@
                         <outlet property="healthLabel" destination="ZDl-En-Wfl" id="hmm-39-Xjg"/>
                         <outlet property="keywordLabel" destination="8xi-s0-ZaP" id="hrH-ya-MhS"/>
                         <outlet property="mainLabel" destination="wrJ-4e-A23" id="7UW-yC-xEC"/>
+                        <outlet property="moreCnt1" destination="MaA-eL-Ejb" id="2mA-6v-g9z"/>
+                        <outlet property="moreCnt2" destination="gk6-Sr-3Li" id="txk-gG-XNR"/>
                         <outlet property="scrollView" destination="Jqa-vv-D1h" id="qda-W9-kLM"/>
                         <outlet property="tableView" destination="DpL-uH-SwF" id="v1i-Lb-xlT"/>
                         <outlet property="todayEmotion" destination="NVz-X8-pBE" id="K5E-qn-rR6"/>

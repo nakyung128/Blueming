@@ -19,12 +19,14 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             currentQuestionIndex += 1
             // 각 답변당 점수
             totalScore += answerData[currentQuestionIndex-1].point[selectedIndex!.row]
+            print(totalScore)
             updateUI()
             selectedIndex = nil
             answerTableView.reloadData()
         } else {
             totalScore += answerData[currentQuestionIndex-1].point[selectedIndex!.row]
-            UserDefaults.standard.setValue("\(totalScore)점", forKey: "score")
+            print(totalScore)
+            UserDefaults.standard.setValue(totalScore, forKey: "score")
             guard let vc = self.storyboard?.instantiateViewController(identifier: "resultVC") else { return }
             self.navigationController?.pushViewController(vc, animated: true)
         }
