@@ -89,8 +89,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("실행")
-        
         // 맨 처음 앱 실행했을 때 오늘 날짜 저장
         let today = Date()
         let formatter = DateFormatter()
@@ -157,6 +155,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 counter()
                 
             }
+        } else {
+            goalCnt1.isHidden = true
+            goalCnt2.isHidden = true
+            
+            goal1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+            goal2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+            moreCnt1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            moreCnt2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
         }
         
         // 만약에 아예 첫 실행자라면 list에 데이터 넣어주기
@@ -180,10 +186,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // 옵저버 등록
         NotificationCenter.default.addObserver(self, selector: #selector(handleEmotionUpdate), name: .selectEmotion, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleHealthUpdate), name: .selectHealth, object: nil)
-        
-        if let goals = UserDefaults.standard.goals(forKey: "goalsDataKey") {
-            NotificationCenter.default.addObserver(self, selector: #selector(counter), name: .checked, object: nil)
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(counter), name: .checked, object: nil)
         
         keywordLabel.attributedText = NSAttributedString(string: "✍🏻 오늘의 키워드", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
         todayGoal.attributedText = NSAttributedString(string: "💙 오늘의 목표", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
@@ -203,20 +206,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        }
         
         
-//        if UserDefaults.standard.string(forKey: "firstGoal") != nil{
-//            goalCnt1.isHidden = false
-//            goalCnt2.isHidden = false
-//            moreCnt1.isHidden = false
-//            moreCnt2.isHidden = false
-//            
-//            counter()
-//            
-//        } else {
-//            goalCnt1.isHidden = true
-//            goalCnt2.isHidden = true
-//            moreCnt1.isHidden = true
-//            moreCnt2.isHidden = true
-//        }
+        if UserDefaults.standard.string(forKey: "firstGoal") != nil{
+            goalCnt1.isHidden = false
+            goalCnt2.isHidden = false
+            
+            counter()
+            
+        } else {
+            goalCnt1.isHidden = true
+            goalCnt2.isHidden = true
+        }
         
         let nibName = UINib(nibName: "MainArticleCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "mainCell")
@@ -375,24 +374,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             goalCnt1.isHidden = false
             goalCnt2.isHidden = false
-            moreCnt1.isHidden = false
-            moreCnt2.isHidden = false
             
             if let firstGoal = UserDefaults.standard.string(forKey: "firstGoal") {
                 goal1.attributedText = NSAttributedString(string: firstGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-                
-                goalCnt1.attributedText = NSAttributedString(string: "\(count1)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-                moreCnt1.attributedText = NSAttributedString(string: "\(more1)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
             }
             if let secondGoal = UserDefaults.standard.string(forKey: "secondGoal") {
                 goal2.attributedText = NSAttributedString(string: secondGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-                goalCnt2.attributedText = NSAttributedString(string: "\(count2)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-                moreCnt2.attributedText = NSAttributedString(string: "\(more2)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
             }
             
-            let allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
-            print(allGoals)
-            
+            counter()
         }
     }
     
@@ -454,24 +444,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             goalCnt1.isHidden = false
             goalCnt2.isHidden = false
-            moreCnt1.isHidden = false
-            moreCnt2.isHidden = false
             
             if let firstGoal = UserDefaults.standard.string(forKey: "firstGoal") {
                 goal1.attributedText = NSAttributedString(string: firstGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-                goalCnt1.attributedText = NSAttributedString(string: "\(count1)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-                moreCnt1.attributedText = NSAttributedString(string: "\(more1)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
             }
             if let secondGoal = UserDefaults.standard.string(forKey: "secondGoal") {
                 goal2.attributedText = NSAttributedString(string: secondGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-                goalCnt2.attributedText = NSAttributedString(string: "\(count2)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-                moreCnt2.attributedText = NSAttributedString(string: "\(count2)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
             }
             
-            goalCnt1.attributedText = NSAttributedString(string: "\(count1)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-            moreCnt1.attributedText = NSAttributedString(string: "\(more1)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
-            goalCnt2.attributedText = NSAttributedString(string: "\(count2)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-            moreCnt2.attributedText = NSAttributedString(string: "\(more2)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            counter()
         }
     }
     
