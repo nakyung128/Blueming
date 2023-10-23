@@ -550,15 +550,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
             // 라벨에 적용
-            goalCnt1.attributedText = NSAttributedString(string: "\(count1)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+            if count1 == 0 {
+                goalCnt1.attributedText = NSAttributedString(string: "도전하기!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+            } else {
+                goalCnt1.attributedText = NSAttributedString(string: "\(count1)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+            }
+            
+            if count2 == 0 {
+                goalCnt2.attributedText = NSAttributedString(string: "도전하기!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+            } else {
+                goalCnt2.attributedText = NSAttributedString(string: "\(count2)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+            }
+            
             
             if more1 == 0 {
                 moreCnt1.attributedText = NSAttributedString(string: "목표에 도달했어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
             } else {
                 moreCnt1.attributedText = NSAttributedString(string: "\(more1)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
             }
-            
-            goalCnt2.attributedText = NSAttributedString(string: "\(count2)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
             
             if more2 == 0 {
                 moreCnt2.attributedText = NSAttributedString(string: "목표에 도달했어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
