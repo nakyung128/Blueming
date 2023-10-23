@@ -287,7 +287,6 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
             dateLabel.attributedText = NSMutableAttributedString(string: self.dateFormatter.string(from: Date()), attributes: [NSAttributedString.Key.kern: -1, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 20)!]) // 오늘 날짜로
         }
         allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
-        print(allGoals)
         filterAndReloadData(for: Date())
     }
     

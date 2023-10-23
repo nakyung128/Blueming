@@ -71,17 +71,47 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var emotion: UIImageView!
     @IBOutlet var health: UIImageView!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        let today = Date()
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        let todayString = formatter.string(from: today)
+//        
+//        // 오늘 선택한 감정, 건강일 때만 저장된 값 불러오기. 아니면 초기화
+//        if UserDefaults.standard.string(forKey: "date") != nil {
+//            if let lastSavedDate = UserDefaults.standard.string(forKey: "date"), lastSavedDate != todayString {
+//                // 날짜가 다르면 값을 초기화
+//                UserDefaults.standard.removeObject(forKey: "emotion_keyword")
+//                UserDefaults.standard.removeObject(forKey: "health_keyword")
+//                UserDefaults.standard.removeObject(forKey: "emotion_img")
+//                UserDefaults.standard.removeObject(forKey: "health_img")
+//                UserDefaults.standard.removeObject(forKey: "firstGoal")
+//                UserDefaults.standard.removeObject(forKey: "secondGoal")
+//            }
+//        }
+//    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        // 오늘 선택한 감정, 건강일 때만 저장된 값 불러오기. 아니면 초기화
+        print("실행")
+        
+        // 맨 처음 앱 실행했을 때 오늘 날짜 저장
         let today = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let todayString = formatter.string(from: today)
         
+        UserDefaults.standard.setValue(todayString, forKey: "todayDate")
+        
+        // 오늘 선택한 감정, 건강일 때만 저장된 값 불러오기. 아니면 초기화
         if UserDefaults.standard.string(forKey: "date") != nil {
             if let lastSavedDate = UserDefaults.standard.string(forKey: "date"), lastSavedDate != todayString {
+                print(todayString)
+                print(lastSavedDate)
+                
                 // 날짜가 다르면 값을 초기화
                 UserDefaults.standard.removeObject(forKey: "emotion_keyword")
                 UserDefaults.standard.removeObject(forKey: "health_keyword")
@@ -89,8 +119,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 UserDefaults.standard.removeObject(forKey: "health_img")
                 UserDefaults.standard.removeObject(forKey: "firstGoal")
                 UserDefaults.standard.removeObject(forKey: "secondGoal")
+                
+                goalCnt1.isHidden = true
+                goalCnt2.isHidden = true
+                moreCnt1.isHidden = true
+                moreCnt2.isHidden = true
+                
+                goal1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+                goal2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+                
             } else {
-                // 같은 날짜일 경우, 저장돼 있는 값 불러오기
                 let emotionKeyword = UserDefaults.standard.string(forKey: "emotion_keyword")
                 let healthKeyword = UserDefaults.standard.string(forKey: "health_keyword")
                 let emotionImg = UserDefaults.standard.string(forKey: "emotion_img")
@@ -112,21 +150,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     healthLabel.attributedText = NSMutableAttributedString(string: healthKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
                     healthLabel.textAlignment = .center
                 }
+                
+                // 오늘의 목표
+                goalCnt1.isHidden = false
+                goalCnt2.isHidden = false
+                moreCnt1.isHidden = false
+                moreCnt2.isHidden = false
+                
+                let firstGoal = UserDefaults.standard.string(forKey: "firstGoal")
+                let secondGoal = UserDefaults.standard.string(forKey: "secondGoal")
+                goal1.attributedText = NSAttributedString(string: firstGoal!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+                goal2.attributedText = NSAttributedString(string: secondGoal!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+                counter()
+                
             }
         }
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // 맨 처음 앱 실행했을 때 오늘 날짜 저장
-        let today = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let todayString = formatter.string(from: today)
-        
-        UserDefaults.standard.setValue(todayString, forKey: "todayDate")
         
         // 만약에 아예 첫 실행자라면 list에 데이터 넣어주기
         if UserDefaults.standard.data(forKey: "todayArticles") == nil {
@@ -145,7 +183,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             tableView.reloadData()
         }
-        
+
         // 옵저버 등록
         NotificationCenter.default.addObserver(self, selector: #selector(handleEmotionUpdate), name: .selectEmotion, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleHealthUpdate), name: .selectHealth, object: nil)
@@ -161,38 +199,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         todayEmotion.attributedText = NSAttributedString(string: "오늘의 감정", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
         
         todayHealth.attributedText = NSAttributedString(string: "오늘의 건강", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
+
         
-        goal1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-        goal2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-        
-        if let firstGoal = UserDefaults.standard.string(forKey: "firstGoal") {
-            goal1.attributedText = NSAttributedString(string: firstGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-        }
-        
-        if let secondGoal = UserDefaults.standard.string(forKey: "secondGoal") {
-            goal2.attributedText = NSAttributedString(string: secondGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-        }
+//        if let firstGoal = UserDefaults.standard.string(forKey: "firstGoal") {
+//            goal1.attributedText = NSAttributedString(string: firstGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+//        }
+//        
+//        if let secondGoal = UserDefaults.standard.string(forKey: "secondGoal") {
+//            goal2.attributedText = NSAttributedString(string: secondGoal, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+//        }
         
         
-        if UserDefaults.standard.string(forKey: "firstGoal") != nil{
-            goalCnt1.isHidden = false
-            goalCnt2.isHidden = false
-            moreCnt1.isHidden = false
-            moreCnt2.isHidden = false
-            
-            counter()
-            
-//            goalCnt1.attributedText = NSAttributedString(string: "\(count1)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-//            goalCnt2.attributedText = NSAttributedString(string: "\(count2)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
-//            moreCnt1.attributedText = NSAttributedString(string: "\(more1)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
-//            moreCnt2.attributedText = NSAttributedString(string: "\(more2)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
-            
-        } else {
-            goalCnt1.isHidden = true
-            goalCnt2.isHidden = true
-            moreCnt1.isHidden = true
-            moreCnt2.isHidden = true
-        }
+//        if UserDefaults.standard.string(forKey: "firstGoal") != nil{
+//            goalCnt1.isHidden = false
+//            goalCnt2.isHidden = false
+//            moreCnt1.isHidden = false
+//            moreCnt2.isHidden = false
+//            
+//            counter()
+//            
+//        } else {
+//            goalCnt1.isHidden = true
+//            goalCnt2.isHidden = true
+//            moreCnt1.isHidden = true
+//            moreCnt2.isHidden = true
+//        }
         
         let nibName = UINib(nibName: "MainArticleCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "mainCell")
@@ -308,6 +339,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             formatter.dateFormat = "yyyy-MM-dd"
             let todayString = formatter.string(from: today)
             
+            // 알람 생성하기
+            
+            
+            // 오늘의 감정, 건강에 따른 목표 추가해 주기
             switch emotionKeyword {
             case "감정기복", "두려움", "불안/초조", "스트레스", "슬픔": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "나를 위한 격려 해주기", script: "나를 위한 따뜻한 격려를 해 보세요!\n충분히 잘 하고 있으니까요.", first: false, second: false, third: false))
             case "죄책감", "혼란", "무기력": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "가벼운 운동 하기", script: "가벼운 홈트레이닝도 좋아요.\n지친 몸을 풀어 봅시다!", first: false))
@@ -344,7 +379,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 UserDefaults.standard.setValue(todayGoals[1].title, forKey: "secondGoal")
                 UserDefaults.standard.setGoals(goals, forKey: "goalsDataKey")
             }
-
+            
             goalCnt1.isHidden = false
             goalCnt2.isHidden = false
             moreCnt1.isHidden = false
@@ -364,7 +399,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
             print(allGoals)
-
+            
         }
     }
     
@@ -384,6 +419,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             formatter.dateFormat = "yyyy-MM-dd"
             let todayString = formatter.string(from: today)
             
+            
+            // 오늘의 감정, 건강에 따른 목표 추가해 주기
             switch emotionKeyword {
             case "감정기복", "두려움", "불안/초조", "스트레스", "슬픔": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "나를 위한 격려 해주기", script: "나를 위한 따뜻한 격려를 해 보세요!\n충분히 잘 하고 있으니까요.", first: false, second: false, third: false))
             case "죄책감", "혼란", "무기력": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "가벼운 운동 하기", script: "가벼운 홈트레이닝도 좋아요.\n지친 몸을 풀어 봅시다!", first: false, second: nil, third: nil))
