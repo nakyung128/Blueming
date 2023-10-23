@@ -10,6 +10,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var imageScroll: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var signUp: UILabel!
+    @IBOutlet var script: UILabel!
     
     @IBAction func google(_ sender: Any) {
         // 구글 로그인
@@ -24,7 +25,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
             print("gmail", email!)
             
             // 프로필 완성 화면으로 전환
-            guard let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") else { return }
+            guard let vcName = self.storyboard?.instantiateViewController(withIdentifier: "nameVC") else { return }
             self.navigationController?.pushViewController(vcName, animated: true)
         }
     }
@@ -76,6 +77,8 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         // 스크롤뷰
         addContentScrollView()
         setPageControl()
+        
+        script.attributedText = NSAttributedString(string: "블루밍 이용이 처음이신가요?", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.7])
         
         // 회원가입 라벨
         let labelText = "회원가입 하기"

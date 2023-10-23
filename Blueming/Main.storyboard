@@ -1719,6 +1719,7 @@
                         <outlet property="ggLogin" destination="q9r-72-Pmf" id="3pk-jq-lHZ"/>
                         <outlet property="imageScroll" destination="Q4n-Ju-TWk" id="YWV-Pn-8Q3"/>
                         <outlet property="pageControl" destination="Ex5-pq-Ntf" id="yXI-8d-gzy"/>
+                        <outlet property="script" destination="gub-4K-S3h" id="aXo-H3-Ja0"/>
                         <outlet property="signUp" destination="PLN-Lu-ynA" id="Hcu-iz-elk"/>
                     </connections>
                 </viewController>
@@ -1774,7 +1775,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7wK-mf-YmI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OFi-v9-cpB" firstAttribute="leading" secondItem="7wK-mf-YmI" secondAttribute="leading" constant="20" id="6pQ-tW-qML"/>
                             <constraint firstItem="SVA-G6-XGS" firstAttribute="top" secondItem="OFi-v9-cpB" secondAttribute="bottom" constant="44" id="Jvw-nI-Jbq"/>
@@ -1854,7 +1855,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wje-aH-7Wn"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="iLB-bd-fB0" firstAttribute="top" secondItem="Nhi-ym-rU5" secondAttribute="bottom" constant="20" id="0UH-O4-b3Q"/>
                             <constraint firstItem="Nhi-ym-rU5" firstAttribute="top" secondItem="2Gd-Oy-cLT" secondAttribute="bottom" constant="44" id="1dB-dD-h3u"/>
@@ -1926,7 +1927,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4wH-6z-wY2"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mCH-QO-mvj" firstAttribute="leading" secondItem="4wH-6z-wY2" secondAttribute="leading" constant="20" id="Adg-VG-DbY"/>
                             <constraint firstItem="rjc-dN-olp" firstAttribute="centerX" secondItem="7Mv-pX-tx9" secondAttribute="centerX" id="MnP-Ti-3E8"/>
@@ -1994,7 +1995,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="17b-kW-PKF"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jLu-OS-sfV" firstAttribute="top" secondItem="Dts-hT-1bZ" secondAttribute="bottom" constant="10" id="2Jb-P5-Tdz"/>
                             <constraint firstItem="t9M-EK-Mo0" firstAttribute="centerX" secondItem="ccc-fo-xeL" secondAttribute="centerX" id="U5Z-Fh-0dj"/>
