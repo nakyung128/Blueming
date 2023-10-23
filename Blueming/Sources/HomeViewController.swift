@@ -1,10 +1,3 @@
-//
-//  HomeViewController.swift
-//  Blueming
-//
-//  Created by 이나경 on 2023/09/09.
-//
-
 import UIKit
 import SafariServices
 

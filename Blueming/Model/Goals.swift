@@ -1,10 +1,3 @@
-//
-//  Goals.swift
-//  Blueming
-//
-//  Created by 이나경 on 2023/10/11.
-//
-
 import Foundation
 
 struct Goals: Codable {

@@ -1,10 +1,3 @@
-//
-//  LoginViewController.swift
-//  Blueming
-//
-//  Created by 이나경 on 2023/09/20.
-//
-
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {

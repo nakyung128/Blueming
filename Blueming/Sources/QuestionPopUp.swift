@@ -1,10 +1,3 @@
-//
-//  QuestionPopUp.swift
-//  Blueming
-//
-//  Created by 이나경 on 2023/10/03.
-//
-
 import UIKit
 
 class QuestionPopUp: UIViewController {

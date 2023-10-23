@@ -1,10 +1,3 @@
-//
-//  Article.swift
-//  Blueming
-//
-//  Created by 이나경 on 2023/09/09.
-//
-
 import Foundation
 
 struct Article: Codable {

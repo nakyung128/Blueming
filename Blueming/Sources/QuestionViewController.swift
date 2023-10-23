@@ -1,10 +1,3 @@
-//
-//  QuestionViewController.swift
-//  Blueming
-//
-//  Created by 이나경 on 2023/10/02.
-//
-
 import UIKit
 
 class QuestionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {

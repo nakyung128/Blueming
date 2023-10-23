@@ -1,10 +1,3 @@
-//
-//  TagCell.swift
-//  Blueming
-//
-//  Created by 이나경 on 2023/09/14.
-//
-
 import UIKit
 
 class TagCell: UICollectionViewCell {

@@ -1,10 +1,3 @@
-//
-//  Answer.swift
-//  Blueming
-//
-//  Created by 이나경 on 2023/10/02.
-//
-
 import Foundation
 
 struct Answer {
