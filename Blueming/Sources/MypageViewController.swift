@@ -8,6 +8,9 @@ class MypageViewController: UIViewController {
     @IBOutlet var logOut: UIImageView!
     @IBOutlet var signOut: UIImageView!
     @IBOutlet var profile: UIImageView!
+    @IBOutlet var nickname: UILabel!
+    @IBOutlet var email: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,14 @@ class MypageViewController: UIViewController {
         // 뒤로가기 색상 변경
         navigationController?.navigationBar.tintColor = .Text01
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        
+        if let name = UserDefaults.standard.string(forKey: "user_name") {
+            nickname.attributedText = NSAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 20)!, NSAttributedString.Key.kern: -1])
+        }
+        
+        if let mail = UserDefaults.standard.string(forKey: "user_email") {
+            email.attributedText = NSAttributedString(string: mail, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 11)!])
+        }
         
         let title = "프로필 편집"
         let attributedString = NSMutableAttributedString(string: title)
