@@ -10,14 +10,6 @@ struct Article: Codable {
 extension Article {
     static var allData = depressed + sad + unrest + stress + confusion + body + family + baby + ect
     
-    static var data = [
-        Article(img: "article_img.png", title: "불안함을 잠재우기 위한 마음가짐1", script: "불안함을 잠재우기 위한 마음가짐 불안함을 잠재우기 위한 마음가짐",link: ""),
-        Article(img: "article_img.png", title: "불안함을 잠재우기 위한 마음가짐2", script: "불안함을 잠재우기 위한 마음가짐 불안함을 잠재우기 위한 마음가짐",link: ""),
-        Article(img: "article_img.png", title: "불안함을 잠재우기 위한 마음가짐3", script: "불안함을 잠재우기 위한 마음가짐 불안함을 잠재우기 위한 마음가짐",link: ""),
-        Article(img: "article_img.png", title: "불안함을 잠재우기 위한 마음가짐4", script: "불안함을 잠재우기 위한 마음가짐 불안함을 잠재우기 위한 마음가짐",link: ""),
-        Article(img: "article_img.png", title: "불안함을 잠재우기 위한 마음가짐5", script: "불안함을 잠재우기 위한 마음가짐 불안함을 잠재우기 위한 마음가짐",link: "")
-    ]
-    
     // 우울
     static var depressed = [
         Article(img: "depressed1", title: "산후우울증이란", script: "산후 우울증이란 넓은 의미에서 분만 후 산모들이\n겪는 감정적인 우울함 등 일련의 증상이 ...", link: "https://m.terms.naver.com/entry.naver?docId=2098784&cid=51028&categoryId=51028"),

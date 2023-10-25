@@ -127,6 +127,13 @@ class AlertViewController: UIViewController, UITableViewDataSource, UITableViewD
                     tabBarController.modalTransitionStyle = .crossDissolve
                     self.present(tabBarController, animated: true, completion: nil)
                 }
+            case "checkVC":
+                if let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? UITabBarController {
+                    tabBarController.selectedIndex = 2
+                    tabBarController.modalPresentationStyle = .fullScreen
+                    tabBarController.modalTransitionStyle = .crossDissolve
+                    self.present(tabBarController, animated: true, completion: nil)
+                }
 
             default:
                 if let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? UITabBarController {
@@ -146,10 +153,6 @@ class AlertViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if UserDefaults.standard.alerts(forKey: "alertsDataKey") == nil {
-            UserDefaults.standard.setAlerts(Alert.data, forKey: "alertsDataKey")
-        }
         
         alertView.dataSource = self
         alertView.delegate = self

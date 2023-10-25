@@ -43,11 +43,8 @@ class SelectHealthViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     @IBAction func saveHealth(_ sender: Any) {
-        print(keyword)
         UserDefaults.standard.setValue(keyword, forKey: "health_keyword")
         UserDefaults.standard.setValue(img, forKey: "health_img")
-        
-        print(UserDefaults.standard.string(forKey: "health_keyword"))
         
         NotificationCenter.default.post(name: .selectHealth, object: nil)
         

@@ -580,7 +580,7 @@
         <!--체크리스트-->
         <scene sceneID="lvv-1V-HZM">
             <objects>
-                <viewController id="BYj-HR-fLM" customClass="CheckViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="checkVC" id="BYj-HR-fLM" customClass="CheckViewController" customModule="Blueming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BVw-Mz-iEc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
