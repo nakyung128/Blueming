@@ -26,7 +26,14 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         calendar.reloadData()
         
         // 체크했다는 notification
-        NotificationCenter.default.post(name: .checked, object: nil)
+        let today = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let todayString = formatter.string(from: today)
+        
+        if UserDefaults.standard.string(forKey: "date") == todayString {
+            NotificationCenter.default.post(name: .checked, object: nil)
+        }
     }
     
     
