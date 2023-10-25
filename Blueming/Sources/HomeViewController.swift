@@ -182,7 +182,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // 만약에 아예 첫 실행자라면 list에 데이터 넣어주기
         if UserDefaults.standard.data(forKey: "todayArticles") == nil {
-            list.append(Article.depressed[Int.random(in: 0...13)])
+            list.append(Article.depressed[Int.random(in: 0...12)])
             list.append(Article.unrest[Int.random(in: 0...6)])
             list.append(Article.confusion[Int.random(in: 0...5)])
             list.append(Article.sad[Int.random(in: 0...6)])

@@ -21,7 +21,6 @@ extension Article {
         Article(img: "depressed7", title: "임신과 우울증", script: "여성은 생애주기 동안 남성보다 많은 신체 변화를\n겪습니다. 월경‧임신‧폐경을 거치면서 ...", link: "http://www.healtip.co.kr/news/articleView.html?idxno=3366"),
         Article(img: "depressed8", title: "심리전문가를 남편으로 둔 아내의\n산후우울증 극복기", script: "2019년 코로나가 창궐하고 우리는 모두 ...", link: "https://brunch.co.kr/@mentalconsultin/73"),
         Article(img: "depressed9", title: "산후 우울증이 의심될 때 꼭 읽어\n보세요!", script: "아기가 어릴 때, 특히 3~6개월 정도 되었을 ...", link: "https://www.babybilly.app/posts/3658"),
-        Article(img: "depressed10", title: "함께 극복해요, 산후우울증", script: "출산 후 아기와 함께하는 생활이 마냥 행복할 줄\n알았는데 막상 내게 닥친 현실은 그렇지 않아요.", link: "https://www.babybilly.app/posts/149"),
         Article(img: "depressed11", title: "입덧도 힘든데, 우울증까지?\n‘산전  우울증’ 방치하면…", script: "신체 변화에 따른 극심한 불편함, 통증을 안고 ...", link: "https://m.post.naver.com/viewer/postView.naver?volumeNo=31548874&memberNo=3265970&navigationType=push"),
         Article(img: "depressed12", title: "산후우울증으로 힘들어하는\n엄마들에게", script: "산후우울증은 산모의 약 10~20% 정도에서 ...", link: "https://post.naver.com/viewer/postView.naver?volumeNo=34070138&memberNo=1891127"),
         Article(img: "depressed13", title: "산후 우울증 극복하기", script: "산모의 10명 중 5명은 산후우울감을 겪습니다.\n출산 후 친정에서 한 달간 몸조리하고 ...", link: "https://brunch.co.kr/@happygrow/36"),
