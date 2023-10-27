@@ -43,12 +43,19 @@ class SelectHealthViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     @IBAction func saveHealth(_ sender: Any) {
-        UserDefaults.standard.setValue(keyword, forKey: "health_keyword")
-        UserDefaults.standard.setValue(img, forKey: "health_img")
-        
-        NotificationCenter.default.post(name: .selectHealth, object: nil)
-        
-        dismiss(animated: false, completion: nil)
+        if keyword == "" {
+            let alert = UIAlertController(title: "건강을 선택해 주세요", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        } else {
+            UserDefaults.standard.setValue(keyword, forKey: "health_keyword")
+            UserDefaults.standard.setValue(img, forKey: "health_img")
+            
+            NotificationCenter.default.post(name: .selectHealth, object: nil)
+            
+            dismiss(animated: false, completion: nil)
+        }
     }
     
     @IBOutlet var titleLabel: UILabel!

@@ -183,13 +183,13 @@
                         <outlet property="collectionView" destination="P2n-It-FyV" id="cOS-hS-q8W"/>
                         <outlet property="collectionViewHeightConstraint" destination="Hwn-Cm-kwm" id="6uK-Pt-rcc"/>
                         <outlet property="imageScroll" destination="HTA-OU-WqH" id="g1E-mq-ffz"/>
-                        <outlet property="mainLabel" destination="M3X-2v-Nkj" id="Jr7-l4-Xy8"/>
                         <outlet property="mainScroll" destination="MOO-jF-fga" id="q5E-ho-S1p"/>
                         <outlet property="pageControl" destination="QTS-9q-Zsv" id="bf5-u4-vmd"/>
                         <outlet property="search" destination="p2f-NG-U9K" id="Vm6-fu-9Ko"/>
                         <outlet property="segment" destination="2cF-j2-7ja" id="Tlo-j2-mdU"/>
                         <outlet property="table" destination="iJo-Ga-tvD" id="1tP-fp-Pt8"/>
                         <outlet property="tableconstraint" destination="0h4-ZN-Lzz" id="rmN-6Z-IKU"/>
+                        <outlet property="titleLabel" destination="M3X-2v-Nkj" id="jxR-sD-z3V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WPz-up-3Bo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

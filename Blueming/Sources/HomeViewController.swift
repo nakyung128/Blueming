@@ -97,19 +97,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 goalCnt1.isHidden = true
                 goalCnt2.isHidden = true
-                moreCnt1.isHidden = true
-                moreCnt2.isHidden = true
                 
                 goal1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
                 goal2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
+                moreCnt1.attributedText = NSAttributedString(string: "목표를 설정해 주세요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+                moreCnt2.attributedText = NSAttributedString(string: "목표를 설정해 주세요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
                 
                 let newAlert = Alert(date: todayString, title: "오늘의 키워드가 아직 완성되지 않았어요!", script: "오늘의 키워드를 완성하면 맞춤형 아티클을 제공받을 수 있어요.", isRead: false, vc: "TabBarVC")
                 
                 if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
                     var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
                     if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
-                        alerts.append(newAlert)
+                        alerts.insert(newAlert, at: 0)
                     }
+                    UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
                 } else {
                     UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
                 }
@@ -165,17 +166,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             goal1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
             goal2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-            moreCnt1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
-            moreCnt2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            moreCnt1.attributedText = NSAttributedString(string: "목표를 설정해 주세요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            moreCnt2.attributedText = NSAttributedString(string: "목표를 설정해 주세요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
         }
         
         // 오늘의 키워드를 선택하지 않았을 때 알람 생성하기
         let newAlert = Alert(date: todayString, title: "오늘의 키워드가 아직 완성되지 않았어요!", script: "오늘의 키워드를 완성하면 맞춤형 아티클을 제공받을 수 있어요.", isRead: false, vc: "TabBarVC")
         
         if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
-            var alert = UserDefaults.standard.alerts(forKey: "alertsDataKey")
-            alert!.append(newAlert)
-            UserDefaults.standard.setAlerts(alert!, forKey: "alertsDataKey")
+            var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+            if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
+                alerts.insert(newAlert, at: 0)
+            }
+            UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
         } else {
             UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
         }
@@ -202,6 +205,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         NotificationCenter.default.addObserver(self, selector: #selector(handleEmotionUpdate), name: .selectEmotion, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleHealthUpdate), name: .selectHealth, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(counter), name: .checked, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleProfileUpdate), name: .profileUpdated, object: nil)
         
         keywordLabel.attributedText = NSAttributedString(string: "✍🏻 오늘의 키워드", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
         todayGoal.attributedText = NSAttributedString(string: "💙 오늘의 목표", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
@@ -343,11 +347,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let newAlert = Alert(date: todayString, title: "오늘의 키워드를 완성했어요!", script: "오늘의 키워드를 반영한 맞춤형 체크리스트를 확인해 보세요!", isRead: false, vc: "checkVC")
             
             if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
-                var alert = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
-                if !alert.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
-                    alert.insert(newAlert, at: 0)
+                var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+                if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
+                    alerts.insert(newAlert, at: 0)
                 }
-                UserDefaults.standard.setAlerts(alert, forKey: "alertsDataKey")
+                UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
             } else {
                 UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
             }
@@ -422,11 +426,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let newAlert = Alert(date: todayString, title: "오늘의 키워드를 완성했어요!", script: "오늘의 키워드를 반영한 맞춤형 체크리스트를 확인해 보세요!", isRead: false, vc: "checkVC")
             
             if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
-                var alert = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
-                if !alert.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
-                    alert.insert(newAlert, at: 0)
+                var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+                if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
+                    alerts.insert(newAlert, at: 0)
                 }
-                UserDefaults.standard.setAlerts(alert, forKey: "alertsDataKey")
+                UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
             } else {
                 UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
             }
@@ -544,11 +548,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         let newAlert = Alert(date: todayString, title: "'\(firstGoal.title)' 체크리스트 달성까지 1번 남았어요", script: "마지막 한 번까지 파이팅! :)!", isRead: false, vc: "checkVC")
                         
                         if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
-                            var alert = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
-                            if !alert.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
-                                alert.insert(newAlert, at: 0)
+                            var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+                            if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
+                                alerts.insert(newAlert, at: 0)
                             }
-                            UserDefaults.standard.setAlerts(alert, forKey: "alertsDataKey")
+                            UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
                         } else {
                             UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
                         }
@@ -560,11 +564,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let newAlert = Alert(date: todayString, title: "'\(firstGoal.title)' 체크리스트를 완성했어요!", script: "정말 대단해요!", isRead: false, vc: "checkVC")
                     
                     if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
-                        var alert = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
-                        if !alert.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
-                            alert.insert(newAlert, at: 0)
+                        var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+                        if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
+                            alerts.insert(newAlert, at: 0)
                         }
-                        UserDefaults.standard.setAlerts(alert, forKey: "alertsDataKey")
+                        UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
                     } else {
                         UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
                     }
@@ -580,11 +584,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let newAlert = Alert(date: todayString, title: "'\(firstGoal.title)' 체크리스트를 완성했어요!", script: "정말 대단해요!", isRead: false, vc: "checkVC")
                     
                     if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
-                        var alert = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
-                        if !alert.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
-                            alert.insert(newAlert, at: 0)
+                        var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+                        if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
+                            alerts.insert(newAlert, at: 0)
                         }
-                        UserDefaults.standard.setAlerts(alert, forKey: "alertsDataKey")
+                        UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
                     } else {
                         UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
                     }
@@ -598,11 +602,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let newAlert = Alert(date: todayString, title: "'\(firstGoal.title)' 체크리스트를 아직 달성하지 못했어요", script: "체크리스트를 완성하고 내 생활을 알차게 채워봐요!", isRead: false, vc: "checkVC")
                     
                     if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
-                        var alert = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
-                        if !alert.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
-                            alert.insert(newAlert, at: 0)
+                        var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+                        if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
+                            alerts.insert(newAlert, at: 0)
                         }
-                        UserDefaults.standard.setAlerts(alert, forKey: "alertsDataKey")
+                        UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
                     } else {
                         UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
                     }
@@ -624,11 +628,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         let newAlert = Alert(date: todayString, title: "'\(secondGoal.title)' 체크리스트 달성까지 1번 남았어요", script: "마지막 한 번까지 파이팅! :)!", isRead: false, vc: "checkVC")
                         
                         if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
-                            var alert = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
-                            if !alert.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
-                                alert.insert(newAlert, at: 0)
+                            var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+                            if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
+                                alerts.insert(newAlert, at: 0)
                             }
-                            UserDefaults.standard.setAlerts(alert, forKey: "alertsDataKey")
+                            UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
                         } else {
                             UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
                         }
@@ -639,11 +643,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let newAlert = Alert(date: todayString, title: "'\(secondGoal.title)' 체크리스트를 완성했어요!", script: "정말 대단해요!", isRead: false, vc: "checkVC")
                     
                     if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
-                        var alert = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
-                        if !alert.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
-                            alert.insert(newAlert, at: 0)
+                        var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+                        if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
+                            alerts.insert(newAlert, at: 0)
                         }
-                        UserDefaults.standard.setAlerts(alert, forKey: "alertsDataKey")
+                        UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
                     } else {
                         UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
                     }
@@ -659,11 +663,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let newAlert = Alert(date: todayString, title: "'\(secondGoal.title)' 체크리스트를 완성했어요!", script: "정말 대단해요!", isRead: false, vc: "checkVC")
                     
                     if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
-                        var alert = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
-                        if !alert.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
-                            alert.insert(newAlert, at: 0)
+                        var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+                        if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
+                            alerts.insert(newAlert, at: 0)
                         }
-                        UserDefaults.standard.setAlerts(alert, forKey: "alertsDataKey")
+                        UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
                     } else {
                         UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
                     }
@@ -677,16 +681,44 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let newAlert = Alert(date: todayString, title: "'\(secondGoal.title)' 체크리스트를 아직 달성하지 못했어요", script: "체크리스트를 완성하고 내 생활을 알차게 채워봐요!", isRead: false, vc: "checkVC")
                     
                     if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
-                        var alert = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
-                        if !alert.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
-                            alert.insert(newAlert, at: 0)
+                        var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+                        if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
+                            alerts.insert(newAlert, at: 0)
                         }
-                        UserDefaults.standard.setAlerts(alert, forKey: "alertsDataKey")
+                        UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
                     } else {
                         UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
                     }
                 }
             }
+        }
+    }
+    
+    @objc func handleProfileUpdate() {
+        if let name = UserDefaults.standard.string(forKey: "user_name") {
+            let originalString = "\(name) 님,\n오늘도 힘내세요!"
+            
+            // 원본 문자열을 NSAttributedString으로 변환
+            let attributedString = NSMutableAttributedString(string: originalString)
+            
+            // '파랑' 단어의 범위 찾기
+            if let range = originalString.range(of: "\(name)") {
+                let nsRange = NSRange(range, in: originalString)
+                
+                // 색상을 변경할 부분에 대한 속성을 설정
+                let colorAttribute: [NSAttributedString.Key: Any] = [
+                    .foregroundColor: UIColor(named: "Blue01") ?? UIColor.blue // 원하는 색상으로 변경
+                ]
+                
+                attributedString.addAttributes(colorAttribute, range: nsRange)
+            }
+            
+            // 나머지 텍스트에 대한 스타일을 설정합니다.
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineHeightMultiple = 1.09
+            attributedString.addAttributes([NSAttributedString.Key.kern: -1.2, NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: attributedString.length))
+            
+            mainLabel.attributedText = attributedString
         }
     }
     

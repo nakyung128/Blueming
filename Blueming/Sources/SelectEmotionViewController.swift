@@ -48,18 +48,25 @@ class SelectEmotionViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     @IBAction func saveEmotion(_ sender: Any) {
-        let today = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let todayString = formatter.string(from: today)
-        
-        UserDefaults.standard.setValue(todayString, forKey: "date")
-        UserDefaults.standard.setValue(keyword, forKey: "emotion_keyword")
-        UserDefaults.standard.setValue(img, forKey: "emotion_img")
-        
-        NotificationCenter.default.post(name: .selectEmotion, object: nil)
-        
-        dismiss(animated: false, completion: nil)
+        if keyword == "" {
+            let alert = UIAlertController(title: "감정을 선택해 주세요", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        } else {
+            let today = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let todayString = formatter.string(from: today)
+            
+            UserDefaults.standard.setValue(todayString, forKey: "date")
+            UserDefaults.standard.setValue(keyword, forKey: "emotion_keyword")
+            UserDefaults.standard.setValue(img, forKey: "emotion_img")
+            
+            NotificationCenter.default.post(name: .selectEmotion, object: nil)
+            
+            dismiss(animated: false, completion: nil)
+        }
     }
     
     override func viewDidLoad() {

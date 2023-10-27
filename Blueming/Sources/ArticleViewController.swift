@@ -39,8 +39,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     
     // 태그 데이터 불러오기
     var collectionViewData: [Tags] = []
-    
-    @IBOutlet var mainLabel: UILabel!
+
     @IBOutlet var imageScroll: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var segment: UISegmentedControl!
@@ -49,6 +48,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     @IBOutlet var mainScroll: UIScrollView!
     @IBOutlet var table: CustomTable!
     @IBOutlet var search: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet var collectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var tableconstraint: NSLayoutConstraint!
@@ -188,6 +188,34 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(handleProfileUpdate), name: .profileUpdated, object: nil)
+        
+        // 원본 문자열
+        if let name = UserDefaults.standard.string(forKey: "user_name") {
+            let originalString = "\(name) 님을 위한 아티클"
+            
+            // 원본 문자열을 NSAttributedString으로 변환
+            let attributedString = NSMutableAttributedString(string: originalString)
+            
+            if let range = originalString.range(of: "\(name)") {
+                let nsRange = NSRange(range, in: originalString)
+                
+                // 색상을 변경할 부분에 대한 속성을 설정
+                let colorAttribute: [NSAttributedString.Key: Any] = [
+                    .foregroundColor: UIColor(named: "Blue01") ?? UIColor.blue // 원하는 색상으로 변경
+                ]
+                
+                attributedString.addAttributes(colorAttribute, range: nsRange)
+            }
+            
+            // 나머지 텍스트에 대한 스타일을 설정합니다.
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineHeightMultiple = 1.09
+            attributedString.addAttributes([NSAttributedString.Key.kern: -1.2, NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: attributedString.length))
+            
+            titleLabel.attributedText = attributedString
+        }
+        
         imageScroll.isPagingEnabled = false
         
         let nibName = UINib(nibName: "MainArticleCell", bundle: nil)
@@ -240,30 +268,6 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         let firstTag = collectionViewData[0]
         updateDataForSelectedTag(firstTag)
         
-        // 원본 문자열
-        let originalString = "파랑 님을 위한 아티클"
-        
-        // 원본 문자열을 NSAttributedString으로 변환
-        let attributedString = NSMutableAttributedString(string: originalString)
-        
-        // '파랑' 단어의 범위 찾기
-        if let range = originalString.range(of: "파랑") {
-            let nsRange = NSRange(range, in: originalString)
-            
-            // 색상을 변경할 부분에 대한 속성을 설정
-            let colorAttribute: [NSAttributedString.Key: Any] = [
-                .foregroundColor: UIColor(named: "Blue01") ?? UIColor.blue // 원하는 색상으로 변경
-            ]
-            
-            attributedString.addAttributes(colorAttribute, range: nsRange)
-        }
-        
-        // 나머지 텍스트에 대한 스타일을 설정합니다.
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.09
-        attributedString.addAttributes([NSAttributedString.Key.kern: -1.2, NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: attributedString.length))
-        
-        mainLabel.attributedText = attributedString
         
         // Add subviews to the view hierarchy
         // (both segmentedControl and bottomUnderlineView are subviews of the segmentedControlContainerView)
@@ -389,6 +393,34 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     
     private func setPageControlSelectedPage(currentPage:Int) {
         pageControl.currentPage = currentPage
+    }
+    
+    @objc func handleProfileUpdate() {
+        // 원본 문자열
+        if let name = UserDefaults.standard.string(forKey: "user_name") {
+            let originalString = "\(name) 님을 위한 아티클"
+            
+            // 원본 문자열을 NSAttributedString으로 변환
+            let attributedString = NSMutableAttributedString(string: originalString)
+            
+            if let range = originalString.range(of: "\(name)") {
+                let nsRange = NSRange(range, in: originalString)
+                
+                // 색상을 변경할 부분에 대한 속성을 설정
+                let colorAttribute: [NSAttributedString.Key: Any] = [
+                    .foregroundColor: UIColor(named: "Blue01") ?? UIColor.blue // 원하는 색상으로 변경
+                ]
+                
+                attributedString.addAttributes(colorAttribute, range: nsRange)
+            }
+            
+            // 나머지 텍스트에 대한 스타일을 설정합니다.
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineHeightMultiple = 1.09
+            attributedString.addAttributes([NSAttributedString.Key.kern: -1.2, NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: attributedString.length))
+            
+            titleLabel.attributedText = attributedString
+        }
     }
 }
 

@@ -90,6 +90,11 @@ class MypageViewController: UIViewController {
                 profile.image = loadedImage
             }
         }
+        
+        // 이름 저장돼 있는 거 불러오기
+        if let name = UserDefaults.standard.string(forKey: "user_name") {
+            nickname.attributedText = NSAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 20)!, NSAttributedString.Key.kern: -1])
+        }
     }
     
     @objc func edit(sender: UITapGestureRecognizer) {

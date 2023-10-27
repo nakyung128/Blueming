@@ -6,12 +6,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passField: UITextField!
     @IBOutlet var loginBtn: UIButton!
     
-    @IBAction func login(_ sender: Any) {
-        // 홈으로 이동
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
-        vcName?.modalPresentationStyle = .fullScreen
-        vcName?.modalTransitionStyle = .crossDissolve
-        self.present(vcName!, animated: true, completion: nil)
+    @IBAction func login(_ sender: Any) {        
+        if emailField.text != UserDefaults.standard.string(forKey: "user_email") || passField.text != UserDefaults.standard.string(forKey: "user_pwd") {
+            let alert = UIAlertController(title: "올바르지 않은 이메일 또는 비밀번호입니다", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        } else {
+            // 홈으로 이동
+            let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+            vcName?.modalPresentationStyle = .fullScreen
+            vcName?.modalTransitionStyle = .crossDissolve
+            self.present(vcName!, animated: true, completion: nil)
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
     // 입력 시 텍스트필드 테두리 색상 변경

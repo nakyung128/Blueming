@@ -61,6 +61,9 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate, UIImageP
     
     // 완료 버튼 클릭 시
     @IBAction func finish(_ sender: Any) {
+        // 수정된 닉네임 저장
+        UserDefaults.standard.setValue(nickname.text, forKey: "user_name")
+        
         // 프로필 화면으로 돌아가기
         // 마이페이지로 이동
         NotificationCenter.default.post(name: .profileUpdated, object: nil)
