@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F4B3E9681166715A8B3369D /* Pods_Blueming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47D168201E5E31B7530E42C /* Pods_Blueming.framework */; };
+		F301A5412AEE7DB900CD931A /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F301A5402AEE7DB900CD931A /* PaddedLabel.swift */; };
 		F30319692ADF95090016D51C /* SelectEmotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30319672ADF95090016D51C /* SelectEmotionViewController.swift */; };
 		F303196A2ADF95090016D51C /* SelectEmotionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30319682ADF95090016D51C /* SelectEmotionViewController.xib */; };
 		F303196C2ADF96880016D51C /* emotionPopup.png in Resources */ = {isa = PBXBuildFile; fileRef = F303196B2ADF96880016D51C /* emotionPopup.png */; };
@@ -211,6 +212,7 @@
 		819B905DCFFF0DA1D7876928 /* Pods-Blueming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueming.release.xcconfig"; path = "Target Support Files/Pods-Blueming/Pods-Blueming.release.xcconfig"; sourceTree = "<group>"; };
 		CEF1C2E7EC930CF10FE8047F /* Pods-Blueming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueming.debug.xcconfig"; path = "Target Support Files/Pods-Blueming/Pods-Blueming.debug.xcconfig"; sourceTree = "<group>"; };
 		D47D168201E5E31B7530E42C /* Pods_Blueming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blueming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F301A5402AEE7DB900CD931A /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		F30319672ADF95090016D51C /* SelectEmotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmotionViewController.swift; sourceTree = "<group>"; };
 		F30319682ADF95090016D51C /* SelectEmotionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectEmotionViewController.xib; sourceTree = "<group>"; };
 		F303196B2ADF96880016D51C /* emotionPopup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emotionPopup.png; sourceTree = "<group>"; };
@@ -699,6 +701,7 @@
 				F3AB29102ADD4A0B0058C5B2 /* AlertCell.xib */,
 				F303196D2ADF9B880016D51C /* EmotionCell.swift */,
 				F303196E2ADF9B880016D51C /* EmotionCell.xib */,
+				F301A5402AEE7DB900CD931A /* PaddedLabel.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1006,6 +1009,7 @@
 				F350A1362ABAD57600203688 /* FirstViewController.swift in Sources */,
 				F30E3D422AC86DB700CB1316 /* SignOutViewController.swift in Sources */,
 				F3B05C042AA99719003EC4A6 /* TestViewController.swift in Sources */,
+				F301A5412AEE7DB900CD931A /* PaddedLabel.swift in Sources */,
 				F3B9CDBC2ACB11E900DD1E7B /* ResultViewController.swift in Sources */,
 				F37D6A3A2ABEA7BE007F3C41 /* PwdViewController.swift in Sources */,
 				F303196F2ADF9B880016D51C /* EmotionCell.swift in Sources */,

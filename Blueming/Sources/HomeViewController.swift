@@ -73,8 +73,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         goal1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
         goal2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-        moreCnt1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
-        moreCnt2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+        
+        moreCnt1.clipsToBounds = true
+        moreCnt2.clipsToBounds = true
+        
+        moreCnt1.backgroundColor = UIColor.Blue05
+        moreCnt2.backgroundColor = UIColor.Blue05
+        moreCnt1.layer.cornerRadius = 5
+        moreCnt2.layer.cornerRadius = 5
+        
+        moreCnt1.attributedText = NSAttributedString(string: "오늘의 키워드가 필요해요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+        moreCnt2.attributedText = NSAttributedString(string: "오늘의 키워드가 필요해요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
         
         // 맨 처음 앱 실행했을 때 오늘 날짜 저장
         let today = Date()
@@ -100,8 +109,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 goal1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
                 goal2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-                moreCnt1.attributedText = NSAttributedString(string: "목표를 설정해 주세요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
-                moreCnt2.attributedText = NSAttributedString(string: "목표를 설정해 주세요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+                moreCnt1.attributedText = NSAttributedString(string: "오늘의 키워드가 필요해요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+                moreCnt2.attributedText = NSAttributedString(string: "오늘의 키워드가 필요해요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
                 
                 let newAlert = Alert(date: todayString, title: "오늘의 키워드가 아직 완성되지 않았어요!", script: "오늘의 키워드를 완성하면 맞춤형 아티클을 제공받을 수 있어요.", isRead: false, vc: "TabBarVC")
                 
@@ -141,8 +150,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // 오늘의 목표
                 goalCnt1.isHidden = false
                 goalCnt2.isHidden = false
-                moreCnt1.isHidden = false
-                moreCnt2.isHidden = false
                 
                 let firstGoal = UserDefaults.standard.string(forKey: "firstGoal")
                 let secondGoal = UserDefaults.standard.string(forKey: "secondGoal")
@@ -166,8 +173,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             goal1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
             goal2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
-            moreCnt1.attributedText = NSAttributedString(string: "목표를 설정해 주세요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
-            moreCnt2.attributedText = NSAttributedString(string: "목표를 설정해 주세요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            moreCnt1.attributedText = NSAttributedString(string: "오늘의 키워드가 필요해요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+            moreCnt2.attributedText = NSAttributedString(string: "오늘의 키워드가 필요해요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
         }
         
         // 오늘의 키워드를 선택하지 않았을 때 알람 생성하기
@@ -519,8 +526,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let goals = UserDefaults.standard.goals(forKey: "goalsDataKey") {
             goalCnt1.isHidden = false
             goalCnt2.isHidden = false
-            moreCnt1.isHidden = false
-            moreCnt2.isHidden = false
             
             let today = Date()
             let formatter = DateFormatter()
