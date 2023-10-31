@@ -117,6 +117,36 @@
 		F38614102AC875F200D5001F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F386140F2AC875F200D5001F /* FirebaseAnalytics */; };
 		F38614122AC877CB00D5001F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F38614112AC877CB00D5001F /* GoogleService-Info.plist */; };
 		F38614172AC87FA300D5001F /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F38614162AC87FA300D5001F /* Pretendard-ExtraBold.otf */; };
+		F39C701B2AF1788F003D3C15 /* 감정기복.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C701A2AF1788F003D3C15 /* 감정기복.png */; };
+		F39C70272AF1790F003D3C15 /* 슬픔.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C701C2AF1790F003D3C15 /* 슬픔.png */; };
+		F39C70282AF1790F003D3C15 /* 죄책감.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C701D2AF1790F003D3C15 /* 죄책감.png */; };
+		F39C70292AF1790F003D3C15 /* 분노.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C701E2AF1790F003D3C15 /* 분노.png */; };
+		F39C702A2AF1790F003D3C15 /* 혼란.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C701F2AF1790F003D3C15 /* 혼란.png */; };
+		F39C702B2AF1790F003D3C15 /* 불안초조.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70202AF1790F003D3C15 /* 불안초조.png */; };
+		F39C702C2AF1790F003D3C15 /* 두려움.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70212AF1790F003D3C15 /* 두려움.png */; };
+		F39C702D2AF1790F003D3C15 /* 예민짜증.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70222AF1790F003D3C15 /* 예민짜증.png */; };
+		F39C702E2AF1790F003D3C15 /* 절망감.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70232AF1790F003D3C15 /* 절망감.png */; };
+		F39C702F2AF1790F003D3C15 /* 무기력.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70242AF1790F003D3C15 /* 무기력.png */; };
+		F39C70302AF1790F003D3C15 /* 스트레스.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70252AF1790F003D3C15 /* 스트레스.png */; };
+		F39C70312AF1790F003D3C15 /* 우울.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70262AF1790F003D3C15 /* 우울.png */; };
+		F39C70452AF179E8003D3C15 /* 질분비물.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70322AF179E7003D3C15 /* 질분비물.png */; };
+		F39C70462AF179E8003D3C15 /* 메스꺼움.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70332AF179E7003D3C15 /* 메스꺼움.png */; };
+		F39C70472AF179E8003D3C15 /* 두통.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70342AF179E7003D3C15 /* 두통.png */; };
+		F39C70492AF179E8003D3C15 /* 외상.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70362AF179E7003D3C15 /* 외상.png */; };
+		F39C704A2AF179E8003D3C15 /* 젖몸살.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70372AF179E7003D3C15 /* 젖몸살.png */; };
+		F39C704B2AF179E8003D3C15 /* 요통.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70382AF179E7003D3C15 /* 요통.png */; };
+		F39C704C2AF179E8003D3C15 /* 훗배앓이.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70392AF179E7003D3C15 /* 훗배앓이.png */; };
+		F39C704D2AF179E8003D3C15 /* 식욕변화.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C703A2AF179E7003D3C15 /* 식욕변화.png */; };
+		F39C704E2AF179E8003D3C15 /* 배변장애.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C703B2AF179E7003D3C15 /* 배변장애.png */; };
+		F39C704F2AF179E8003D3C15 /* 건망증.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C703C2AF179E8003D3C15 /* 건망증.png */; };
+		F39C70502AF179E8003D3C15 /* 수면장애.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C703D2AF179E8003D3C15 /* 수면장애.png */; };
+		F39C70512AF179E8003D3C15 /* 부종.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C703E2AF179E8003D3C15 /* 부종.png */; };
+		F39C70522AF179E8003D3C15 /* 피로.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C703F2AF179E8003D3C15 /* 피로.png */; };
+		F39C70532AF179E8003D3C15 /* 피부질환.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70402AF179E8003D3C15 /* 피부질환.png */; };
+		F39C70542AF179E8003D3C15 /* 관절통.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70412AF179E8003D3C15 /* 관절통.png */; };
+		F39C70552AF179E8003D3C15 /* 탈모.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70422AF179E8003D3C15 /* 탈모.png */; };
+		F39C70562AF179E8003D3C15 /* 복통.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70432AF179E8003D3C15 /* 복통.png */; };
+		F39C70572AF179E8003D3C15 /* 위장장애.png in Resources */ = {isa = PBXBuildFile; fileRef = F39C70442AF179E8003D3C15 /* 위장장애.png */; };
 		F3A8564C2AB2CE4E00264E3B /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8564B2AB2CE4E00264E3B /* Tags.swift */; };
 		F3A8564E2AB2CF3900264E3B /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8564D2AB2CF3900264E3B /* TagCell.swift */; };
 		F3A856522AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A856512AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift */; };
@@ -322,6 +352,36 @@
 		F37D6A3D2AC0000F007F3C41 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F38614112AC877CB00D5001F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F38614162AC87FA300D5001F /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraBold.otf"; path = "../../../Downloads/Pretendard-1.3.6/public/static/Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		F39C701A2AF1788F003D3C15 /* 감정기복.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "감정기복.png"; path = "../../../Downloads/blueming/감정기복.png"; sourceTree = "<group>"; };
+		F39C701C2AF1790F003D3C15 /* 슬픔.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "슬픔.png"; sourceTree = "<group>"; };
+		F39C701D2AF1790F003D3C15 /* 죄책감.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "죄책감.png"; sourceTree = "<group>"; };
+		F39C701E2AF1790F003D3C15 /* 분노.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "분노.png"; sourceTree = "<group>"; };
+		F39C701F2AF1790F003D3C15 /* 혼란.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "혼란.png"; sourceTree = "<group>"; };
+		F39C70202AF1790F003D3C15 /* 불안초조.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "불안초조.png"; sourceTree = "<group>"; };
+		F39C70212AF1790F003D3C15 /* 두려움.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "두려움.png"; sourceTree = "<group>"; };
+		F39C70222AF1790F003D3C15 /* 예민짜증.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "예민짜증.png"; sourceTree = "<group>"; };
+		F39C70232AF1790F003D3C15 /* 절망감.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "절망감.png"; sourceTree = "<group>"; };
+		F39C70242AF1790F003D3C15 /* 무기력.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "무기력.png"; sourceTree = "<group>"; };
+		F39C70252AF1790F003D3C15 /* 스트레스.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "스트레스.png"; sourceTree = "<group>"; };
+		F39C70262AF1790F003D3C15 /* 우울.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "우울.png"; sourceTree = "<group>"; };
+		F39C70322AF179E7003D3C15 /* 질분비물.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "질분비물.png"; sourceTree = "<group>"; };
+		F39C70332AF179E7003D3C15 /* 메스꺼움.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "메스꺼움.png"; sourceTree = "<group>"; };
+		F39C70342AF179E7003D3C15 /* 두통.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "두통.png"; sourceTree = "<group>"; };
+		F39C70362AF179E7003D3C15 /* 외상.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "외상.png"; sourceTree = "<group>"; };
+		F39C70372AF179E7003D3C15 /* 젖몸살.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "젖몸살.png"; sourceTree = "<group>"; };
+		F39C70382AF179E7003D3C15 /* 요통.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "요통.png"; sourceTree = "<group>"; };
+		F39C70392AF179E7003D3C15 /* 훗배앓이.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "훗배앓이.png"; sourceTree = "<group>"; };
+		F39C703A2AF179E7003D3C15 /* 식욕변화.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "식욕변화.png"; sourceTree = "<group>"; };
+		F39C703B2AF179E7003D3C15 /* 배변장애.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "배변장애.png"; sourceTree = "<group>"; };
+		F39C703C2AF179E8003D3C15 /* 건망증.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "건망증.png"; sourceTree = "<group>"; };
+		F39C703D2AF179E8003D3C15 /* 수면장애.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "수면장애.png"; sourceTree = "<group>"; };
+		F39C703E2AF179E8003D3C15 /* 부종.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "부종.png"; sourceTree = "<group>"; };
+		F39C703F2AF179E8003D3C15 /* 피로.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "피로.png"; sourceTree = "<group>"; };
+		F39C70402AF179E8003D3C15 /* 피부질환.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "피부질환.png"; sourceTree = "<group>"; };
+		F39C70412AF179E8003D3C15 /* 관절통.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "관절통.png"; sourceTree = "<group>"; };
+		F39C70422AF179E8003D3C15 /* 탈모.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "탈모.png"; sourceTree = "<group>"; };
+		F39C70432AF179E8003D3C15 /* 복통.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "복통.png"; sourceTree = "<group>"; };
+		F39C70442AF179E8003D3C15 /* 위장장애.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "위장장애.png"; sourceTree = "<group>"; };
 		F3A8564B2AB2CE4E00264E3B /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
 		F3A8564D2AB2CF3900264E3B /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		F3A856512AB2DF0900264E3B /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -542,6 +602,36 @@
 		F3B05C072AA999BC003EC4A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F39C703C2AF179E8003D3C15 /* 건망증.png */,
+				F39C70412AF179E8003D3C15 /* 관절통.png */,
+				F39C70342AF179E7003D3C15 /* 두통.png */,
+				F39C70332AF179E7003D3C15 /* 메스꺼움.png */,
+				F39C703B2AF179E7003D3C15 /* 배변장애.png */,
+				F39C70432AF179E8003D3C15 /* 복통.png */,
+				F39C703E2AF179E8003D3C15 /* 부종.png */,
+				F39C703D2AF179E8003D3C15 /* 수면장애.png */,
+				F39C703A2AF179E7003D3C15 /* 식욕변화.png */,
+				F39C70362AF179E7003D3C15 /* 외상.png */,
+				F39C70382AF179E7003D3C15 /* 요통.png */,
+				F39C70442AF179E8003D3C15 /* 위장장애.png */,
+				F39C70372AF179E7003D3C15 /* 젖몸살.png */,
+				F39C70322AF179E7003D3C15 /* 질분비물.png */,
+				F39C70422AF179E8003D3C15 /* 탈모.png */,
+				F39C703F2AF179E8003D3C15 /* 피로.png */,
+				F39C70402AF179E8003D3C15 /* 피부질환.png */,
+				F39C70392AF179E7003D3C15 /* 훗배앓이.png */,
+				F39C70212AF1790F003D3C15 /* 두려움.png */,
+				F39C70242AF1790F003D3C15 /* 무기력.png */,
+				F39C701E2AF1790F003D3C15 /* 분노.png */,
+				F39C70202AF1790F003D3C15 /* 불안초조.png */,
+				F39C70252AF1790F003D3C15 /* 스트레스.png */,
+				F39C701C2AF1790F003D3C15 /* 슬픔.png */,
+				F39C70222AF1790F003D3C15 /* 예민짜증.png */,
+				F39C70262AF1790F003D3C15 /* 우울.png */,
+				F39C70232AF1790F003D3C15 /* 절망감.png */,
+				F39C701D2AF1790F003D3C15 /* 죄책감.png */,
+				F39C701F2AF1790F003D3C15 /* 혼란.png */,
+				F39C701A2AF1788F003D3C15 /* 감정기복.png */,
 				F3B795E32AE258EA0090440F /* ect.png */,
 				F3B795DF2AE258EA0090440F /* ect1.png */,
 				F3B795DE2AE258EA0090440F /* ect2.png */,
@@ -773,8 +863,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F30319BD2AE087650016D51C /* family12.png in Resources */,
+				F39C70452AF179E8003D3C15 /* 질분비물.png in Resources */,
 				F305456B2ADE98EF00C18971 /* unrest5.png in Resources */,
 				F30545622ADE97C400C18971 /* sad6.png in Resources */,
+				F39C70492AF179E8003D3C15 /* 외상.png in Resources */,
 				F3B9CDBE2ACB131D00DD1E7B /* result_box.png in Resources */,
 				F34109462AC5C0DD00E755F4 /* backImg.png in Resources */,
 				F3FF97362ADE315A002BBB1B /* depressed2.png in Resources */,
@@ -785,6 +877,7 @@
 				F3B795DB2AE242610090440F /* baby4.png in Resources */,
 				F3647EBC2AC722F10026FBF0 /* article_img.png in Resources */,
 				F3B795E82AE258EA0090440F /* ect5.png in Resources */,
+				F39C70302AF1790F003D3C15 /* 스트레스.png in Resources */,
 				F3B795E52AE258EA0090440F /* ect1.png in Resources */,
 				F30319BE2AE087650016D51C /* family17.png in Resources */,
 				F3190E342AAC833C000A7343 /* MainArticleCell.xib in Resources */,
@@ -797,6 +890,7 @@
 				F3FF97582ADE4237002BBB1B /* confusion1.png in Resources */,
 				F32B28B62AA8AD0C005803C8 /* LaunchScreen.storyboard in Resources */,
 				F3B795EB2AE25D7D0090440F /* Pretendard-Bold.otf in Resources */,
+				F39C702F2AF1790F003D3C15 /* 무기력.png in Resources */,
 				F30319A02AE084C00016D51C /* body12.png in Resources */,
 				F305456D2ADE98EF00C18971 /* unrest7.png in Resources */,
 				F3B795D72AE242610090440F /* baby9.png in Resources */,
@@ -810,6 +904,7 @@
 				F3B795D02AE242610090440F /* baby10.png in Resources */,
 				F3AB29122ADD4A0B0058C5B2 /* AlertCell.xib in Resources */,
 				F3FF972D2ADE315A002BBB1B /* depressed8.png in Resources */,
+				F39C702B2AF1790F003D3C15 /* 불안초조.png in Resources */,
 				F303196C2ADF96880016D51C /* emotionPopup.png in Resources */,
 				F38614122AC877CB00D5001F /* GoogleService-Info.plist in Resources */,
 				F3FF97492ADE3E0D002BBB1B /* stress8.png in Resources */,
@@ -820,10 +915,12 @@
 				F30319C52AE087650016D51C /* family5.png in Resources */,
 				F3FF97572ADE4237002BBB1B /* confusion4.png in Resources */,
 				F30E3D402AC857A100CB1316 /* popup-view.png in Resources */,
+				F39C70522AF179E8003D3C15 /* 피로.png in Resources */,
 				F305456E2ADE98EF00C18971 /* unrest1.png in Resources */,
 				F30545602ADE97C400C18971 /* sad1.png in Resources */,
 				F30319A32AE084C00016D51C /* body14.png in Resources */,
 				F3AB29182ADD5C9B0058C5B2 /* readLine.png in Resources */,
+				F39C702E2AF1790F003D3C15 /* 절망감.png in Resources */,
 				F30319B82AE087650016D51C /* family14.png in Resources */,
 				F3FF97482ADE3E0D002BBB1B /* stress6.png in Resources */,
 				F30319B72AE087650016D51C /* family.png in Resources */,
@@ -831,9 +928,14 @@
 				F30319BC2AE087650016D51C /* family4.png in Resources */,
 				F341094A2AC5C1C800E755F4 /* LoginBack.png in Resources */,
 				F3B795D92AE242610090440F /* baby12.png in Resources */,
+				F39C702C2AF1790F003D3C15 /* 두려움.png in Resources */,
+				F39C704D2AF179E8003D3C15 /* 식욕변화.png in Resources */,
+				F39C70272AF1790F003D3C15 /* 슬픔.png in Resources */,
+				F39C704F2AF179E8003D3C15 /* 건망증.png in Resources */,
 				F3FF97312ADE315A002BBB1B /* depressed4.png in Resources */,
 				F30319BA2AE087650016D51C /* family9.png in Resources */,
 				F305455F2ADE97C400C18971 /* sad3.png in Resources */,
+				F39C704E2AF179E8003D3C15 /* 배변장애.png in Resources */,
 				F3EEF92C2AB0E234007F3D81 /* article-back.png in Resources */,
 				F30545612ADE97C400C18971 /* sad2.png in Resources */,
 				F305455C2ADE97C400C18971 /* sad4.png in Resources */,
@@ -842,7 +944,9 @@
 				F30319962AE084C00016D51C /* body.png in Resources */,
 				F30319982AE084C00016D51C /* body16.png in Resources */,
 				F3B05C1B2AA99BD3003EC4A6 /* Pretendard-Medium.otf in Resources */,
+				F39C70282AF1790F003D3C15 /* 죄책감.png in Resources */,
 				F30319922AE084C00016D51C /* body11.png in Resources */,
+				F39C70572AF179E8003D3C15 /* 위장장애.png in Resources */,
 				F3FF97462ADE3E0D002BBB1B /* depressed13.png in Resources */,
 				F3B795D82AE242610090440F /* baby1.png in Resources */,
 				F3B795D52AE242610090440F /* baby15.png in Resources */,
@@ -871,19 +975,25 @@
 				F3E587862AA9B99800578876 /* box-1x.png in Resources */,
 				F3B05C192AA99BD3003EC4A6 /* Pretendard-SemiBold.otf in Resources */,
 				F30319972AE084C00016D51C /* body2.png in Resources */,
+				F39C701B2AF1788F003D3C15 /* 감정기복.png in Resources */,
 				F350A1382ABAFB9A00203688 /* Chat.png in Resources */,
 				F30545702ADE98EF00C18971 /* unrest4.png in Resources */,
 				F3B05C182AA99BD3003EC4A6 /* Pretendard-Regular.otf in Resources */,
 				F335F9FF2AB9D23000C97E30 /* Main.storyboard in Resources */,
 				F3FF974A2ADE3E0D002BBB1B /* stress3.png in Resources */,
 				F3FF974B2ADE3E0D002BBB1B /* stress5.png in Resources */,
+				F39C70502AF179E8003D3C15 /* 수면장애.png in Resources */,
 				F3B795D32AE242610090440F /* baby11.png in Resources */,
 				F30319C42AE087650016D51C /* family11.png in Resources */,
+				F39C70542AF179E8003D3C15 /* 관절통.png in Resources */,
 				F32D0A7D2AD6BABF0094CA03 /* CheckListCell.xib in Resources */,
+				F39C70512AF179E8003D3C15 /* 부종.png in Resources */,
 				F3190E1F2AAC4C95000A7343 /* target-box.png in Resources */,
 				F3EEF9262AB0C1E5007F3D81 /* example_img.png in Resources */,
+				F39C70552AF179E8003D3C15 /* 탈모.png in Resources */,
 				F3B9CDBA2ACAE9FC00DD1E7B /* select_background.png in Resources */,
 				F3647EC22AC733290026FBF0 /* gray_line.png in Resources */,
+				F39C70562AF179E8003D3C15 /* 복통.png in Resources */,
 				F303199B2AE084C00016D51C /* body19.png in Resources */,
 				F305456C2ADE98EF00C18971 /* unrest6.png in Resources */,
 				F3FF97302ADE315A002BBB1B /* depressed1.png in Resources */,
@@ -891,13 +1001,16 @@
 				F3B9CDB42ACAE50B00DD1E7B /* AnswerCell.xib in Resources */,
 				F3B795D12AE242610090440F /* baby16.png in Resources */,
 				F3FF97542ADE4237002BBB1B /* confusion6.png in Resources */,
+				F39C70462AF179E8003D3C15 /* 메스꺼움.png in Resources */,
 				F3B795DA2AE242610090440F /* baby14.png in Resources */,
 				F3FF972E2ADE315A002BBB1B /* depressed10.png in Resources */,
 				F303199A2AE084C00016D51C /* body3.png in Resources */,
 				F3B795CF2AE242610090440F /* baby5.png in Resources */,
+				F39C70472AF179E8003D3C15 /* 두통.png in Resources */,
 				F30319C82AE087650016D51C /* family15.png in Resources */,
 				F3AB29142ADD4D9B0058C5B2 /* alertLine.png in Resources */,
 				F3B795CB2AE242610090440F /* baby6.png in Resources */,
+				F39C702D2AF1790F003D3C15 /* 예민짜증.png in Resources */,
 				F3FF97352ADE315A002BBB1B /* depressed11.png in Resources */,
 				F30319BF2AE087650016D51C /* family3.png in Resources */,
 				F30319A42AE084C00016D51C /* body18.png in Resources */,
@@ -912,18 +1025,25 @@
 				F3FF972F2ADE315A002BBB1B /* depressed12.png in Resources */,
 				F3B795DC2AE242610090440F /* baby18.png in Resources */,
 				F305456A2ADE98EF00C18971 /* unrest3.png in Resources */,
+				F39C70312AF1790F003D3C15 /* 우울.png in Resources */,
+				F39C70292AF1790F003D3C15 /* 분노.png in Resources */,
 				F350A1332ABAD51C00203688 /* signUpImg.png in Resources */,
 				F303196A2ADF95090016D51C /* SelectEmotionViewController.xib in Resources */,
 				F30319C02AE087650016D51C /* family7.png in Resources */,
 				F30319782AE01A5A0016D51C /* SelectHealthViewController.xib in Resources */,
+				F39C70532AF179E8003D3C15 /* 피부질환.png in Resources */,
 				F3FF97442ADE3E0D002BBB1B /* stress2.png in Resources */,
+				F39C704A2AF179E8003D3C15 /* 젖몸살.png in Resources */,
 				F3B795D42AE242610090440F /* baby13.png in Resources */,
 				F3FF97342ADE315A002BBB1B /* depressed9.png in Resources */,
 				F305455D2ADE97C400C18971 /* sad7.png in Resources */,
 				F303199D2AE084C00016D51C /* body6.png in Resources */,
+				F39C704C2AF179E8003D3C15 /* 훗배앓이.png in Resources */,
 				F30545742ADE9A6C00C18971 /* slide3.png in Resources */,
 				F3FF974C2ADE3E0D002BBB1B /* stress7.png in Resources */,
 				F303199C2AE084C00016D51C /* body7.png in Resources */,
+				F39C702A2AF1790F003D3C15 /* 혼란.png in Resources */,
+				F39C704B2AF179E8003D3C15 /* 요통.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
