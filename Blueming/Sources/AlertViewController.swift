@@ -134,6 +134,13 @@ class AlertViewController: UIViewController, UITableViewDataSource, UITableViewD
                     tabBarController.modalTransitionStyle = .crossDissolve
                     self.present(tabBarController, animated: true, completion: nil)
                 }
+            case "ArticleVC":
+                if let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? UITabBarController {
+                    tabBarController.selectedIndex = 1
+                    tabBarController.modalPresentationStyle = .fullScreen
+                    tabBarController.modalTransitionStyle = .crossDissolve
+                    self.present(tabBarController, animated: true, completion: nil)
+                }
 
             default:
                 if let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? UITabBarController {

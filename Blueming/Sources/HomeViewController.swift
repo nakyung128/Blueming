@@ -123,7 +123,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 } else {
                     UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
                 }
-                
+ 
             } else {
                 let emotionKeyword = UserDefaults.standard.string(forKey: "emotion_keyword")
                 let healthKeyword = UserDefaults.standard.string(forKey: "health_keyword")
@@ -179,15 +179,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // 오늘의 키워드를 선택하지 않았을 때 알람 생성하기
         let newAlert = Alert(date: todayString, title: "오늘의 키워드가 아직 완성되지 않았어요!", script: "오늘의 키워드를 완성하면 맞춤형 아티클을 제공받을 수 있어요.", isRead: false, vc: "TabBarVC")
-        
+        let articleAlert = Alert(date: todayString, title: "오늘 아티클을 열람하지 않았어요", script: "아티클을 확인하러 가볼까요?", isRead: false, vc: "ArticleVC")
+
         if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
             var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
             if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
                 alerts.insert(newAlert, at: 0)
             }
+            if !alerts.contains(where: { $0.date == articleAlert.date && $0.title == articleAlert.title }) {
+                alerts.insert(articleAlert, at: 0)
+            }
             UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
         } else {
-            UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
+            UserDefaults.standard.setAlerts([newAlert, articleAlert], forKey: "alertsDataKey")
         }
         
         // 만약에 아예 첫 실행자라면 list에 데이터 넣어주기

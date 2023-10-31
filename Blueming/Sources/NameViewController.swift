@@ -38,6 +38,8 @@ class NameViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = ""
+        
         nameField.delegate = self
 
         // 타이틀 자간, 행간 설정
