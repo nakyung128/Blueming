@@ -43,6 +43,14 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if UserDefaults.standard.string(forKey: "user_email") != "" && UserDefaults.standard.string(forKey: "user_pwd") != "" {
+            // 홈으로 이동
+            let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+            vcName?.modalPresentationStyle = .fullScreen
+            vcName?.modalTransitionStyle = .crossDissolve
+            self.present(vcName!, animated: true, completion: nil)
+        }
+        
         // 뒤로가기 색상 변경
         navigationController?.navigationBar.tintColor = .Text01
         

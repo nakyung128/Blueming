@@ -10,6 +10,15 @@ class SignOutViewController: UIViewController {
     }
     
     @IBAction func ok(_ sender: Any) {
+        // 회원 탈퇴 -> 정보 지우기
+        UserDefaults.standard.removeObject(forKey: "user_email")
+        UserDefaults.standard.removeObject(forKey: "user_pwd")
+        UserDefaults.standard.removeObject(forKey: "user_name")
+        UserDefaults.standard.removeObject(forKey: "alertsDataKey")
+        UserDefaults.standard.removeObject(forKey: "goalsDataKey")
+        UserDefaults.standard.removeObject(forKey: "todayDate")
+        UserDefaults.standard.removeObject(forKey: "date")
+        
         // 메인 화면으로 돌아가기
         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "firstVC")
         vcName?.modalPresentationStyle = .fullScreen

@@ -548,13 +548,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if count1 == 0 && more1 == 3 {
                     goalCnt1.attributedText = NSAttributedString(string: "도전하기!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
                     moreCnt1.attributedText = NSAttributedString(string: "3번 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+                    let newAlert = Alert(date: todayString, title: "'\(secondGoal.title)' 체크리스트를 아직 달성하지 못했어요", script: "체크리스트를 완성하고 내 생활을 알차게 채워봐요!", isRead: false, vc: "checkVC")
+                    
+                    if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
+                        var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+                        if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
+                            alerts.insert(newAlert, at: 0)
+                        }
+                        UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
+                    } else {
+                        UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
+                    }
                 } else if count1 > 0 && count1 < 3 {
                     goalCnt1.attributedText = NSAttributedString(string: "\(count1)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
                     moreCnt1.attributedText = NSAttributedString(string: "\(more1)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
                     
                     if count1 == 2 {
                         // 알람 생성하기
-                        let newAlert = Alert(date: todayString, title: "'\(firstGoal.title)' 체크리스트 달성까지 1번 남았어요", script: "마지막 한 번까지 파이팅! :)!", isRead: false, vc: "checkVC")
+                        let newAlert = Alert(date: todayString, title: "'\(firstGoal.title)' 체크리스트 달성까지 1번 남았어요", script: "마지막 한 번까지 파이팅! :)", isRead: false, vc: "checkVC")
                         
                         if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
                             var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
@@ -629,12 +640,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if count2 == 0 && more2 == 3 {
                     goalCnt2.attributedText = NSAttributedString(string: "도전하기!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
                     moreCnt2.attributedText = NSAttributedString(string: "3번 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
+                    let newAlert = Alert(date: todayString, title: "'\(secondGoal.title)' 체크리스트를 아직 달성하지 못했어요", script: "체크리스트를 완성하고 내 생활을 알차게 채워봐요!", isRead: false, vc: "checkVC")
+                    
+                    if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
+                        var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+                        if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
+                            alerts.insert(newAlert, at: 0)
+                        }
+                        UserDefaults.standard.setAlerts(alerts, forKey: "alertsDataKey")
+                    } else {
+                        UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
+                    }
+                    
                 } else if count2 > 0 && count2 < 3 {
                     goalCnt2.attributedText = NSAttributedString(string: "\(count2)회 완료!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.7])
                     moreCnt2.attributedText = NSAttributedString(string: "\(more2)번 더 해 보세요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 10)!, NSAttributedString.Key.kern: -0.5])
                     
                     if count2 == 2 {
-                        let newAlert = Alert(date: todayString, title: "'\(secondGoal.title)' 체크리스트 달성까지 1번 남았어요", script: "마지막 한 번까지 파이팅! :)!", isRead: false, vc: "checkVC")
+                        let newAlert = Alert(date: todayString, title: "'\(secondGoal.title)' 체크리스트 달성까지 1번 남았어요", script: "마지막 한 번까지 파이팅! :)", isRead: false, vc: "checkVC")
                         
                         if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
                             var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
