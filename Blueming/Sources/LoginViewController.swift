@@ -7,12 +7,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var loginBtn: UIButton!
     
     @IBAction func login(_ sender: Any) {        
-        if emailField.text != UserDefaults.standard.string(forKey: "user_email") || passField.text != UserDefaults.standard.string(forKey: "user_pwd") {
+        if emailField.text != UserDefaults.standard.string(forKey: "saved_email") || passField.text != UserDefaults.standard.string(forKey: "saved_pwd") {
             let alert = UIAlertController(title: "올바르지 않은 이메일 또는 비밀번호입니다", message: nil, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "확인", style: .default)
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
+            // 저장
+            UserDefaults.standard.setValue(emailField.text, forKey: "user_email")
+            UserDefaults.standard.setValue(passField.text, forKey: "user_pwd")
+            
             // 홈으로 이동
             let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
             vcName?.modalPresentationStyle = .fullScreen

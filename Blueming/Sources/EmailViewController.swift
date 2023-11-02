@@ -15,7 +15,8 @@ class EmailViewController: UIViewController, UITextFieldDelegate {
         } else {
             // UserDefaults에 이메일 저장
             let dataSave = UserDefaults.standard
-            dataSave.setValue(self.email.text, forKey: "user_email")
+            dataSave.setValue(email.text, forKey: "saved_email")
+            dataSave.setValue(email.text, forKey: "user_email")
             UserDefaults.standard.synchronize()
             
             guard let vc = self.storyboard?.instantiateViewController(identifier: "pwdVC") else { return }

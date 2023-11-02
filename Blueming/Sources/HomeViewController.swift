@@ -723,7 +723,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
             }
-        }
+        } 
     }
     
     @objc func handleProfileUpdate() {

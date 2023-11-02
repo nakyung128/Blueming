@@ -10,6 +10,9 @@ class LogOutViewController: UIViewController {
     }
     
     @IBAction func ok(_ sender: Any) {
+        UserDefaults.standard.setValue("", forKey: "user_email")
+        UserDefaults.standard.setValue("", forKey: "user_pwd")
+        
         // 메인 화면으로 돌아가기
         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "firstVC")
         vcName?.modalPresentationStyle = .fullScreen
