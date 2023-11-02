@@ -232,7 +232,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         collectionView.delegate = self
         collectionView.register(TagCell.self, forCellWithReuseIdentifier: "tagCell")
         collectionView.collectionViewLayout = LeftAlignedCollectionViewFlowLayout()
-        collectionView.backgroundColor = .articleColor
+        collectionView.backgroundColor = .clear
         
         // 배경 이미지 뷰를 생성하고 추가
         let backgroundImage = UIImageView(image: UIImage(named: "article-back.png"))
