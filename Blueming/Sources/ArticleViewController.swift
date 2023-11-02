@@ -382,9 +382,10 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
         let segmentIndex = CGFloat(segment.selectedSegmentIndex)
         let segmentWidth = segment.frame.width / CGFloat(segment.numberOfSegments)
         let leadingDistance = segmentWidth * segmentIndex
-        UIView.animate(withDuration: 0.3, animations: { [weak self] in
-            self?.leadingDistanceConstraint.constant = leadingDistance
-        })
+        UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseInOut, animations: { [weak self] in
+               self?.leadingDistanceConstraint.constant = leadingDistance
+               self?.view.layoutIfNeeded() // 애니메이션 중에 레이아웃을 갱신합니다.
+           }, completion: nil)
     }
     
     private func setPageControl() {
