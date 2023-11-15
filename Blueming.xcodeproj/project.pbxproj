@@ -93,6 +93,7 @@
 		F32D0A812AD6C18E0094CA03 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D0A802AD6C18E0094CA03 /* Goals.swift */; };
 		F335F9FF2AB9D23000C97E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F335F9FE2AB9D23000C97E30 /* Main.storyboard */; };
 		F335FA052AB9F13000C97E30 /* CustomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F335FA042AB9F13000C97E30 /* CustomTable.swift */; };
+		F33E55CA2B04BCC600DE68A5 /* 감정기복.png in Resources */ = {isa = PBXBuildFile; fileRef = F33E55C92B04BCC600DE68A5 /* 감정기복.png */; };
 		F34109462AC5C0DD00E755F4 /* backImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F34109452AC5C0DD00E755F4 /* backImg.png */; };
 		F341094A2AC5C1C800E755F4 /* LoginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = F34109492AC5C1C800E755F4 /* LoginBack.png */; };
 		F341094E2AC5E00600E755F4 /* KeywordLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F341094D2AC5E00600E755F4 /* KeywordLabel.swift */; };
@@ -144,7 +145,6 @@
 		F38FCDFF2B04B18A0029D2C0 /* 외상.png in Resources */ = {isa = PBXBuildFile; fileRef = F38FCDE12B04B18A0029D2C0 /* 외상.png */; };
 		F38FCE002B04B18A0029D2C0 /* 슬픔.png in Resources */ = {isa = PBXBuildFile; fileRef = F38FCDE22B04B18A0029D2C0 /* 슬픔.png */; };
 		F38FCE012B04B18A0029D2C0 /* 스트레스.png in Resources */ = {isa = PBXBuildFile; fileRef = F38FCDE32B04B18A0029D2C0 /* 스트레스.png */; };
-		F38FCE022B04B18A0029D2C0 /* 감정기복.png in Resources */ = {isa = PBXBuildFile; fileRef = F38FCDE42B04B18A0029D2C0 /* 감정기복.png */; };
 		F38FCE0B2B04B1A10029D2C0 /* checklist7.png in Resources */ = {isa = PBXBuildFile; fileRef = F38FCE032B04B1A10029D2C0 /* checklist7.png */; };
 		F38FCE0C2B04B1A10029D2C0 /* checklist3.png in Resources */ = {isa = PBXBuildFile; fileRef = F38FCE042B04B1A10029D2C0 /* checklist3.png */; };
 		F38FCE0D2B04B1A10029D2C0 /* checklist4.png in Resources */ = {isa = PBXBuildFile; fileRef = F38FCE052B04B1A10029D2C0 /* checklist4.png */; };
@@ -342,6 +342,7 @@
 		F32D0A802AD6C18E0094CA03 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
 		F335F9FE2AB9D23000C97E30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F335FA042AB9F13000C97E30 /* CustomTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTable.swift; sourceTree = "<group>"; };
+		F33E55C92B04BCC600DE68A5 /* 감정기복.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "감정기복.png"; path = "../../../Downloads/blueming/감정기복.png"; sourceTree = "<group>"; };
 		F34109452AC5C0DD00E755F4 /* backImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImg.png; sourceTree = "<group>"; };
 		F34109492AC5C1C800E755F4 /* LoginBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginBack.png; sourceTree = "<group>"; };
 		F341094D2AC5E00600E755F4 /* KeywordLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordLabel.swift; sourceTree = "<group>"; };
@@ -392,7 +393,6 @@
 		F38FCDE12B04B18A0029D2C0 /* 외상.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "외상.png"; sourceTree = "<group>"; };
 		F38FCDE22B04B18A0029D2C0 /* 슬픔.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "슬픔.png"; sourceTree = "<group>"; };
 		F38FCDE32B04B18A0029D2C0 /* 스트레스.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "스트레스.png"; sourceTree = "<group>"; };
-		F38FCDE42B04B18A0029D2C0 /* 감정기복.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "감정기복.png"; sourceTree = "<group>"; };
 		F38FCE032B04B1A10029D2C0 /* checklist7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checklist7.png; sourceTree = "<group>"; };
 		F38FCE042B04B1A10029D2C0 /* checklist3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checklist3.png; sourceTree = "<group>"; };
 		F38FCE052B04B1A10029D2C0 /* checklist4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checklist4.png; sourceTree = "<group>"; };
@@ -628,6 +628,7 @@
 		F3B05C072AA999BC003EC4A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F33E55C92B04BCC600DE68A5 /* 감정기복.png */,
 				F38FCE152B04B1BE0029D2C0 /* onboarding1.png */,
 				F38FCE162B04B1BE0029D2C0 /* onboarding2.png */,
 				F38FCE172B04B1BE0029D2C0 /* onboarding3.png */,
@@ -640,7 +641,6 @@
 				F38FCE062B04B1A10029D2C0 /* checklist6.png */,
 				F38FCE032B04B1A10029D2C0 /* checklist7.png */,
 				F38FCE0A2B04B1A10029D2C0 /* checklist8.png */,
-				F38FCDE42B04B18A0029D2C0 /* 감정기복.png */,
 				F38FCDD32B04B1890029D2C0 /* 건망증.png */,
 				F38FCDE02B04B18A0029D2C0 /* 관절통.png */,
 				F38FCDCC2B04B1890029D2C0 /* 두려움.png */,
@@ -967,7 +967,6 @@
 				F30E3D402AC857A100CB1316 /* popup-view.png in Resources */,
 				F305456E2ADE98EF00C18971 /* unrest1.png in Resources */,
 				F30545602ADE97C400C18971 /* sad1.png in Resources */,
-				F38FCE022B04B18A0029D2C0 /* 감정기복.png in Resources */,
 				F30319A32AE084C00016D51C /* body14.png in Resources */,
 				F3AB29182ADD5C9B0058C5B2 /* readLine.png in Resources */,
 				F30319B82AE087650016D51C /* family14.png in Resources */,
@@ -1086,6 +1085,7 @@
 				F303196A2ADF95090016D51C /* SelectEmotionViewController.xib in Resources */,
 				F30319C02AE087650016D51C /* family7.png in Resources */,
 				F30319782AE01A5A0016D51C /* SelectHealthViewController.xib in Resources */,
+				F33E55CA2B04BCC600DE68A5 /* 감정기복.png in Resources */,
 				F3FF97442ADE3E0D002BBB1B /* stress2.png in Resources */,
 				F3B795D42AE242610090440F /* baby13.png in Resources */,
 				F3FF97342ADE315A002BBB1B /* depressed9.png in Resources */,
