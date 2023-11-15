@@ -64,6 +64,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var emotion: UIImageView!
     @IBOutlet var health: UIImageView!
     
+    @IBOutlet var emotionResult: UIImageView!
+    @IBOutlet var healthResult: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -106,6 +109,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 goalCnt1.isHidden = true
                 goalCnt2.isHidden = true
+                emotionResult.isHidden = true
+                healthResult.isHidden = true
                 
                 goal1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
                 goal2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
@@ -131,18 +136,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let healthImg = UserDefaults.standard.string(forKey: "health_img")
                 
                 if emotionKeyword != nil && healthKeyword == nil {
-                    emotion.image = UIImage(named: emotionImg!)
+                    emotionResult.isHidden = false
+                    healthResult.isHidden = true
+                    emotionResult.image = UIImage(named: emotionImg!)
                     emotionLabel.attributedText = NSMutableAttributedString(string: emotionKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
                     emotionLabel.textAlignment = .center
                 } else if healthKeyword != nil && emotionKeyword == nil {
-                    health.image = UIImage(named: healthImg!)
+                    emotionResult.isHidden = true
+                    healthResult.isHidden = false
+                    healthResult.image = UIImage(named: healthImg!)
                     healthLabel.attributedText = NSMutableAttributedString(string: healthKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
                     healthLabel.textAlignment = .center
                 } else if healthKeyword != nil && emotionKeyword != nil {
-                    emotion.image = UIImage(named: emotionImg!)
+                    emotion.isHidden = true
+                    health.isHidden = true
+                    emotionResult.isHidden = false
+                    healthResult.isHidden = false
+                    emotionResult.image = UIImage(named: emotionImg!)
                     emotionLabel.attributedText = NSMutableAttributedString(string: emotionKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
                     emotionLabel.textAlignment = .center
-                    health.image = UIImage(named: healthImg!)
+                    healthResult.image = UIImage(named: healthImg!)
                     healthLabel.attributedText = NSMutableAttributedString(string: healthKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
                     healthLabel.textAlignment = .center
                 }
@@ -170,6 +183,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             goalCnt1.isHidden = true
             goalCnt2.isHidden = true
+            emotionResult.isHidden = true
+            healthResult.isHidden = true
             
             goal1.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
             goal2.attributedText = NSAttributedString(string: "아직 목표가 없어요!", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!, NSAttributedString.Key.kern: -0.8])
@@ -343,7 +358,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let emotionImg = UserDefaults.standard.string(forKey: "emotion_img")
         let healthKeyword = UserDefaults.standard.string(forKey: "health_keyword")
         
-        emotion.image = UIImage(named: emotionImg!)
+        emotion.isHidden = true
+        emotionResult.isHidden = false
+        emotionResult.image = UIImage(named: emotionImg!)
         emotionLabel.attributedText = NSMutableAttributedString(string: emotionKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
         
         // 만약 감정, 건강 다 선택한 경우
@@ -422,7 +439,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let healthKeyword = UserDefaults.standard.string(forKey: "health_keyword")
         let healthImg = UserDefaults.standard.string(forKey: "health_img")
         
-        health.image = UIImage(named: healthImg!)
+        
+        health.isHidden = true
+        healthResult.isHidden = false
+        healthResult.image = UIImage(named: healthImg!)
         healthLabel.attributedText = NSMutableAttributedString(string: healthKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
         
         // 만약 감정, 건강 다 선택한 경우
@@ -449,19 +469,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             // 오늘의 감정, 건강에 따른 목표 추가해 주기
             switch emotionKeyword {
-            case "감정기복", "두려움", "불안/초조", "스트레스", "슬픔": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "나를 위한 격려 해주기", script: "나를 위한 따뜻한 격려를 해 보세요!\n충분히 잘 하고 있으니까요.", first: false, second: false, third: false))
-            case "죄책감", "혼란", "무기력": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "가벼운 운동 하기", script: "가벼운 홈트레이닝도 좋아요.\n지친 몸을 풀어 봅시다!", first: false, second: nil, third: nil))
-            case "예민/짜증", "우울": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "산책하기", script: "잠깐이라도 광합성은 필수!\n산책 나가 볼까요?", first: false, second: nil, third: nil))
-            case "분노", "절망감": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "명상 시간 가지기", script: "잠시나마 여유를 챙기며\n스스로의 마음을 살펴 보아요.", first: false, second: nil, third: nil))
+            case "감정기복", "두려움", "불안/초조", "스트레스", "슬픔": todayGoals.append(Goals(date: todayString, img: "checklist1.png", title: "나를 위한 격려 해주기", script: "나를 위한 따뜻한 격려를 해 보세요!\n충분히 잘 하고 있으니까요.", first: false, second: false, third: false))
+            case "죄책감", "혼란", "무기력": todayGoals.append(Goals(date: todayString, img: "checklist6.png", title: "가벼운 운동 하기", script: "가벼운 홈트레이닝도 좋아요.\n지친 몸을 풀어 봅시다!", first: false, second: nil, third: nil))
+            case "예민/짜증", "우울": todayGoals.append(Goals(date: todayString, img: "checklist7.png", title: "산책하기", script: "잠깐이라도 광합성은 필수!\n산책 나가 볼까요?", first: false, second: nil, third: nil))
+            case "분노", "절망감": todayGoals.append(Goals(date: todayString, img: "checklist8.png", title: "명상 시간 가지기", script: "잠시나마 여유를 챙기며\n스스로의 마음을 살펴 보아요.", first: false, second: nil, third: nil))
             default:
                 return
             }
             
             switch healthKeyword {
-            case "식욕 변화", "배변 장애": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "식사 세 번 챙기기", script: "바쁘고 지치는 하루여도\n끼니 챙기기는 필수예요!", first: false, second: false, third: false))
-            case "수면 장애", "복통", "부종", "메스꺼움", "요통", "젖몸살": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "따뜻한 차 세 잔 마시기", script: "지친 몸을 녹여 줄\n따뜻한 티타임을 가져 보아요!", first: false, second: false, third: false))
-            case "건망증", "위장장애", "탈모", "질분비물", "관절통", "피부질환": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "영양제 먹기", script: "건강 관리를 위해\n적절한 영양제 섭취는 필수!", first: false, second: nil, third: nil))
-            case "훗배앓이", "외상", "피로", "두통/어지럼증": todayGoals.append(Goals(date: todayString, img: "check_sample.png", title: "7시간 이상 취침하기", script: "바쁜 일상일지라도 7시간 이상\n취침하기 위해 노력해 보아요.", first: false, second: false, third: false))
+            case "식욕 변화", "배변 장애": todayGoals.append(Goals(date: todayString, img: "checklist2.png", title: "식사 세 번 챙기기", script: "바쁘고 지치는 하루여도\n끼니 챙기기는 필수예요!", first: false, second: false, third: false))
+            case "수면 장애", "복통", "부종", "메스꺼움", "요통", "젖몸살": todayGoals.append(Goals(date: todayString, img: "checklist3.png", title: "따뜻한 차 세 잔 마시기", script: "지친 몸을 녹여 줄\n따뜻한 티타임을 가져 보아요!", first: false, second: false, third: false))
+            case "건망증", "위장장애", "탈모", "질분비물", "관절통", "피부질환": todayGoals.append(Goals(date: todayString, img: "checklist4.png", title: "영양제 먹기", script: "건강 관리를 위해\n적절한 영양제 섭취는 필수!", first: false, second: nil, third: nil))
+            case "훗배앓이", "외상", "피로", "두통/어지럼증": todayGoals.append(Goals(date: todayString, img: "checklist5.png", title: "7시간 이상 취침하기", script: "바쁜 일상일지라도 7시간 이상\n취침하기 위해 노력해 보아요.", first: false, second: false, third: false))
             default:
                 return
             }

@@ -360,7 +360,6 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     
         // 스크롤뷰의 contentSize 설정
         imageScroll.contentSize.width = contentX
-        //(imageScroll.frame.width + spacing) * CGFloat(images.count) - spacing
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {

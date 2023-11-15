@@ -5,6 +5,7 @@ class ResultViewController: UIViewController {
     @IBOutlet var homeBtn: UIButton!
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var resultLabel: UILabel!
+    @IBOutlet var resultImg: UIImageView!
     
     @IBAction func goToMain(_ sender: Any) {
         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
@@ -30,30 +31,34 @@ class ResultViewController: UIViewController {
         
         // 점수 label
         let score = UserDefaults.standard.integer(forKey: "score")
+        var imgName = ""
         var text = ""
         var targetString = ""
         var emoji = ""
+        
+        guard let name = UserDefaults.standard.string(forKey: "user_name") else { return }
         
         scoreLabel.text = "\(score)점"
         
         switch score {
         case 0...8: 
-            text = "파랑 님의 결과는 정상 수준으로\n대체로 평안한 상태입니다.\n앞으로도 스스로를 잘 돌봐 주세요 \u{1F970}\u{200B}"
+            text = "\(name) 님의 결과는 정상 수준으로\n대체로 평안한 상태입니다.\n앞으로도 스스로를 잘 돌봐 주세요 \u{1F970}\u{200B}"
+            imgName = "result1.png"
             targetString = "정상 수준"
             emoji = "\u{1F970}"
         case 9...12:
-            text = "파랑 님의 결과는 경계성 수준으로\n상담이 필요한 상태입니다.\n심각한 단계가 아니니, 전문의와 대화해 보세요 \u{263A}\u{200B}"
+            text = "\(name) 님의 결과는 경계성 수준으로\n상담이 필요한 상태입니다.\n심각한 단계가 아니니, 전문의와 대화해 보세요 \u{263A}\u{200B}"
+            imgName = "result2.png"
             targetString = "경계성 수준"
             emoji = "\u{263A}"
         case 13...:
-            text = "파랑 님의 결과는 심각 수준으로\n치료가 필요한 상태입니다.\n전문의의 진단 및 처방이 반드시 필요합니다 \u{1F625}\u{200B}"
+            text = "\(name) 님의 결과는 심각 수준으로\n치료가 필요한 상태입니다.\n전문의의 진단 및 처방이 반드시 필요합니다 \u{1F625}\u{200B}"
+            imgName = "result3.png"
             targetString = "심각 수준"
             emoji = "\u{1F625}"
         default: return
         }
         let attributedText = NSMutableAttributedString(string: text)
-        
-        print(text)
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.26
@@ -63,7 +68,7 @@ class ResultViewController: UIViewController {
         attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, text.count))
         
         // 그 다음 특정 부분에 대한 스타일 변경
-        let range1 = (text as NSString).range(of: "파랑")
+        let range1 = (text as NSString).range(of: name)
         attributedText.addAttribute(.font, value: UIFont(name: "Pretendard-Bold", size: 14)!, range: range1)
         
         let range2 = (text as NSString).range(of: targetString)
@@ -77,6 +82,8 @@ class ResultViewController: UIViewController {
         resultLabel.numberOfLines = 0
         resultLabel.attributedText = attributedText
         resultLabel.textAlignment = .center
+        
+        resultImg.image = UIImage(named: imgName)
     }
     
 

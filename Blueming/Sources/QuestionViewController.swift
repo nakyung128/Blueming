@@ -7,21 +7,28 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var nextBtn: UIButton!
     
     @IBAction func next(_ sender: Any) {
-        // 다음 질문으로 넘어갑니다.
-        if currentQuestionIndex < maxQuestions {
-            currentQuestionIndex += 1
-            // 각 답변당 점수
-            totalScore += answerData[currentQuestionIndex-1].point[selectedIndex!.row]
-            print(totalScore)
-            updateUI()
-            selectedIndex = nil
-            answerTableView.reloadData()
+        if ((answerTableView.indexPathForSelectedRow?.isEmpty) != nil) {
+            // 다음 질문으로 넘어갑니다.
+            if currentQuestionIndex < maxQuestions {
+                currentQuestionIndex += 1
+                // 각 답변당 점수
+                totalScore += answerData[currentQuestionIndex-1].point[selectedIndex!.row]
+                print(totalScore)
+                updateUI()
+                selectedIndex = nil
+                answerTableView.reloadData()
+            } else {
+                totalScore += answerData[currentQuestionIndex-1].point[selectedIndex!.row]
+                print(totalScore)
+                UserDefaults.standard.setValue(totalScore, forKey: "score")
+                guard let vc = self.storyboard?.instantiateViewController(identifier: "resultVC") else { return }
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         } else {
-            totalScore += answerData[currentQuestionIndex-1].point[selectedIndex!.row]
-            print(totalScore)
-            UserDefaults.standard.setValue(totalScore, forKey: "score")
-            guard let vc = self.storyboard?.instantiateViewController(identifier: "resultVC") else { return }
-            self.navigationController?.pushViewController(vc, animated: true)
+            let alertController = UIAlertController(title: "답변을 선택해 주세요", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
         }
     }
     

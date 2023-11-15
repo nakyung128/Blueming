@@ -31,7 +31,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     }
     
     // 스크롤 뷰 데이터
-    var images = [ UIImage(named: "Chat.png"), UIImage(named: "Chat.png"), UIImage(named: "Chat.png") ]
+    var images = [ UIImage(named: "onboarding1.png"), UIImage(named: "onboarding2.png"), UIImage(named: "onboarding3.png") ]
     var titles = [ "맞춤형 정보 제공", "간편한 자가진단", "매일 만나는 체크리스트" ]
     var scripts = [ "매일 그날의 감정, 건강 상태를 선택하면\n맞춤형 아티클을 만날 수 있어요", "본인의 상태를 쉽고 빠르게 진단하고\n검사 결과를 확인해 보세요", "작은 것을 이루며 성취감을 느끼고\n생활 습관을 형성해 보세요" ]
     
@@ -116,11 +116,23 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
             // 이미지와 레이블을 담을 컨테이너 뷰 생성
             let containerView = UIView()
             
+            // 이미지 뷰 생성 및 설정
             let image = UIImageView()
-            
-            image.frame = CGRect(x: 90, y: 110, width: (images[i]?.size.width)!, height: (images[i]?.size.height)!)
-            image.image = images[i]
+            image.translatesAutoresizingMaskIntoConstraints = false
             image.contentMode = .scaleAspectFit
+            image.image = images[i]
+
+            // 컨테이너 뷰에 이미지 뷰 추가
+            containerView.addSubview(image)
+
+            // 이미지 뷰의 오토레이아웃 제약 설정
+            NSLayoutConstraint.activate([
+                image.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+                image.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 70),
+                image.widthAnchor.constraint(equalToConstant: 160),
+                image.heightAnchor.constraint(equalToConstant: 160)
+            ])
+
             
             // titleLabel과 scriptLabel을 생성하고 컨테이너 뷰에 추가
             let titleLabel = UILabel()
@@ -147,7 +159,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
             
             scriptLabel.textAlignment = .center
             
-            containerView.addSubview(image)
+            //containerView.addSubview(image)
             containerView.addSubview(titleLabel)
             containerView.addSubview(scriptLabel)
             

@@ -37,7 +37,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="emotion_example.png" translatesAutoresizingMaskIntoConstraints="NO" id="YTp-Jo-TXX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="감정기복.png" translatesAutoresizingMaskIntoConstraints="NO" id="YTp-Jo-TXX">
                                 <rect key="frame" x="33" y="12" width="34" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="4pq-oV-ZLD"/>
@@ -72,7 +72,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="emotion_example.png" width="34" height="35"/>
+        <image name="감정기복.png" width="74" height="74"/>
         <namedColor name="Text01">
             <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

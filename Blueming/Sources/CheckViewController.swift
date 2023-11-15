@@ -19,7 +19,7 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         if let indexInAllGoals = allGoals.firstIndex(where: { $0.title == selectedGoals[indexPath.row].title && $0.date == selectedGoals[indexPath.row].date }) {
             allGoals[indexInAllGoals] = selectedGoals[indexPath.row]
         }
-
+        
         
         // 데이터 변경
         UserDefaults.standard.setGoals(allGoals, forKey: "goalsDataKey")
@@ -49,7 +49,10 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         
         // 체크리스트 데이터가 없을 때
         if selectedGoals.isEmpty {
-            cell.img.image = UIImage(named: "noCheckImg")
+            cell.noCheckImg.image = UIImage(named: "noChecklist.png")
+            cell.img.isHidden = true
+            cell.goalTitle.isHidden = true
+            cell.goalScript.isHidden = true
             cell.first.isHidden = true
             cell.second.isHidden = true
             cell.third.isHidden = true
@@ -59,6 +62,7 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
             cell.first.isHidden = false
             cell.second.isHidden = true
             cell.third.isHidden = true
+            cell.noCheckImg.isHidden = true
             cell.img.image = UIImage(named: selectedGoals[indexPath.row].img)
             cell.goalTitle.text = selectedGoals[indexPath.row].title
             cell.goalScript.text = selectedGoals[indexPath.row].script
@@ -69,6 +73,7 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
             cell.first.isHidden = false
             cell.second.isHidden = false
             cell.third.isHidden = false
+            cell.noCheckImg.isHidden = true
             cell.img.image = UIImage(named: selectedGoals[indexPath.row].img)
             cell.goalTitle.text = selectedGoals[indexPath.row].title
             cell.goalScript.text = selectedGoals[indexPath.row].script

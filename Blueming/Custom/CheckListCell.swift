@@ -3,6 +3,7 @@ import UIKit
 class CheckListCell: UICollectionViewCell {
 
     @IBOutlet var img: UIImageView!
+    @IBOutlet var noCheckImg: UIImageView!
     @IBOutlet var goalTitle: UILabel!
     @IBOutlet var goalScript: UILabel!
     @IBOutlet var first: UIButton!
