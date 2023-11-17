@@ -301,6 +301,18 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         }
         allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
         filterAndReloadData(for: Date())
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // 뷰가 나타날 때 이전에 선택한 날짜가 있다면 선택을 초기화
+        if let selectedDate = UserDefaults.standard.object(forKey: "selectedDate") as? Date {
+            calendar.deselect(selectedDate)
+            dateLabel.attributedText = NSMutableAttributedString(string: self.dateFormatter.string(from: Date()), attributes: [NSAttributedString.Key.kern: -1, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 20)!]) // 오늘 날짜로
+        }
+        allGoals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
+        filterAndReloadData(for: Date())
     }
     
     override func viewDidLoad() {

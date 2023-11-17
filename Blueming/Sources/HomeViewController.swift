@@ -304,12 +304,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         alertBtn.addGestureRecognizer(tapGesture)
         
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(selectEmotion))
+        let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(selectHealth))
+        let tapGesture4 = UITapGestureRecognizer(target: self, action: #selector(selectEmotion))
+        let tapGesture5 = UITapGestureRecognizer(target: self, action: #selector(selectHealth))
+        
         emotion.isUserInteractionEnabled = true
         emotion.addGestureRecognizer(tapGesture2)
         
-        let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(selectHealth))
         health.isUserInteractionEnabled = true
         health.addGestureRecognizer(tapGesture3)
+        
+        emotionResult.isUserInteractionEnabled = true
+        emotionResult.addGestureRecognizer(tapGesture4)
+        
+        healthResult.isUserInteractionEnabled = true
+        healthResult.addGestureRecognizer(tapGesture5)
+        
         
         // 홈 화면 들어왔을 때 날짜 저장하고 오늘 날짜랑 다르면 데이터 변경하기
         // 아티클 각 카테고리에서 하나씩 랜덤 추천
@@ -376,6 +386,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
                 var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+            
+                alerts.removeAll { $0.date == todayString }
+    
                 if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
                     alerts.insert(newAlert, at: 0)
                 }
@@ -384,6 +397,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 UserDefaults.standard.setAlerts([newAlert], forKey: "alertsDataKey")
             }
             
+            todayGoals = []
             
             // 오늘의 감정, 건강에 따른 목표 추가해 주기
             switch emotionKeyword {
@@ -410,6 +424,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 UserDefaults.standard.setGoals(todayGoals, forKey: "goalsDataKey")
             }  else {
                 var goals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
+                goals.removeAll { $0.date == todayString }
+                print(goals)
                 
                 // 중복 체크 후 추가
                 for goal in todayGoals {
@@ -417,6 +433,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         goals.append(goal)
                     }
                 }
+                
+                print(goals)
                 
                 UserDefaults.standard.setValue(todayGoals[0].title, forKey: "firstGoal")
                 UserDefaults.standard.setValue(todayGoals[1].title, forKey: "secondGoal")
@@ -445,6 +463,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         healthResult.image = UIImage(named: healthImg!)
         healthLabel.attributedText = NSMutableAttributedString(string: healthKeyword!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 18)!, NSAttributedString.Key.foregroundColor: UIColor.Blue01!, NSAttributedString.Key.kern: -0.9])
         
+        todayGoals = []
+        
         // 만약 감정, 건강 다 선택한 경우
         if emotionKeyword != nil && healthKeyword != nil {
             // 맨 처음 앱 실행했을 때 오늘 날짜 저장
@@ -458,6 +478,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if UserDefaults.standard.alerts(forKey: "alertsDataKey") != nil {
                 var alerts = UserDefaults.standard.alerts(forKey: "alertsDataKey")!
+                alerts.removeAll { $0.date == todayString }
                 if !alerts.contains(where: { $0.date == newAlert.date && $0.title == newAlert.title }) {
                     alerts.insert(newAlert, at: 0)
                 }
@@ -493,6 +514,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 UserDefaults.standard.setValue(todayGoals[1].title, forKey: "secondGoal")
             } else {
                 var goals = UserDefaults.standard.goals(forKey: "goalsDataKey") ?? []
+                goals.removeAll { $0.date == todayString }
+                
+                print(goals)
                 
                 // 중복 체크 후 추가
                 for goal in todayGoals {
