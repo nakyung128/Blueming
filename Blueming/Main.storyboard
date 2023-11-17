@@ -398,7 +398,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 / 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slo-3E-Azb">
-                                <rect key="frame" x="19.999999999999996" y="119" width="34.666666666666657" height="17"/>
+                                <rect key="frame" x="20.000000000000004" y="119" width="34.333333333333343" height="17"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
@@ -495,7 +495,7 @@
                                 <rect key="frame" x="-1.6666666666666572" y="100" width="378.33333333333326" height="508"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="산후 우울감 자가진단 검사 결과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opf-18-RAy">
-                                <rect key="frame" x="66" y="148" width="243" height="24"/>
+                                <rect key="frame" x="66.000000000000014" y="148" width="243.33333333333337" height="24"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="20"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
@@ -897,12 +897,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="2cZ-Ev-Fmj"/>
                     <connections>
+                        <outlet property="changePwd" destination="qGz-yb-Xc2" id="NYZ-SR-iMU"/>
                         <outlet property="editBtn" destination="psd-q2-B4c" id="YyP-4L-fJu"/>
                         <outlet property="editPwd" destination="6Kz-1T-XyH" id="qXT-41-l51"/>
                         <outlet property="email" destination="vAv-yx-tmJ" id="nxp-38-HMc"/>
                         <outlet property="logOut" destination="Qer-Oa-y3C" id="o1O-Kb-fT1"/>
+                        <outlet property="logoutLabel" destination="egk-om-7vK" id="Ept-M9-n8f"/>
                         <outlet property="nickname" destination="0Ra-4A-yCS" id="Fjt-iA-BLj"/>
                         <outlet property="profile" destination="2T2-8b-Tn6" id="658-g1-ER0"/>
+                        <outlet property="registerLabel" destination="0nD-p5-UMA" id="4aU-dq-dko"/>
                         <outlet property="signOut" destination="AtS-d3-tTi" id="T0O-eu-hTb"/>
                     </connections>
                 </viewController>

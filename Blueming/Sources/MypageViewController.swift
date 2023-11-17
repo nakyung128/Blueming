@@ -11,9 +11,18 @@ class MypageViewController: UIViewController {
     @IBOutlet var nickname: UILabel!
     @IBOutlet var email: UILabel!
     
+    @IBOutlet var changePwd: UILabel!
+    @IBOutlet var logoutLabel: UILabel!
+    @IBOutlet var registerLabel: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        changePwd.attributedText = NSAttributedString(string: "비밀번호 변경", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.7])
+        logoutLabel.attributedText = NSAttributedString(string: "로그아웃", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.7])
+        registerLabel.attributedText = NSAttributedString(string: "회원 탈퇴", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.7])
         
         // 옵저버 등록
         NotificationCenter.default.addObserver(self, selector: #selector(handleProfileUpdate), name: .profileUpdated, object: nil)
