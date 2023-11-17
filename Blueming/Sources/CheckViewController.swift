@@ -49,6 +49,7 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         
         // 체크리스트 데이터가 없을 때
         if selectedGoals.isEmpty {
+            cell.noCheckImg.isHidden = false
             cell.noCheckImg.image = UIImage(named: "noChecklist.png")
             cell.img.isHidden = true
             cell.goalTitle.isHidden = true
@@ -59,10 +60,13 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         }
         // 데이터가 있지만 1번만 완료하면 되는 경우
         else if selectedGoals[indexPath.row].second == nil {
+            cell.goalTitle.isHidden = false
+            cell.goalScript.isHidden = false
             cell.first.isHidden = false
             cell.second.isHidden = true
             cell.third.isHidden = true
             cell.noCheckImg.isHidden = true
+            cell.img.isHidden = false
             cell.img.image = UIImage(named: selectedGoals[indexPath.row].img)
             cell.goalTitle.text = selectedGoals[indexPath.row].title
             cell.goalScript.text = selectedGoals[indexPath.row].script
@@ -70,10 +74,13 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         }
         // 데이터 있고, 3번 완료해야 하는 경우
         else {
+            cell.goalTitle.isHidden = false
+            cell.goalScript.isHidden = false
             cell.first.isHidden = false
             cell.second.isHidden = false
             cell.third.isHidden = false
             cell.noCheckImg.isHidden = true
+            cell.img.isHidden = false
             cell.img.image = UIImage(named: selectedGoals[indexPath.row].img)
             cell.goalTitle.text = selectedGoals[indexPath.row].title
             cell.goalScript.text = selectedGoals[indexPath.row].script
@@ -275,7 +282,8 @@ class CheckViewController: UIViewController, FSCalendarDelegate, FSCalendarDataS
         
         // 만약 목표가 있으면 script 변경
         if selectedGoals.isEmpty == false {
-            script.attributedText = NSMutableAttributedString(string: "파랑 님, 오늘도 할 수 있어요 ☺️", attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!])
+            guard let name = UserDefaults.standard.string(forKey: "user_name") else { return }
+            script.attributedText = NSMutableAttributedString(string: "\(name) 님, 오늘도 할 수 있어요 ☺️", attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!])
         } else {
             script.attributedText = NSMutableAttributedString(string: "체크리스트 기록이 없어요 🥲", attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!])
         }
