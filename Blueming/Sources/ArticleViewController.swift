@@ -153,6 +153,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     var images = [ UIImage(named: "slide1"), UIImage(named: "slide2"), UIImage(named: "slide3") ]
     var titles = [ "정서 발달을 위한 부모의 역할", "화목한 가족관계를 위한 핵심 전략", "둘째가 고민이라면?" ]
     var scripts = [ "흔히, 정서와 감정을 쉽게 혼용하여 사용하게 되는데, 정서는 감정에 비해 좀 더...", "파트너십(partnership, 흔히 파트너십으로 오기)은 비즈니스 파트너 또는...", "사회적으로 초혼 나이가 늦어지면서 한 자녀 가족이 많은 때지만, 둘째를 고려한다면..." ]
+    var link = [ "https://www.maeili.com/cms/contents/contentsView.do?idx=769&categoryCd1=4&categoryCd2=1&categoryCd3=5&reCome=1&gubn=1&pageIndex=8&condition=1", "https://kwonhyuckjune.tistory.com/entry/%ED%99%94%EB%AA%A9%ED%95%9C-%EA%B0%80%EC%A1%B1%EA%B4%80%EA%B3%84%EB%A5%BC-%EC%9C%84%ED%95%9C-%ED%95%B5%EC%8B%AC-%EC%A0%84%EB%9E%B5", "https://www.babybilly.app/posts/854" ]
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let value = scrollView.contentOffset.x/scrollView.frame.size.width
@@ -329,6 +330,11 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
             image.image = images[i]
             image.layer.cornerRadius = 15
             image.layer.masksToBounds = true
+            image.tag = i
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector (touchToPhoto))
+            image.addGestureRecognizer(tapGesture)
+            image.isUserInteractionEnabled = true
             
             // titleLabel과 scriptLabel을 생성하고 컨테이너 뷰에 추가
             let titleLabel = UILabel()
@@ -360,6 +366,15 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate, UICollectio
     
         // 스크롤뷰의 contentSize 설정
         imageScroll.contentSize.width = contentX
+    }
+    
+    @objc func touchToPhoto(_ sender: UITapGestureRecognizer) {
+        if let imageView = sender.view as? UIImageView {
+            let index = imageView.tag
+            let url = NSURL(string: link[index])
+            let safariView: SFSafariViewController = SFSafariViewController(url: url! as URL)
+            self.present(safariView, animated: true, completion: nil)
+        }
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
