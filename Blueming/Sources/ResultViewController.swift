@@ -42,17 +42,17 @@ class ResultViewController: UIViewController {
         
         switch score {
         case 0...8: 
-            text = "\(name) 님의 결과는 정상 수준으로\n대체로 평안한 상태입니다.\n앞으로도 스스로를 잘 돌봐 주세요 \u{1F970}\u{200B}"
+            text = "\(name) 님의 결과는 정상 수준으로\n대체로 평안한 상태입니다.\n앞으로도 스스로를 잘 돌봐 주세요"
             imgName = "result1.png"
             targetString = "정상 수준"
             emoji = "\u{1F970}"
         case 9...12:
-            text = "\(name) 님의 결과는 경계성 수준으로\n상담이 필요한 상태입니다.\n심각한 단계가 아니니, 전문의와 대화해 보세요 \u{263A}\u{200B}"
+            text = "\(name) 님의 결과는 경계성 수준으로\n상담이 필요한 상태입니다.\n심각한 단계가 아니니, 전문의와 대화해 보세요"
             imgName = "result2.png"
             targetString = "경계성 수준"
             emoji = "\u{263A}"
         case 13...:
-            text = "\(name) 님의 결과는 심각 수준으로\n치료가 필요한 상태입니다.\n전문의의 진단 및 처방이 반드시 필요합니다 \u{1F625}\u{200B}"
+            text = "\(name) 님의 결과는 심각 수준으로\n치료가 필요한 상태입니다.\n전문의의 진단 및 처방이 반드시 필요합니다"
             imgName = "result3.png"
             targetString = "심각 수준"
             emoji = "\u{1F625}"
