@@ -413,7 +413,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             case "식욕 변화", "배변 장애": todayGoals.append(Goals(date: todayString, img: "checklist2.png", title: "식사 세 번 챙기기", script: "바쁘고 지치는 하루여도\n끼니 챙기기는 필수예요!", first: false, second: false, third: false))
             case "수면 장애", "복통", "부종", "메스꺼움", "요통", "젖몸살": todayGoals.append(Goals(date: todayString, img: "checklist3.png", title: "따뜻한 차 세 잔 마시기", script: "지친 몸을 녹여 줄\n따뜻한 티타임을 가져 보아요!", first: false, second: false, third: false))
             case "건망증", "위장장애", "탈모", "질분비물", "관절통", "피부질환": todayGoals.append(Goals(date: todayString, img: "checklist4.png", title: "영양제 먹기", script: "건강 관리를 위해\n적절한 영양제 섭취는 필수!", first: false, second: nil, third: nil))
-            case "훗배앓이", "외상", "피로", "두통/어지럼증": todayGoals.append(Goals(date: todayString, img: "checklist5.png", title: "7시간 이상 취침하기", script: "바쁜 일상일지라도 7시간 이상\n취침하기 위해 노력해 보아요.", first: false, second: false, third: false))
+            case "훗배앓이", "외상", "피로", "두통/어지럼증": todayGoals.append(Goals(date: todayString, img: "checklist5.png", title: "7시간 이상 취침하기", script: "바쁜 일상일지라도 7시간 이상\n취침하기 위해 노력해 보아요.", first: false, second: nil, third: nil))
             default:
                 return
             }
@@ -502,7 +502,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             case "식욕 변화", "배변 장애": todayGoals.append(Goals(date: todayString, img: "checklist2.png", title: "식사 세 번 챙기기", script: "바쁘고 지치는 하루여도\n끼니 챙기기는 필수예요!", first: false, second: false, third: false))
             case "수면 장애", "복통", "부종", "메스꺼움", "요통", "젖몸살": todayGoals.append(Goals(date: todayString, img: "checklist3.png", title: "따뜻한 차 세 잔 마시기", script: "지친 몸을 녹여 줄\n따뜻한 티타임을 가져 보아요!", first: false, second: false, third: false))
             case "건망증", "위장장애", "탈모", "질분비물", "관절통", "피부질환": todayGoals.append(Goals(date: todayString, img: "checklist4.png", title: "영양제 먹기", script: "건강 관리를 위해\n적절한 영양제 섭취는 필수!", first: false, second: nil, third: nil))
-            case "훗배앓이", "외상", "피로", "두통/어지럼증": todayGoals.append(Goals(date: todayString, img: "checklist5.png", title: "7시간 이상 취침하기", script: "바쁜 일상일지라도 7시간 이상\n취침하기 위해 노력해 보아요.", first: false, second: false, third: false))
+            case "훗배앓이", "외상", "피로", "두통/어지럼증": todayGoals.append(Goals(date: todayString, img: "checklist5.png", title: "7시간 이상 취침하기", script: "바쁜 일상일지라도 7시간 이상\n취침하기 위해 노력해 보아요.", first: false, second: nil, third: nil))
             default:
                 return
             }
