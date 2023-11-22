@@ -20,9 +20,9 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
             guard let signInResult = signInResult else { return }
 
             let user = signInResult.user
-            let email = user.profile?.email
-            
-            print("gmail", email!)
+            if let email = user.profile?.email {
+                UserDefaults.standard.setValue(email, forKey: "user_email")
+            }
             
             // 프로필 완성 화면으로 전환
             guard let vcName = self.storyboard?.instantiateViewController(withIdentifier: "nameVC") else { return }
