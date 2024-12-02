@@ -1,7 +1,7 @@
 <div align="center" >
 
 # Blueming
-### 산후우울증을 겪고 있는 산모들을 위한 애플리케이션
+### 산후우울증을 겪고 있는 사람들을 위한 애플리케이션
 <img src="https://github.com/user-attachments/assets/3b4d5856-b28f-44c7-90ab-40eb105df5c7" width ="30%" height ="30%">
 
 
