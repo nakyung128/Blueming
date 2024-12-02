@@ -19,8 +19,9 @@
 ## ⚒️ 기능 소개
 
 ### 회원가입 및 로그인
+|로그인 화면|회원가입|
 |:---:|:---:|
-| <img src="https://github.com/user-attachments/assets/ed63f427-6282-49cd-87a5-d3e2ff5f8e37" width=200 height=400/> | <img src="https://github.com/user-attachments/assets/0df74878-d84d-4433-b470-b15974e2f2af" width=200 height=400/> | 
+| <img src="https://github.com/user-attachments/assets/ed63f427-6282-49cd-87a5-d3e2ff5f8e37" width=200 height=400/> | <img src="https://github.com/user-attachments/assets/0df74878-d84d-4433-b470-b15974e2f2af" width=200 height=400/> 
 
 
 ### 홈
