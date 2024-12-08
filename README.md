@@ -21,14 +21,14 @@
 ### 회원가입 및 로그인
 |로그인 화면|회원가입|
 |:---:|:---:|
-| <img src="https://github.com/user-attachments/assets/ed63f427-6282-49cd-87a5-d3e2ff5f8e37" width=200 height=400/> | <img src="https://github.com/user-attachments/assets/0df74878-d84d-4433-b470-b15974e2f2af" width=200 height=400/> 
+| <img src="https://github.com/user-attachments/assets/ed63f427-6282-49cd-87a5-d3e2ff5f8e37" width=200/> | <img src="https://github.com/user-attachments/assets/0df74878-d84d-4433-b470-b15974e2f2af" width=200/> 
 
 
 ### 홈
 
 |키워드 선택 및 홈|아티클 클릭 시|알람|
 |:---:|:---:|:---:|
-| <img src="https://github.com/user-attachments/assets/35575e95-1ae5-432a-96bd-7a9a07976e76" width=200 height=400/> | <img src="https://github.com/user-attachments/assets/0458ac07-e324-412b-b7fd-44f4be9c1535" width=200 height=400/> | <img src="https://github.com/user-attachments/assets/bbef73e6-0c66-4878-a703-be09a69156b7" width=200 height=400/> |
+| <img src="https://github.com/user-attachments/assets/35575e95-1ae5-432a-96bd-7a9a07976e76" width=200 height=400/> | <img src="https://github.com/user-attachments/assets/0458ac07-e324-412b-b7fd-44f4be9c1535" width=200/> | <img src="https://github.com/user-attachments/assets/bbef73e6-0c66-4878-a703-be09a69156b7" width=200/> |
 
 
 
@@ -36,20 +36,20 @@
 
 |아티클 화면|검색|
 |:---:|:---:|
-| <img src="https://github.com/user-attachments/assets/0c6fead2-2d85-4f73-92c6-90059497d0b0" width=200 height=400/> | <img src="https://github.com/user-attachments/assets/fb446cb7-6a5d-43ea-b6ff-5dafb891bf61" width=200 height=400/> |
+| <img src="https://github.com/user-attachments/assets/0c6fead2-2d85-4f73-92c6-90059497d0b0" width=200/> | <img src="https://github.com/user-attachments/assets/fb446cb7-6a5d-43ea-b6ff-5dafb891bf61" width=200> |
 
 ### 체크리스트
 
 |체크리스트|
 |:---:|
-| <img src="https://github.com/user-attachments/assets/461506ff-b851-417b-adf3-2d3749baea90" width=200 height=400/> | 
+| <img src="https://github.com/user-attachments/assets/461506ff-b851-417b-adf3-2d3749baea90" width=200> | 
 
 
 ### 자가진단 | 마이페이지
 
 |자가진단|마이페이지|
 |:---:|:---:|
-| <img src="https://github.com/user-attachments/assets/889a6beb-0b7f-4e9a-ba79-46c061007bee" width=200 height=400/> | <img src="https://github.com/user-attachments/assets/f664b480-0e23-4aae-8c79-07d3f35ee1c4" width=200 height=400/> |
+| <img src="https://github.com/user-attachments/assets/889a6beb-0b7f-4e9a-ba79-46c061007bee" width=200/> | <img src="https://github.com/user-attachments/assets/f664b480-0e23-4aae-8c79-07d3f35ee1c4" width=200/> |
 
 
 
